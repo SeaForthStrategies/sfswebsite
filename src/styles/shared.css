@@ -268,7 +268,8 @@ blockquote {
    LAYOUT CONTAINERS - Centered & Balanced
    ----------------------------------------------------------------------------- */
 .container {
-  max-width: var(--container-xl);
+  /* Align all page content with the nav container */
+  max-width: var(--container-2xl);
   margin: 0 auto;
   padding: 0 var(--space-xl);
   width: 100%;

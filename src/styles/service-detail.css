@@ -214,9 +214,17 @@
 
 /* Service Content Section */
 .service-content {
-  max-width: 1200px;
+  /* Align service pages with global container + nav */
+  max-width: var(--container-2xl);
   margin: 0 auto;
-  padding: 5rem 2rem;
+  padding: 5rem var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  .service-content {
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+  }
 }
 
 .service-content h2 {
