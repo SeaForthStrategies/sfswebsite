@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Montserrat } from "next/font/google";
 
-import "./globals.css";
+import "./global.css";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { ScrollReveal } from "@/components/ScrollReveal";
@@ -20,14 +20,14 @@ export const metadata: Metadata = {
     template: "%s – SeaForth Strategies",
   },
   description:
-    "SeaForth Strategies offers expert digital marketing services including web design, social media management, email marketing, and data analytics to grow your business.",
+    "SeaForth Strategies offers expert digital marketing services including web design and data analytics to grow your business.",
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
     title: "SeaForth Strategies",
     description:
-      "Expert digital marketing services including web design, social media management, email marketing, and data analytics to grow your business.",
+      "Expert digital marketing services including web design and data analytics to grow your business.",
     images: ["/images/logo.png"],
     type: "website",
   },
@@ -66,7 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             url: "https://seaforthstrategies.com",
             logo: "https://seaforthstrategies.com/images/logo.png",
             description:
-              "Expert digital marketing services including web design, social media management, email marketing, and data analytics to grow your business.",
+              "Expert digital marketing services including web design and data analytics to grow your business.",
             sameAs: [
               "https://www.instagram.com/seaforthstrategies",
               "https://www.linkedin.com/company/seaforthstrategies",
@@ -84,17 +84,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 description:
                   "Custom-crafted websites that combine stunning design with powerful functionality",
               },
-              {
-                "@type": "Service",
-                name: "Social Media Management",
-                description:
-                  "Strategic social media management that builds engagement and grows your following",
-              },
-              {
-                "@type": "Service",
-                name: "Email Marketing",
-                description: "Strategic email campaigns that nurture leads and drive conversions",
-              },
+
             ],
           })}
         </Script>

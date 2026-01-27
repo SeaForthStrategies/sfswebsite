@@ -11,22 +11,22 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-brand-teal to-[rgba(31,92,98,1)] text-white">
-        <div className="container pt-24 pb-16 lg:pt-28 lg:pb-20">
+      <section className="bg-gradient-to-br from-brand-teal to-[rgba(31,92,98,1)] text-white py-16 lg:py-20">
+        <div className="container mx-auto px-6">
           <div className="mx-auto max-w-4xl text-center">
-            <div className="section-eyebrow">
+            <div className="section-eyebrow animate-fade-in-scale">
               <span className="eyebrow-text">WHO WE ARE</span>
               <div className="gold-divider-small" />
             </div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-6">
+            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-6 animate-fade-in-up-bounce" style={{ animationDelay: '200ms' }}>
               Meet the Crew Behind SeaForth
             </h1>
-            <p className="mx-auto max-w-3xl text-base sm:text-lg text-white/90 leading-relaxed">
+            <p className="mx-auto max-w-3xl text-base sm:text-lg text-white/90 leading-relaxed animate-fade-in-up-bounce" style={{ animationDelay: '400ms' }}>
             We&apos;re Abby and Savanna—a creative strategist and a data analyst who joined forces to build
             something different. A marketing agency that doesn&apos;t just talk strategy—we live it, breathe
               it, and deliver it.
             </p>
-            <p className="mx-auto max-w-3xl text-base sm:text-lg text-white/90 leading-relaxed mt-4">
+            <p className="mx-auto max-w-3xl text-base sm:text-lg text-white/90 leading-relaxed mt-4 animate-fade-in-up-bounce" style={{ animationDelay: '600ms' }}>
             Based in San Diego, we help businesses grow smarter with marketing that&apos;s equal parts creative
             and analytical. No fluff. No guesswork. Just results.
             </p>
@@ -156,8 +156,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--panel)]">
-        <div className="container py-12 lg:py-16 text-center">
+      <section className="bg-[var(--panel)] py-12 lg:py-16">
+        <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 mb-4">Ready to Work Together?</h2>
           <p className="text-lg text-neutral-600 mb-8">
             Let’s build a marketing strategy that actually moves the needle.

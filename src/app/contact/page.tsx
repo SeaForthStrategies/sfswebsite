@@ -5,30 +5,30 @@ import { Button } from "@/components/ui/Button";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with SeaForth Strategies for digital marketing services. Contact us for web design, social media management, and marketing strategy consultation.",
+    "Get in touch with SeaForth Strategies for digital marketing services. Contact us for web design and marketing strategy consultation.",
 };
 
 export default function ContactPage() {
   return (
     <>
-      <section className="bg-gradient-to-br from-brand-teal to-[rgba(31,92,98,1)] text-white">
-        <div className="container pt-24 pb-16 lg:pt-28 lg:pb-20 text-center">
-          <div className="section-eyebrow">
+      <section className="bg-gradient-to-br from-brand-teal to-[rgba(31,92,98,1)] text-white py-16 lg:py-20">
+        <div className="container mx-auto px-6 text-center">
+          <div className="section-eyebrow animate-fade-in-scale">
             <span className="eyebrow-text">GET IN TOUCH</span>
             <div className="gold-divider-small" />
           </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-6">
+          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-6 animate-fade-in-up-bounce" style={{ animationDelay: '200ms' }}>
             Let&apos;s Make Magic Happen
           </h1>
-          <p className="mx-auto max-w-3xl text-base sm:text-lg text-white/90 leading-relaxed">
+          <p className="mx-auto max-w-3xl text-base sm:text-lg text-white/90 leading-relaxed animate-fade-in-up-bounce" style={{ animationDelay: '400ms' }}>
             Ready to transform your digital presence? Book a free consultation and let&apos;s turn your vision into
             results that matter.
           </p>
         </div>
       </section>
 
-      <section className="bg-[var(--panel)]">
-        <div className="container py-12 lg:py-16">
+      <section className="bg-[var(--panel)] py-12 lg:py-16">
+        <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <PrimaryContactCard
               href="mailto:contact@seaforthstrategies.com"
@@ -51,8 +51,8 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-white">
-        <div className="container py-12 lg:py-16">
+      <section className="bg-white py-12 lg:py-16">
+        <div className="container mx-auto px-6">
           <div className="section-eyebrow">
             <span className="eyebrow-text">OUR TEAM</span>
             <div className="gold-divider-small" />
@@ -83,8 +83,8 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--panel)]">
-        <div className="container py-12 lg:py-16">
+      <section className="bg-[var(--panel)] py-12 lg:py-16">
+        <div className="container mx-auto px-6">
           <div className="section-eyebrow">
             <span className="eyebrow-text">CONNECT WITH US</span>
             <div className="gold-divider-small" />
@@ -122,8 +122,8 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-white">
-        <div className="container py-12 lg:py-16">
+      <section className="bg-white py-12 lg:py-16">
+        <div className="container mx-auto px-6">
           <div className="section-eyebrow">
             <span className="eyebrow-text">QUESTIONS?</span>
             <div className="gold-divider-small" />
@@ -135,7 +135,7 @@ export default function ContactPage() {
           <div className="mx-auto max-w-3xl space-y-3">
             <FaqItem
               q="What services do you offer?"
-              a="We offer comprehensive digital marketing services including website design & development, social media management, paid advertising campaigns, email marketing, digital product strategy, and analytics & reporting. We tailor our services to meet your specific business goals."
+              a="We offer comprehensive digital marketing services including website design & development, digital product strategy, and analytics & reporting. We tailor our services to meet your specific business goals."
             />
             <FaqItem
               q="How long does it take to get started?"
@@ -155,14 +155,14 @@ export default function ContactPage() {
             />
             <FaqItem
               q="Do you offer one-time projects or ongoing services?"
-              a="Both! We offer one-time projects like website design or brand development, as well as ongoing services like social media management and monthly marketing support. We'll work with you to find the right arrangement for your needs."
+              a="Both! We offer one-time projects like website design or brand development, as well as ongoing services like monthly marketing support. We'll work with you to find the right arrangement for your needs."
             />
           </div>
         </div>
       </section>
 
-      <section className="bg-[var(--panel)]">
-        <div className="container py-12 lg:py-16 text-center">
+      <section className="bg-[var(--panel)] py-12 lg:py-16">
+        <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 mb-4">Ready to Get Started?</h2>
           <p className="text-lg text-neutral-600 mb-8">
             Let&apos;s chart your course to digital success. Your journey begins with a simple conversation.
