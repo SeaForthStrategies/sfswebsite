@@ -2,6 +2,8 @@
 
 This site is built with **Next.js (App Router)** + **TypeScript** + **Tailwind CSS**.
 
+Repository: `SeaForthStrategies/sfswebsite`
+
 ## Project structure
 
 ```text
