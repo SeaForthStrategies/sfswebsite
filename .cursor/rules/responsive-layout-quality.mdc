@@ -1,0 +1,26 @@
+---
+description: Always optimize layouts for desktop, tablet, and mobile (no cut-offs or awkward spacing).
+alwaysApply: true
+---
+
+# Responsive layout quality (desktop + tablet + mobile)
+
+Treat responsive QA as **non-optional** for every UI change.
+
+## Required breakpoints to check
+- Desktop: 1440px and ~1280px widths
+- Tablet: 1024px and 768px widths
+- Mobile: 430/414/390/375px and 320px widths
+
+## Must-haves (never ship without)
+- No clipped content: avoid fixed heights; prefer min-height, auto layout, and content-driven sizing.
+- No horizontal scroll: eliminate accidental overflow from wide elements; use `max-w-full`, `break-words`, and responsive padding.
+- No “weird spacing”: ensure consistent vertical rhythm across breakpoints (stacking, gaps, margins) and avoid large dead zones.
+- Safe areas: on mobile, ensure headers/CTAs aren’t too close to edges; respect notch/safe-area when relevant.
+- Images/media: ensure responsive sizing (`w-full`), correct aspect handling (`object-cover/contain`), and avoid stretching.
+- Navigation & headers: confirm menus, headings, and CTAs don’t wrap awkwardly or push content off-screen.
+
+## Implementation guidance
+- Prefer responsive primitives: flex-wrap, grid with responsive columns, and `clamp()` for type/spacing when helpful.
+- Use container widths (`max-w-*` + centered layout) and responsive paddings (`px-4 sm:px-6 lg:px-8`) consistently.
+- If a section animates/reveals, confirm it still lays out cleanly at all breakpoints (no overlap during animation).

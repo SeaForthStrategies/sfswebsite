@@ -1,0 +1,30 @@
+---
+description: Ensure every UI looks great in both light and dark mode (readable, visible, and consistent).
+alwaysApply: true
+---
+
+# Color scheme quality (light + dark mode)
+
+Treat light/dark mode QA as **non-optional** for every UI change.
+
+## Required modes to check
+- Light mode: default scheme (no overrides)
+- Dark mode: `prefers-color-scheme: dark` (and any in-app theme toggle, if present)
+
+## Must-haves (never ship without)
+- Text contrast is readable: body, headings, captions, and muted text all meet contrast expectations against their backgrounds.
+- Interactive states are visible: hover/active/focus/disabled styles work in **both** modes (including focus rings).
+- Links look like links: visited/hover states remain distinguishable and readable.
+- Borders/dividers show up: subtle lines don’t disappear (especially on dark surfaces).
+- Shadows/glows behave: elevation doesn’t invert (no “muddy” shadows in dark mode; no neon glows in light mode unless intentional).
+- Icons/SVGs are legible: strokes/fills don’t vanish; avoid hardcoded black-only or white-only icons unless you also theme them.
+- Images/media don’t break the UI: transparent PNGs, logos, and screenshots remain visible on both backgrounds (use a container/backplate when needed).
+- No “invisible” UI: placeholders, helper text, form labels, error/success states, and empty states are all clearly visible.
+- No hardcoded theme-unsafe colors: avoid fixed `text-black` / `bg-white` / raw hex values unless they are intentional and validated in both modes.
+
+## Implementation guidance (Tailwind / Next.js)
+- Prefer semantic tokens/variables: use `text-foreground`, `bg-background`, `border-border`, etc. (or your project’s equivalents) over ad-hoc colors.
+- When using Tailwind colors, provide dark variants: e.g. `text-slate-900 dark:text-slate-100`, `bg-white dark:bg-slate-950`.
+- For translucent surfaces (glass/overlays), tune both: `bg-white/.. dark:bg-slate-900/..` and verify readability on top.
+- Ensure focus styles aren’t color-dependent: keep a strong `focus-visible:ring-*` that contrasts in both modes.
+

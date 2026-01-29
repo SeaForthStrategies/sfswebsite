@@ -1,10 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx,md,mdx}",
-  ],
+  content: ['./src/**/*.{js,jsx,ts,tsx,md,mdx}'],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-serif)', 'ui-serif', 'Georgia', 'serif'],
+      },
       colors: {
         brand: {
           teal: '#2A7C84',
@@ -34,5 +36,3 @@ export default {
   },
   plugins: [],
 };
-
-

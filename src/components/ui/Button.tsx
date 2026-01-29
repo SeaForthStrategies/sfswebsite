@@ -1,32 +1,38 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-type Variant = "primary" | "secondary" | "ghost";
+type Variant = 'primary' | 'secondary' | 'ghost' | 'accent' | 'contrast';
 
 const base =
-  "inline-flex items-center justify-center rounded-2xl px-5 py-3 font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 shadow-md";
+  'inline-flex items-center justify-center rounded-2xl px-5 py-3 font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2';
 
 const variants: Record<Variant, string> = {
-  primary: "bg-brand-teal text-white hover:opacity-90 focus-visible:ring-brand-yellow",
+  primary:
+    'bg-[color:var(--brand-teal)] text-[color:var(--contrast-ink)] hover:bg-[color:var(--brand-teal-dark)] focus-visible:ring-[color:var(--brand-gold)] shadow-soft',
   secondary:
-    "bg-white text-neutral-950 border border-neutral-200 hover:bg-neutral-100 focus-visible:ring-brand-teal",
-  ghost: "text-neutral-950 hover:bg-neutral-100",
+    'bg-[color:var(--surface)] text-[color:var(--ink)] border hairline hover:bg-[color:var(--bg)] focus-visible:ring-[color:var(--brand-teal)] shadow-soft',
+  ghost: 'text-[color:var(--ink)] hover:bg-[color:var(--bg)]',
+  accent:
+    'bg-[color:var(--brand-gold)] text-[color:var(--on-accent)] hover:bg-[color:var(--contrast-ink)] focus-visible:ring-[color:var(--brand-teal)] shadow-soft',
+  contrast:
+    'bg-[color:var(--ink)] text-[color:var(--bg)] hover:bg-[color:var(--brand-teal)] focus-visible:ring-[color:var(--brand-gold)] shadow-soft',
 };
 
 function isInternalHref(href: string) {
-  return href.startsWith("/");
+  return href.startsWith('/');
 }
 
 export function Button({
-  variant = "primary",
+  variant = 'primary',
   href,
-  className = "",
+  className = '',
   children,
   ...rest
-}: React.ComponentPropsWithoutRef<"a"> & {
+}: React.ComponentPropsWithoutRef<'a'> & {
   variant?: Variant;
   href: string;
 }) {
-  const classes = `${base} ${variants[variant] ?? variants.primary} ${className}`;
+  const tech = variant === 'ghost' ? '' : 'btn-tech';
+  const classes = `${base} ${tech} ${variants[variant] ?? variants.primary} ${className}`;
 
   if (isInternalHref(href)) {
     return (
@@ -42,4 +48,3 @@ export function Button({
     </a>
   );
 }
-

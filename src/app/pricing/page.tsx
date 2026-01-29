@@ -1,175 +1,375 @@
-import { Metadata } from "next";
-import Link from "next/link";
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { PageHeader } from '@/components/layout/PageHeader';
+import { Button } from '@/components/ui/Button';
+import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
+import { Sparkles } from '@/components/Sparkles';
 
 export const metadata: Metadata = {
-  title: "Pricing",
+  title: 'Packages & Pricing',
   description:
-    "Transparent pricing for web design and development services. From starter websites to full campaign launches.",
+    'Clear package tiers for boutique web, branding, strategy, and analytics—built for performance and measurable outcomes.',
 };
 
 export default function PricingPage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-brand-teal via-brand-teal to-[rgba(213,163,83,0.18)] text-white overflow-hidden py-16 lg:py-20">
-        <div className="container mx-auto px-6 text-center">
-          <div className="max-w-3xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-white">
-              Web Design + Development Packages
-            </h1>
-            <p className="text-lg sm:text-xl text-white/90">
-              Transparent pricing for premium websites that convert. No hidden fees, just honest value.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        title="Packages & Pricing"
+        subtitle="Clear tiers with boutique delivery. Custom work, disciplined structure, and performance-aware motion—built to last."
+        backgroundImageSrc="/images/kelsey-knight-CrRr3y1lhl8-unsplash.jpg"
+      />
 
-      {/* Main Packages */}
-      <section className="bg-white py-12 lg:py-16">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-            {/* Starter Website */}
-            <PricingCard
-              title="Starter Website"
-              subtitle="For small businesses that need a clean, professional online presence"
-              price="$2,500–$3,500"
-              features={[
-                "Custom-designed, mobile-responsive website",
-                "Up to 5 pages",
-                "Conversion-focused layout (calls to action, contact flow)",
-                "Basic SEO setup",
-                "Contact form integration",
-                "Fast turnaround",
-              ]}
-              bestFor="local businesses, service providers, personal brands"
-              delay={0}
-            />
-
-            {/* Growth Website */}
-            <PricingCard
-              title="Growth Website"
-              subtitle="For businesses ready to level up their brand and visibility"
-              price="$4,500–$7,500"
-              features={[
-                "Fully custom design (Figma → code)",
-                "Up to 8 pages",
-                "Advanced mobile optimization",
-                "Subtle animations and interactions",
-                "CMS or blog setup",
-                "SEO + analytics integration",
-                "Performance and accessibility optimization",
-              ]}
-              bestFor="growing companies, real estate professionals, nonprofits"
-              featured
-              delay={100}
-            />
-
-            {/* Campaign/Launch Website */}
-            <PricingCard
-              title="Campaign / Launch Website"
-              subtitle="For time-sensitive campaigns, launches, and advocacy efforts"
-              price="$6,000–$12,000"
-              features={[
-                "Rapid design and development timeline",
-                "Custom landing pages optimized for conversion",
-                "Donation, signup, or lead-capture flows",
-                "Messaging and layout optimization",
-                "Mobile-first performance tuning",
-                "Analytics, tracking, and handoff support",
-              ]}
-              bestFor="political campaigns, advocacy groups, product launches"
-              delay={200}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Ongoing Maintenance */}
-      <section className="bg-[var(--panel)] py-12 lg:py-16">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 mb-4">
-                Ongoing Care & Maintenance
+      <section>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="py-16 md:py-24">
+            <div className="max-w-2xl">
+              <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                Package tiers
+              </p>
+              <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
+                Choose the depth you need.
               </h2>
-              <p className="text-lg text-neutral-600">
-                Keep your site fast, secure, and up to date
+              <p className="fade-in-up text-muted mt-6 leading-relaxed">
+                Every package is custom-designed. The difference is scope and collaboration
+                cadence—not a template.
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl border border-neutral-200 p-8 shadow-lg">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
-                <div>
-                  <div className="text-4xl font-bold text-brand-teal mb-2">$150–$300/month</div>
-                  <p className="text-neutral-600">Most clients add this to avoid worrying about their site post-launch.</p>
+            <div className="mt-12 grid gap-6 lg:grid-cols-3">
+              {[
+                {
+                  name: 'Foundation',
+                  price: '$3,500',
+                  subtitle: 'A premium starting point—built fast, built right.',
+                  deliverables: [
+                    'One-page or compact multi-section site',
+                    'High-end design system + responsive build',
+                    'SEO + performance baseline',
+                    'Conversion-focused contact/booking flow',
+                  ],
+                  idealFor:
+                    'New offers, service businesses, and founders who need a credible presence—now.',
+                },
+                {
+                  name: 'Signature',
+                  price: '$6,500',
+                  subtitle: 'The intermediate tier—authority, depth, and clear conversion paths.',
+                  deliverables: [
+                    'Up to 5 core pages (Home, Services, About, Pricing, Contact)',
+                    'Editorial layout system + component library',
+                    'Analytics instrumentation + KPI dashboard setup',
+                    'Launch-ready copy refinement + structure guidance',
+                  ],
+                  idealFor:
+                    'Small-to-mid-sized businesses ready to look established and scale with confidence.',
+                  featured: true,
+                },
+                {
+                  name: 'Partnership',
+                  price: 'Custom',
+                  subtitle: 'Ongoing strategy + optimization for brands that move quickly.',
+                  deliverables: [
+                    'Bespoke custom build + advanced functionality',
+                    'Brand + campaign creative direction',
+                    'Performance optimization & experimentation',
+                    'Monthly reporting + strategic iteration',
+                  ],
+                  idealFor:
+                    'Teams who want a long-term partner for design, growth, and performance.',
+                },
+              ].map((p, idx) => (
+                <div
+                  key={p.name}
+                  className={[
+                    'fade-in-up',
+                    `stagger-${Math.min(idx + 1, 6)}`,
+                    'hairline bg-surface shadow-soft hover-lift rounded-[var(--radius-lg)] border',
+                    p.featured ? 'ring-1 ring-[color:var(--brand-teal)]' : '',
+                  ].join(' ')}
+                >
+                  <div className="p-7">
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+                      <div className="min-w-0">
+                        <p className="text-ink/60 text-[12px] font-semibold uppercase tracking-[0.16em]">
+                          {p.featured ? 'Recommended' : 'Package'}
+                        </p>
+                        <h3 className="font-display text-ink mt-2 break-words text-3xl">
+                          {p.name}
+                        </h3>
+                      </div>
+                      <div className="shrink-0 sm:text-right">
+                        <p className="text-ink/60 text-[12px] font-semibold uppercase tracking-[0.16em]">
+                          Starting at
+                        </p>
+                        <p className="text-ink mt-2 text-3xl font-semibold">{p.price}</p>
+                      </div>
+                    </div>
+
+                    <p className="text-muted mt-5 leading-relaxed">{p.subtitle}</p>
+
+                    <div className="hairline mt-6 border-t pt-6">
+                      <p className="text-ink/60 text-[12px] font-semibold uppercase tracking-[0.16em]">
+                        Deliverables
+                      </p>
+                      <ul className="text-muted mt-4 space-y-3">
+                        {p.deliverables.map((d) => (
+                          <li key={d} className="flex min-w-0 gap-3">
+                            <span className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--brand-gold)]" />
+                            <span className="min-w-0 break-words">{d}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="hairline mt-6 border-t pt-6">
+                      <p className="text-ink/60 text-[12px] font-semibold uppercase tracking-[0.16em]">
+                        Ideal client
+                      </p>
+                      <p className="text-muted mt-3 break-words leading-relaxed">{p.idealFor}</p>
+                    </div>
+
+                    <div className="mt-8">
+                      <Button
+                        href="mailto:contact@seaforthstrategies.com"
+                        className={[
+                          'w-full rounded-full py-4',
+                          p.featured
+                            ? 'bg-[color:var(--brand-teal)] text-white hover:bg-[color:var(--brand-teal-dark)]'
+                            : 'bg-[color:var(--ink)] text-[color:var(--bg)] hover:bg-[color:var(--brand-teal)]',
+                        ].join(' ')}
+                      >
+                        Email us
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-14 grid gap-6 md:grid-cols-3">
+              {[
+                {
+                  t: 'Timeline',
+                  d: 'Most projects run 2–6 weeks depending on scope and feedback cadence.',
+                },
+                {
+                  t: 'Process',
+                  d: 'Discovery → direction → build → refine (with performance checks along the way).',
+                },
+                {
+                  t: 'Deliverable',
+                  d: 'A modular system you can extend, not a brittle one-off site.',
+                },
+              ].map((c, idx) => (
+                <div
+                  key={c.t}
+                  className={[
+                    'fade-in-scale',
+                    `stagger-${Math.min(idx + 1, 6)}`,
+                    'hairline bg-surface shadow-soft hover-lift rounded-[var(--radius-lg)] border p-7',
+                  ].join(' ')}
+                >
+                  <h3 className="text-ink text-xl font-semibold">{c.t}</h3>
+                  <p className="text-muted mt-3 leading-relaxed">{c.d}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="hairline bg-surface shadow-soft mt-14 rounded-[var(--radius-lg)] border p-7 md:p-10">
+              <div className="grid gap-10 md:grid-cols-12 md:items-end">
+                <div className="md:col-span-7">
+                  <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                    Ongoing care
+                  </p>
+                  <h2 className="font-display text-ink mt-6 text-3xl md:text-4xl">
+                    Maintenance + performance optimization
+                  </h2>
+                  <p className="text-muted mt-5 leading-relaxed">
+                    For clients who want the site to stay fast, secure, and continuously improving.
+                  </p>
+                  <ul className="text-muted mt-6 grid gap-3 sm:grid-cols-2">
+                    {[
+                      'Security monitoring + backups',
+                      'Performance and SEO checks',
+                      'Content updates (1–2 hours/mo)',
+                      'Analytics review + recommendations',
+                    ].map((b) => (
+                      <li key={b} className="flex gap-3">
+                        <span className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--brand-gold)]" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="md:col-span-5">
+                  <div className="grid gap-4">
+                    {[
+                      {
+                        name: 'Optimization Retainer',
+                        price: '$500–$1,000',
+                        desc: 'Keep the site fast, secure, and improving with lightweight iteration.',
+                        bullets: [
+                          'Security monitoring + backups',
+                          'Performance + SEO checks',
+                          'Analytics review + recommendations',
+                        ],
+                      },
+                      {
+                        name: 'Website Updates Retainer',
+                        price: '$400–$800',
+                        desc: 'For regular edits: content, layout tweaks, and new sections.',
+                        bullets: [
+                          'Content swaps + layout tweaks',
+                          'Image + copy updates',
+                          'New sections (within monthly hours)',
+                        ],
+                      },
+                      {
+                        name: 'Landing Pages + Updates',
+                        price: '$1,200–$2,000',
+                        desc: 'For active offers and campaigns that need new pages and ongoing changes.',
+                        bullets: [
+                          'New landing pages (scoped within monthly hours)',
+                          'Offer + campaign page updates',
+                          'Conversion-focused UI iteration',
+                        ],
+                      },
+                      {
+                        name: 'Analytics Retainer',
+                        price: '$600–$1,500',
+                        desc: 'Monthly reporting, dashboard care, and decision-ready insights.',
+                        bullets: [
+                          'Dashboard maintenance + KPI tracking',
+                          'Monthly insights + recommendations',
+                          'Funnel + lead quality review',
+                        ],
+                      },
+                    ].map((tier) => (
+                      <div
+                        key={tier.name}
+                        className="hairline hover-lift rounded-[var(--radius)] border bg-[color:var(--bg)] p-7"
+                      >
+                        <div className="flex items-start justify-between gap-6">
+                          <div className="min-w-0">
+                            <p className="text-ink/60 text-[12px] font-semibold uppercase tracking-[0.16em]">
+                              Retainer
+                            </p>
+                            <h3 className="font-display text-ink mt-2 break-words text-2xl">
+                              {tier.name}
+                            </h3>
+                          </div>
+                          <div className="text-left sm:shrink-0 sm:text-right">
+                            <p className="text-ink/60 text-[12px] font-semibold uppercase tracking-[0.16em]">
+                              Monthly
+                            </p>
+                            <p className="text-ink mt-2 text-2xl font-semibold">
+                              {tier.price}
+                              <span className="text-ink/40 text-base">/mo</span>
+                            </p>
+                          </div>
+                        </div>
+
+                        <p className="text-muted mt-4 leading-relaxed">{tier.desc}</p>
+
+                        <ul className="text-muted mt-5 space-y-2">
+                          {tier.bullets.map((b) => (
+                            <li key={b} className="flex gap-3">
+                              <span className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--brand-gold)]" />
+                              <span className="min-w-0 break-words">{b}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+
+                    <Button
+                      href="mailto:contact@seaforthstrategies.com"
+                      className="w-full rounded-full bg-[color:var(--ink)] py-4 text-[color:var(--bg)] hover:bg-[color:var(--brand-teal)]"
+                    >
+                      Email about retainers
+                    </Button>
+                  </div>
                 </div>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Feature text="Hosting management" />
-                <Feature text="Content updates and edits" />
-                <Feature text="Security monitoring and backups" />
-                <Feature text="Performance checks" />
-                <Feature text="Analytics reports" />
-                <Feature text="Priority support" />
-              </div>
-
-              <div className="mt-8 text-center">
-                <a
-                  href="https://calendly.com/gatorgleamsmm/30min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-brand-teal to-brand-yellow px-8 py-3 text-base font-semibold text-white shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105"
-                >
-                  Get Started
-                </a>
-              </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Optional Add-Ons */}
-      <section className="bg-white py-12 lg:py-16">
-        <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 mb-8">
-              Optional Add-Ons
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <AddOn text="Extra pages" />
-              <AddOn text="Copywriting support" />
-              <AddOn text="SEO content setup" />
-              <AddOn text="Photo or asset integration" />
-              <AddOn text="Ongoing design support" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-gradient-to-br from-brand-teal to-brand-teal/90 text-white py-12 lg:py-16">
-        <div className="container mx-auto px-6 text-center">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Ready to Get Started?</h2>
-            <p className="text-lg text-white/90 mb-8">
-              Book a free consultation to discuss your project and find the perfect package for your needs.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <p className="fade-in-up text-muted mt-10 text-sm">
+              Not sure which tier fits?{' '}
+              <Link href="/contact" className="link-underline text-ink/80 hover:text-ink">
+                Send a message
+              </Link>{' '}
+              or{' '}
               <a
-                href="https://calendly.com/gatorgleamsmm/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-white text-brand-teal px-8 py-3 text-base font-semibold shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105"
+                className="link-underline text-ink/80 hover:text-ink"
+                href="mailto:contact@seaforthstrategies.com"
               >
-                Book Free Consultation
+                email us
               </a>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-full border-2 border-white text-white px-8 py-3 text-base font-semibold transition-all duration-300 hover:bg-white hover:text-brand-teal"
-              >
-                Contact Us
-              </Link>
+              .
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="hairline bg-surface border-y">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="py-16 md:py-24">
+            <div className="max-w-3xl">
+              <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                FAQ
+              </p>
+              <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
+                Quick answers, no fluff.
+              </h2>
+            </div>
+
+            <div className="mt-10 grid gap-3 md:max-w-4xl">
+              <FaqItem
+                q="Is everything custom?"
+                a="Yes—design and layout are bespoke. Packages simply define a starting scope and collaboration cadence."
+              />
+              <FaqItem
+                q="Do you handle copy?"
+                a="We can refine structure and messaging, and collaborate on final copy. Full copywriting support is available depending on scope."
+              />
+              <FaqItem
+                q="What stack do you use?"
+                a="We typically build in Next.js (App Router) with a disciplined component system, performance-aware motion, and analytics instrumentation. If we ever change the stack, the approach stays the same."
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden bg-[color:var(--contrast-bg)] text-[color:var(--contrast-ink)]">
+        <BackgroundOrbs variant="dark" className="opacity-95" />
+        <div className="absolute inset-0 opacity-45">
+          <Sparkles color="rgba(213, 163, 83, 0.65)" />
+        </div>
+        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="py-16 md:py-24">
+            <div className="grid gap-10 md:grid-cols-12 md:items-end">
+              <div className="md:col-span-8">
+                <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                  Next step
+                </p>
+                <h2 className="fade-in-up font-display mt-6 text-4xl leading-[1.02] md:text-5xl">
+                  Let’s align on scope and outcomes.
+                </h2>
+                <p className="fade-in-up mt-6 max-w-2xl leading-relaxed text-white/70">
+                  We’ll recommend the cleanest package tier, then customize from there.
+                </p>
+              </div>
+              <div className="md:col-span-4">
+                <Button
+                  href="mailto:contact@seaforthstrategies.com"
+                  variant="accent"
+                  className="w-full rounded-full px-7 py-4"
+                >
+                  Email us
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -178,117 +378,20 @@ export default function PricingPage() {
   );
 }
 
-function PricingCard({
-  title,
-  subtitle,
-  price,
-  features,
-  bestFor,
-  featured = false,
-  delay = 0,
-}: {
-  title: string;
-  subtitle: string;
-  price: string;
-  features: string[];
-  bestFor: string;
-  featured?: boolean;
-  delay?: number;
-}) {
+function FaqItem({ q, a }: { q: string; a: string }) {
   return (
-    <div
-      className={[
-        "relative rounded-2xl border p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl fade-in-up text-center",
-        featured
-          ? "border-brand-teal bg-gradient-to-br from-white to-brand-teal/5 ring-2 ring-brand-teal"
-          : "border-neutral-200 bg-white hover:border-brand-teal",
-      ].join(" ")}
-      style={{ animationDelay: `${delay}ms` }}
-    >
-      {featured && (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-          <span className="inline-flex items-center rounded-full bg-gradient-to-r from-brand-teal to-brand-yellow px-4 py-1 text-sm font-semibold text-white shadow-md">
-            Most Popular
+    <div className="hairline bg-surface group rounded-[var(--radius)] border transition-colors hover:border-[color:color-mix(in_srgb,var(--brand-teal),transparent_55%)]">
+      <details className="w-full">
+        <summary className="flex cursor-pointer list-none items-start justify-between gap-4 p-6 focus:outline-none">
+          <span className="text-ink min-w-0 break-words text-lg font-semibold transition-colors group-hover:text-[color:var(--brand-teal)]">
+            {q}
           </span>
-        </div>
-      )}
-
-      <div className="mb-6">
-        <h3 className="text-2xl font-bold text-neutral-950 mb-2">{title}</h3>
-        <p className="text-neutral-600 text-sm">{subtitle}</p>
-      </div>
-
-      <div className="mb-6">
-        <div className="text-4xl font-bold text-brand-teal">{price}</div>
-      </div>
-
-      <ul className="space-y-3 mb-6 inline-block text-left">
-        {features.map((feature, index) => (
-          <li key={index} className="flex items-start gap-3">
-            <span className="flex-shrink-0 w-5 h-5 rounded-full bg-brand-teal/10 flex items-center justify-center mt-0.5">
-              <svg className="w-3 h-3 text-brand-teal" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  fillRule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </span>
-            <span className="text-neutral-700 text-sm">{feature}</span>
-          </li>
-        ))}
-      </ul>
-
-      <div className="pt-6 border-t border-neutral-200">
-        <div className="text-xs font-semibold text-brand-gold uppercase tracking-wider mb-2">
-          Best for
-        </div>
-        <p className="text-sm text-neutral-600">{bestFor}</p>
-      </div>
-
-      <div className="mt-6">
-        <a
-          href="https://calendly.com/gatorgleamsmm/30min"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={[
-            "block w-full text-center rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300",
-            featured
-              ? "bg-gradient-to-r from-brand-teal to-brand-yellow text-white shadow-md hover:shadow-lg hover:scale-105"
-              : "bg-neutral-100 text-brand-teal hover:bg-brand-teal hover:text-white",
-          ].join(" ")}
-        >
-          Get Started
-        </a>
-      </div>
-    </div>
-  );
-}
-
-function Feature({ text }: { text: string }) {
-  return (
-    <div className="flex items-center gap-3">
-      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-brand-teal/10 flex items-center justify-center">
-        <svg className="w-3 h-3 text-brand-teal" fill="currentColor" viewBox="0 0 20 20">
-          <path
-            fillRule="evenodd"
-            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-            clipRule="evenodd"
-          />
-        </svg>
-      </span>
-      <span className="text-neutral-700 text-sm">{text}</span>
-    </div>
-  );
-}
-
-function AddOn({ text }: { text: string }) {
-  return (
-    <div className="flex items-center gap-3 p-4 rounded-xl bg-neutral-50 border border-neutral-200 transition-all duration-300 hover:border-brand-teal hover:bg-brand-teal/5">
-      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-brand-gold/20 flex items-center justify-center">
-        <span className="text-brand-gold text-xs font-bold">+</span>
-      </span>
-      <span className="text-neutral-700 text-sm font-medium">{text}</span>
+          <span className="font-display shrink-0 select-none text-2xl text-[color:var(--brand-gold)]">
+            ＋
+          </span>
+        </summary>
+        <div className="text-muted px-6 pb-6 pt-0 leading-relaxed">{a}</div>
+      </details>
     </div>
   );
 }

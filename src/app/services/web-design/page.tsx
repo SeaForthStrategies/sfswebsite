@@ -1,13 +1,15 @@
-import type { Metadata } from "next";
-
-import { PageHeader } from "@/components/layout/PageHeader";
-import { Section } from "@/components/layout/Section";
-import { Button } from "@/components/ui/Button";
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { PageHeader } from '@/components/layout/PageHeader';
+import { Button } from '@/components/ui/Button';
+import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
+import { PortfolioGallery } from '@/components/visual/PortfolioGallery';
+import { Sparkles } from '@/components/Sparkles';
 
 const frontmatter = {
-  title: "Website Design & Development",
+  title: 'Website Design & Development',
   description:
-    "Beautiful, responsive websites that convert visitors into customers and represent your brand perfectly.",
+    'Beautiful, responsive websites that convert visitors into customers and represent your brand perfectly.',
 };
 
 export const metadata: Metadata = {
@@ -18,159 +20,182 @@ export const metadata: Metadata = {
 export default function WebDesignPage() {
   return (
     <>
-      <PageHeader title={frontmatter.title} subtitle={frontmatter.description} />
+      <PageHeader
+        title={frontmatter.title}
+        subtitle={frontmatter.description}
+        backgroundImageSrc="/images/matt-howard-R_bPhkgALY4-unsplash.jpg"
+      />
 
-      <Section bg="default">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-neutral-950 mb-6">
-            Custom Websites That Convert
-          </h2>
-          <p className="text-lg text-neutral-600 leading-relaxed">
-            At SeaForth Strategies, we create stunning, responsive websites that not only look amazing but
-            also drive real business results. Our custom development approach ensures your site perfectly
-            represents your brand while providing an exceptional user experience.
-          </p>
-        </div>
-      </Section>
+      <section>
+        <div className="container mx-auto px-6">
+          <div className="py-16 md:py-24">
+            <div className="grid gap-10 md:grid-cols-12">
+              <div className="md:col-span-5">
+                <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                  What this includes
+                </p>
+                <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
+                  A site that feels expensive—because it is.
+                </h2>
+              </div>
+              <div className="md:col-span-7">
+                <p className="fade-in-up text-muted leading-relaxed">
+                  We design and develop modern, performance-first websites with editorial structure
+                  and performance-aware motion. The goal is clarity, confidence, and
+                  conversion—without the salesy vibe.
+                </p>
+                <ul className="fade-in-up text-muted mt-6 grid gap-3 sm:grid-cols-2">
+                  {[
+                    'Custom UI/UX and component system',
+                    'Responsive build + accessibility',
+                    'Core Web Vitals & performance tuning',
+                    'SEO foundations + analytics instrumentation',
+                  ].map((b) => (
+                    <li key={b} className="flex gap-3">
+                      <span className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--brand-gold)]" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="fade-in-up mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+                  <Link
+                    href="/pricing"
+                    className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold uppercase tracking-[0.08em]"
+                  >
+                    View packages
+                  </Link>
+                  <Link
+                    href="/services"
+                    className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold uppercase tracking-[0.08em]"
+                  >
+                    Explore services
+                  </Link>
+                </div>
+              </div>
+            </div>
 
-      <Section bg="panel">
-        <h2 className="text-3xl font-bold text-center text-neutral-950 mb-12">
-          Our Web Development Services
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="group rounded-2xl border border-neutral-200 shadow-lg bg-white p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-brand-teal">
-            <div className="text-brand-teal text-4xl mb-4 transition-transform duration-300 group-hover:scale-110">
-              <i className="fas fa-mobile-alt" aria-hidden="true" />
+            <div className="mt-14 grid gap-6 md:grid-cols-3">
+              {[
+                {
+                  t: 'Editorial layout',
+                  d: 'A system of spacing, type, and hierarchy that guides attention without shouting.',
+                },
+                {
+                  t: 'Performance-led motion',
+                  d: 'Scroll reveals, micro-interactions, and parallax—built to feel premium, not heavy.',
+                },
+                {
+                  t: 'Conversion clarity',
+                  d: 'Clean CTAs, frictionless contact flows, and a structure designed for confident decisions.',
+                },
+              ].map((c, idx) => (
+                <div
+                  key={c.t}
+                  className={[
+                    'fade-in-scale',
+                    `stagger-${Math.min(idx + 1, 6)}`,
+                    'hairline bg-surface shadow-soft hover-lift rounded-[var(--radius-lg)] border p-7',
+                  ].join(' ')}
+                >
+                  <h3 className="text-ink text-xl font-semibold">{c.t}</h3>
+                  <p className="text-muted mt-3 leading-relaxed">{c.d}</p>
+                </div>
+              ))}
             </div>
-            <h3 className="text-xl font-bold text-neutral-950 mb-3">Responsive Design</h3>
-            <p className="text-neutral-600 leading-relaxed mb-4">
-              Websites that look and function perfectly across all devices and screen sizes.
-            </p>
-            <ul className="text-sm text-neutral-600 space-y-2 list-disc pl-5">
-              <li>Mobile-First Development</li>
-              <li>Cross-Browser Testing</li>
-              <li>Adaptive Layouts</li>
-              <li>Touch-Friendly Interface</li>
-              <li>Responsive Images</li>
-            </ul>
-          </div>
-          <div className="group rounded-2xl border border-neutral-200 shadow-lg bg-white p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-brand-teal">
-            <div className="text-brand-teal text-4xl mb-4 transition-transform duration-300 group-hover:scale-110">
-              <i className="fas fa-code" aria-hidden="true" />
-            </div>
-            <h3 className="text-xl font-bold text-neutral-950 mb-3">Custom Development</h3>
-            <p className="text-neutral-600 leading-relaxed mb-4">
-              Tailored solutions built with clean, efficient code using modern technologies.
-            </p>
-            <ul className="text-sm text-neutral-600 space-y-2 list-disc pl-5">
-              <li>Custom Functionality</li>
-              <li>API Integration</li>
-              <li>Database Design</li>
-              <li>Security Implementation</li>
-              <li>Performance Optimization</li>
-            </ul>
-          </div>
-          <div className="group rounded-2xl border border-neutral-200 shadow-lg bg-white p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-brand-teal">
-            <div className="text-brand-teal text-4xl mb-4 transition-transform duration-300 group-hover:scale-110">
-              <i className="fas fa-shopping-cart" aria-hidden="true" />
-            </div>
-            <h3 className="text-xl font-bold text-neutral-950 mb-3">E-commerce Solutions</h3>
-            <p className="text-neutral-600 leading-relaxed mb-4">
-              Complete online store solutions with seamless checkout experiences.
-            </p>
-            <ul className="text-sm text-neutral-600 space-y-2 list-disc pl-5">
-              <li>Product Management</li>
-              <li>Secure Checkout</li>
-              <li>Inventory Control</li>
-              <li>Payment Integration</li>
-              <li>Order Processing</li>
-            </ul>
-          </div>
-          <div className="group rounded-2xl border border-neutral-200 shadow-lg bg-white p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-brand-teal">
-            <div className="text-brand-teal text-4xl mb-4 transition-transform duration-300 group-hover:scale-110">
-              <i className="fas fa-search" aria-hidden="true" />
-            </div>
-            <h3 className="text-xl font-bold text-neutral-950 mb-3">SEO Optimization</h3>
-            <p className="text-neutral-600 leading-relaxed mb-4">
-              Built-in search engine optimization to improve your visibility.
-            </p>
-            <ul className="text-sm text-neutral-600 space-y-2 list-disc pl-5">
-              <li>Technical SEO</li>
-              <li>Content Strategy</li>
-              <li>Performance Tuning</li>
-              <li>Meta Optimization</li>
-              <li>Analytics Setup</li>
-            </ul>
-          </div>
-        </div>
-      </Section>
-
-      <Section bg="default">
-        <h2 className="text-3xl font-bold text-center text-neutral-950 mb-12">Our Development Process</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="group text-center rounded-2xl border border-neutral-200 shadow-lg bg-white p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-brand-yellow">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-teal text-white text-2xl font-bold mb-4 transition-transform duration-300 group-hover:scale-110">
-              1
-            </div>
-            <h3 className="text-xl font-bold text-neutral-950 mb-3">Discovery & Planning</h3>
-            <p className="text-neutral-600 leading-relaxed">
-              We start by understanding your brand, goals, and target audience to create a strategic plan
-              for your website.
-            </p>
-          </div>
-          <div className="group text-center rounded-2xl border border-neutral-200 shadow-lg bg-white p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-brand-yellow">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-teal text-white text-2xl font-bold mb-4 transition-transform duration-300 group-hover:scale-110">
-              2
-            </div>
-            <h3 className="text-xl font-bold text-neutral-950 mb-3">Design & Prototyping</h3>
-            <p className="text-neutral-600 leading-relaxed">
-              Creating beautiful, user-friendly designs and interactive prototypes for your approval before
-              development begins.
-            </p>
-          </div>
-          <div className="group text-center rounded-2xl border border-neutral-200 shadow-lg bg-white p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-brand-yellow">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-teal text-white text-2xl font-bold mb-4 transition-transform duration-300 group-hover:scale-110">
-              3
-            </div>
-            <h3 className="text-xl font-bold text-neutral-950 mb-3">Development & Testing</h3>
-            <p className="text-neutral-600 leading-relaxed">
-              Building your site with clean code and thoroughly testing across all devices and browsers for
-              optimal performance.
-            </p>
-          </div>
-          <div className="group text-center rounded-2xl border border-neutral-200 shadow-lg bg-white p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-brand-yellow">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-teal text-white text-2xl font-bold mb-4 transition-transform duration-300 group-hover:scale-110">
-              4
-            </div>
-            <h3 className="text-xl font-bold text-neutral-950 mb-3">Launch & Support</h3>
-            <p className="text-neutral-600 leading-relaxed">
-              Deploying your site and providing ongoing support to ensure continued success and optimal
-              performance.
-            </p>
           </div>
         </div>
-      </Section>
+      </section>
 
-      <Section bg="default" className="text-center">
-        <div className="max-w-2xl mx-auto">
-          <h3 className="text-3xl font-bold text-neutral-950 mb-4">
-            Ready to Transform Your Online Presence?
-          </h3>
-          <p className="text-lg text-neutral-600 mb-8">
-            Let’s create a website that drives results for your business.
-          </p>
-          <Button
-            variant="primary"
-            href="https://calendly.com/gatorgleamsmm/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-lg px-8 py-4"
-          >
-            Schedule a Call
-          </Button>
+      <section className="hairline bg-surface relative overflow-hidden border-y">
+        <BackgroundOrbs className="opacity-80" />
+        <div className="container mx-auto px-6">
+          <div className="py-16 md:py-24">
+            <div className="grid gap-10 md:grid-cols-12 md:items-end">
+              <div className="md:col-span-7">
+                <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                  Selected work
+                </p>
+                <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
+                  Designs that read clean—and convert quietly.
+                </h2>
+              </div>
+              <div className="md:col-span-5">
+                <p className="fade-in-up text-muted leading-relaxed">
+                  A few snapshots from builds and redesigns. The common thread is discipline:
+                  typography, spacing, performance, and motion that supports the story.
+                </p>
+              </div>
+            </div>
+
+            <PortfolioGallery
+              className="mt-12"
+              items={[
+                {
+                  src: '/images/Website Portfolio (1)/1031.png',
+                  alt: '1031 Capital Solutions website',
+                },
+                { src: '/images/Website Portfolio (1)/LUX.png', alt: 'LUX website' },
+                {
+                  src: '/images/Website Portfolio (1)/Social Affair.png',
+                  alt: 'The Social Affair website',
+                },
+                {
+                  src: '/images/Website Portfolio (1)/1031 About.png',
+                  alt: '1031 Capital Solutions about page',
+                },
+                {
+                  src: '/images/Website Portfolio (1)/1031 (3).png',
+                  alt: '1031 Capital Solutions section',
+                },
+              ]}
+            />
+
+            <p className="fade-in-up text-muted mt-10 text-sm">
+              Want a similar approach for your brand?{' '}
+              <Link href="/contact" className="link-underline text-ink/80 hover:text-ink">
+                Send a message
+              </Link>
+              .
+            </p>
+          </div>
         </div>
-      </Section>
+      </section>
+
+      <section className="bg-[color:var(--contrast-bg)] text-[color:var(--contrast-ink)]">
+        <div className="relative overflow-hidden">
+          <BackgroundOrbs variant="dark" className="opacity-90" />
+          <div className="absolute inset-0 opacity-60">
+            <Sparkles color="rgba(213, 163, 83, 0.85)" />
+          </div>
+        </div>
+        <div className="container mx-auto px-6">
+          <div className="py-16 md:py-24">
+            <div className="grid gap-10 md:grid-cols-12 md:items-end">
+              <div className="md:col-span-8">
+                <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                  Next step
+                </p>
+                <h2 className="fade-in-up font-display mt-6 text-4xl leading-[1.02] md:text-5xl">
+                  Let’s build your next home on the web.
+                </h2>
+                <p className="fade-in-up mt-6 max-w-2xl leading-relaxed text-white/70">
+                  We’ll align on scope and outcomes, then design a system that feels distinctive and
+                  converts with restraint.
+                </p>
+              </div>
+              <div className="md:col-span-4">
+                <Button
+                  href="mailto:contact@seaforthstrategies.com"
+                  variant="accent"
+                  className="w-full rounded-full py-4"
+                >
+                  Email us
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
-

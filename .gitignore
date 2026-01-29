@@ -21,6 +21,13 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+public/images/.com.apple.Foundation.NSItemProvider*
 
 # jetbrains setting folder
 .idea/
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Use pnpm only
+package-lock.json

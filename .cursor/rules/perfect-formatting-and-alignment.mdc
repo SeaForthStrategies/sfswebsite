@@ -1,0 +1,31 @@
+---
+description: Enforce perfect formatting and pixel-aligned UI layout.
+alwaysApply: true
+---
+
+# Perfect formatting + alignment (non-negotiable)
+
+## Formatting (code)
+
+- Run `pnpm format` after any UI/code edits; ensure `pnpm format:check` passes before considering work “done”.
+- Keep JSX/TSX props clean and consistent:
+  - Prefer clear wrapping over dense one-liners once near the print width.
+  - Keep related props grouped (e.g., `href/target/rel`, `className`, `aria-*`).
+- Tailwind class order must be sorted by Prettier Tailwind plugin output (do not hand-reorder unless it matches formatter output).
+- Avoid “almost aligned” markup:
+  - Consistent indentation (2 spaces).
+  - No trailing whitespace.
+  - One blank line between major logical blocks.
+
+## Alignment (UI)
+
+- Use the site container consistently: `container mx-auto px-4 sm:px-6 lg:px-8`.
+- Align section content to a shared grid:
+  - Use `max-w-*` constraints for readable line lengths.
+  - Ensure headings/CTAs line up across sections at desktop breakpoints.
+- Keep spacing systemized:
+  - Prefer a small set of vertical paddings/margins (e.g., `py-16 md:py-24`, `mt-6`, `gap-6/8/10`).
+  - Avoid arbitrary one-off spacing unless there is a clear visual need.
+- No accidental misalignment:
+  - Avoid fixed heights; use content-driven layout.
+  - Watch for wrapped CTAs, uneven grid rows, and off-center elements.
