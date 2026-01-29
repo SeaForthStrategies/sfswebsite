@@ -76,6 +76,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
 
+        {/* HubSpot Forms (Newsletter) */}
+        <Script
+          id="hs-forms-embed"
+          src="https://js-na2.hsforms.net/forms/embed/244016246.js"
+          strategy="afterInteractive"
+        />
+
         {/* Structured Data */}
         <Script id="ld-org" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify({

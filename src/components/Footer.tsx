@@ -95,7 +95,7 @@ export function Footer() {
   return (
     <footer className="hairline mt-24 border-t bg-[color:var(--contrast-bg)] text-[color:var(--contrast-ink)]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-12 py-16 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
+        <div className="grid gap-12 py-16 md:grid-cols-[1.1fr_0.8fr_0.8fr_1.1fr]">
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <Image
@@ -194,6 +194,23 @@ export function Footer() {
                   </span>
                 </a>
               ))}
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <p className="text-contrast-muted text-[12px] font-semibold uppercase tracking-[0.16em]">
+              Newsletter
+            </p>
+            <p className="text-contrast-muted max-w-sm leading-relaxed">
+              Occasional notes on web design, analytics, and what we’re seeing work right now.
+            </p>
+            <div className="rounded-[var(--radius-lg)] border border-white/10 bg-white/5 p-4">
+              <div
+                className="hs-form-frame"
+                data-region="na2"
+                data-portal-id="244016246"
+                data-form-id="13ce96c6-c345-442d-9c77-6c4202811cf5"
+              />
             </div>
           </div>
         </div>
