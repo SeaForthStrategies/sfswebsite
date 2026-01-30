@@ -216,9 +216,29 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="text-contrast-muted flex flex-col gap-2 border-t border-white/10 py-8 text-sm md:flex-row md:items-center md:justify-between">
-          <p>© {year} SeaForth Strategies. All rights reserved.</p>
-          <p>Crafted in Southern California.</p>
+        <div className="border-t border-white/10 pt-8">
+          <div className="flex flex-col gap-6 md:flex-row md:justify-between">
+            <div className="space-y-4">
+              <p className="text-sm text-white/40">
+                © {year} SeaForth Strategies. All rights reserved.
+              </p>
+              <p className="max-w-xl text-[11px] leading-relaxed text-white/30">
+                SeaForth Strategies is a digital consultancy. All trademarks, logos, and brand
+                names are the property of their respective owners. Use of this site constitutes
+                acceptance of our terms and privacy policy.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 text-sm text-white/40 sm:flex-row sm:gap-6">
+              <Link href="/privacy" className="hover:text-white transition-colors">
+                Privacy Policy
+              </Link>
+              <Link href="/terms" className="hover:text-white transition-colors">
+                Terms of Service
+              </Link>
+              <span className="hidden sm:inline text-white/10">|</span>
+              <p>Crafted in Southern California.</p>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

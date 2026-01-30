@@ -1,6 +1,6 @@
 'use client';
 
-import { IconArrowRight, IconMenu2, IconMoon, IconSun, IconX } from '@tabler/icons-react';
+import { IconArrowRight, IconMenu2, IconX } from '@tabler/icons-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -15,47 +15,12 @@ const navItems = [
   { href: '/contact', label: 'Contact' },
 ] as const;
 
-type Theme = 'light' | 'dark';
-
-function getSystemTheme(): Theme {
-  if (typeof window === 'undefined' || !('matchMedia' in window)) return 'light';
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-}
-
-function applyTheme(theme: Theme) {
-  if (typeof document === 'undefined') return;
-  document.documentElement.dataset.theme = theme;
-  document.documentElement.classList.toggle('dark', theme === 'dark');
-  try {
-    localStorage.setItem('theme', theme);
-  } catch {}
-}
-
-
 export function Navigation() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [theme, setTheme] = useState<Theme>('light');
 
   const currentPath = useMemo(() => pathname ?? '/', [pathname]);
-
-  useEffect(() => {
-    // Initialize from the inline theme script / localStorage / system.
-    const current = (document.documentElement.dataset.theme as Theme | undefined) ?? 'light';
-    const stored = (() => {
-      try {
-        const t = localStorage.getItem('theme');
-        return t === 'light' || t === 'dark' ? (t as Theme) : null;
-      } catch {
-        return null;
-      }
-    })();
-    const initial =
-      stored ?? (current === 'light' || current === 'dark' ? current : getSystemTheme());
-    setTheme(initial);
-    applyTheme(initial);
-  }, []);
 
   useEffect(() => {
     function onScroll() {
@@ -85,8 +50,6 @@ export function Navigation() {
     };
   }, [isOpen]);
 
-  const nextTheme: Theme = theme === 'dark' ? 'light' : 'dark';
-
   return (
     <header
       className={[
@@ -103,14 +66,18 @@ export function Navigation() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative flex h-[76px] items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center" aria-label="SeaForth Strategies – Home">
+          <Link
+            href="/"
+            className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center md:static md:translate-x-0 md:translate-y-0"
+            aria-label="SeaForth Strategies – Home"
+          >
             <Image
               src={SITE.logoPath}
               alt={SITE.name}
               priority
               width={220}
               height={56}
-              className="h-9 w-auto transition-[filter] duration-300 [filter:var(--logo-filter)]"
+              className="!h-5 !w-auto !max-w-[100px] object-contain transition-[filter] duration-300 [filter:var(--logo-filter)] md:!h-9 md:!max-w-none"
             />
           </Link>
 
@@ -141,7 +108,7 @@ export function Navigation() {
           </nav>
 
           {/* CTA Button */}
-          <div className="flex items-center gap-4">
+          <div className="ml-auto flex items-center gap-4 md:ml-0">
             <a
               href={CONTACT_EMAIL_HREF}
               className={[
@@ -154,25 +121,6 @@ export function Navigation() {
             >
               Email
             </a>
-
-            {/* Theme toggle (desktop) */}
-            <button
-              type="button"
-              onClick={() => {
-                setTheme(nextTheme);
-                applyTheme(nextTheme);
-              }}
-              className={[
-                'hidden h-11 w-11 items-center justify-center md:inline-flex',
-                'hairline bg-[color:var(--bg)]/70 rounded-full border',
-                'transition-colors hover:bg-[color:var(--bg)]',
-              ].join(' ')}
-              aria-label={`Switch to ${nextTheme} mode`}
-            >
-              <span className="text-ink">
-                {theme === 'dark' ? <IconSun size={20} /> : <IconMoon size={20} />}
-              </span>
-            </button>
 
             {/* Mobile Menu Button */}
             <button
@@ -222,25 +170,11 @@ export function Navigation() {
             isOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0',
           ].join(' ')}
         >
-          <div className="mb-4 grid grid-cols-2 gap-3">
-            <button
-              type="button"
-              onClick={() => {
-                setTheme(nextTheme);
-                applyTheme(nextTheme);
-              }}
-              className="hairline text-ink/80 hover:text-ink inline-flex items-center justify-between rounded-2xl border bg-[color:var(--bg)] px-4 py-3 text-[13px] font-semibold uppercase tracking-[0.08em] transition-colors"
-              aria-label={`Switch to ${nextTheme} mode`}
-            >
-              <span>Theme</span>
-              <span className="text-ink">
-                {theme === 'dark' ? <IconSun size={20} /> : <IconMoon size={20} />}
-              </span>
-            </button>
+          <div className="mb-4 flex flex-col gap-3">
             <a
               href={CONTACT_EMAIL_HREF}
               onClick={() => setIsOpen(false)}
-              className="btn-tech inline-flex items-center justify-center rounded-2xl bg-[color:var(--ink)] px-4 py-3 text-[13px] font-semibold uppercase tracking-[0.08em] text-[color:var(--bg)] transition-colors hover:bg-[color:var(--brand-teal)]"
+              className="btn-tech inline-flex w-full items-center justify-center rounded-2xl bg-[color:var(--ink)] px-4 py-3 text-[13px] font-semibold uppercase tracking-[0.08em] text-[color:var(--bg)] transition-colors hover:bg-[color:var(--brand-teal)]"
             >
               Email
             </a>

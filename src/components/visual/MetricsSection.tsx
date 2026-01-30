@@ -106,7 +106,7 @@ function MetricCard({
 
       <div className="relative flex items-start justify-between gap-4">
         <div className="flex items-center gap-3">
-          <span className="hairline grid h-10 w-10 place-items-center rounded-full border bg-white/50 dark:bg-white/5">
+          <span className="hairline grid h-10 w-10 place-items-center rounded-full border bg-white/50">
             <span className="animate-float-slow">{<MetricIcon name={icon} />}</span>
           </span>
           <p className="text-ink/55 text-[12px] font-semibold uppercase tracking-[0.16em]">
@@ -144,7 +144,7 @@ function SignalBar({ signal, idx, active }: { signal: Signal; idx: number; activ
         </span>
       </div>
 
-      <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-black/5 dark:bg-white/10">
+      <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-black/5">
         <div
           className={[
             'relative h-full rounded-full',

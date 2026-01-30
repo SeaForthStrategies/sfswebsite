@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import { Instrument_Serif, Manrope } from 'next/font/google';
 
@@ -42,6 +42,11 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
   const hubspotPortalId = process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID;
@@ -53,24 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${sans.variable} ${display.variable} app-html`}
       suppressHydrationWarning
     >
-      <body className="font-sans app-body">
-        <Script id="theme-init" strategy="beforeInteractive">
-          {`
-            (function() {
-              try {
-                var stored = localStorage.getItem('theme');
-                var theme = stored === 'light' || stored === 'dark' ? stored : null;
-                if (!theme) {
-                  var mq = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
-                  theme = mq && mq.matches ? 'dark' : 'light';
-                }
-                document.documentElement.dataset.theme = theme;
-                document.documentElement.classList.toggle('dark', theme === 'dark');
-              } catch (e) {}
-            })();
-          `}
-        </Script>
-
+      <body className="app-body font-sans">
         {gaId ? (
           <>
             {/* Google Analytics */}
