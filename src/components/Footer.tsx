@@ -94,7 +94,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="hairline mt-24 border-t bg-[color:var(--contrast-bg)] text-[color:var(--contrast-ink)]">
+    <footer className="hairline border-t bg-[color:var(--contrast-bg)] text-[color:var(--contrast-ink)]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 py-16 md:grid-cols-[1.1fr_0.8fr_0.8fr_1.1fr]">
           <div className="space-y-6">

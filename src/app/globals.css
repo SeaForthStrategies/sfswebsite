@@ -185,7 +185,7 @@
 /* (Intentionally removed global aurora animation for a cleaner, more “quiet luxury” feel.) */
 
 .app-main {
-  padding-top: 92px;
+  padding-top: 76px;
   position: relative;
   z-index: 1;
 }

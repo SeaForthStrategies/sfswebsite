@@ -1,5 +1,6 @@
 'use client';
 
+import { IconArrowRight, IconMenu2, IconMoon, IconSun, IconX } from '@tabler/icons-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -30,36 +31,6 @@ function applyTheme(theme: Theme) {
   } catch {}
 }
 
-function Icon({ name }: { name: 'sun' | 'moon' }) {
-  if (name === 'sun') {
-    return (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-5 w-5">
-        <path
-          d="M12 3.75v1.5M12 18.75v1.5M4.75 12h1.5M17.75 12h1.5M6.22 6.22l1.06 1.06M16.72 16.72l1.06 1.06M17.78 6.22l-1.06 1.06M7.28 16.72l-1.06 1.06"
-          stroke="currentColor"
-          strokeWidth="1.6"
-          strokeLinecap="round"
-        />
-        <path
-          d="M12 16.25a4.25 4.25 0 1 0 0-8.5 4.25 4.25 0 0 0 0 8.5Z"
-          stroke="currentColor"
-          strokeWidth="1.6"
-        />
-      </svg>
-    );
-  }
-
-  return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="h-5 w-5">
-      <path
-        d="M20.25 14.25A7.5 7.5 0 0 1 9.75 3.75a6.6 6.6 0 0 0-.5 2.55 7.5 7.5 0 0 0 9.5 7.25 6.6 6.6 0 0 0 1.5-.3Z"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
 
 export function Navigation() {
   const pathname = usePathname();
@@ -122,9 +93,11 @@ export function Navigation() {
         'fixed inset-x-0 top-0 z-[1000]',
         'transition-[background,box-shadow,border-color] duration-300',
         'backdrop-blur-md',
-        scrolled
-          ? 'bg-[color:var(--bg)]/90 shadow-soft hairline border-b'
-          : 'bg-[color:var(--bg)]/70 border-b border-transparent',
+        isOpen
+          ? 'bg-[color:var(--bg)] shadow-soft hairline border-b'
+          : scrolled
+            ? 'bg-[color:var(--bg)]/90 shadow-soft hairline border-b'
+            : 'bg-[color:var(--bg)]/70 border-b border-transparent',
       ].join(' ')}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -197,7 +170,7 @@ export function Navigation() {
               aria-label={`Switch to ${nextTheme} mode`}
             >
               <span className="text-ink">
-                {theme === 'dark' ? <Icon name="sun" /> : <Icon name="moon" />}
+                {theme === 'dark' ? <IconSun size={20} /> : <IconMoon size={20} />}
               </span>
             </button>
 
@@ -211,30 +184,8 @@ export function Navigation() {
               onClick={() => setIsOpen((v) => !v)}
             >
               <span className="sr-only">Toggle menu</span>
-              <span
-                aria-hidden="true"
-                className={['relative block h-4 w-5', isOpen ? 'text-brand-teal' : 'text-ink'].join(
-                  ' '
-                )}
-              >
-                <span
-                  className={[
-                    'absolute left-0 top-0 block h-0.5 w-5 rounded bg-current transition-all duration-300',
-                    isOpen ? 'translate-y-[7px] rotate-45' : '',
-                  ].join(' ')}
-                />
-                <span
-                  className={[
-                    'absolute left-0 top-[7px] block h-0.5 w-5 rounded bg-current transition-all duration-300',
-                    isOpen ? 'opacity-0' : '',
-                  ].join(' ')}
-                />
-                <span
-                  className={[
-                    'absolute left-0 top-[14px] block h-0.5 w-5 rounded bg-current transition-all duration-300',
-                    isOpen ? '-translate-y-[7px] -rotate-45' : '',
-                  ].join(' ')}
-                />
+              <span className={isOpen ? 'text-brand-teal' : 'text-ink'}>
+                {isOpen ? <IconX size={20} /> : <IconMenu2 size={20} />}
               </span>
             </button>
           </div>
@@ -283,7 +234,7 @@ export function Navigation() {
             >
               <span>Theme</span>
               <span className="text-ink">
-                {theme === 'dark' ? <Icon name="sun" /> : <Icon name="moon" />}
+                {theme === 'dark' ? <IconSun size={20} /> : <IconMoon size={20} />}
               </span>
             </button>
             <a
@@ -313,7 +264,7 @@ export function Navigation() {
                   ].join(' ')}
                 >
                   <span>{item.label}</span>
-                  <span className="text-ink/40">→</span>
+                  <IconArrowRight size={16} className="text-ink/40" />
                 </Link>
               );
             })}
