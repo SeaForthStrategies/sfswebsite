@@ -12,5 +12,5 @@ trim_trailing_whitespace = true
 [*.{md,mdx}]
 trim_trailing_whitespace = false
 
-[*.{js,jsx,ts,tsx,astro}]
+[*.{js,jsx,ts,tsx}]
 quote_type = single
