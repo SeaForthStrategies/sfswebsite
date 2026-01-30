@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import { Instrument_Serif, Manrope } from 'next/font/google';
 
-import './global.css';
+import './globals.css';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { ScrollReveal } from '@/components/ScrollReveal';
@@ -48,8 +48,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const logoUrl = new URL(SITE.logoPath, SITE.url).toString();
 
   return (
-    <html lang="en" className={`${sans.variable} ${display.variable}`}>
-      <body className="font-sans">
+    <html
+      lang="en"
+      className={`${sans.variable} ${display.variable} app-html`}
+      suppressHydrationWarning
+    >
+      <body className="font-sans app-body">
         <Script id="theme-init" strategy="beforeInteractive">
           {`
             (function() {
@@ -129,7 +133,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navigation />
         <ScrollReveal />
 
-        <main id="main-content">{children}</main>
+        <main id="main-content" className="app-main">
+          {children}
+        </main>
 
         <Footer />
       </body>

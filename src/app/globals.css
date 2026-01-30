@@ -82,11 +82,12 @@
   --dur-4: 1400ms;
 }
 
-* {
+.app-body,
+.app-body * {
   box-sizing: border-box;
 }
 
-html {
+.app-html {
   background: var(--bg);
   color: var(--ink);
   color-scheme: light;
@@ -97,7 +98,7 @@ html {
   scroll-padding-top: 96px;
 }
 
-html[data-theme='dark'] {
+.app-html[data-theme='dark'] {
   --bg: #0b0f12;
   --surface: rgba(18, 24, 29, 0.62);
   --ink: #f7f5f1;
@@ -132,12 +133,12 @@ html[data-theme='dark'] {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
+  .app-html {
     scroll-behavior: auto;
   }
 }
 
-body {
+.app-body {
   min-height: 100vh;
   background: var(--page-bg);
   color: var(--ink);
@@ -152,7 +153,7 @@ body {
 }
 
 /* Decorative grain + shimmer sweep (theme-level, performance-aware) */
-body::before {
+.app-body::before {
   content: '';
   position: fixed;
   inset: 0;
@@ -183,13 +184,13 @@ body::before {
 
 /* (Intentionally removed global aurora animation for a cleaner, more “quiet luxury” feel.) */
 
-main {
+.app-main {
   padding-top: 92px;
   position: relative;
   z-index: 1;
 }
 
-::selection {
+.app-body ::selection {
   background: color-mix(in srgb, var(--brand-teal), transparent 80%);
 }
 
@@ -523,8 +524,8 @@ main {
     animation: tech-scan 7.5s var(--ease-out) infinite;
   }
 
-  html[data-theme='dark'] .tech-hero::before,
-  html[data-theme='dark'] .tech-panel::before {
+  .app-html[data-theme='dark'] .tech-hero::before,
+  .app-html[data-theme='dark'] .tech-panel::before {
     opacity: 0.7;
   }
 
@@ -743,7 +744,7 @@ main {
   }
 
   @media (prefers-reduced-motion: reduce) {
-    body::after {
+    .app-body::before {
       display: none;
       animation: none;
     }
