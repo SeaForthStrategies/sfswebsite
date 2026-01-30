@@ -1,3 +1,5 @@
+import { CONTACT_EMAIL_HREF } from '@/lib/site';
+
 interface PricingPackage {
   name: string;
   price: string;
@@ -69,7 +71,7 @@ export function PricingCard({ category, packages }: PricingCardProps) {
                 {pkg.idealFor}
               </p>
               <a
-                href="mailto:contact@seaforthstrategies.com"
+                href={CONTACT_EMAIL_HREF}
                 className={`flex w-full items-center justify-center rounded-xl py-3 font-bold transition-all ${
                   pkg.highlighted
                     ? 'bg-brand-teal text-white shadow-md hover:bg-brand-teal/90'

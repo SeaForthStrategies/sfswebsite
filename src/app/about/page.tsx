@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/Button';
 import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
 import { Sparkles } from '@/components/Sparkles';
 import { PortfolioGallery } from '@/components/visual/PortfolioGallery';
+import { CONTACT_EMAIL_HREF } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -261,7 +262,7 @@ export default function AboutPage() {
               </div>
               <div className="md:col-span-4">
                 <Button
-                  href="mailto:contact@seaforthstrategies.com"
+                  href={CONTACT_EMAIL_HREF}
                   variant="accent"
                   className="w-full rounded-full px-7 py-4"
                 >

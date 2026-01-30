@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/Button';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
 import { Sparkles } from '@/components/Sparkles';
+import { CONTACT_EMAIL, CONTACT_EMAIL_HREF } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -85,7 +86,7 @@ export default function ContactPage() {
               <div className="md:col-span-5">
                 <div className="fade-in-up hairline bg-surface shadow-soft hover-lift rounded-[var(--radius-lg)] border p-7">
                   <Button
-                    href="mailto:contact@seaforthstrategies.com"
+                    href={CONTACT_EMAIL_HREF}
                     className="shadow-soft w-full rounded-full bg-[color:var(--brand-teal)] py-4 text-white hover:bg-[color:var(--brand-teal-dark)]"
                   >
                     Email us
@@ -94,9 +95,9 @@ export default function ContactPage() {
                     Prefer email?{' '}
                     <a
                       className="link-underline text-ink/80 hover:text-ink break-all"
-                      href="mailto:contact@seaforthstrategies.com"
+                      href={CONTACT_EMAIL_HREF}
                     >
-                      contact@seaforthstrategies.com
+                      {CONTACT_EMAIL}
                     </a>
                   </p>
                   <p className="text-muted mt-3 text-sm">

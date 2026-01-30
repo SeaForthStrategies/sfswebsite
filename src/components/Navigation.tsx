@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
+import { CONTACT_EMAIL_HREF, SITE } from '@/lib/site';
 
 const navItems = [
   { href: '/', label: 'Home' },
@@ -131,8 +132,8 @@ export function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center" aria-label="SeaForth Strategies – Home">
             <Image
-              src="/images/logo.png"
-              alt="SeaForth Strategies"
+              src={SITE.logoPath}
+              alt={SITE.name}
               priority
               width={220}
               height={56}
@@ -169,7 +170,7 @@ export function Navigation() {
           {/* CTA Button */}
           <div className="flex items-center gap-4">
             <a
-              href="mailto:contact@seaforthstrategies.com"
+              href={CONTACT_EMAIL_HREF}
               className={[
                 'hidden items-center justify-center md:inline-flex',
                 'rounded-full px-5 py-2.5',
@@ -286,7 +287,7 @@ export function Navigation() {
               </span>
             </button>
             <a
-              href="mailto:contact@seaforthstrategies.com"
+              href={CONTACT_EMAIL_HREF}
               onClick={() => setIsOpen(false)}
               className="btn-tech inline-flex items-center justify-center rounded-2xl bg-[color:var(--ink)] px-4 py-3 text-[13px] font-semibold uppercase tracking-[0.08em] text-[color:var(--bg)] transition-colors hover:bg-[color:var(--brand-teal)]"
             >

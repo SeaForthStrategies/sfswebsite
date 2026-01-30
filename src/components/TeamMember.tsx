@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { CONTACT_EMAIL_HREF } from '@/lib/site';
 
 interface TeamMemberProps {
   name: string;
@@ -49,7 +50,7 @@ export function TeamMember({ name, role, bio, quote, imagePath, reverse }: TeamM
 
         <div className="pt-4">
           <a
-            href="mailto:contact@seaforthstrategies.com"
+            href={CONTACT_EMAIL_HREF}
             className="inline-flex items-center gap-2 font-bold text-brand-teal transition-all hover:gap-4"
           >
             Email us <span className="text-xl">→</span>

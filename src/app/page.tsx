@@ -9,6 +9,7 @@ import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
 import { HeroCursor } from '@/components/visual/HeroCursor';
 import { MetricsSection } from '@/components/visual/MetricsSection';
 import { WhatWeDoSection } from '@/components/visual/WhatWeDoSection';
+import { CALENDLY_URL, CONTACT_EMAIL, CONTACT_EMAIL_HREF, SITE } from '@/lib/site';
 
 export default function HomePage() {
   return (
@@ -41,8 +42,8 @@ export default function HomePage() {
             </p>
             <div className="fade-in-up stagger-1">
               <Image
-                src="/images/logo.png"
-                alt="SeaForth Strategies"
+                src={SITE.logoPath}
+                alt={SITE.name}
                 width={520}
                 height={140}
                 priority
@@ -61,13 +62,13 @@ export default function HomePage() {
 
             <div className="fade-in-up stagger-4 mt-10 flex w-full flex-col items-center justify-center gap-4 sm:flex-row">
               <Button
-                href="mailto:contact@seaforthstrategies.com"
+                href={CONTACT_EMAIL_HREF}
                 className="shadow-soft w-full rounded-full bg-[color:var(--brand-teal)] px-7 py-4 text-white hover:bg-[color:var(--brand-teal-dark)] sm:w-auto"
               >
                 Email us
               </Button>
               <Button
-                href="https://calendly.com/gatorgleamsmm/30min"
+                href={CALENDLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="secondary"
@@ -229,7 +230,7 @@ export default function HomePage() {
               <div className="md:col-span-4">
                 <div className="fade-in-up rounded-[var(--radius-lg)] border border-white/10 bg-white/5 p-7">
                   <Button
-                    href="mailto:contact@seaforthstrategies.com"
+                    href={CONTACT_EMAIL_HREF}
                     variant="accent"
                     className="w-full rounded-full px-7 py-4"
                   >
@@ -239,9 +240,9 @@ export default function HomePage() {
                     Prefer email?{' '}
                     <a
                       className="link-underline break-all text-white/80 hover:text-white"
-                      href="mailto:contact@seaforthstrategies.com"
+                      href={CONTACT_EMAIL_HREF}
                     >
-                      contact@seaforthstrategies.com
+                      {CONTACT_EMAIL}
                     </a>
                   </p>
                   <p className="mt-3 text-sm text-white/60">

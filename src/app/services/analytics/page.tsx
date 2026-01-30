@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/Button';
 import { CountUp } from '@/components/motion/CountUp';
 import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
 import { Sparkles } from '@/components/Sparkles';
+import { CONTACT_EMAIL_HREF } from '@/lib/site';
 
 const frontmatter = {
   title: 'Analytics & Data Insights',
@@ -59,7 +60,7 @@ export default function AnalyticsPage() {
                 <div className="fade-in-up mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
                   <a
                     className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold uppercase tracking-[0.08em]"
-                    href="mailto:contact@seaforthstrategies.com"
+                    href={CONTACT_EMAIL_HREF}
                   >
                     Email us
                   </a>

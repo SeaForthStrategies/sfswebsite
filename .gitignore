@@ -31,3 +31,7 @@ public/images/.com.apple.Foundation.NSItemProvider*
 
 # Use pnpm only
 package-lock.json
+
+# Environment variables
+.env*
+!.env.example

@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/Button';
 import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
 import { PortfolioGallery } from '@/components/visual/PortfolioGallery';
 import { Sparkles } from '@/components/Sparkles';
+import { CONTACT_EMAIL_HREF } from '@/lib/site';
 
 const frontmatter = {
   title: 'Branding',
@@ -243,7 +244,7 @@ export default function BrandingPage() {
               </div>
               <div className="md:col-span-4">
                 <Button
-                  href="mailto:contact@seaforthstrategies.com"
+                  href={CONTACT_EMAIL_HREF}
                   variant="accent"
                   className="w-full rounded-full py-4"
                 >

@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/Button';
 import { Sparkles } from '@/components/Sparkles';
 import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
 import { PortfolioGallery } from '@/components/visual/PortfolioGallery';
+import { CONTACT_EMAIL_HREF } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Services',
@@ -334,7 +335,7 @@ export default function ServicesPage() {
                 </div>
                 <div className="md:col-span-4">
                   <Button
-                    href="mailto:contact@seaforthstrategies.com"
+                    href={CONTACT_EMAIL_HREF}
                     className="shadow-soft w-full rounded-full bg-[color:var(--brand-teal)] px-7 py-4 text-white hover:bg-[color:var(--brand-teal-dark)]"
                   >
                     Email us
@@ -478,7 +479,7 @@ export default function ServicesPage() {
               </div>
               <div className="md:col-span-4">
                 <Button
-                  href="mailto:contact@seaforthstrategies.com"
+                  href={CONTACT_EMAIL_HREF}
                   className="shadow-soft w-full rounded-full bg-[color:var(--brand-teal)] px-7 py-4 text-white hover:bg-[color:var(--brand-teal-dark)]"
                 >
                   Email us

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { CONTACT_EMAIL, CONTACT_EMAIL_HREF, SITE } from '@/lib/site';
 
 function Icon({
   name,
@@ -99,8 +100,8 @@ export function Footer() {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <Image
-                src="/images/logo.png"
-                alt="SeaForth Strategies"
+                src={SITE.logoPath}
+                alt={SITE.name}
                 width={220}
                 height={56}
                 className="h-9 w-auto opacity-95"
@@ -122,13 +123,13 @@ export function Footer() {
             </p>
             <div className="grid gap-3">
               <a
-                href="mailto:contact@seaforthstrategies.com"
+                href={CONTACT_EMAIL_HREF}
                 className="hover:text-contrast flex items-start gap-3 text-white/80 transition-colors"
               >
                 <span className="text-[color:var(--brand-gold)]">
                   <Icon name="mail" />
                 </span>
-                <span className="min-w-0 break-all">contact@seaforthstrategies.com</span>
+                <span className="min-w-0 break-all">{CONTACT_EMAIL}</span>
               </a>
               <Link
                 href="/contact"
@@ -166,12 +167,12 @@ export function Footer() {
             <div className="flex items-center gap-3 pt-2">
               {[
                 {
-                  href: 'https://www.instagram.com/seaforthstrategies/',
+                  href: SITE.social.instagram,
                   label: 'Instagram',
                   icon: 'instagram' as const,
                 },
                 {
-                  href: 'https://www.linkedin.com/company/seaforthstrategies/',
+                  href: SITE.social.linkedin,
                   label: 'LinkedIn',
                   icon: 'linkedin' as const,
                 },

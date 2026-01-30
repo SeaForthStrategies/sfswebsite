@@ -4,6 +4,7 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { Button } from '@/components/ui/Button';
 import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
 import { Sparkles } from '@/components/Sparkles';
+import { CONTACT_EMAIL_HREF } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Packages & Pricing',
@@ -131,7 +132,7 @@ export default function PricingPage() {
 
                     <div className="mt-8">
                       <Button
-                        href="mailto:contact@seaforthstrategies.com"
+                        href={CONTACT_EMAIL_HREF}
                         className={[
                           'w-full rounded-full py-4',
                           p.featured
@@ -284,7 +285,7 @@ export default function PricingPage() {
                     ))}
 
                     <Button
-                      href="mailto:contact@seaforthstrategies.com"
+                      href={CONTACT_EMAIL_HREF}
                       className="w-full rounded-full bg-[color:var(--ink)] py-4 text-[color:var(--bg)] hover:bg-[color:var(--brand-teal)]"
                     >
                       Email about retainers
@@ -302,7 +303,7 @@ export default function PricingPage() {
               or{' '}
               <a
                 className="link-underline text-ink/80 hover:text-ink"
-                href="mailto:contact@seaforthstrategies.com"
+                href={CONTACT_EMAIL_HREF}
               >
                 email us
               </a>
@@ -363,7 +364,7 @@ export default function PricingPage() {
               </div>
               <div className="md:col-span-4">
                 <Button
-                  href="mailto:contact@seaforthstrategies.com"
+                  href={CONTACT_EMAIL_HREF}
                   variant="accent"
                   className="w-full rounded-full px-7 py-4"
                 >

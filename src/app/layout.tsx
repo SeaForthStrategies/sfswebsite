@@ -6,6 +6,7 @@ import './global.css';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { CONTACT_EMAIL, SITE } from '@/lib/site';
 
 const sans = Manrope({
   subsets: ['latin'],
@@ -22,26 +23,30 @@ const display = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://seaforthstrategies.com'),
+  metadataBase: new URL(SITE.url),
   title: {
-    default: 'SeaForth Strategies',
-    template: '%s – SeaForth Strategies',
+    default: SITE.name,
+    template: `%s – ${SITE.name}`,
   },
   description:
     'SeaForth Strategies offers expert digital marketing services including web design and data analytics to grow your business.',
   icons: {
-    icon: '/favicon.svg',
+    icon: SITE.faviconPath,
   },
   openGraph: {
-    title: 'SeaForth Strategies',
+    title: SITE.name,
     description:
       'Expert digital marketing services including web design and data analytics to grow your business.',
-    images: ['/images/logo.png'],
+    images: [SITE.logoPath],
     type: 'website',
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  const hubspotPortalId = process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID;
+  const logoUrl = new URL(SITE.logoPath, SITE.url).toString();
+
   return (
     <html lang="en" className={`${sans.variable} ${display.variable}`}>
       <body className="font-sans">
@@ -62,45 +67,48 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
 
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-YKLP6VQQKX"
-          strategy="afterInteractive"
-        />
-        <Script id="ga-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-YKLP6VQQKX');
-          `}
-        </Script>
+        {gaId ? (
+          <>
+            {/* Google Analytics */}
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaId}');
+              `}
+            </Script>
+          </>
+        ) : null}
 
         {/* HubSpot Forms (Newsletter) */}
-        <Script
-          id="hs-forms-embed"
-          src="https://js-na2.hsforms.net/forms/embed/244016246.js"
-          strategy="afterInteractive"
-        />
+        {hubspotPortalId ? (
+          <Script
+            id="hs-forms-embed"
+            src={`https://js-na2.hsforms.net/forms/embed/${hubspotPortalId}.js`}
+            strategy="afterInteractive"
+          />
+        ) : null}
 
         {/* Structured Data */}
         <Script id="ld-org" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'Organization',
-            name: 'SeaForth Strategies',
-            url: 'https://seaforthstrategies.com',
-            logo: 'https://seaforthstrategies.com/images/logo.png',
+            name: SITE.name,
+            url: SITE.url,
+            logo: logoUrl,
             description:
               'Expert digital marketing services including web design and data analytics to grow your business.',
-            sameAs: [
-              'https://www.instagram.com/seaforthstrategies',
-              'https://www.linkedin.com/company/seaforthstrategies',
-            ],
+            sameAs: [SITE.social.instagram, SITE.social.linkedin],
             contactPoint: {
               '@type': 'ContactPoint',
               contactType: 'customer service',
-              email: 'contact@seaforthstrategies.com',
+              email: CONTACT_EMAIL,
               availableLanguage: 'English',
             },
             service: [
