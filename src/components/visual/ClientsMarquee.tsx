@@ -28,9 +28,12 @@ export function ClientsMarquee({
   // Duplicate the list so the track can loop seamlessly.
   const items = [...logos, ...logos];
 
-  /** Same footprint for every logo so mixed artwork reads at even visual weight. */
+  /**
+   * Fixed aspect + object-cover so every mark fills the frame evenly (contain left some logos
+   * tiny). Center crop keeps the lockup recognizable for typical horizontal client marks.
+   */
   const logoSlotClassName =
-    'relative mx-auto h-[52px] w-full max-w-[200px] opacity-85 grayscale transition-[opacity,filter] hover:opacity-100 hover:grayscale-0 md:mx-0 md:w-[200px] md:max-w-none';
+    'relative mx-auto aspect-[5/2] w-full max-w-[200px] overflow-hidden opacity-85 grayscale transition-[opacity,filter] hover:opacity-100 hover:grayscale-0 md:mx-0 md:w-[200px] md:max-w-none';
 
   return (
     <div className={`w-full ${className}`} aria-label={label}>
@@ -39,15 +42,15 @@ export function ClientsMarquee({
         {logos.map((file, idx) => (
           <div
             key={`mobile-${file}-${idx}`}
-            className="flex min-h-[72px] items-center justify-center p-3"
+            className="flex min-h-[96px] items-center justify-center p-3"
           >
             <div className={logoSlotClassName}>
               <Image
                 src={publicAssetPath(`/clients/${file}`)}
                 alt=""
                 fill
-                sizes="200px"
-                className="object-contain object-center"
+                sizes="(max-width: 767px) 45vw, 200px"
+                className="object-cover object-center"
               />
             </div>
           </div>
@@ -71,7 +74,7 @@ export function ClientsMarquee({
                       alt=""
                       fill
                       sizes="200px"
-                      className="object-contain object-center"
+                      className="object-cover object-center"
                     />
                   </div>
                 </div>

@@ -28,7 +28,7 @@ export default function AboutPage() {
 
       <section>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="py-16 md:py-24">
+          <div className="py-12 sm:py-16 md:py-24">
             <div className="mx-auto max-w-3xl text-center">
               <p className="fade-in-up text-muted leading-relaxed">
                 I started SeaForth because I like working with owners and teams who care about their
@@ -41,7 +41,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="mt-14 grid gap-12 md:mt-20 md:grid-cols-12 md:items-start md:gap-10 lg:gap-14">
+            <div className="mt-10 grid gap-8 sm:mt-12 sm:gap-10 md:mt-20 md:grid-cols-12 md:items-start md:gap-10 lg:gap-14">
               <div className="fade-in-up md:col-span-5">
                 <div className="shadow-premium hover-lift relative overflow-hidden rounded-[var(--radius-lg)]">
                   <div className="relative aspect-[4/5] w-full">
@@ -60,7 +60,7 @@ export default function AboutPage() {
                 <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
                   Abigail Lehr — Founder
                 </p>
-                <h2 className="font-display text-ink mt-3 text-3xl md:text-4xl">
+                <h2 className="font-display text-ink mt-3 text-2xl sm:text-3xl md:text-4xl">
                   You’re not a ticket number—you’re a conversation.
                 </h2>
                 <p className="text-muted mt-5 leading-relaxed">
@@ -69,8 +69,8 @@ export default function AboutPage() {
                   handoffs and no “we’ll get back to you next quarter.” If something matters to your
                   business, it matters in how we work together.
                 </p>
-                <blockquote className="hairline bg-surface mt-8 rounded-[var(--radius)] border p-6 md:p-8">
-                  <p className="font-display text-ink text-xl leading-snug md:text-2xl">
+                <blockquote className="hairline bg-surface mt-6 rounded-[var(--radius)] border p-5 sm:mt-8 sm:p-6 md:p-8">
+                  <p className="font-display text-ink text-lg leading-snug sm:text-xl md:text-2xl">
                     “A good site should feel like someone listened—then made it easy for people to
                     say yes.”
                   </p>
@@ -83,13 +83,13 @@ export default function AboutPage() {
 
       <section className="hairline bg-surface border-y">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="py-16 md:py-24">
+          <div className="py-12 sm:py-16 md:py-24">
             <div className="grid gap-10 md:grid-cols-12 md:items-start">
               <div className="md:col-span-5">
                 <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                   How we work
                 </p>
-                <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02]">
+                <h2 className="fade-in-up font-display text-ink mt-4 text-2xl leading-[1.06] sm:mt-5 sm:text-3xl md:mt-6 md:text-4xl md:leading-[1.02]">
                   Hands-on, plain language, no runaround.
                 </h2>
               </div>
@@ -181,13 +181,13 @@ export default function AboutPage() {
       <section className="relative overflow-hidden">
         <BackgroundOrbs className="opacity-85" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="py-16 md:py-24">
+          <div className="py-12 sm:py-16 md:py-24">
             <div className="grid gap-10 md:grid-cols-12 md:items-end">
               <div className="md:col-span-7">
                 <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                   A few snapshots
                 </p>
-                <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
+                <h2 className="fade-in-up font-display text-ink mt-4 text-2xl leading-[1.06] sm:mt-5 sm:text-3xl md:mt-6 md:text-4xl md:leading-[1.02] lg:text-5xl">
                   Polished enough to impress—practical enough to live in.
                 </h2>
               </div>
@@ -216,13 +216,13 @@ export default function AboutPage() {
           </div>
         </div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="py-16 md:py-24">
+          <div className="py-12 sm:py-16 md:py-24">
             <div className="grid gap-10 md:grid-cols-12 md:items-end">
               <div className="md:col-span-8">
                 <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                   Next step
                 </p>
-                <h2 className="fade-in-up font-display mt-6 text-4xl leading-[1.02] md:text-5xl">
+                <h2 className="fade-in-up font-display mt-4 text-2xl leading-[1.06] sm:mt-5 sm:text-3xl md:mt-6 md:text-4xl md:leading-[1.02] lg:text-5xl">
                   Say hello—we’ll figure out the rest together.
                 </h2>
                 <p className="fade-in-up mt-6 max-w-2xl leading-relaxed text-white/70">

@@ -1,14 +1,20 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { CONTACT_EMAIL, CONTACT_EMAIL_HREF, publicAssetPath, SITE } from '@/lib/site';
+
+import { Button } from '@/components/ui/Button';
+import { CALENDLY_URL, CONTACT_EMAIL, CONTACT_EMAIL_HREF, publicAssetPath, SITE } from '@/lib/site';
 
 const portfolioUrl = SITE.portfolioUrl;
+
+const labelMuted = 'text-[11px] font-semibold uppercase tracking-[0.16em] text-white/45';
+const labelGold =
+  'text-[11px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]';
 
 function Icon({
   name,
   className = 'h-5 w-5',
 }: {
-  name: 'mail' | 'calendar' | 'instagram' | 'linkedin' | 'x';
+  name: 'mail' | 'calendar' | 'chevron' | 'instagram' | 'linkedin' | 'x' | 'external';
   className?: string;
 }) {
   switch (name) {
@@ -45,6 +51,18 @@ function Icon({
             strokeLinejoin="round"
           />
           <path d="M7.25 11.5h4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+        </svg>
+      );
+    case 'chevron':
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M10 7.5 15 12l-5 4.5"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
       );
     case 'instagram':
@@ -89,17 +107,47 @@ function Icon({
           />
         </svg>
       );
+    case 'external':
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M7 17L17 7M7 7h10v10"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      );
   }
 }
+
+const exploreLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/services', label: 'Services' },
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/pricing', label: 'Packages' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+] as const;
+
+const socialLinks = [
+  { href: SITE.social.instagram, label: 'Instagram', icon: 'instagram' as const },
+  { href: SITE.social.linkedin, label: 'LinkedIn', icon: 'linkedin' as const },
+  { href: 'https://x.com/seaforthco', label: 'X', icon: 'x' as const },
+] as const;
+
+const linkRow =
+  'group inline-flex min-h-11 items-start gap-2.5 py-1.5 text-sm text-white/75 transition-colors hover:text-white sm:min-h-0 sm:py-0';
 
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="hairline border-t bg-[color:var(--contrast-bg)] text-[color:var(--contrast-ink)]">
+    <footer className="hairline border-t bg-[color:var(--contrast-bg)] pb-[max(0px,env(safe-area-inset-bottom,0px))] text-[color:var(--contrast-ink)]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-12 py-16 md:grid-cols-[1.1fr_0.8fr_0.8fr_1.1fr]">
-          <div className="space-y-6">
+        <div className="grid gap-10 py-12 sm:gap-12 sm:py-14 md:gap-14 lg:grid-cols-12 lg:gap-12 lg:py-20">
+          <div className="order-2 space-y-5 lg:order-none lg:col-span-4">
             <div className="flex items-center gap-4">
               <Image
                 src={publicAssetPath(SITE.logoPath)}
@@ -110,98 +158,13 @@ export function Footer() {
                 style={{ filter: 'var(--logo-filter)' }}
               />
             </div>
-            <p className="text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
-              Website design studio
-            </p>
-            <p className="text-contrast-muted max-w-md leading-relaxed">
-              Founder-led builds—custom UI, disciplined front ends, sites that stay sharp after
+            <p className={labelGold}>Website design studio</p>
+            <p className="text-contrast-muted max-w-sm text-sm leading-relaxed">
+              Small-shop sites—custom code or Squarespace—with the same person from kickoff to
               launch.
             </p>
-          </div>
-
-          <div className="space-y-4">
-            <p className="text-contrast-muted text-[12px] font-semibold tracking-[0.16em] uppercase">
-              Contact
-            </p>
-            <div className="min-w-0 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-              <div className="grid w-max min-w-full gap-3">
-                <a
-                  href={CONTACT_EMAIL_HREF}
-                  className="hover:text-contrast flex items-center gap-3 text-nowrap text-white/80 transition-colors"
-                >
-                  <span className="shrink-0 text-[color:var(--brand-gold)]">
-                    <Icon name="mail" />
-                  </span>
-                  <span>{CONTACT_EMAIL}</span>
-                </a>
-                <Link
-                  href="/contact"
-                  className="hover:text-contrast inline-flex items-center gap-3 text-nowrap text-white/80 transition-colors"
-                >
-                  <span className="shrink-0 text-[color:var(--brand-gold)]">
-                    <Icon name="calendar" />
-                  </span>
-                  Start a project
-                </Link>
-                <a
-                  href={portfolioUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-contrast inline-flex items-center gap-3 text-nowrap text-white/80 transition-colors"
-                >
-                  <span className="shrink-0 text-[color:var(--brand-gold)]" aria-hidden>
-                    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M7 17L17 7M7 7h10v10"
-                        stroke="currentColor"
-                        strokeWidth="1.6"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                  Personal site
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <p className="text-contrast-muted text-[12px] font-semibold tracking-[0.16em] uppercase">
-              Explore
-            </p>
-            <nav className="grid gap-2" aria-label="Footer navigation">
-              {[
-                { href: '/', label: 'Home' },
-                { href: '/services', label: 'Services' },
-                { href: '/portfolio', label: 'Portfolio' },
-                { href: '/pricing', label: 'Packages' },
-                { href: '/about', label: 'About' },
-                { href: '/contact', label: 'Contact' },
-              ].map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-contrast-muted hover:text-contrast link-underline decoration-white/0 transition-colors hover:decoration-white/40"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-            <div className="flex items-center gap-3 pt-2">
-              {[
-                {
-                  href: SITE.social.instagram,
-                  label: 'Instagram',
-                  icon: 'instagram' as const,
-                },
-                {
-                  href: SITE.social.linkedin,
-                  label: 'LinkedIn',
-                  icon: 'linkedin' as const,
-                },
-                { href: 'https://x.com/seaforthco', label: 'X', icon: 'x' as const },
-              ].map((s) => (
+            <div className="flex flex-wrap gap-2 pt-1">
+              {socialLinks.map((s) => (
                 <a
                   key={s.href}
                   href={s.href}
@@ -209,57 +172,135 @@ export function Footer() {
                   rel="noopener noreferrer"
                   aria-label={s.label}
                   className={[
-                    'inline-flex h-11 w-11 items-center justify-center rounded-full',
-                    'border border-white/10 bg-white/5',
-                    'transition-colors hover:bg-white/10',
+                    'inline-flex h-10 w-10 items-center justify-center rounded-full',
+                    'border border-white/10 bg-white/5 transition-colors hover:bg-white/10',
                   ].join(' ')}
                 >
                   <span className="text-[color:var(--brand-gold)]">
-                    <Icon name={s.icon} className="h-5 w-5" />
+                    <Icon name={s.icon} className="h-[18px] w-[18px]" />
                   </span>
                 </a>
               ))}
             </div>
           </div>
 
-          <div className="space-y-4">
-            <p className="text-contrast-muted text-[12px] font-semibold tracking-[0.16em] uppercase">
-              Newsletter
-            </p>
-            <p className="text-contrast-muted max-w-sm leading-relaxed">
-              Occasional notes on design systems and what ships next.
-            </p>
-            <div className="rounded-[var(--radius-lg)] border border-white/10 bg-white/5 p-4">
-              <div
-                className="hs-form-frame"
-                data-region="na2"
-                data-portal-id="244016246"
-                data-form-id="13ce96c6-c345-442d-9c77-6c4202811cf5"
-              />
+          <div className="order-3 grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10 lg:order-none lg:col-span-4">
+            <div className="min-w-0 space-y-3 sm:space-y-4">
+              <p className={labelMuted}>Explore</p>
+              <nav className="flex flex-col gap-0.5" aria-label="Footer navigation">
+                {exploreLinks.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="text-contrast-muted hover:text-contrast flex min-h-11 items-center rounded-md py-1 text-sm transition-colors sm:min-h-0 sm:py-0"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+
+            <div className="min-w-0 space-y-3 sm:space-y-4">
+              <p className={labelMuted}>Connect</p>
+              <ul className="flex flex-col gap-1 sm:gap-3">
+                <li>
+                  <a href={CONTACT_EMAIL_HREF} className={`${linkRow} rounded-md`}>
+                    <span className="mt-0.5 shrink-0 text-[color:var(--brand-gold)]">
+                      <Icon name="mail" className="h-4 w-4" />
+                    </span>
+                    <span className="min-w-0 break-words">{CONTACT_EMAIL}</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={CALENDLY_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={linkRow}
+                  >
+                    <span className="mt-0.5 shrink-0 text-[color:var(--brand-gold)]">
+                      <Icon name="calendar" className="h-4 w-4" />
+                    </span>
+                    Book a call
+                  </a>
+                </li>
+                <li>
+                  <Link href="/contact" className={linkRow}>
+                    <span className="mt-0.5 shrink-0 text-[color:var(--brand-gold)]">
+                      <Icon name="chevron" className="h-4 w-4" />
+                    </span>
+                    Contact page
+                  </Link>
+                </li>
+                <li>
+                  <a
+                    href={portfolioUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={linkRow}
+                  >
+                    <span className="mt-0.5 shrink-0 text-[color:var(--brand-gold)]" aria-hidden>
+                      <Icon name="external" className="h-4 w-4" />
+                    </span>
+                    Personal site
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="order-1 lg:order-none lg:col-span-4">
+            <div className="hairline flex flex-col gap-4 rounded-[var(--radius-lg)] border border-white/12 bg-white/[0.04] p-5 sm:gap-5 sm:p-6 md:p-7">
+              <div className="space-y-2">
+                <p className={labelGold}>Say hello</p>
+                <h2 className="font-display text-xl leading-snug text-white sm:text-2xl">
+                  Start with an email
+                </h2>
+                <p className="text-contrast-muted text-sm leading-relaxed">
+                  Opens your mail app with the subject line and a short template to fill in—no form,
+                  no third-party embed.
+                </p>
+              </div>
+              <Button
+                href={CONTACT_EMAIL_HREF}
+                variant="accent"
+                className="w-full rounded-full px-6 py-3.5 sm:w-auto"
+              >
+                Compose email
+              </Button>
+              <p className="font-mono text-[11px] leading-relaxed text-white/35">
+                Prefer another path? Use the links in Connect or the full{' '}
+                <Link href="/contact" className="text-white/55 underline-offset-2 hover:text-white">
+                  contact page
+                </Link>
+                .
+              </p>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8">
-          <div className="flex flex-col gap-6 md:flex-row md:justify-between">
-            <div className="space-y-4">
+        <div className="border-t border-white/10 py-8">
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
+            <div className="max-w-xl space-y-3">
               <p className="font-mono text-[13px] text-white/45">
                 © {year} SeaForth Strategies. All rights reserved.
               </p>
-              <p className="max-w-xl text-[11px] leading-relaxed text-white/30">
-                SeaForth Strategies is a website design and development studio. All trademarks,
-                logos, and brand names are the property of their respective owners. Use of this site
-                constitutes acceptance of our terms and privacy policy.
+              <p className="text-[11px] leading-relaxed text-white/30">
+                SeaForth Strategies is a website design and development studio. Trademarks, logos,
+                and brand names belong to their respective owners. Use of this site constitutes
+                acceptance of our terms and privacy policy.
               </p>
             </div>
-            <div className="flex flex-col gap-3 text-sm text-white/40 sm:flex-row sm:gap-6">
+            <div className="flex flex-col gap-3 text-sm text-white/40 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-2">
               <Link href="/privacy" className="transition-colors hover:text-white">
                 Privacy Policy
               </Link>
               <Link href="/terms" className="transition-colors hover:text-white">
                 Terms of Service
               </Link>
-              <span className="hidden text-white/10 sm:inline">|</span>
+              <span className="hidden text-white/15 sm:inline" aria-hidden>
+                |
+              </span>
               <p>Crafted in Southern California.</p>
             </div>
           </div>

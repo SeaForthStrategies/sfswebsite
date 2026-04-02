@@ -9,19 +9,19 @@ export function HomePackagesSection() {
   return (
     <section className="hairline bg-pop border-y" id="packages">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="py-16 md:py-24">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className="py-12 sm:py-16 md:py-24">
+          <div className="flex flex-col gap-5 sm:gap-6 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
               <p className="fade-in-up label-tech text-[color:var(--brand-gold)]">Packages</p>
-              <h2 className="fade-in-up stagger-1 font-display text-ink mt-6 text-4xl leading-[1.02] tracking-[-0.02em] md:text-5xl">
+              <h2 className="fade-in-up stagger-1 font-display text-ink mt-4 text-2xl leading-[1.06] tracking-[-0.02em] sm:mt-5 sm:text-3xl md:mt-6 md:text-4xl md:leading-[1.02] lg:text-5xl">
                 Starting prices & deliverables
               </h2>
-              <p className="fade-in-up stagger-2 text-muted mt-5 max-w-xl leading-relaxed">
+              <p className="fade-in-up stagger-2 text-muted mt-4 max-w-xl text-sm leading-relaxed sm:mt-5 sm:text-base">
                 Two paths—custom development or Squarespace design. Final scope is confirmed after
                 an alignment call.
               </p>
             </div>
-            <div className="fade-in-up stagger-3 flex flex-wrap items-center gap-x-6 gap-y-2">
+            <div className="fade-in-up stagger-3 flex flex-wrap items-center gap-x-5 gap-y-2 sm:gap-x-6">
               <Link
                 href="/pricing"
                 className="link-underline text-ink/80 hover:text-ink font-mono text-[12px] font-semibold tracking-[0.12em] uppercase"
@@ -37,19 +37,19 @@ export function HomePackagesSection() {
             </div>
           </div>
 
-          <div className="mt-12 grid gap-6 lg:grid-cols-2 lg:items-stretch">
+          <div className="mt-8 grid gap-5 sm:mt-10 sm:gap-6 lg:mt-12 lg:grid-cols-2 lg:items-stretch">
             {SERVICE_PACKAGES.map((pkg, idx) => (
               <div
                 key={pkg.name}
                 className={[
                   'fade-in-up',
                   `stagger-${Math.min(idx + 1, 6)}`,
-                  'tech-panel hover-lift hairline shadow-soft flex h-full flex-col overflow-hidden rounded-[var(--radius-lg)] border bg-[color:var(--bg)]/90 p-7 md:p-8',
+                  'tech-panel hover-lift hairline shadow-soft flex h-full flex-col overflow-hidden rounded-[var(--radius-lg)] border bg-[color:var(--bg)]/90 p-5 sm:p-6 md:p-8',
                   pkg.featured ? 'ring-1 ring-[color:var(--brand-teal)]' : '',
                 ].join(' ')}
               >
                 <div className="flex flex-wrap items-baseline justify-between gap-3">
-                  <h3 className="font-display text-ink text-2xl tracking-tight md:text-3xl">
+                  <h3 className="font-display text-ink text-xl tracking-tight sm:text-2xl md:text-3xl">
                     {pkg.name}
                   </h3>
                   {pkg.badge ? (

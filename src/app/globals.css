@@ -66,7 +66,9 @@
   /* Assets */
   --logo-filter: none;
 
-  /* Layout */
+  /* Layout — fixed nav bar content height (safe-area added in components / .app-main) */
+  --header-bar: 76px;
+
   --radius: 18px;
   --radius-lg: 28px;
   /* Flatter “resume / editorial” elevation — still readable in light + dark sections */
@@ -111,7 +113,8 @@ video {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: geometricPrecision;
   scroll-behavior: smooth;
-  scroll-padding-top: 96px;
+  /* Anchor offset below fixed header + notch */
+  scroll-padding-top: calc(var(--header-bar) + env(safe-area-inset-top, 0px) + 12px);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -167,7 +170,7 @@ video {
 /* (Intentionally removed global aurora animation for a cleaner, more “quiet luxury” feel.) */
 
 .app-main {
-  padding-top: 76px;
+  padding-top: calc(var(--header-bar) + env(safe-area-inset-top, 0px));
   position: relative;
   z-index: 1;
 }

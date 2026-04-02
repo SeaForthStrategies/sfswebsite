@@ -54,7 +54,7 @@ export function Navigation() {
   return (
     <header
       className={[
-        'fixed inset-x-0 top-0 z-[1000]',
+        'fixed inset-x-0 top-0 z-[1000] pt-[env(safe-area-inset-top,0px)]',
         'transition-[background,box-shadow,border-color] duration-300',
         'backdrop-blur-md',
         isOpen
@@ -65,7 +65,7 @@ export function Navigation() {
       ].join(' ')}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative flex h-[76px] items-center justify-between">
+        <div className="relative flex h-[var(--header-bar)] items-center justify-between">
           {/* Logo */}
           <Link
             href="/"
@@ -165,8 +165,9 @@ export function Navigation() {
           aria-label="Mobile navigation"
           className={[
             'absolute top-0 right-0 left-0',
-            'mt-[76px]',
-            'shadow-premium hairline rounded-b-[28px] border-b bg-[color:var(--bg)] px-6 pt-6 pb-8',
+            'mt-[calc(var(--header-bar)+env(safe-area-inset-top,0px))]',
+            'max-h-[calc(100dvh-var(--header-bar)-env(safe-area-inset-top,0px))] overflow-y-auto overscroll-y-contain',
+            'shadow-premium hairline rounded-b-[28px] border-b bg-[color:var(--bg)] px-5 pt-5 pb-[max(1.5rem,env(safe-area-inset-bottom,0px))] sm:px-6 sm:pt-6',
             'transition-all duration-300',
             isOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0',
           ].join(' ')}
@@ -192,7 +193,7 @@ export function Navigation() {
                   aria-current={isActive ? 'page' : undefined}
                   onClick={() => setIsOpen(false)}
                   className={[
-                    'flex items-center justify-between rounded-2xl px-4 py-4 text-[15px] font-semibold transition-all duration-300',
+                    'flex min-h-[48px] items-center justify-between rounded-2xl px-4 py-3.5 text-[15px] font-semibold transition-all duration-300',
                     isActive
                       ? 'shadow-soft bg-[color:var(--brand-teal)] text-white'
                       : 'text-ink hover:text-ink bg-[color:var(--surface)]/70 hover:bg-[color:var(--surface)]',

@@ -53,11 +53,11 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
+  viewportFit: 'cover',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
-  const hubspotPortalId = process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID;
   const logoUrl = new URL(SITE.logoPath, SITE.url).toString();
 
   return (
@@ -85,15 +85,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               `}
             </Script>
           </>
-        ) : null}
-
-        {/* HubSpot Forms (Newsletter) */}
-        {hubspotPortalId ? (
-          <Script
-            id="hs-forms-embed"
-            src={`https://js-na2.hsforms.net/forms/embed/${hubspotPortalId}.js`}
-            strategy="afterInteractive"
-          />
         ) : null}
 
         {/* Structured Data */}
