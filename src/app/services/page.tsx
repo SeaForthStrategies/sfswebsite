@@ -9,12 +9,12 @@ import { PortfolioGallery } from '@/components/visual/PortfolioGallery';
 import { TechStackLogos } from '@/components/visual/TechStackLogos';
 import { SERVICE_PACKAGES } from '@/data/packages';
 import { PORTFOLIO_GALLERY_ITEMS } from '@/lib/portfolio';
-import { CONTACT_EMAIL_HREF } from '@/lib/site';
+import { CONTACT_EMAIL_HREF, mailtoPackageInterest } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Services',
   description:
-    'SeaForth Strategies—custom website development, Squarespace design, stack expertise, and launch-ready delivery for teams who care how their site feels and performs.',
+    'SeaForth Strategies—custom website development, Squarespace design, starting packages with deliverables, stack expertise, and launch-ready delivery.',
 };
 
 const skillAreas = [
@@ -62,12 +62,12 @@ export default function ServicesPage() {
                 >
                   Custom development
                 </Link>
-                <Link
-                  href="/pricing"
+                <a
+                  href="#packages"
                   className="hover-wiggle hairline text-ink/75 rounded-full border bg-[color:var(--bg)]/60 px-4 py-2 text-[12px] font-semibold tracking-[0.14em] uppercase"
                 >
                   Packages
-                </Link>
+                </a>
                 <Link
                   href="/portfolio"
                   className="hover-wiggle hairline text-ink/75 rounded-full border bg-[color:var(--bg)]/60 px-4 py-2 text-[12px] font-semibold tracking-[0.14em] uppercase"
@@ -126,65 +126,124 @@ export default function ServicesPage() {
               .
             </p>
 
-            <div className="fade-in-up mt-16 md:mt-20">
-              <div className="hairline bg-surface shadow-soft rounded-[var(--radius-lg)] border p-7 md:p-10">
+            <div
+              id="packages"
+              className="fade-in-up mt-16 scroll-mt-[calc(var(--header-bar)+1rem)] md:mt-20"
+            >
+              <div className="max-w-2xl">
                 <p className="text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
-                  Packages
+                  Compare
                 </p>
-                <h2 className="font-display text-ink mt-4 text-3xl leading-[1.05] tracking-[-0.02em] md:mt-5 md:text-4xl">
-                  Where each engagement begins
+                <h2 className="font-display text-ink mt-6 text-4xl leading-[1.02] tracking-[-0.02em] md:text-5xl">
+                  Development or design.
                 </h2>
-                <p className="text-muted mt-4 max-w-2xl leading-relaxed md:mt-5">
-                  Engagements are structured as Development (custom code, Git-based workflow) or
-                  Design (Squarespace). This is the snapshot—starting price and positioning only.
-                  Deliverables, hosting responsibilities, and fit notes are itemized end-to-end on{' '}
-                  <Link href="/pricing" className="link-underline text-ink/80 hover:text-ink">
-                    Packages
-                  </Link>
-                  .
+                <p className="text-muted mt-5 leading-relaxed">
+                  Starting prices, hosting and account rules, and deliverables for each tier.
+                  Figures assume a typical first phase. After we talk, the estimate reflects your
+                  pages, integrations, and timeline—nothing moves to contract until you have it in
+                  writing.
                 </p>
-
-                <div className="mt-8 grid gap-5 sm:grid-cols-2">
-                  {SERVICE_PACKAGES.map((p, idx) => (
-                    <div
-                      key={p.name}
-                      className={[
-                        'hairline flex flex-col rounded-[var(--radius)] border bg-[color:var(--bg)]/70 p-6',
-                        p.featured ? 'ring-1 ring-[color:var(--brand-teal)]/50' : '',
-                        'fade-in-up',
-                        `stagger-${Math.min(idx + 1, 6)}`,
-                      ].join(' ')}
-                    >
-                      <p className="text-ink/60 text-[11px] font-semibold tracking-[0.16em] uppercase">
-                        {p.badge}
-                      </p>
-                      <h3 className="font-display text-ink mt-2 text-xl tracking-tight md:text-2xl">
-                        {p.name}
-                      </h3>
-                      <p className="text-ink mt-3 text-2xl font-semibold tabular-nums md:text-3xl">
-                        {p.price}
-                      </p>
-                      <p className="text-muted mt-3 text-sm leading-relaxed">{p.hook}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-                  <Button
-                    href="/pricing"
-                    className="shadow-soft w-full rounded-full bg-[color:var(--brand-teal)] px-7 py-4 text-white hover:bg-[color:var(--brand-teal-dark)] sm:w-auto"
-                  >
-                    Full comparison
-                  </Button>
-                  <Button
-                    href={CONTACT_EMAIL_HREF}
-                    variant="secondary"
-                    className="w-full rounded-full sm:w-auto"
-                  >
-                    Email first
-                  </Button>
-                </div>
               </div>
+
+              <div className="mt-12 grid gap-6 lg:grid-cols-2 lg:items-stretch">
+                {SERVICE_PACKAGES.map((p, idx) => (
+                  <div
+                    key={p.name}
+                    className={[
+                      'fade-in-up',
+                      `stagger-${Math.min(idx + 1, 6)}`,
+                      'hairline bg-surface shadow-soft flex h-full flex-col rounded-[var(--radius-lg)] border',
+                      p.featured ? 'ring-1 ring-[color:var(--brand-teal)]' : '',
+                    ].join(' ')}
+                  >
+                    <div className="flex h-full flex-col p-7 md:p-8">
+                      <div className="flex flex-wrap items-start justify-between gap-4">
+                        <div>
+                          <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
+                            {p.badge ?? 'Package'}
+                          </p>
+                          <h3 className="font-display text-ink mt-2 text-3xl tracking-tight break-words">
+                            {p.name}
+                          </h3>
+                        </div>
+                        <div className="text-left sm:text-right">
+                          <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
+                            Starting at
+                          </p>
+                          <p className="text-ink mt-2 text-3xl font-semibold tabular-nums">
+                            {p.price}
+                          </p>
+                        </div>
+                      </div>
+
+                      <p className="text-ink mt-5 leading-snug font-medium">{p.hook}</p>
+                      <p className="text-muted mt-3 text-sm leading-relaxed">{p.audience}</p>
+
+                      <div className="hairline mt-6 border-t pt-6">
+                        <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
+                          Your account
+                        </p>
+                        <p className="text-muted mt-3 text-sm leading-relaxed">{p.clientAccount}</p>
+                      </div>
+
+                      <div className="hairline mt-8 border-t pt-8">
+                        <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
+                          Deliverables
+                        </p>
+                        <ul className="text-muted mt-4 space-y-3">
+                          {p.deliverables.map((d) => (
+                            <li key={d} className="flex min-w-0 gap-3">
+                              <span className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--brand-gold)]" />
+                              <span className="min-w-0 break-words">{d}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="mt-auto pt-10">
+                        <Button
+                          href={mailtoPackageInterest(p.name)}
+                          className={[
+                            'w-full rounded-full py-4',
+                            p.featured
+                              ? 'bg-[color:var(--brand-teal)] text-white hover:bg-[color:var(--brand-teal-dark)]'
+                              : 'bg-[color:var(--ink)] text-[color:var(--bg)] hover:bg-[color:var(--brand-teal)]',
+                          ].join(' ')}
+                        >
+                          Discuss {p.name.toLowerCase()}
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="hairline bg-surface shadow-soft mt-14 rounded-[var(--radius-lg)] border p-7 md:p-10">
+                <p className="text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
+                  After launch
+                </p>
+                <h2 className="font-display text-ink mt-4 text-2xl tracking-tight md:text-3xl">
+                  Ongoing support
+                </h2>
+                <p className="text-muted mt-4 max-w-2xl leading-relaxed">
+                  Retainers for updates, performance checks, and iteration are available—scoped
+                  monthly to how often you ship.
+                </p>
+                <Button
+                  href={CONTACT_EMAIL_HREF}
+                  className="mt-8 w-full rounded-full bg-[color:var(--ink)] py-4 text-[color:var(--bg)] hover:bg-[color:var(--brand-teal)] sm:w-auto"
+                >
+                  Ask about retainers
+                </Button>
+              </div>
+
+              <p className="fade-in-up text-muted mt-10 text-sm">
+                Not sure which path fits?{' '}
+                <Link href="/contact" className="link-underline text-ink/80 hover:text-ink">
+                  Send a message
+                </Link>
+                .
+              </p>
             </div>
 
             <div className="mt-16 md:mt-20">
@@ -206,6 +265,43 @@ export default function ServicesPage() {
               </div>
 
               <PortfolioGallery className="mt-12" items={PORTFOLIO_GALLERY_ITEMS} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="faq"
+        className="hairline bg-surface scroll-mt-[calc(var(--header-bar)+1rem)] border-y"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="py-16 md:py-24">
+            <div className="max-w-3xl">
+              <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
+                FAQ
+              </p>
+              <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] tracking-[-0.02em] md:text-5xl">
+                Short answers.
+              </h2>
+            </div>
+
+            <div className="mt-10 grid gap-3 md:max-w-4xl">
+              <FaqItem
+                q="Is the design custom?"
+                a="Yes. Layout and UI are bespoke; packages define where we start, not a template skin."
+              />
+              <FaqItem
+                q="Do you write copy?"
+                a="I can guide structure and tighten messaging. Full copywriting is available when scoped."
+              />
+              <FaqItem
+                q="What do you build in?"
+                a="Development is usually Next.js with GitHub and deploys on Vercel. Design projects are built on Squarespace—structured, styled, and launched there, which keeps cost lower than a full custom stack."
+              />
+              <FaqItem
+                q="Who pays for hosting and Squarespace?"
+                a="For design on Squarespace, you create your own account and pay Squarespace for your plan. For custom development, hosting the site includes a $30 fee paid to SeaForth Strategies (separate from the project quote)."
+              />
             </div>
           </div>
         </div>
@@ -240,14 +336,15 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="bg-[color:var(--contrast-bg)] text-[color:var(--contrast-ink)]">
-        <div className="relative overflow-hidden">
-          <BackgroundOrbs variant="dark" className="opacity-95" />
-          <div className="absolute inset-0 opacity-60">
-            <Sparkles color="rgba(213, 163, 83, 0.75)" />
-          </div>
+      <section className="relative overflow-hidden bg-[color:var(--contrast-bg)] text-[color:var(--contrast-ink)]">
+        <BackgroundOrbs
+          variant="dark"
+          className="pointer-events-none absolute inset-0 opacity-95"
+        />
+        <div className="pointer-events-none absolute inset-0 opacity-60">
+          <Sparkles color="rgba(213, 163, 83, 0.75)" />
         </div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="py-16 md:py-24">
             <div className="grid gap-10 md:grid-cols-12 md:items-end">
               <div className="md:col-span-8">
@@ -258,12 +355,16 @@ export default function ServicesPage() {
                   Prefer to talk before you read tiers?
                 </h2>
                 <p className="fade-in-up mt-6 max-w-2xl leading-relaxed text-white/70">
-                  Send goals and constraints—I will suggest a stack and tier. When you want every
-                  line item, the{' '}
-                  <Link href="/pricing" className="link-underline text-white/90 hover:text-white">
-                    Packages
-                  </Link>{' '}
-                  page holds the full write-up.
+                  Send goals and constraints—I will suggest a stack and tier. Starting prices and
+                  line items are{' '}
+                  <a href="#packages" className="link-underline text-white/90 hover:text-white">
+                    above
+                  </a>
+                  ; quick questions live in the{' '}
+                  <a href="#faq" className="link-underline text-white/90 hover:text-white">
+                    FAQ
+                  </a>
+                  .
                 </p>
               </div>
               <div className="flex flex-col gap-3 md:col-span-4">
@@ -274,17 +375,35 @@ export default function ServicesPage() {
                 >
                   Email SeaForth
                 </Button>
-                <Link
-                  href="/pricing"
+                <a
+                  href="#packages"
                   className="text-center text-sm font-medium text-white/70 underline-offset-4 transition-colors hover:text-white"
                 >
-                  Open Packages
-                </Link>
+                  Jump to packages
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
     </>
+  );
+}
+
+function FaqItem({ q, a }: { q: string; a: string }) {
+  return (
+    <div className="hairline group rounded-[var(--radius)] border bg-[color:var(--bg)] transition-colors hover:border-[color:color-mix(in_srgb,var(--brand-teal),transparent_55%)]">
+      <details className="w-full">
+        <summary className="flex cursor-pointer list-none items-start justify-between gap-4 p-6 focus:outline-none">
+          <span className="text-ink min-w-0 text-lg font-semibold break-words transition-colors group-hover:text-[color:var(--brand-teal)]">
+            {q}
+          </span>
+          <span className="font-display shrink-0 text-2xl text-[color:var(--brand-gold)] select-none">
+            ＋
+          </span>
+        </summary>
+        <div className="text-muted px-6 pt-0 pb-6 leading-relaxed">{a}</div>
+      </details>
+    </div>
   );
 }

@@ -1,6 +1,6 @@
 /**
  * Two primary services: Development (custom code, GitHub, Vercel) vs. Design (Squarespace—lower entry).
- * Used on pricing, home packages, and services overview.
+ * Used on the home packages section and services page.
  */
 export const SERVICE_PACKAGES = [
   {

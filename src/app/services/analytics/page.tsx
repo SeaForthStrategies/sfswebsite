@@ -172,7 +172,7 @@ export default function AnalyticsPage() {
                 </div>
                 <div className="md:col-span-4">
                   <Link
-                    href="/pricing"
+                    href="/services#packages"
                     className="inline-flex w-full items-center justify-center rounded-full bg-[color:var(--ink)] px-7 py-4 text-[13px] font-semibold tracking-[0.08em] text-[color:var(--bg)] uppercase transition-colors hover:bg-[color:var(--brand-teal)]"
                   >
                     View packages

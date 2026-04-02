@@ -107,8 +107,11 @@ export default function ContactPage() {
                   <p className="text-muted mt-3 text-sm leading-relaxed">
                     Starting prices, account rules, and deliverables for development and design are
                     on{' '}
-                    <Link href="/pricing" className="link-underline text-ink/80 hover:text-ink">
-                      Packages
+                    <Link
+                      href="/services#packages"
+                      className="link-underline text-ink/80 hover:text-ink"
+                    >
+                      Services
                     </Link>
                     .
                   </p>

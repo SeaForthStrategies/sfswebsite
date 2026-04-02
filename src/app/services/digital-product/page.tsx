@@ -60,7 +60,7 @@ export default function DigitalProductPage() {
                 </ul>
                 <div className="fade-in-up mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
                   <Link
-                    href="/pricing"
+                    href="/services#packages"
                     className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold tracking-[0.08em] uppercase"
                   >
                     View packages

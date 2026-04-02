@@ -70,7 +70,7 @@ export default function MarketingStrategyPage() {
                     Explore skills
                   </Link>
                   <Link
-                    href="/pricing"
+                    href="/services#packages"
                     className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold tracking-[0.08em] uppercase"
                   >
                     View packages

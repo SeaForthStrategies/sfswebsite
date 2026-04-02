@@ -23,10 +23,10 @@ export function HomePackagesSection() {
             </div>
             <div className="fade-in-up stagger-3 flex flex-wrap items-center gap-x-5 gap-y-2 sm:gap-x-6">
               <Link
-                href="/pricing"
+                href="/services#packages"
                 className="link-underline text-ink/80 hover:text-ink font-mono text-[12px] font-semibold tracking-[0.12em] uppercase"
               >
-                Full pricing
+                Full details
               </Link>
               <Link
                 href="/services"

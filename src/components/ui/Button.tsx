@@ -22,6 +22,11 @@ function isInternalHref(href: string) {
   return href.startsWith('/') && !href.startsWith('//');
 }
 
+function shouldUseNativeAnchor(href: string) {
+  /** Hash URLs and long `mailto:` query strings are more reliable as real `<a>` than `<Link>`. */
+  return href.includes('#') || href.startsWith('mailto:') || href.startsWith('tel:');
+}
+
 export function Button({
   variant = 'primary',
   href,
@@ -35,7 +40,7 @@ export function Button({
   const tech = variant === 'ghost' ? '' : 'btn-tech';
   const classes = `${base} ${tech} ${variants[variant] ?? variants.primary} ${className}`;
 
-  if (isInternalHref(href)) {
+  if (isInternalHref(href) && !shouldUseNativeAnchor(href)) {
     return (
       <Link href={href} className={classes} {...rest}>
         {children}

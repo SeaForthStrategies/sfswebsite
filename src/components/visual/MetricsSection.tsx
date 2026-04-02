@@ -253,7 +253,7 @@ export function MetricsSection() {
                   Skills
                 </Link>
                 <Link
-                  href="/pricing"
+                  href="/services#packages"
                   className="hover-wiggle hairline text-ink/75 rounded-full border bg-[color:var(--bg)]/60 px-4 py-2 text-[12px] font-semibold tracking-[0.14em] uppercase"
                 >
                   View packages
