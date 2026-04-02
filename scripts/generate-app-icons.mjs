@@ -1,6 +1,6 @@
 /**
- * Build Next.js app icons from the site logo (square, letterboxed, transparent).
- * Run: pnpm exec node scripts/generate-app-icons.mjs
+ * Build Next.js app icons from the wave mark (square, letterboxed, transparent padding).
+ * Run: pnpm generate-app-icons
  */
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -8,7 +8,8 @@ import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const logo = join(root, 'public/images/logo.png');
+/** Brand wave mark used for tab + home-screen icons (not the full wordmark). */
+const logo = join(root, 'public/images/wave-mark.png');
 const iconOut = join(root, 'src/app/icon.png');
 const appleOut = join(root, 'src/app/apple-icon.png');
 
