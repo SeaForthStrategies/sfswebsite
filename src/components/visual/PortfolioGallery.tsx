@@ -31,12 +31,12 @@ export function PortfolioGallery({
                   : 'overflow-hidden rounded-[var(--radius-lg)]',
               ].join(' ')}
             >
-              <div className="relative aspect-[16/10] w-full">
+              <div className="relative aspect-[16/10] w-full bg-[color:var(--surface)]">
                 <Image
                   src={src}
                   alt={item.alt}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                   sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 92vw"
                 />
               </div>

@@ -97,7 +97,7 @@ export function WorkPortfolioGrid({
                   src={publicAssetPath(item.src)}
                   alt=""
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="object-contain transition-opacity duration-300 group-hover:opacity-95"
                   sizes="(min-width: 1024px) 22vw, (min-width: 640px) 30vw, 46vw"
                 />
               </div>

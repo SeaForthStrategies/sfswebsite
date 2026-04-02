@@ -84,33 +84,23 @@ function ServiceIcon({ name }: { name: Service['icon'] }) {
 const services: Service[] = [
   {
     number: '01',
-    title: 'Website design',
-    summary:
-      'IA, page design, and UI—clear hierarchy and layouts built for conversion, not template filler.',
-    tags: ['UI/UX', 'Figma', 'Responsive'],
-    href: '/services',
-    image: '/images/matt-howard-R_bPhkgALY4-unsplash.jpg',
-    icon: 'layout',
-  },
-  {
-    number: '02',
     title: 'Development',
     summary:
-      'Next.js front ends, Tailwind, accessibility, performance, and launch—clean Git workflows and handoff.',
-    tags: ['Next.js', 'Tailwind', 'Launch'],
+      'Custom front ends—Next.js, GitHub, Vercel—with accessibility, performance, and launch handoff.',
+    tags: ['Next.js', 'GitHub', 'Vercel'],
     href: '/services/web-design',
     image: '/images/kellen-riggin-PifBJiBIHgw-unsplash.jpg',
     icon: 'spark',
   },
   {
-    number: '03',
-    title: 'Launch & polish',
+    number: '02',
+    title: 'Design',
     summary:
-      'Staging, QA, on-page SEO basics, and refinement—so the site is ready when you point traffic at it.',
-    tags: ['QA', 'Technical SEO', 'Handoff'],
+      'Squarespace—IA, visual design, and build. Usually a lower starting price than custom development.',
+    tags: ['Squarespace', 'IA', 'Launch'],
     href: '/pricing',
-    image: '/images/ivan-bandura-5cwigXmGWTo-unsplash.jpg',
-    icon: 'chart',
+    image: '/images/matt-howard-R_bPhkgALY4-unsplash.jpg',
+    icon: 'layout',
   },
 ];
 
@@ -121,14 +111,13 @@ export function WhatWeDoSection() {
         <div className="py-16 md:py-24">
           <div className="grid gap-10 md:grid-cols-12 md:items-start">
             <div className="md:col-span-5">
-              <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
-                Services
-              </p>
+              <p className="fade-in-up label-tech text-[color:var(--brand-gold)]">Services</p>
               <h2 className="fade-in-up stagger-1 font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
-                Website work, end to end.
+                Development or design.
               </h2>
               <p className="fade-in-up stagger-2 text-muted mt-6 leading-relaxed">
-                Design, build, and launch—what SeaForth sells. Non-web services stay out of scope.
+                Development means custom code, GitHub, and Vercel. Design is on
+                Squarespace—typically the more affordable path—both through to launch.
               </p>
 
               <div className="fade-in-up stagger-3 mt-9 flex flex-wrap items-center gap-3">
@@ -159,15 +148,21 @@ export function WhatWeDoSection() {
                 <ul className="text-muted mt-4 space-y-3 text-sm">
                   <li className="flex gap-3">
                     <span className="mt-[7px] h-2 w-2 shrink-0 rounded-full bg-[color:var(--brand-teal)]" />
-                    <span>UX + UI for key pages (home, services, pricing, contact).</span>
+                    <span>
+                      Development: responsive UI, accessibility, performance, on-page SEO basics,
+                      and a Git-backed workflow.
+                    </span>
                   </li>
                   <li className="flex gap-3">
                     <span className="mt-[7px] h-2 w-2 shrink-0 rounded-full bg-[color:var(--brand-gold)]" />
-                    <span>Responsive build + accessibility + on-page SEO basics.</span>
+                    <span>
+                      Design (Squarespace): structure, template and styling work, content setup, and
+                      launch support.
+                    </span>
                   </li>
                   <li className="flex gap-3">
                     <span className="mt-[7px] h-2 w-2 shrink-0 rounded-full bg-[color:var(--brand-teal)]" />
-                    <span>Launch checklist + QA + a clear next-steps plan after go-live.</span>
+                    <span>Launch checklist, QA, and a clear handoff after go-live.</span>
                   </li>
                 </ul>
               </div>

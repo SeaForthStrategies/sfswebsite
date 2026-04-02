@@ -6,6 +6,7 @@ import { CountUp } from '@/components/motion/CountUp';
 import { useInView } from '@/components/motion/useInView';
 import { useReducedMotion } from '@/components/motion/useReducedMotion';
 import { Sparkles } from '@/components/Sparkles';
+import { PORTFOLIO_SKILLS_URL } from '@/lib/site';
 
 type Metric = {
   value: number;
@@ -246,12 +247,14 @@ export function MetricsSection() {
               </p>
 
               <div className="fade-in-up stagger-3 mt-9 flex flex-wrap items-center gap-3">
-                <Link
-                  href="/services"
+                <a
+                  href={PORTFOLIO_SKILLS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover-wiggle hairline text-ink/75 rounded-full border bg-[color:var(--bg)]/60 px-4 py-2 text-[12px] font-semibold tracking-[0.14em] uppercase"
                 >
                   Skills
-                </Link>
+                </a>
                 <Link
                   href="/pricing"
                   className="hover-wiggle hairline text-ink/75 rounded-full border bg-[color:var(--bg)]/60 px-4 py-2 text-[12px] font-semibold tracking-[0.14em] uppercase"

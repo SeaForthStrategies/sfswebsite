@@ -5,13 +5,14 @@ import { Button } from '@/components/ui/Button';
 import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
 import { PortfolioGallery } from '@/components/visual/PortfolioGallery';
 import { Sparkles } from '@/components/Sparkles';
+import { TechStackLogos } from '@/components/visual/TechStackLogos';
 import { PORTFOLIO_GALLERY_ITEMS } from '@/lib/portfolio';
-import { CONTACT_EMAIL_HREF, PORTFOLIO_URL } from '@/lib/site';
+import { CONTACT_EMAIL_HREF, PORTFOLIO_SKILLS_URL, PORTFOLIO_URL } from '@/lib/site';
 
 const frontmatter = {
-  title: 'Website Design & Development',
+  title: 'Development — custom websites',
   description:
-    'Custom website design and development—responsive UI, Next.js builds, performance, SEO, and launch support. Portfolio reference: abigaillehr.com.',
+    'Custom development—Next.js, GitHub, Vercel—responsive UI, performance, SEO, and launch support. For Squarespace design (lower entry), see Packages. Portfolio reference: abigaillehr.com.',
 };
 
 export const metadata: Metadata = {
@@ -66,12 +67,14 @@ export default function WebDesignPage() {
                   >
                     View packages
                   </Link>
-                  <Link
-                    href="/services"
+                  <a
+                    href={PORTFOLIO_SKILLS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold tracking-[0.08em] uppercase"
                   >
                     All skills
-                  </Link>
+                  </a>
                   <a
                     href={PORTFOLIO_URL}
                     target="_blank"
@@ -82,6 +85,28 @@ export default function WebDesignPage() {
                   </a>
                 </div>
               </div>
+            </div>
+
+            <div className="hairline bg-surface shadow-soft mt-14 rounded-[var(--radius-lg)] border p-7 md:p-10">
+              <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
+                Expertise & tools
+              </p>
+              <p className="fade-in-up text-muted mt-3 max-w-2xl text-sm leading-relaxed">
+                Logos for the stack we use most—see the full résumé for marketing, ops, and more.
+              </p>
+              <div className="fade-in-up mt-8">
+                <TechStackLogos variant="compact" showSkillsLink={false} />
+              </div>
+              <p className="fade-in-up text-muted mt-6 text-sm">
+                <a
+                  href={PORTFOLIO_SKILLS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-underline text-ink/80 hover:text-ink"
+                >
+                  Full expertise & tools on abigaillehr.com
+                </a>
+              </p>
             </div>
 
             <div className="mt-14 grid gap-6 md:grid-cols-3">

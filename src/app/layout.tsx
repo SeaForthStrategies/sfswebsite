@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
-import { Outfit, Plus_Jakarta_Sans } from 'next/font/google';
+import { JetBrains_Mono, Outfit, Plus_Jakarta_Sans } from 'next/font/google';
 
 import './globals.css';
 import { Navigation } from '@/components/Navigation';
@@ -23,6 +23,13 @@ const display = Outfit({
   variable: '--font-display',
 });
 
+const mono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  display: 'swap',
+  variable: '--font-mono',
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
@@ -30,14 +37,14 @@ export const metadata: Metadata = {
     template: `%s – ${SITE.name}`,
   },
   description:
-    'SeaForth Strategies is a website design studio led by founder Abigail Lehr—custom sites, front-end builds, and launches. Web work only.',
+    'SeaForth Strategies is a website studio led by founder Abigail Lehr—development (Next.js, GitHub, Vercel) and design on Squarespace. Web work only.',
   icons: {
     icon: SITE.faviconPath,
   },
   openGraph: {
     title: SITE.name,
     description:
-      'Website design and development for business owners—custom UI, modern builds, launch support.',
+      'Development and design for business owners—custom code with GitHub and Vercel, or Squarespace design at a lower entry.',
     images: [SITE.logoPath],
     type: 'website',
   },
@@ -56,10 +63,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${sans.variable} ${display.variable} app-html`}
+      className={`${sans.variable} ${display.variable} ${mono.variable} app-html`}
       suppressHydrationWarning
     >
       <body className="app-body font-sans">
+        {/* Subtle site-wide grid — reinforces hierarchy without competing with content */}
+        <div className="tech-site-grid pointer-events-none fixed inset-0 z-0" aria-hidden />
         {gaId ? (
           <>
             {/* Google Analytics */}
@@ -96,7 +105,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             url: SITE.url,
             logo: logoUrl,
             description:
-              'Website design and development studio—custom sites and founder-led delivery.',
+              'Website studio—development (custom code) and Squarespace design, founder-led delivery.',
             sameAs: [SITE.social.instagram, SITE.social.linkedin],
             contactPoint: {
               '@type': 'ContactPoint',
@@ -107,9 +116,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             service: [
               {
                 '@type': 'Service',
-                name: 'Website Design & Development',
+                name: 'Development',
                 description:
-                  'Custom website design and development with modern front-end stacks and launch-ready quality',
+                  'Custom website development with Next.js, GitHub, Vercel, and launch-ready quality',
+              },
+              {
+                '@type': 'Service',
+                name: 'Design',
+                description:
+                  'Website design and build on Squarespace—typically a lower starting price than custom development',
               },
             ],
           })}

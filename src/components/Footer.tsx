@@ -123,44 +123,46 @@ export function Footer() {
             <p className="text-contrast-muted text-[12px] font-semibold tracking-[0.16em] uppercase">
               Contact
             </p>
-            <div className="grid gap-3">
-              <a
-                href={CONTACT_EMAIL_HREF}
-                className="hover:text-contrast flex items-start gap-3 text-white/80 transition-colors"
-              >
-                <span className="text-[color:var(--brand-gold)]">
-                  <Icon name="mail" />
-                </span>
-                <span className="min-w-0 break-all">{CONTACT_EMAIL}</span>
-              </a>
-              <Link
-                href="/contact"
-                className="hover:text-contrast inline-flex items-center gap-3 text-white/80 transition-colors"
-              >
-                <span className="text-[color:var(--brand-gold)]">
-                  <Icon name="calendar" />
-                </span>
-                Start a project
-              </Link>
-              <a
-                href={portfolioUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-contrast inline-flex items-center gap-3 text-white/80 transition-colors"
-              >
-                <span className="text-[color:var(--brand-gold)]" aria-hidden>
-                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M7 17L17 7M7 7h10v10"
-                      stroke="currentColor"
-                      strokeWidth="1.6"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>
-                Portfolio site
-              </a>
+            <div className="min-w-0 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              <div className="grid w-max min-w-full gap-3">
+                <a
+                  href={CONTACT_EMAIL_HREF}
+                  className="hover:text-contrast flex items-center gap-3 text-nowrap text-white/80 transition-colors"
+                >
+                  <span className="shrink-0 text-[color:var(--brand-gold)]">
+                    <Icon name="mail" />
+                  </span>
+                  <span>{CONTACT_EMAIL}</span>
+                </a>
+                <Link
+                  href="/contact"
+                  className="hover:text-contrast inline-flex items-center gap-3 text-nowrap text-white/80 transition-colors"
+                >
+                  <span className="shrink-0 text-[color:var(--brand-gold)]">
+                    <Icon name="calendar" />
+                  </span>
+                  Start a project
+                </Link>
+                <a
+                  href={portfolioUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-contrast inline-flex items-center gap-3 text-nowrap text-white/80 transition-colors"
+                >
+                  <span className="shrink-0 text-[color:var(--brand-gold)]" aria-hidden>
+                    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M7 17L17 7M7 7h10v10"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
+                  Portfolio site
+                </a>
+              </div>
             </div>
           </div>
 
@@ -241,7 +243,7 @@ export function Footer() {
         <div className="border-t border-white/10 pt-8">
           <div className="flex flex-col gap-6 md:flex-row md:justify-between">
             <div className="space-y-4">
-              <p className="text-sm text-white/40">
+              <p className="font-mono text-[13px] text-white/45">
                 © {year} SeaForth Strategies. All rights reserved.
               </p>
               <p className="max-w-xl text-[11px] leading-relaxed text-white/30">

@@ -28,8 +28,9 @@ export function PageHeader({
         </div>
       ) : null}
       <div className="absolute inset-0 bg-black/55" />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative z-10 max-w-3xl pt-12 pb-14 md:max-w-4xl md:pt-16 md:pb-20">
+      <div className="page-header-tech pointer-events-none" aria-hidden />
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl pt-12 pb-14 md:max-w-4xl md:pt-16 md:pb-20">
           <h1 className="fade-in-up font-display text-5xl leading-[0.98] tracking-[-0.03em] text-white md:text-7xl">
             {title}
           </h1>

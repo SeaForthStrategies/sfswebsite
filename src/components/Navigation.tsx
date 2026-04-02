@@ -93,7 +93,7 @@ export function Navigation() {
                   href={item.href}
                   aria-current={isActive ? 'page' : undefined}
                   className={[
-                    'relative text-[13px] font-semibold tracking-[0.12em] uppercase',
+                    'relative font-mono text-[12px] font-semibold tracking-[0.14em] uppercase',
                     'transition-colors',
                     isActive ? 'text-brand-teal' : 'text-ink/80 hover:text-ink',
                     'after:absolute after:right-0 after:-bottom-2 after:left-0 after:h-px',
@@ -115,7 +115,7 @@ export function Navigation() {
               className={[
                 'hidden items-center justify-center md:inline-flex',
                 'rounded-full px-5 py-2.5',
-                'text-[13px] font-semibold tracking-[0.08em] uppercase',
+                'font-mono text-[12px] font-semibold tracking-[0.12em] uppercase',
                 'bg-[color:var(--ink)] text-[color:var(--bg)]',
                 'btn-tech hover-wiggle transition-colors hover:bg-[color:var(--brand-teal)]',
               ].join(' ')}

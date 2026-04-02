@@ -12,7 +12,7 @@ import { CALENDLY_URL, CONTACT_EMAIL_HREF, PORTFOLIO_URL, publicAssetPath, SITE 
 export default function HomePage() {
   return (
     <>
-      {/* Hero — editorial / resume-style layout; brand colors unchanged */}
+      {/* Hero — editorial layout + tech grid / scan overlay */}
       <section className="editorial-hero relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 z-0 opacity-[0.06]">
           <Image
@@ -25,10 +25,11 @@ export default function HomePage() {
           />
           <div className="absolute inset-0 bg-[color:var(--bg)]/0 [mask-image:radial-gradient(72%_62%_at_50%_20%,black,transparent)]" />
         </div>
+        <div className="tech-hero-overlay" aria-hidden />
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto flex max-w-2xl flex-col items-center pt-16 pb-16 text-center md:items-start md:pt-24 md:pb-28 md:text-left">
-            <p className="fade-in-up kicker text-ink/55 mb-6 inline-flex items-center gap-2 rounded-full border border-[color:var(--hairline)] bg-[color:var(--surface)] px-4 py-2 text-[11px] font-semibold tracking-[0.2em] uppercase">
-              <span className="kicker-dot h-1.5 w-1.5 rounded-full bg-[color:var(--brand-teal)]" />
+            <p className="fade-in-up label-tech text-ink/55 mb-6 inline-flex items-center gap-2 rounded-full border border-[color:var(--hairline)] bg-[color:var(--surface)] px-4 py-2">
+              <span className="kicker-dot h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--brand-teal)]" />
               Boutique website studio
             </p>
             <div className="fade-in-up stagger-1 w-full">
@@ -47,7 +48,8 @@ export default function HomePage() {
               <AnimatedWords text="Website design for business owners who notice the details." />
             </h1>
             <p className="fade-in-up stagger-3 text-muted mt-7 max-w-xl text-base leading-[1.65] md:text-lg">
-              Custom sites—clear structure, refined UI, and code you can live with after launch.
+              Development or Squarespace design—clear structure, refined UI, and a path you can
+              follow from first call to launch.
             </p>
 
             <div className="fade-in-up stagger-4 mt-10 flex w-full flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center md:justify-start">
@@ -68,7 +70,7 @@ export default function HomePage() {
               </Button>
             </div>
 
-            <div className="fade-in-up stagger-5 mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[13px] font-semibold tracking-[0.08em] uppercase md:justify-start">
+            <div className="fade-in-up stagger-5 mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-mono text-[12px] font-semibold tracking-[0.12em] uppercase md:justify-start">
               <a
                 href={CALENDLY_URL}
                 target="_blank"
@@ -91,7 +93,7 @@ export default function HomePage() {
           <div className="py-12 md:py-16">
             <div className="grid gap-8 md:grid-cols-12 md:items-center">
               <div className="md:col-span-4">
-                <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
+                <p className="fade-in-up label-tech text-[color:var(--brand-gold)]">
                   Selected work
                 </p>
                 <h2 className="fade-in-up font-display text-ink mt-4 text-2xl leading-[1.08] tracking-[-0.02em] md:text-3xl">
@@ -117,12 +119,14 @@ export default function HomePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="py-16 md:py-24">
             <div className="max-w-2xl">
-              <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
-                Process
-              </p>
+              <p className="fade-in-up label-tech text-[color:var(--brand-gold)]">Process</p>
               <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] tracking-[-0.02em] md:text-5xl">
                 Straightforward. No theater.
               </h2>
+              <p className="fade-in-up text-muted mt-5 max-w-lg text-sm leading-relaxed md:text-base">
+                Three steps—align on goals, build the site, launch with QA—whether you choose
+                development or Squarespace design.
+              </p>
             </div>
 
             <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -148,11 +152,11 @@ export default function HomePage() {
                   className={[
                     'fade-in-up',
                     `stagger-${Math.min(idx + 1, 6)}`,
-                    'hairline bg-surface shadow-soft rounded-[var(--radius-lg)] border p-7',
+                    'tech-panel hairline bg-surface shadow-soft overflow-hidden rounded-[var(--radius-lg)] border p-7',
                   ].join(' ')}
                 >
-                  <p className="text-ink/50 text-[12px] font-semibold tracking-[0.16em] uppercase">
-                    {step.n}
+                  <p className="font-mono text-[11px] font-semibold tracking-[0.22em] text-[color:var(--brand-teal)] uppercase">
+                    Step {step.n}
                   </p>
                   <h3 className="text-ink mt-3 text-xl font-semibold tracking-tight">{step.t}</h3>
                   <p className="text-muted mt-3 text-sm leading-relaxed">{step.d}</p>
@@ -169,9 +173,7 @@ export default function HomePage() {
           <div className="py-16 md:py-24">
             <div className="grid gap-10 md:grid-cols-12 md:items-end">
               <div className="md:col-span-8">
-                <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
-                  Next step
-                </p>
+                <p className="fade-in-up label-tech text-[color:var(--brand-gold)]">Next step</p>
                 <h2 className="fade-in-up font-display mt-6 text-3xl leading-[1.05] tracking-[-0.02em] md:text-4xl lg:text-5xl">
                   Tell me what you’re building.
                 </h2>

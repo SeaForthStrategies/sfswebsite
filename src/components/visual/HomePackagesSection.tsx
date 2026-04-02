@@ -1,39 +1,8 @@
 import Link from 'next/link';
 
 import { Button } from '@/components/ui/Button';
+import { SERVICE_PACKAGES } from '@/data/packages';
 import { CONTACT_EMAIL_HREF } from '@/lib/site';
-
-const packages = [
-  {
-    name: 'Development',
-    hook: 'Design-ready work, built to ship.',
-    audience: 'You have approved UI—or a tight creative direction—and need a disciplined build.',
-    deliverables: [
-      'Responsive implementation and component structure',
-      'Performance-minded assets and layout',
-      'Accessibility and semantic markup',
-      'Staging, launch, and handoff',
-    ],
-    subject: 'Development package',
-    cta: 'Discuss development',
-    featured: false,
-  },
-  {
-    name: 'Platform design',
-    hook: 'Full-site design and build.',
-    audience:
-      'You want IA, visual design, and code in one studio—especially for product-led sites.',
-    deliverables: [
-      'Site map and key page design',
-      'UI system and responsive layouts',
-      'Front-end build in a modern stack',
-      'Launch support and refinement',
-    ],
-    subject: 'Platform design package',
-    cta: 'Discuss platform design',
-    featured: true,
-  },
-] as const;
 
 function mailtoWithSubject(subject: string) {
   return `${CONTACT_EMAIL_HREF}?subject=${encodeURIComponent(`SeaForth — ${subject}`)}`;
@@ -46,15 +15,13 @@ export function HomePackagesSection() {
         <div className="py-16 md:py-24">
           <div className="flex max-w-2xl flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
-                Packages
-              </p>
+              <p className="fade-in-up label-tech text-[color:var(--brand-gold)]">Packages</p>
               <h2 className="fade-in-up stagger-1 font-display text-ink mt-6 text-4xl leading-[1.02] tracking-[-0.02em] md:text-5xl">
                 Two ways to start.
               </h2>
               <p className="fade-in-up stagger-2 text-muted mt-5 max-w-xl leading-relaxed">
-                Same studio; different entry points. Scope and timeline are set after a short
-                alignment call.
+                Development (custom code, GitHub, Vercel) or design on Squarespace—the more
+                affordable route. Scope and timeline are set after a short alignment call.
               </p>
             </div>
             <Link
@@ -66,13 +33,13 @@ export function HomePackagesSection() {
           </div>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-2 lg:items-stretch">
-            {packages.map((pkg, idx) => (
+            {SERVICE_PACKAGES.map((pkg, idx) => (
               <div
                 key={pkg.name}
                 className={[
                   'fade-in-up',
                   `stagger-${Math.min(idx + 1, 6)}`,
-                  'hairline shadow-soft flex h-full flex-col rounded-[var(--radius-lg)] border bg-[color:var(--bg)]/90 p-7 md:p-8',
+                  'tech-panel hover-lift hairline shadow-soft flex h-full flex-col overflow-hidden rounded-[var(--radius-lg)] border bg-[color:var(--bg)]/90 p-7 md:p-8',
                   pkg.featured ? 'ring-1 ring-[color:var(--brand-teal)]' : '',
                 ].join(' ')}
               >
@@ -80,9 +47,9 @@ export function HomePackagesSection() {
                   <h3 className="font-display text-ink text-2xl tracking-tight md:text-3xl">
                     {pkg.name}
                   </h3>
-                  {pkg.featured ? (
-                    <span className="hairline rounded-full border border-[color:var(--brand-teal)]/35 bg-[color:var(--brand-teal)]/10 px-3 py-1 text-[11px] font-semibold tracking-[0.14em] text-[color:var(--brand-teal)] uppercase">
-                      Most full-service
+                  {pkg.badge ? (
+                    <span className="hairline rounded-full border border-[color:var(--brand-teal)]/35 bg-[color:var(--brand-teal)]/10 px-3 py-1 font-mono text-[10px] font-semibold tracking-[0.16em] text-[color:var(--brand-teal)] uppercase">
+                      {pkg.badge}
                     </span>
                   ) : null}
                 </div>
@@ -90,10 +57,13 @@ export function HomePackagesSection() {
                 <p className="text-ink mt-4 text-base leading-snug font-medium">{pkg.hook}</p>
                 <p className="text-muted mt-3 text-sm leading-relaxed">{pkg.audience}</p>
 
+                <div className="hairline mt-6 border-t pt-6">
+                  <p className="label-tech text-ink/55">Your account</p>
+                  <p className="text-muted mt-3 text-sm leading-relaxed">{pkg.clientAccount}</p>
+                </div>
+
                 <div className="hairline mt-8 border-t pt-8">
-                  <p className="text-ink/55 text-[12px] font-semibold tracking-[0.16em] uppercase">
-                    Deliverables
-                  </p>
+                  <p className="label-tech text-ink/55">Deliverables</p>
                   <ul className="text-muted mt-4 grid gap-3 text-sm leading-relaxed">
                     {pkg.deliverables.map((d) => (
                       <li key={d} className="flex gap-3">

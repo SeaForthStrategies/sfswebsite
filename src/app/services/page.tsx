@@ -6,63 +6,30 @@ import { Button } from '@/components/ui/Button';
 import { Sparkles } from '@/components/Sparkles';
 import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
 import { PortfolioGallery } from '@/components/visual/PortfolioGallery';
+import { TechStackLogos } from '@/components/visual/TechStackLogos';
+import { SERVICE_PACKAGES } from '@/data/packages';
 import { PORTFOLIO_GALLERY_ITEMS } from '@/lib/portfolio';
 import { CONTACT_EMAIL_HREF, PORTFOLIO_URL, RESUME_REPO_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Services',
   description:
-    'Website design, development, and launch—SeaForth Strategies focuses on web work only, led by founder Abigail Lehr.',
+    'Development (custom code, GitHub, Vercel) and design on Squarespace—SeaForth Strategies delivers founder-led work with clear structure and craft.',
 };
 
-const packagesAtAGlance = [
-  {
-    name: 'Development',
-    price: '$3,500',
-    subtitle: 'Design-ready work, built to ship.',
-    deliverables: [
-      'Responsive implementation and components',
-      'Performance-minded layout and assets',
-      'Accessibility and semantic markup',
-      'Staging, launch, and handoff',
-    ],
-    idealFor: 'You have approved UI or a clear creative direction and need production execution.',
-    featured: false,
-  },
-  {
-    name: 'Platform design',
-    price: '$6,500',
-    subtitle: 'Full-site design and build.',
-    deliverables: [
-      'Site map and key page design',
-      'UI system and responsive layouts',
-      'Front-end build in a modern stack',
-      'Launch support and refinement',
-    ],
-    idealFor: 'You want IA, visual design, and code from one studio—especially product-led sites.',
-    featured: true,
-  },
-] as const;
-
-/** Website-only scope—aligned with what SeaForth sells, not the full personal résumé. */
+/** Two primary routes; see packages for pricing entry points. */
 const skillAreas = [
-  {
-    title: 'Website design',
-    description:
-      'Information architecture, page design, and UI—clear hierarchy, confident type, and layouts built to convert.',
-    tags: ['IA & sitemaps', 'UI/UX', 'Figma', 'Responsive design', 'Design systems'],
-  },
   {
     title: 'Development',
     description:
-      'Production front ends: components, responsive behavior, accessibility, and performance—so the design survives real traffic.',
+      'Custom front ends—usually Next.js—with GitHub, Vercel deploys, responsive UI, accessibility, performance, and launch discipline.',
     tags: ['Next.js', 'React', 'Tailwind CSS', 'Semantic HTML', 'Git/GitHub', 'Vercel'],
   },
   {
-    title: 'Launch & polish',
+    title: 'Design',
     description:
-      'Staging, QA, on-page SEO basics, and handoff—plus a short refinement window so the site is ready to ship.',
-    tags: ['Technical SEO', 'Accessibility', 'Launch QA', 'Core Web Vitals'],
+      'Squarespace builds—information architecture, visual design, template work, styling, and content structure so the site is easy to maintain (typically a lower entry price than custom development).',
+    tags: ['Squarespace', 'IA & sitemaps', 'Layouts', 'Custom CSS', 'Launch QA'],
   },
 ] as const;
 
@@ -70,8 +37,8 @@ export default function ServicesPage() {
   return (
     <>
       <PageHeader
-        title="Website services"
-        subtitle="SeaForth only takes website projects—design through build and launch. No separate marketing, events, or non-web retainers here."
+        title="Services"
+        subtitle="Two services: development (custom code, GitHub, Vercel) and design on Squarespace—usually the more affordable path. Founder-led execution with room to tailor scope."
         backgroundImageSrc="/images/silas-baisch-K785Da4A_JA-unsplash.jpg"
       />
 
@@ -86,15 +53,16 @@ export default function ServicesPage() {
                 What SeaForth actually does.
               </h2>
               <p className="fade-in-up text-muted mt-6 leading-relaxed">
-                Three buckets—design, development, and launch—scoped per project. Packages spell out
-                how we start.
+                Development when you need a bespoke, code-backed site; design on Squarespace when
+                you want a polished platform build at a lower starting investment. Packages spell
+                out how we start.
               </p>
               <div className="fade-in-up mt-8 flex flex-wrap items-center gap-3">
                 <Link
                   href="/services/web-design"
                   className="hover-wiggle hairline text-ink/75 rounded-full border bg-[color:var(--bg)]/60 px-4 py-2 text-[12px] font-semibold tracking-[0.14em] uppercase"
                 >
-                  Web design detail
+                  Development detail
                 </Link>
                 <Link
                   href="/pricing"
@@ -119,7 +87,7 @@ export default function ServicesPage() {
               </div>
             </div>
 
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
+            <div className="mt-12 grid gap-6 md:grid-cols-2">
               {skillAreas.map((area, idx) => (
                 <div
                   key={area.title}
@@ -145,6 +113,19 @@ export default function ServicesPage() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            <div className="hairline bg-surface shadow-soft fade-in-up mt-12 rounded-[var(--radius-lg)] border p-7 md:p-10">
+              <p className="text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
+                Expertise & tools
+              </p>
+              <p className="text-muted mt-3 max-w-2xl text-sm leading-relaxed">
+                Tooling aligned with the full skills résumé—expanded categories live on
+                abigaillehr.com.
+              </p>
+              <div className="mt-8">
+                <TechStackLogos />
+              </div>
             </div>
 
             <p className="fade-in-up text-muted mt-10 max-w-2xl text-sm leading-relaxed">
@@ -183,7 +164,7 @@ export default function ServicesPage() {
                     Two ways to start.
                   </h2>
                   <p className="fade-in-up text-muted mt-6 max-w-2xl leading-relaxed">
-                    Development when design is set; platform design when you need the full arc.
+                    Development or Squarespace design—final scope is confirmed before kickoff.
                   </p>
                 </div>
                 <div className="md:col-span-4">
@@ -197,7 +178,7 @@ export default function ServicesPage() {
               </div>
 
               <div className="mt-12 grid gap-6 lg:grid-cols-2">
-                {packagesAtAGlance.map((p, idx) => (
+                {SERVICE_PACKAGES.map((p, idx) => (
                   <div
                     key={`${p.name}-${idx}`}
                     className={[
@@ -211,7 +192,7 @@ export default function ServicesPage() {
                     <div className="flex items-start justify-between gap-6">
                       <div>
                         <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
-                          {p.featured ? 'Full-service' : 'Package'}
+                          {p.badge ?? 'Package'}
                         </p>
                         <h3 className="font-display text-ink mt-2 text-3xl">{p.name}</h3>
                       </div>
@@ -223,7 +204,14 @@ export default function ServicesPage() {
                       </div>
                     </div>
 
-                    <p className="text-muted mt-5 leading-relaxed">{p.subtitle}</p>
+                    <p className="text-muted mt-5 leading-relaxed">{p.hook}</p>
+
+                    <div className="hairline mt-6 border-t pt-6">
+                      <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
+                        Your account
+                      </p>
+                      <p className="text-muted mt-3 leading-relaxed">{p.clientAccount}</p>
+                    </div>
 
                     <div className="hairline mt-6 border-t pt-6">
                       <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
@@ -305,11 +293,11 @@ export default function ServicesPage() {
                   The SeaForth standard
                 </p>
                 <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
-                  Website-first. Detail-obsessed.
+                  Craft-first. Launch-ready.
                 </h2>
                 <p className="fade-in-up text-muted mt-6 max-w-2xl leading-relaxed">
-                  You get founder-led execution, a custom front end, and launch discipline—without
-                  the generic template look.
+                  You get founder-led execution—whether that is custom development or a Squarespace
+                  design—and launch discipline without the generic template look.
                 </p>
               </div>
               <div className="md:col-span-4">
@@ -340,11 +328,11 @@ export default function ServicesPage() {
                   Next step
                 </p>
                 <h2 className="fade-in-up font-display mt-6 text-4xl leading-[1.02] md:text-5xl">
-                  Pick a website package.
+                  Pick a starting point.
                 </h2>
                 <p className="fade-in-up mt-6 max-w-2xl leading-relaxed text-white/70">
-                  We’ll align on pages and stack, then tailor the build to your site—not a generic
-                  marketing bundle.
+                  We’ll align on scope, pages, and stack—then tailor the engagement to your goals,
+                  not a one-size-fits-all playbook.
                 </p>
               </div>
               <div className="md:col-span-4">

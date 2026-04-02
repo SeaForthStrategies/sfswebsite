@@ -4,45 +4,14 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { Button } from '@/components/ui/Button';
 import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
 import { Sparkles } from '@/components/Sparkles';
+import { SERVICE_PACKAGES } from '@/data/packages';
 import { CONTACT_EMAIL_HREF } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Packages',
   description:
-    'Two website package paths—Development and Platform design—led by SeaForth Strategies founder Abigail Lehr.',
+    'Development (custom code, GitHub, Vercel) or design on Squarespace—led by SeaForth Strategies founder Abigail Lehr.',
 };
-
-const packages = [
-  {
-    name: 'Development',
-    price: '$3,500',
-    hook: 'Design-ready work, built to ship.',
-    audience: 'You have approved UI—or a tight creative direction—and need a disciplined build.',
-    deliverables: [
-      'Responsive implementation and component structure',
-      'Performance-minded assets and layout',
-      'Accessibility and semantic markup',
-      'Staging, launch, and handoff',
-    ],
-    subject: 'Development package',
-    featured: false,
-  },
-  {
-    name: 'Platform design',
-    price: '$6,500',
-    hook: 'Full-site design and build.',
-    audience:
-      'You want IA, visual design, and code in one studio—especially for product-led sites.',
-    deliverables: [
-      'Site map and key page design',
-      'UI system and responsive layouts',
-      'Front-end build in a modern stack',
-      'Launch support and refinement',
-    ],
-    subject: 'Platform design package',
-    featured: true,
-  },
-] as const;
 
 function mailtoWithSubject(subject: string) {
   return `${CONTACT_EMAIL_HREF}?subject=${encodeURIComponent(`SeaForth — ${subject}`)}`;
@@ -53,7 +22,7 @@ export default function PricingPage() {
     <>
       <PageHeader
         title="Packages"
-        subtitle="Two entry points. Everything is scoped to your pages, stack, and timeline after a short alignment call."
+        subtitle="Development and design are our two services: custom code (GitHub, Vercel) or Squarespace—usually the lower starting price. Everything is scoped after a short alignment call."
         backgroundImageSrc="/images/kelsey-knight-CrRr3y1lhl8-unsplash.jpg"
       />
 
@@ -65,15 +34,18 @@ export default function PricingPage() {
                 Compare
               </p>
               <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] tracking-[-0.02em] md:text-5xl">
-                Development or platform design.
+                Development or design.
               </h2>
               <p className="fade-in-up text-muted mt-5 leading-relaxed">
-                Prices are starting points; final scope is confirmed in writing before kickoff.
+                Design is delivered on Squarespace and is typically the more affordable entry.
+                Development is custom engineering—Next.js, GitHub, and Vercel—with a higher starting
+                investment. Prices are starting points; final scope is confirmed in writing before
+                kickoff.
               </p>
             </div>
 
             <div className="mt-12 grid gap-6 lg:grid-cols-2 lg:items-stretch">
-              {packages.map((p, idx) => (
+              {SERVICE_PACKAGES.map((p, idx) => (
                 <div
                   key={p.name}
                   className={[
@@ -87,7 +59,7 @@ export default function PricingPage() {
                     <div className="flex flex-wrap items-start justify-between gap-4">
                       <div>
                         <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
-                          {p.featured ? 'Full-service' : 'Package'}
+                          {p.badge ?? 'Package'}
                         </p>
                         <h3 className="font-display text-ink mt-2 text-3xl tracking-tight break-words">
                           {p.name}
@@ -105,6 +77,13 @@ export default function PricingPage() {
 
                     <p className="text-ink mt-5 leading-snug font-medium">{p.hook}</p>
                     <p className="text-muted mt-3 text-sm leading-relaxed">{p.audience}</p>
+
+                    <div className="hairline mt-6 border-t pt-6">
+                      <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
+                        Your account
+                      </p>
+                      <p className="text-muted mt-3 text-sm leading-relaxed">{p.clientAccount}</p>
+                    </div>
 
                     <div className="hairline mt-8 border-t pt-8">
                       <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
@@ -191,7 +170,11 @@ export default function PricingPage() {
               />
               <FaqItem
                 q="What do you build in?"
-                a="Usually Next.js with a component-first workflow—fast, maintainable, and ready for real traffic."
+                a="Development is usually Next.js with GitHub and deploys on Vercel. Design projects are built on Squarespace—structured, styled, and launched there, which keeps cost lower than a full custom stack."
+              />
+              <FaqItem
+                q="Who pays for hosting and Squarespace?"
+                a="For design on Squarespace, you create your own account and pay Squarespace for your plan. For custom development, hosting the site includes a $30 fee paid to SeaForth Strategies (separate from the project quote)."
               />
             </div>
           </div>

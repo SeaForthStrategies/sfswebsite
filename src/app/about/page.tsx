@@ -13,7 +13,7 @@ import { CONTACT_EMAIL_HREF, PORTFOLIO_URL, publicAssetPath } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'SeaForth Strategies is a website-only studio led by Abigail Lehr—custom site design, development, and launch.',
+    'SeaForth Strategies is led by Abigail Lehr—development (custom code, GitHub, Vercel) and design on Squarespace, delivered with clear craft.',
 };
 
 export default function AboutPage() {
@@ -21,7 +21,7 @@ export default function AboutPage() {
     <>
       <PageHeader
         title="A boutique website studio."
-        subtitle="SeaForth exists to build better websites—nothing else. Custom UI, disciplined front-end delivery, and launches that hold up."
+        subtitle="Development and design—disciplined UI, front-end delivery, and launches that hold up. Design runs on Squarespace; development is custom code with GitHub and Vercel."
         backgroundImageSrc="/images/marissa-rodriguez-2mKYEVGA4jE-unsplash.jpg"
       />
 
