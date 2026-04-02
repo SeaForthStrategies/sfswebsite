@@ -6,7 +6,6 @@ export const SITE = {
   /** Personal portfolio — reference for design & dev work */
   portfolioUrl: 'https://abigaillehr.com',
   logoPath: '/images/logo.png',
-  faviconPath: '/favicon.svg',
   social: {
     instagram: 'https://www.instagram.com/seaforthstrategies',
     linkedin: 'https://www.linkedin.com/company/seaforthstrategies',

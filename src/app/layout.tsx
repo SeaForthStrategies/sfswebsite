@@ -38,9 +38,6 @@ export const metadata: Metadata = {
   },
   description:
     'SeaForth Strategies—websites of all kinds, founder-led: custom development and Squarespace design.',
-  icons: {
-    icon: SITE.faviconPath,
-  },
   openGraph: {
     title: SITE.name,
     description:
