@@ -4,71 +4,72 @@ import Link from 'next/link';
 import { AnimatedWords } from '@/components/motion/AnimatedWords';
 import { Button } from '@/components/ui/Button';
 import { ClientsMarquee } from '@/components/visual/ClientsMarquee';
-import { HeroCursor } from '@/components/visual/HeroCursor';
 import { HomeFounderSection } from '@/components/visual/HomeFounderSection';
 import { HomePackagesSection } from '@/components/visual/HomePackagesSection';
-import { CALENDLY_URL, CONTACT_EMAIL_HREF, publicAssetPath } from '@/lib/site';
+import { CALENDLY_URL, CONTACT_EMAIL, CONTACT_EMAIL_HREF, publicAssetPath } from '@/lib/site';
 
 export default function HomePage() {
   return (
     <>
-      {/* Hero — editorial layout + photo wash + tech grid / scan overlay */}
-      <section className="editorial-hero relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 z-0">
-          <Image
-            src={publicAssetPath('/images/silas-baisch-K785Da4A_JA-unsplash.jpg')}
-            alt=""
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-[color:var(--bg)]/72" aria-hidden />
-          <div
-            className="absolute inset-0 bg-gradient-to-b from-[color:var(--bg)]/80 via-[color:var(--bg)]/45 to-[color:var(--bg)]/70"
-            aria-hidden
-          />
-        </div>
-        <div className="tech-hero-overlay" aria-hidden />
-        <HeroCursor />
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto flex max-w-2xl flex-col items-center pt-12 pb-14 text-center sm:pt-14 sm:pb-16 md:items-start md:pt-24 md:pb-28 md:text-left">
-            <h1 className="fade-in-up font-display text-ink text-[clamp(1.65rem,6.5vw+0.5rem,2.75rem)] leading-[1.08] tracking-[-0.03em] sm:text-4xl md:text-5xl md:leading-[1.06] lg:text-[3.25rem]">
-              <AnimatedWords text="Website design for business owners who notice the details." />
-            </h1>
-            <p className="fade-in-up stagger-1 text-muted mt-5 max-w-xl text-[15px] leading-[1.65] sm:mt-6 sm:text-base md:mt-7 md:text-lg">
-              Structured sites, refined UI, and a straight path from kickoff to launch—with clear
-              starting points for custom code or Squarespace, then scope dialed in together.
-            </p>
+      {/* Hero — split layout: copy + framed photography (no full-bleed stack / scan grid) */}
+      <section className="relative overflow-hidden bg-[color:var(--bg)]">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid items-stretch gap-0 md:grid-cols-2 md:gap-10 lg:gap-14 xl:gap-16">
+            <div className="order-2 flex flex-col justify-center py-10 pb-12 text-center sm:py-12 sm:pb-14 md:order-1 md:max-w-xl md:py-16 md:pr-4 md:text-left lg:py-20 lg:pr-8">
+              <p className="fade-in-up label-tech text-[color:var(--brand-gold)]">
+                Web design &amp; build
+              </p>
+              <h1 className="fade-in-up font-display text-ink mt-4 text-[clamp(1.85rem,4.2vw+0.65rem,3.15rem)] leading-[1.06] tracking-[-0.03em] sm:mt-5 md:mt-6">
+                <AnimatedWords text="Website design for business owners who notice the details." />
+              </h1>
+              <p className="fade-in-up stagger-1 text-muted mx-auto mt-5 max-w-lg text-[15px] leading-[1.65] sm:mt-6 sm:text-base md:mx-0 md:mt-7 md:max-w-none md:text-lg">
+                Structured sites, refined UI, and a straight path from kickoff to launch—with clear
+                starting points for custom code or Squarespace, then scope dialed in together.
+              </p>
 
-            <div className="fade-in-up stagger-2 mt-8 flex w-full flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4 md:justify-start">
-              <Button
-                href={CONTACT_EMAIL_HREF}
-                className="shadow-soft w-full rounded-full bg-[color:var(--brand-teal)] px-7 py-4 text-white hover:bg-[color:var(--brand-teal-dark)] sm:w-auto"
-              >
-                Start a project
-              </Button>
-              <Button
-                href="/portfolio"
-                variant="secondary"
-                className="w-full rounded-full sm:w-auto"
-              >
-                View work
-              </Button>
+              <div className="fade-in-up stagger-2 mx-auto mt-8 flex w-full max-w-md flex-col gap-3 sm:mt-10 sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center md:mx-0 md:justify-start">
+                <Button
+                  href={CALENDLY_URL}
+                  className="shadow-soft w-full rounded-full bg-[color:var(--brand-teal)] px-7 py-4 text-white hover:bg-[color:var(--brand-teal-dark)] sm:w-auto"
+                >
+                  Book a call
+                </Button>
+                <Button
+                  href={CONTACT_EMAIL_HREF}
+                  variant="secondary"
+                  className="w-full rounded-full sm:w-auto"
+                >
+                  Email us
+                </Button>
+                <Button
+                  href="/portfolio"
+                  variant="secondary"
+                  className="w-full rounded-full sm:w-auto"
+                >
+                  View work
+                </Button>
+              </div>
+
+              <div className="fade-in-up stagger-3 mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-mono text-[12px] font-semibold tracking-[0.12em] uppercase md:justify-start">
+                <Link href="#packages" className="link-underline text-ink/70 hover:text-ink">
+                  View packages
+                </Link>
+              </div>
             </div>
 
-            <div className="fade-in-up stagger-3 mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-mono text-[12px] font-semibold tracking-[0.12em] uppercase md:justify-start">
-              <a
-                href={CALENDLY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link-underline text-ink/70 hover:text-ink"
-              >
-                Book a call
-              </a>
-              <Link href="#packages" className="link-underline text-ink/70 hover:text-ink">
-                View packages
-              </Link>
+            <div className="hairline bg-surface shadow-soft relative order-1 -mx-4 aspect-[5/4] min-h-[240px] overflow-hidden rounded-b-[var(--radius-lg)] border sm:-mx-6 sm:aspect-[16/10] sm:min-h-[260px] md:mx-0 md:aspect-auto md:max-h-[min(720px,calc(100svh-var(--header-bar)-2rem))] md:min-h-[min(640px,calc(100svh-var(--header-bar)-2.5rem))] md:rounded-[var(--radius-lg)]">
+              <Image
+                src={publicAssetPath('/images/silas-baisch-K785Da4A_JA-unsplash.jpg')}
+                alt=""
+                fill
+                priority
+                className="object-cover"
+                sizes="(min-width: 768px) 50vw, 100vw"
+              />
+              <div
+                className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[color:var(--bg)]/20 via-transparent to-[color:var(--brand-teal)]/10 dark:from-[color:var(--bg)]/35 dark:to-[color:var(--brand-teal)]/15"
+                aria-hidden
+              />
             </div>
           </div>
         </div>
@@ -162,28 +163,27 @@ export default function HomePage() {
                   Tell me what you’re building.
                 </h2>
                 <p className="fade-in-up mt-4 max-w-xl text-[15px] leading-relaxed text-white/70 sm:mt-5 sm:text-base">
-                  One email is enough to start—I’ll reply with questions, not a pitch deck.
+                  Book a short call or send one email—either way you’ll get thoughtful questions,
+                  not a canned pitch.
                 </p>
               </div>
 
               <div className="md:col-span-4">
                 <div className="fade-in-up rounded-[var(--radius-lg)] border border-white/10 bg-white/5 p-5 sm:p-6 md:p-7">
                   <Button
-                    href={CONTACT_EMAIL_HREF}
+                    href={CALENDLY_URL}
                     variant="accent"
                     className="w-full rounded-full px-7 py-4"
                   >
-                    Start a project
+                    Book 30 minutes
                   </Button>
                   <p className="mt-5 text-sm text-white/60">
-                    Prefer a call first?{' '}
+                    Prefer email?{' '}
                     <a
-                      href={CALENDLY_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href={CONTACT_EMAIL_HREF}
                       className="link-underline text-white/85 hover:text-white"
                     >
-                      Book 30 minutes
+                      {CONTACT_EMAIL}
                     </a>
                   </p>
                 </div>

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
-import { CONTACT_EMAIL_HREF, publicAssetPath, SITE } from '@/lib/site';
+import { CALENDLY_URL, CONTACT_EMAIL_HREF, publicAssetPath, SITE } from '@/lib/site';
 
 const navItems = [
   { href: '/', label: 'Home' },
@@ -77,7 +77,7 @@ export function Navigation() {
               priority
               width={220}
               height={56}
-              className="!h-7 !w-auto !max-w-[148px] object-contain [filter:var(--logo-filter)] transition-[filter] duration-300 md:!h-12 md:!max-w-none"
+              className="!h-11 !w-auto !max-w-[min(100%,240px)] object-contain [filter:var(--logo-filter)] transition-[filter] duration-300 sm:!h-12 sm:!max-w-[min(100%,280px)] md:!h-16 md:!max-w-none"
             />
           </Link>
 
@@ -110,7 +110,9 @@ export function Navigation() {
           {/* CTA Button */}
           <div className="ml-auto flex items-center gap-4 md:ml-0">
             <a
-              href={CONTACT_EMAIL_HREF}
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className={[
                 'hidden items-center justify-center md:inline-flex',
                 'rounded-full px-5 py-2.5',
@@ -119,7 +121,7 @@ export function Navigation() {
                 'btn-tech hover-wiggle transition-colors hover:bg-[color:var(--brand-teal)]',
               ].join(' ')}
             >
-              Start
+              Book
             </a>
 
             {/* Mobile Menu Button */}
@@ -176,11 +178,20 @@ export function Navigation() {
         >
           <div className="mb-4 flex flex-col gap-3">
             <a
-              href={CONTACT_EMAIL_HREF}
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
               className="btn-tech inline-flex w-full items-center justify-center rounded-2xl bg-[color:var(--ink)] px-4 py-3 text-[13px] font-semibold tracking-[0.08em] text-[color:var(--bg)] uppercase transition-colors hover:bg-[color:var(--brand-teal)]"
             >
-              Start a project
+              Book a call
+            </a>
+            <a
+              href={CONTACT_EMAIL_HREF}
+              onClick={() => setIsOpen(false)}
+              className="hairline inline-flex w-full items-center justify-center rounded-2xl border bg-[color:var(--surface)] px-4 py-3 text-[13px] font-semibold tracking-[0.08em] text-[color:var(--ink)] transition-colors hover:bg-[color:var(--bg)]"
+            >
+              Email us
             </a>
           </div>
 

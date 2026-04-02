@@ -23,8 +23,12 @@ function isInternalHref(href: string) {
 }
 
 function shouldUseNativeAnchor(href: string) {
-  /** Hash URLs and long `mailto:` query strings are more reliable as real `<a>` than `<Link>`. */
+  /** Hash URLs and `mailto:` / `tel:` must use a real `<a>` (not Next `<Link>`). */
   return href.includes('#') || href.startsWith('mailto:') || href.startsWith('tel:');
+}
+
+function isHttpUrl(href: string) {
+  return href.startsWith('https://') || href.startsWith('http://');
 }
 
 export function Button({
@@ -48,8 +52,23 @@ export function Button({
     );
   }
 
+  const { target, rel, ...anchorRest } = rest;
+
+  let finalTarget = target;
+  let finalRel = rel;
+  if (isHttpUrl(href) && finalTarget === undefined) {
+    finalTarget = '_blank';
+    finalRel = rel ?? 'noopener noreferrer';
+  }
+
   return (
-    <a href={href} className={classes} {...rest}>
+    <a
+      href={href}
+      className={classes}
+      {...(finalTarget !== undefined ? { target: finalTarget } : {})}
+      {...(finalRel !== undefined ? { rel: finalRel } : {})}
+      {...anchorRest}
+    >
       {children}
     </a>
   );

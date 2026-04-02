@@ -67,7 +67,7 @@
   --logo-filter: none;
 
   /* Layout — fixed nav bar content height (safe-area added in components / .app-main) */
-  --header-bar: 76px;
+  --header-bar: 88px;
 
   --radius: 18px;
   --radius-lg: 28px;

@@ -7,7 +7,13 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
 import { Sparkles } from '@/components/Sparkles';
 
-import { CONTACT_EMAIL, CONTACT_EMAIL_HREF, publicAssetPath, SITE } from '@/lib/site';
+import {
+  CONTACT_EMAIL,
+  CONTACT_EMAIL_HREF,
+  publicAssetPath,
+  SITE,
+  WEBSITE_REQUEST_BODY_TEMPLATE,
+} from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -94,6 +100,12 @@ export default function ContactPage() {
                   >
                     Email us
                   </Button>
+                  <p className="text-muted mt-4 text-xs leading-relaxed">
+                    Opens your mail app with the subject “Website request.” Consider including:
+                  </p>
+                  <pre className="text-muted mt-2 max-h-40 overflow-auto rounded-lg border border-[color:var(--hairline)] bg-[color:var(--bg)]/80 p-3 font-mono text-[11px] leading-relaxed whitespace-pre-wrap">
+                    {WEBSITE_REQUEST_BODY_TEMPLATE}
+                  </pre>
                   <p className="text-muted mt-5 text-sm">
                     <span className="text-ink/55 font-medium">Studio email</span>
                     <br />

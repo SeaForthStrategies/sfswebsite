@@ -29,28 +29,24 @@ export const WEBSITE_REQUEST_BODY_TEMPLATE = [
 
 const WEBSITE_REQUEST_SUBJECT = 'Website request';
 
-function buildMailto(params: { subject: string; body: string }): string {
-  const qs = new URLSearchParams({
-    subject: params.subject,
-    body: params.body,
-  }).toString();
-  /** `%20` parses more reliably in mail clients than `+` (form-style) for subject/body. */
-  const encoded = qs.replace(/\+/g, '%20');
-  return `mailto:${SITE.email}?${encoded}`;
+/** `%20` parses more reliably in mail clients than `+` (form-style). */
+function mailtoQuery(subject: string): string {
+  return new URLSearchParams({ subject }).toString().replace(/\+/g, '%20');
 }
 
-/** Primary contact links: `contact@…` with subject and fillable body. */
-export const CONTACT_EMAIL_HREF = buildMailto({
-  subject: WEBSITE_REQUEST_SUBJECT,
-  body: WEBSITE_REQUEST_BODY_TEMPLATE,
-});
+/**
+ * Short `mailto:` with subject only. Long `body=` prefills break many browsers/clients; use
+ * `WEBSITE_REQUEST_BODY_TEMPLATE` as on-page copy instead.
+ */
+export const CONTACT_EMAIL_HREF = `mailto:${SITE.email}?${mailtoQuery(WEBSITE_REQUEST_SUBJECT)}`;
 
-/** Package / service CTAs — same subject and template, with package noted at the top of the body. */
+/** Plain `mailto:` — maximum compatibility when a subject param causes issues. */
+export const CONTACT_MAILTO_PLAIN = `mailto:${SITE.email}` as const;
+
+/** Package / service CTAs — subject only keeps URLs short and reliable. */
 export function mailtoPackageInterest(packageLabel: string): string {
-  return buildMailto({
-    subject: WEBSITE_REQUEST_SUBJECT,
-    body: [`Package interest: ${packageLabel}`, '', WEBSITE_REQUEST_BODY_TEMPLATE].join('\n'),
-  });
+  const subject = `${WEBSITE_REQUEST_SUBJECT} — ${packageLabel}`;
+  return `mailto:${SITE.email}?${mailtoQuery(subject)}`;
 }
 
 export const CALENDLY_URL = SITE.calendlyUrl;

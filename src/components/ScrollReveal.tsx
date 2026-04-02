@@ -51,11 +51,24 @@ export function ScrollReveal() {
       targets.forEach((el) => el.classList.add('animated'));
     };
 
+    const revealIntersectingViewport = () => {
+      if (typeof window === 'undefined') return;
+      const vh = window.innerHeight;
+      const targets = Array.from(document.querySelectorAll<HTMLElement>(selector));
+      targets.forEach((el) => {
+        if (el.classList.contains('animated')) return;
+        const r = el.getBoundingClientRect();
+        if (r.bottom > 0 && r.top < vh) el.classList.add('animated');
+      });
+    };
+
     const observeNew = () => {
       if (prefersReduced || !('IntersectionObserver' in window)) {
         revealAll();
         return;
       }
+
+      revealIntersectingViewport();
 
       ensureObserver();
       const observer = observerRef.current;

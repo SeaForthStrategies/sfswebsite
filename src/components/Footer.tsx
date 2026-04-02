@@ -265,21 +265,29 @@ export function Footer() {
             <div className="max-w-xl min-w-0 space-y-2 md:space-y-2.5">
               <p className={labelGold}>Next step</p>
               <p className="font-display text-xl leading-snug text-white sm:text-2xl">
-                Email to start the conversation
+                Book a call or send an email
               </p>
               <p className="text-contrast-muted text-sm leading-relaxed">
-                Opens your mail app with a subject line and short template—no embedded form.
+                Scheduling opens Calendly in a new tab. Email opens your mail app with a pre-filled
+                subject line.
               </p>
             </div>
-            <div className="flex w-full shrink-0 flex-col gap-3 md:w-auto md:items-end">
+            <div className="flex w-full shrink-0 flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-end md:w-auto md:items-end">
               <Button
-                href={CONTACT_EMAIL_HREF}
+                href={CALENDLY_URL}
                 variant="accent"
                 className="w-full rounded-full px-8 py-3.5 whitespace-nowrap sm:w-auto"
               >
-                Compose email
+                Book a call
               </Button>
-              <p className="text-center font-mono text-[11px] text-white/40 md:text-right">
+              <Button
+                href={CONTACT_EMAIL_HREF}
+                variant="ghost"
+                className="hairline w-full rounded-full border border-white/20 bg-white/5 px-8 py-3.5 whitespace-nowrap text-white hover:bg-white/10 sm:w-auto"
+              >
+                Email us
+              </Button>
+              <p className="w-full text-center font-mono text-[11px] text-white/40 sm:w-auto md:text-right">
                 Or use the{' '}
                 <Link href="/contact" className="text-white/60 underline-offset-2 hover:text-white">
                   contact page
