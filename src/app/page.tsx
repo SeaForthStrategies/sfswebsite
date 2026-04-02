@@ -11,18 +11,22 @@ import { CALENDLY_URL, CONTACT_EMAIL_HREF, publicAssetPath } from '@/lib/site';
 export default function HomePage() {
   return (
     <>
-      {/* Hero — editorial layout + tech grid / scan overlay */}
+      {/* Hero — editorial layout + photo wash + tech grid / scan overlay */}
       <section className="editorial-hero relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 z-0 opacity-[0.06]">
+        <div className="pointer-events-none absolute inset-0 z-0">
           <Image
-            src={publicAssetPath('/images/matt-howard-R_bPhkgALY4-unsplash.jpg')}
+            src={publicAssetPath('/images/silas-baisch-K785Da4A_JA-unsplash.jpg')}
             alt=""
             fill
             priority
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-[color:var(--bg)]/0 [mask-image:radial-gradient(72%_62%_at_50%_20%,black,transparent)]" />
+          <div className="absolute inset-0 bg-[color:var(--bg)]/72" aria-hidden />
+          <div
+            className="absolute inset-0 bg-gradient-to-b from-[color:var(--bg)]/80 via-[color:var(--bg)]/45 to-[color:var(--bg)]/70"
+            aria-hidden
+          />
         </div>
         <div className="tech-hero-overlay" aria-hidden />
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
