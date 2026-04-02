@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { AnimatedWords } from '@/components/motion/AnimatedWords';
 import { Button } from '@/components/ui/Button';
 import { ClientsMarquee } from '@/components/visual/ClientsMarquee';
+import { HeroCursor } from '@/components/visual/HeroCursor';
 import { HomeFounderSection } from '@/components/visual/HomeFounderSection';
 import { HomePackagesSection } from '@/components/visual/HomePackagesSection';
 import { CALENDLY_URL, CONTACT_EMAIL_HREF, publicAssetPath } from '@/lib/site';
@@ -29,6 +30,7 @@ export default function HomePage() {
           />
         </div>
         <div className="tech-hero-overlay" aria-hidden />
+        <HeroCursor />
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto flex max-w-2xl flex-col items-center pt-12 pb-14 text-center sm:pt-14 sm:pb-16 md:items-start md:pt-24 md:pb-28 md:text-left">
             <h1 className="fade-in-up font-display text-ink text-[clamp(1.65rem,6.5vw+0.5rem,2.75rem)] leading-[1.08] tracking-[-0.03em] sm:text-4xl md:text-5xl md:leading-[1.06] lg:text-[3.25rem]">

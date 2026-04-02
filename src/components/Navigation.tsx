@@ -77,7 +77,7 @@ export function Navigation() {
               priority
               width={220}
               height={56}
-              className="!h-5 !w-auto !max-w-[100px] object-contain [filter:var(--logo-filter)] transition-[filter] duration-300 md:!h-9 md:!max-w-none"
+              className="!h-7 !w-auto !max-w-[148px] object-contain [filter:var(--logo-filter)] transition-[filter] duration-300 md:!h-12 md:!max-w-none"
             />
           </Link>
 
@@ -153,7 +153,7 @@ export function Navigation() {
           onClick={() => setIsOpen(false)}
           className={[
             'absolute inset-0 bg-black/40 transition-opacity duration-300',
-            isOpen ? 'opacity-100' : 'opacity-0',
+            isOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0',
           ].join(' ')}
         />
 
@@ -162,13 +162,16 @@ export function Navigation() {
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation"
+          aria-hidden={!isOpen}
           className={[
             'absolute top-0 right-0 left-0',
             'mt-[calc(var(--header-bar)+env(safe-area-inset-top,0px))]',
             'max-h-[calc(100dvh-var(--header-bar)-env(safe-area-inset-top,0px))] overflow-y-auto overscroll-y-contain',
             'shadow-premium hairline rounded-b-[28px] border-b bg-[color:var(--bg)] px-5 pt-5 pb-[max(1.5rem,env(safe-area-inset-bottom,0px))] sm:px-6 sm:pt-6',
             'transition-all duration-300',
-            isOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0',
+            isOpen
+              ? 'pointer-events-auto translate-y-0 opacity-100'
+              : 'pointer-events-none -translate-y-4 opacity-0',
           ].join(' ')}
         >
           <div className="mb-4 flex flex-col gap-3">
