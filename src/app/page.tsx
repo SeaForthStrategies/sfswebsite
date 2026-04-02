@@ -6,8 +6,7 @@ import { Button } from '@/components/ui/Button';
 import { ClientsMarquee } from '@/components/visual/ClientsMarquee';
 import { HomeFounderSection } from '@/components/visual/HomeFounderSection';
 import { HomePackagesSection } from '@/components/visual/HomePackagesSection';
-import { HomeServicesSection } from '@/components/visual/HomeServicesSection';
-import { CALENDLY_URL, CONTACT_EMAIL_HREF, PORTFOLIO_URL, publicAssetPath, SITE } from '@/lib/site';
+import { CALENDLY_URL, CONTACT_EMAIL_HREF, publicAssetPath } from '@/lib/site';
 
 export default function HomePage() {
   return (
@@ -28,31 +27,15 @@ export default function HomePage() {
         <div className="tech-hero-overlay" aria-hidden />
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto flex max-w-2xl flex-col items-center pt-16 pb-16 text-center md:items-start md:pt-24 md:pb-28 md:text-left">
-            <p className="fade-in-up label-tech text-ink/55 mb-6 inline-flex items-center gap-2 rounded-full border border-[color:var(--hairline)] bg-[color:var(--surface)] px-4 py-2">
-              <span className="kicker-dot h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--brand-teal)]" />
-              Boutique website studio
-            </p>
-            <div className="fade-in-up stagger-1 w-full">
-              <Image
-                src={publicAssetPath(SITE.logoPath)}
-                alt={SITE.name}
-                width={520}
-                height={140}
-                priority
-                className="mx-auto h-16 w-auto md:mx-0 md:h-24"
-                style={{ filter: 'var(--logo-filter)' }}
-              />
-            </div>
-
-            <h1 className="fade-in-up stagger-2 font-display text-ink mt-8 text-4xl tracking-[-0.03em] sm:text-5xl md:text-6xl lg:text-[3.25rem] lg:leading-[1.06]">
+            <h1 className="fade-in-up font-display text-ink text-4xl tracking-[-0.03em] sm:text-5xl md:text-6xl lg:text-[3.25rem] lg:leading-[1.06]">
               <AnimatedWords text="Website design for business owners who notice the details." />
             </h1>
-            <p className="fade-in-up stagger-3 text-muted mt-7 max-w-xl text-base leading-[1.65] md:text-lg">
-              Development or Squarespace design—clear structure, refined UI, and a path you can
-              follow from first call to launch.
+            <p className="fade-in-up stagger-1 text-muted mt-7 max-w-xl text-base leading-[1.65] md:text-lg">
+              Structured sites, refined UI, and a straight path from kickoff to launch—packages
+              spell out pricing paths.
             </p>
 
-            <div className="fade-in-up stagger-4 mt-10 flex w-full flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center md:justify-start">
+            <div className="fade-in-up stagger-2 mt-10 flex w-full flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center md:justify-start">
               <Button
                 href={CONTACT_EMAIL_HREF}
                 className="shadow-soft w-full rounded-full bg-[color:var(--brand-teal)] px-7 py-4 text-white hover:bg-[color:var(--brand-teal-dark)] sm:w-auto"
@@ -60,9 +43,7 @@ export default function HomePage() {
                 Start a project
               </Button>
               <Button
-                href={PORTFOLIO_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/portfolio"
                 variant="secondary"
                 className="w-full rounded-full sm:w-auto"
               >
@@ -70,7 +51,7 @@ export default function HomePage() {
               </Button>
             </div>
 
-            <div className="fade-in-up stagger-5 mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-mono text-[12px] font-semibold tracking-[0.12em] uppercase md:justify-start">
+            <div className="fade-in-up stagger-3 mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-mono text-[12px] font-semibold tracking-[0.12em] uppercase md:justify-start">
               <a
                 href={CALENDLY_URL}
                 target="_blank"
@@ -110,8 +91,6 @@ export default function HomePage() {
 
       <HomeFounderSection />
 
-      <HomeServicesSection />
-
       <HomePackagesSection />
 
       {/* Process */}
@@ -124,8 +103,7 @@ export default function HomePage() {
                 Straightforward. No theater.
               </h2>
               <p className="fade-in-up text-muted mt-5 max-w-lg text-sm leading-relaxed md:text-base">
-                Three steps—align on goals, build the site, launch with QA—whether you choose
-                development or Squarespace design.
+                Three steps from alignment to launch—the same process for every engagement.
               </p>
             </div>
 

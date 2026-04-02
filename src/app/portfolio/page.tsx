@@ -5,12 +5,12 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { WorkPortfolioGrid } from '@/components/visual/WorkPortfolioGrid';
 import { TESTIMONIALS } from '@/data/testimonials';
 import portfolioManifest from '@/data/portfolio-manifest.json';
-import { PORTFOLIO_URL, RESUME_REPO_URL } from '@/lib/site';
+import { RESUME_REPO_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Portfolio',
   description:
-    'Websites, graphics, photography, and client work—synced from the Abigail-Lehr-Resume portfolio repository.',
+    'SeaForth Strategies portfolio—websites, graphics, photography, and client work from the open-source manifest.',
 };
 
 export default function PortfolioPage() {
@@ -20,7 +20,7 @@ export default function PortfolioPage() {
     <>
       <PageHeader
         title="Portfolio"
-        subtitle="Websites, graphics, photos, and logos—same library as my résumé site, maintained in the open-source portfolio repo."
+        subtitle="Websites, graphics, photos, and logos—synced from the open-source portfolio repo. For my personal site, use the link in the site footer."
         backgroundImageSrc="/images/silas-baisch-K785Da4A_JA-unsplash.jpg"
       />
 
@@ -42,16 +42,7 @@ export default function PortfolioPage() {
                 >
                   Abigail-Lehr-Resume on GitHub
                 </a>
-                ). For the full personal site experience, visit{' '}
-                <a
-                  href={PORTFOLIO_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="link-underline text-ink/80 hover:text-ink"
-                >
-                  abigaillehr.com
-                </a>
-                .
+                ).
               </p>
             </div>
 

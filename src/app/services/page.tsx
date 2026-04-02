@@ -9,12 +9,12 @@ import { PortfolioGallery } from '@/components/visual/PortfolioGallery';
 import { TechStackLogos } from '@/components/visual/TechStackLogos';
 import { SERVICE_PACKAGES } from '@/data/packages';
 import { PORTFOLIO_GALLERY_ITEMS } from '@/lib/portfolio';
-import { CONTACT_EMAIL_HREF, PORTFOLIO_URL, RESUME_REPO_URL } from '@/lib/site';
+import { CONTACT_EMAIL_HREF, RESUME_REPO_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Services',
   description:
-    'Development (custom code, GitHub, Vercel) and design on Squarespace—SeaForth Strategies delivers founder-led work with clear structure and craft.',
+    'SeaForth Strategies—development and Squarespace design, packages, and craft-led delivery.',
 };
 
 /** Two primary routes; see packages for pricing entry points. */
@@ -38,7 +38,7 @@ export default function ServicesPage() {
     <>
       <PageHeader
         title="Services"
-        subtitle="Two services: development (custom code, GitHub, Vercel) and design on Squarespace—usually the more affordable path. Founder-led execution with room to tailor scope."
+        subtitle="Founder-led development and Squarespace design—scope tailored to your goals. Details, packages, and work samples are linked below."
         backgroundImageSrc="/images/silas-baisch-K785Da4A_JA-unsplash.jpg"
       />
 
@@ -53,9 +53,7 @@ export default function ServicesPage() {
                 What SeaForth actually does.
               </h2>
               <p className="fade-in-up text-muted mt-6 leading-relaxed">
-                Development when you need a bespoke, code-backed site; design on Squarespace when
-                you want a polished platform build at a lower starting investment. Packages spell
-                out how we start.
+                Use the cards for stack detail; use packages for starting prices and deliverables.
               </p>
               <div className="fade-in-up mt-8 flex flex-wrap items-center gap-3">
                 <Link
@@ -74,16 +72,8 @@ export default function ServicesPage() {
                   href="/portfolio"
                   className="hover-wiggle hairline text-ink/75 rounded-full border bg-[color:var(--bg)]/60 px-4 py-2 text-[12px] font-semibold tracking-[0.14em] uppercase"
                 >
-                  Portfolio gallery
+                  Portfolio
                 </Link>
-                <a
-                  href={PORTFOLIO_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover-wiggle hairline text-ink/75 rounded-full border bg-[color:var(--bg)]/60 px-4 py-2 text-[12px] font-semibold tracking-[0.14em] uppercase"
-                >
-                  abigaillehr.com
-                </a>
               </div>
             </div>
 
@@ -120,8 +110,8 @@ export default function ServicesPage() {
                 Expertise & tools
               </p>
               <p className="text-muted mt-3 max-w-2xl text-sm leading-relaxed">
-                Tooling aligned with the full skills résumé—expanded categories live on
-                abigaillehr.com.
+                Expanded stack and tooling on this page; for a broader résumé-style list, see
+                Services detail above.
               </p>
               <div className="mt-8">
                 <TechStackLogos />
@@ -133,16 +123,7 @@ export default function ServicesPage() {
               <Link href="/portfolio" className="link-underline text-ink/80 hover:text-ink">
                 work gallery
               </Link>{' '}
-              (same assets as the GitHub résumé repo), or{' '}
-              <a
-                href={PORTFOLIO_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link-underline text-ink/80 hover:text-ink"
-              >
-                abigaillehr.com
-              </a>{' '}
-              for the personal site. Source:{' '}
+              (same assets as the GitHub résumé repo). Source:{' '}
               <a
                 href={RESUME_REPO_URL}
                 target="_blank"
@@ -161,10 +142,10 @@ export default function ServicesPage() {
                     Packages
                   </p>
                   <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
-                    Two ways to start.
+                    Packages at a glance
                   </h2>
                   <p className="fade-in-up text-muted mt-6 max-w-2xl leading-relaxed">
-                    Development or Squarespace design—final scope is confirmed before kickoff.
+                    Same pricing as the home page—confirm scope before kickoff.
                   </p>
                 </div>
                 <div className="md:col-span-4">

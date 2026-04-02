@@ -37,14 +37,14 @@ export const metadata: Metadata = {
     template: `%s – ${SITE.name}`,
   },
   description:
-    'SeaForth Strategies is a website studio led by founder Abigail Lehr—development (Next.js, GitHub, Vercel) and design on Squarespace. Web work only.',
+    'SeaForth Strategies—founder-led website studio: custom development and Squarespace design.',
   icons: {
     icon: SITE.faviconPath,
   },
   openGraph: {
     title: SITE.name,
     description:
-      'Development and design for business owners—custom code with GitHub and Vercel, or Squarespace design at a lower entry.',
+      'Custom development and Squarespace design for business owners—SeaForth Strategies.',
     images: [SITE.logoPath],
     type: 'website',
   },
@@ -104,8 +104,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             name: SITE.name,
             url: SITE.url,
             logo: logoUrl,
-            description:
-              'Website studio—development (custom code) and Squarespace design, founder-led delivery.',
+            description: 'Boutique website studio—custom development and Squarespace design.',
             sameAs: [SITE.social.instagram, SITE.social.linkedin],
             contactPoint: {
               '@type': 'ContactPoint',

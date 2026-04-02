@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export function HomeFounderSection() {
   return (
     <section className="hairline bg-surface border-y" id="about">
@@ -9,9 +11,13 @@ export function HomeFounderSection() {
               Abigail Lehr
             </h2>
             <p className="fade-in-up stagger-2 text-muted mt-5 text-lg leading-relaxed md:text-xl">
-              I run SeaForth as a founder-led studio—development (custom code, GitHub, Vercel) and
-              design on Squarespace under one lead. My personal site shows the full career; SeaForth
-              is where we ship client sites.
+              I run SeaForth as a founder-led studio—custom development and Squarespace design in
+              one relationship. See the{' '}
+              <Link href="/portfolio" className="link-underline text-ink/80 hover:text-ink">
+                portfolio
+              </Link>{' '}
+              for work samples; the site footer links to my personal site for broader career
+              context.
             </p>
           </div>
         </div>

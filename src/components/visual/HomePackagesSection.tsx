@@ -1,35 +1,40 @@
 import Link from 'next/link';
 
 import { Button } from '@/components/ui/Button';
+import { TechStackLogos } from '@/components/visual/TechStackLogos';
 import { SERVICE_PACKAGES } from '@/data/packages';
-import { CONTACT_EMAIL_HREF } from '@/lib/site';
-
-function mailtoWithSubject(subject: string) {
-  return `${CONTACT_EMAIL_HREF}?subject=${encodeURIComponent(`SeaForth — ${subject}`)}`;
-}
+import { mailtoPackageInterest } from '@/lib/site';
 
 export function HomePackagesSection() {
   return (
     <section className="hairline bg-pop border-y" id="packages">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="py-16 md:py-24">
-          <div className="flex max-w-2xl flex-col gap-5 md:flex-row md:items-end md:justify-between">
-            <div>
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-2xl">
               <p className="fade-in-up label-tech text-[color:var(--brand-gold)]">Packages</p>
               <h2 className="fade-in-up stagger-1 font-display text-ink mt-6 text-4xl leading-[1.02] tracking-[-0.02em] md:text-5xl">
-                Two ways to start.
+                Starting prices & deliverables
               </h2>
               <p className="fade-in-up stagger-2 text-muted mt-5 max-w-xl leading-relaxed">
-                Development (custom code, GitHub, Vercel) or design on Squarespace—the more
-                affordable route. Scope and timeline are set after a short alignment call.
+                Two paths—custom development or Squarespace design. Final scope is confirmed after
+                an alignment call.
               </p>
             </div>
-            <Link
-              href="/pricing"
-              className="fade-in-up stagger-3 link-underline text-ink/80 hover:text-ink w-fit text-[13px] font-semibold tracking-[0.08em] uppercase"
-            >
-              Full package notes
-            </Link>
+            <div className="fade-in-up stagger-3 flex flex-wrap items-center gap-x-6 gap-y-2">
+              <Link
+                href="/pricing"
+                className="link-underline text-ink/80 hover:text-ink font-mono text-[12px] font-semibold tracking-[0.12em] uppercase"
+              >
+                Full pricing
+              </Link>
+              <Link
+                href="/services"
+                className="link-underline text-ink/80 hover:text-ink font-mono text-[12px] font-semibold tracking-[0.12em] uppercase"
+              >
+                All services
+              </Link>
+            </div>
           </div>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-2 lg:items-stretch">
@@ -76,7 +81,7 @@ export function HomePackagesSection() {
 
                 <div className="mt-auto pt-10">
                   <Button
-                    href={mailtoWithSubject(pkg.subject)}
+                    href={mailtoPackageInterest(pkg.name)}
                     className={[
                       'w-full rounded-full px-7 py-4',
                       pkg.featured
@@ -89,6 +94,24 @@ export function HomePackagesSection() {
                 </div>
               </div>
             ))}
+          </div>
+
+          <p className="fade-in-up text-muted mt-10 max-w-2xl text-sm leading-relaxed">
+            Extras like copy support, IA, and SEO can be layered in when scoped.
+          </p>
+
+          <div className="fade-in-up hairline bg-surface shadow-soft mt-10 rounded-[var(--radius-lg)] border p-7 md:p-8">
+            <p className="label-tech text-[color:var(--brand-gold)]">Expertise & tools</p>
+            <p className="text-muted mt-3 max-w-2xl text-sm leading-relaxed">
+              Full skills breakdown on the{' '}
+              <Link href="/services" className="link-underline text-ink/80 hover:text-ink">
+                Services
+              </Link>{' '}
+              page.
+            </p>
+            <div className="mt-6">
+              <TechStackLogos variant="compact" />
+            </div>
           </div>
         </div>
       </div>

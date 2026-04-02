@@ -160,7 +160,7 @@ export function Footer() {
                       />
                     </svg>
                   </span>
-                  Portfolio site
+                  Personal site
                 </a>
               </div>
             </div>

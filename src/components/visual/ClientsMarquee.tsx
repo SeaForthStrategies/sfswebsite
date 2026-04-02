@@ -28,18 +28,25 @@ export function ClientsMarquee({
   // Duplicate the list so the track can loop seamlessly.
   const items = [...logos, ...logos];
 
+  /** Same footprint for every logo so mixed artwork reads at even visual weight. */
+  const logoSlotClassName =
+    'relative mx-auto h-[52px] w-full max-w-[200px] opacity-85 grayscale transition-[opacity,filter] hover:opacity-100 hover:grayscale-0 md:mx-0 md:w-[200px] md:max-w-none';
+
   return (
     <div className={`w-full ${className}`} aria-label={label}>
       {/* Mobile: Simple 2-column grid */}
       <div className="grid grid-cols-2 gap-4 md:hidden">
         {logos.map((file, idx) => (
-          <div key={`mobile-${file}-${idx}`} className="flex h-24 items-center justify-center p-3">
-            <div className="relative h-full w-full opacity-80 grayscale transition-opacity hover:opacity-100">
+          <div
+            key={`mobile-${file}-${idx}`}
+            className="flex min-h-[72px] items-center justify-center p-3"
+          >
+            <div className={logoSlotClassName}>
               <Image
                 src={publicAssetPath(`/clients/${file}`)}
                 alt=""
                 fill
-                sizes="(min-width: 640px) 240px, 160px"
+                sizes="200px"
                 className="object-contain object-center"
               />
             </div>
@@ -56,18 +63,16 @@ export function ClientsMarquee({
               return (
                 <div
                   key={`${file}-${idx}`}
-                  className="flex h-[clamp(44px,6vw,80px)] w-[clamp(140px,38vw,300px)] shrink-0 items-center justify-center opacity-85 transition-opacity hover:opacity-100"
+                  className="flex shrink-0 items-center justify-center px-1 sm:px-2"
                 >
-                  <div className="h-full w-full p-2 sm:p-3">
-                    <div className="relative h-full w-full">
-                      <Image
-                        src={src}
-                        alt=""
-                        fill
-                        sizes="(min-width: 1024px) 300px, (min-width: 640px) 240px, 160px"
-                        className="object-contain object-center"
-                      />
-                    </div>
+                  <div className={logoSlotClassName}>
+                    <Image
+                      src={src}
+                      alt=""
+                      fill
+                      sizes="200px"
+                      className="object-contain object-center"
+                    />
                   </div>
                 </div>
               );

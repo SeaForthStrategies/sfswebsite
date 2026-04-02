@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { TECH_ICON_COLOR, TECH_STACK_GROUPS } from '@/data/tech-stack';
-import { PORTFOLIO_SKILLS_URL } from '@/lib/site';
 
 function iconSrc(slug: string): string {
   return `https://cdn.simpleicons.org/${slug}/${TECH_ICON_COLOR}`;
@@ -52,13 +51,8 @@ export function TechStackLogos({
 
       {showSkillsLink ? (
         <p className={`text-muted text-sm ${variant === 'compact' ? 'mt-5' : 'mt-8'}`}>
-          <Link
-            href={PORTFOLIO_SKILLS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link-underline text-ink/80 hover:text-ink"
-          >
-            Full expertise & tools (résumé)
+          <Link href="/services" className="link-underline text-ink/80 hover:text-ink">
+            Full expertise & services detail
           </Link>
         </p>
       ) : null}

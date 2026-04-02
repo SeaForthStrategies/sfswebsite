@@ -7,12 +7,15 @@ import { PortfolioGallery } from '@/components/visual/PortfolioGallery';
 import { Sparkles } from '@/components/Sparkles';
 import { TechStackLogos } from '@/components/visual/TechStackLogos';
 import { PORTFOLIO_GALLERY_ITEMS } from '@/lib/portfolio';
-import { CONTACT_EMAIL_HREF, PORTFOLIO_SKILLS_URL, PORTFOLIO_URL } from '@/lib/site';
+import { CONTACT_EMAIL_HREF } from '@/lib/site';
 
 const frontmatter = {
   title: 'Development — custom websites',
   description:
-    'Custom development—Next.js, GitHub, Vercel—responsive UI, performance, SEO, and launch support. For Squarespace design (lower entry), see Packages. Portfolio reference: abigaillehr.com.',
+    'Custom development—Next.js, GitHub, Vercel—responsive UI, performance, SEO, and launch support. For Squarespace design (lower entry), see Packages. Work samples: /portfolio.',
+  /** Shorter hero line than meta description (avoids repeating the full SEO blurb on-page). */
+  heroSubtitle:
+    'Responsive UI, performance, and launch support—Next.js, GitHub, and Vercel. Squarespace path: /pricing.',
 };
 
 export const metadata: Metadata = {
@@ -25,7 +28,7 @@ export default function WebDesignPage() {
     <>
       <PageHeader
         title={frontmatter.title}
-        subtitle={frontmatter.description}
+        subtitle={frontmatter.heroSubtitle}
         backgroundImageSrc="/images/matt-howard-R_bPhkgALY4-unsplash.jpg"
       />
 
@@ -67,22 +70,18 @@ export default function WebDesignPage() {
                   >
                     View packages
                   </Link>
-                  <a
-                    href={PORTFOLIO_SKILLS_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href="/services"
                     className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold tracking-[0.08em] uppercase"
                   >
                     All skills
-                  </a>
-                  <a
-                    href={PORTFOLIO_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  </Link>
+                  <Link
+                    href="/portfolio"
                     className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold tracking-[0.08em] uppercase"
                   >
                     Portfolio
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -98,14 +97,9 @@ export default function WebDesignPage() {
                 <TechStackLogos variant="compact" showSkillsLink={false} />
               </div>
               <p className="fade-in-up text-muted mt-6 text-sm">
-                <a
-                  href={PORTFOLIO_SKILLS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="link-underline text-ink/80 hover:text-ink"
-                >
-                  Full expertise & tools on abigaillehr.com
-                </a>
+                <Link href="/services" className="link-underline text-ink/80 hover:text-ink">
+                  Full expertise & tools on Services
+                </Link>
               </p>
             </div>
 

@@ -5,24 +5,20 @@ import { Button } from '@/components/ui/Button';
 import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
 import { Sparkles } from '@/components/Sparkles';
 import { SERVICE_PACKAGES } from '@/data/packages';
-import { CONTACT_EMAIL_HREF } from '@/lib/site';
+import { CONTACT_EMAIL_HREF, mailtoPackageInterest } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Packages',
   description:
-    'Development (custom code, GitHub, Vercel) or design on Squarespace—led by SeaForth Strategies founder Abigail Lehr.',
+    'Compare SeaForth development and Squarespace design packages—starting prices and deliverables.',
 };
-
-function mailtoWithSubject(subject: string) {
-  return `${CONTACT_EMAIL_HREF}?subject=${encodeURIComponent(`SeaForth — ${subject}`)}`;
-}
 
 export default function PricingPage() {
   return (
     <>
       <PageHeader
         title="Packages"
-        subtitle="Development and design are our two services: custom code (GitHub, Vercel) or Squarespace—usually the lower starting price. Everything is scoped after a short alignment call."
+        subtitle="Compare paths below—starting prices, account rules, and deliverables. Scope is set after a short alignment call."
         backgroundImageSrc="/images/kelsey-knight-CrRr3y1lhl8-unsplash.jpg"
       />
 
@@ -37,10 +33,8 @@ export default function PricingPage() {
                 Development or design.
               </h2>
               <p className="fade-in-up text-muted mt-5 leading-relaxed">
-                Design is delivered on Squarespace and is typically the more affordable entry.
-                Development is custom engineering—Next.js, GitHub, and Vercel—with a higher starting
-                investment. Prices are starting points; final scope is confirmed in writing before
-                kickoff.
+                Squarespace is usually the lower entry; custom development carries a higher starting
+                investment. Figures are starting points until scope is confirmed in writing.
               </p>
             </div>
 
@@ -101,7 +95,7 @@ export default function PricingPage() {
 
                     <div className="mt-auto pt-10">
                       <Button
-                        href={mailtoWithSubject(p.subject)}
+                        href={mailtoPackageInterest(p.name)}
                         className={[
                           'w-full rounded-full py-4',
                           p.featured

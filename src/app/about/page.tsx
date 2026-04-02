@@ -1,27 +1,28 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
 
 import { PageHeader } from '@/components/layout/PageHeader';
-import Image from 'next/image';
 
 import { Button } from '@/components/ui/Button';
 import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
 import { Sparkles } from '@/components/Sparkles';
 import { PortfolioGallery } from '@/components/visual/PortfolioGallery';
 import { PORTFOLIO_GALLERY_HIGHLIGHTS } from '@/lib/portfolio';
-import { CONTACT_EMAIL_HREF, PORTFOLIO_URL, publicAssetPath } from '@/lib/site';
+import { CONTACT_EMAIL_HREF, publicAssetPath } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'SeaForth Strategies is led by Abigail Lehr—development (custom code, GitHub, Vercel) and design on Squarespace, delivered with clear craft.',
+    'SeaForth is a small shop: you work directly with Abigail Lehr—no layers, no account managers—just honest web design and development.',
 };
 
 export default function AboutPage() {
   return (
     <>
       <PageHeader
-        title="A boutique website studio."
-        subtitle="Development and design—disciplined UI, front-end delivery, and launches that hold up. Design runs on Squarespace; development is custom code with GitHub and Vercel."
+        title="A small shop—not a big agency."
+        subtitle="Real conversations, real timelines, and a site you can actually own. If you want numbers and packages, Services and Pricing have the details."
         backgroundImageSrc="/images/marissa-rodriguez-2mKYEVGA4jE-unsplash.jpg"
       />
 
@@ -30,16 +31,12 @@ export default function AboutPage() {
           <div className="py-16 md:py-24">
             <div className="mx-auto max-w-3xl text-center">
               <p className="fade-in-up text-muted leading-relaxed">
-                SeaForth is built around the website: design, build, and launch in one workflow—one
-                lead, one standard of craft. For web project examples,{' '}
-                <a
-                  href={PORTFOLIO_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="link-underline text-ink/80 hover:text-ink"
-                >
+                I started SeaForth because I like working with owners and teams who care about their
+                corner of the internet—not because I wanted to run a big shop. You get one person
+                who designs, builds, and launches with you. For past work,{' '}
+                <Link href="/portfolio" className="link-underline text-ink/80 hover:text-ink">
                   browse the portfolio
-                </a>
+                </Link>
                 .
               </p>
             </div>
@@ -64,18 +61,18 @@ export default function AboutPage() {
                   Abigail Lehr — Founder
                 </p>
                 <h2 className="font-display text-ink mt-3 text-3xl md:text-4xl">
-                  Front-end craft, from structure to launch.
+                  You’re not a ticket number—you’re a conversation.
                 </h2>
                 <p className="text-muted mt-5 leading-relaxed">
-                  Abigail leads SeaForth’s website engagements end to end: information architecture,
-                  visual design, responsive development (often in Next.js), performance and SEO
-                  fundamentals, and post-launch iteration. The goal is always the same—a site that
-                  looks intentional, loads fast, and is easy to evolve.
+                  I handle websites start to finish: structure, visuals, responsive build (often in
+                  Next.js), the basics of speed and search, and tweaks after launch. No junior
+                  handoffs and no “we’ll get back to you next quarter.” If something matters to your
+                  business, it matters in how we work together.
                 </p>
                 <blockquote className="hairline bg-surface mt-8 rounded-[var(--radius)] border p-6 md:p-8">
                   <p className="font-display text-ink text-xl leading-snug md:text-2xl">
-                    “Great design isn’t just how something looks—it’s how clearly it works, how
-                    confidently it communicates, and how effectively it converts.”
+                    “A good site should feel like someone listened—then made it easy for people to
+                    say yes.”
                   </p>
                 </blockquote>
               </div>
@@ -93,23 +90,23 @@ export default function AboutPage() {
                   How we work
                 </p>
                 <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02]">
-                  Designed, not assembled.
+                  Hands-on, plain language, no runaround.
                 </h2>
               </div>
               <div className="md:col-span-7">
                 <div className="hairline divide-y">
                   {[
                     {
-                      t: 'Editorial clarity',
-                      d: 'Bold spacing, strong typographic rhythm, and structure that guides attention.',
+                      t: 'Clear before clever',
+                      d: 'Visitors should know who you are and what to do next—without hunting for it.',
                     },
                     {
-                      t: 'Performance as a design feature',
-                      d: 'Fast, accessible, and built to scale—because “premium” should feel effortless.',
+                      t: 'Fast enough to feel cared for',
+                      d: 'Pages that load quickly and read well on phones, because that’s how people actually browse.',
                     },
                     {
-                      t: 'Launch discipline',
-                      d: 'Staging, QA, and a clean handoff—so you ship with confidence.',
+                      t: 'Launch day you can trust',
+                      d: 'I check the messy stuff before go-live so you’re not fixing surprises on opening night.',
                     },
                   ].map((p, idx) => (
                     <div
@@ -130,35 +127,35 @@ export default function AboutPage() {
               <div className="grid gap-10 md:grid-cols-12 md:items-center">
                 <div className="md:col-span-6">
                   <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
-                    The difference
+                    Why a small shop
                   </p>
                   <h2 className="fade-in-up font-display text-ink mt-6 text-3xl leading-[1.05] md:text-4xl">
-                    Boutique attention. System-level output.
+                    The kind of place where people remember your name.
                   </h2>
                   <p className="fade-in-up text-muted mt-6 leading-relaxed">
-                    We stay intentionally lean so engagements stay accountable—tight feedback loops,
-                    consistent creative direction, and a final product that feels like one firm
-                    built it.
+                    I keep the roster small on purpose—so you’re not explaining your business again
+                    to a new face every week. You get steady communication, one creative thread, and
+                    a site that feels like it came from one kitchen, not a cafeteria line.
                   </p>
                 </div>
                 <div className="md:col-span-6">
                   <div className="grid gap-4 md:grid-cols-2">
                     {[
                       {
-                        t: 'Founder-led builds',
-                        d: 'One lead from wireframe to production—no handoff roulette.',
+                        t: 'Same person start to finish',
+                        d: 'Wireframes to launch—you’re not bouncing between departments.',
                       },
                       {
-                        t: 'Modern build',
-                        d: 'Clean, scalable, and designed to evolve as you grow.',
+                        t: 'Built to grow with you',
+                        d: 'Clean structure so you’re not stuck when the business changes.',
                       },
                       {
-                        t: 'Motion with restraint',
-                        d: 'Animation that supports clarity—not clutter.',
+                        t: 'Motion that helps, not distracts',
+                        d: 'A little life on the page, without the circus.',
                       },
                       {
-                        t: 'Measured outcomes',
-                        d: 'On-site performance and conversion signals guide what to improve next.',
+                        t: 'Honest next steps',
+                        d: 'I look at what visitors do and we talk about what’s worth fixing—not vanity metrics.',
                       },
                     ].map((c, idx) => (
                       <div
@@ -191,13 +188,13 @@ export default function AboutPage() {
                   A few snapshots
                 </p>
                 <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
-                  The style is editorial. The code is production-ready.
+                  Polished enough to impress—practical enough to live in.
                 </h2>
               </div>
               <div className="md:col-span-5">
                 <p className="fade-in-up text-muted leading-relaxed">
-                  We care about how the site looks—and how it behaves under real traffic and real
-                  content updates.
+                  A few snapshots of work that had to look good on a screen and hold up when real
+                  people clicked around.
                 </p>
               </div>
             </div>
@@ -226,11 +223,11 @@ export default function AboutPage() {
                   Next step
                 </p>
                 <h2 className="fade-in-up font-display mt-6 text-4xl leading-[1.02] md:text-5xl">
-                  Let’s set direction—then build.
+                  Say hello—we’ll figure out the rest together.
                 </h2>
                 <p className="fade-in-up mt-6 max-w-2xl leading-relaxed text-white/70">
-                  Book a short strategy call. We’ll align on goals, scope, and timelines with zero
-                  pressure.
+                  Send a note or book a short call. No pitch deck, no hard sell—just a real chat
+                  about what you need and whether we’re a fit.
                 </p>
               </div>
               <div className="md:col-span-4">
@@ -239,7 +236,7 @@ export default function AboutPage() {
                   variant="accent"
                   className="w-full rounded-full px-7 py-4"
                 >
-                  Email us
+                  Send a note
                 </Button>
               </div>
             </div>

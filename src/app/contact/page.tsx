@@ -6,7 +6,8 @@ import { Button } from '@/components/ui/Button';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
 import { Sparkles } from '@/components/Sparkles';
-import { CONTACT_EMAIL, CONTACT_EMAIL_HREF, PORTFOLIO_URL, publicAssetPath } from '@/lib/site';
+
+import { CONTACT_EMAIL, CONTACT_EMAIL_HREF, publicAssetPath } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -135,18 +136,13 @@ export default function ContactPage() {
                 name="Abigail Lehr"
                 title="Founder — Website design & development"
                 image="/images/7CC381A4-0716-416E-B8F8-B2E80D7C8955.JPG"
-                email="abby@seaforthstrategies.com"
               />
               <p className="fade-in-up text-muted mt-8 text-sm leading-relaxed">
-                Portfolio reference:{' '}
-                <a
-                  href={PORTFOLIO_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="link-underline text-ink/80 hover:text-ink"
-                >
-                  abigaillehr.com
-                </a>
+                See work on the{' '}
+                <Link href="/portfolio" className="link-underline text-ink/80 hover:text-ink">
+                  portfolio
+                </Link>{' '}
+                page; the site footer links to my personal site for additional context.
               </p>
             </div>
           </div>
@@ -178,7 +174,7 @@ export default function ContactPage() {
               />
               <FaqItem
                 q="Where can I see your work?"
-                a="Selected projects and case-style work live on the portfolio at abigaillehr.com. SeaForth engagements are website-led; that site is the best reference for craft and range."
+                a="Browse the Portfolio page on this site for selected work. The footer links to my personal site for a broader career view."
               />
               <FaqItem
                 q="Is pricing fixed?"
@@ -192,17 +188,7 @@ export default function ContactPage() {
   );
 }
 
-function FounderCard({
-  name,
-  title,
-  image,
-  email,
-}: {
-  name: string;
-  title: string;
-  image: string;
-  email: string;
-}) {
+function FounderCard({ name, title, image }: { name: string; title: string; image: string }) {
   return (
     <div className="fade-in-up hairline bg-surface shadow-soft hover-lift rounded-[var(--radius-lg)] border p-7">
       <div className="flex items-center gap-5">
@@ -223,8 +209,11 @@ function FounderCard({
         </div>
       </div>
       <div className="mt-6 grid gap-3">
-        <a className="link-underline text-ink/80 hover:text-ink break-all" href={`mailto:${email}`}>
-          {email}
+        <a
+          className="link-underline text-ink/80 hover:text-ink break-all"
+          href={CONTACT_EMAIL_HREF}
+        >
+          {CONTACT_EMAIL}
         </a>
       </div>
     </div>
