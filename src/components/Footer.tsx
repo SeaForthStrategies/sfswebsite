@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { CONTACT_EMAIL, CONTACT_EMAIL_HREF, SITE } from '@/lib/site';
+import { CONTACT_EMAIL, CONTACT_EMAIL_HREF, publicAssetPath, SITE } from '@/lib/site';
+
+const portfolioUrl = SITE.portfolioUrl;
 
 function Icon({
   name,
@@ -100,7 +102,7 @@ export function Footer() {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <Image
-                src={SITE.logoPath}
+                src={publicAssetPath(SITE.logoPath)}
                 alt={SITE.name}
                 width={220}
                 height={56}
@@ -108,17 +110,17 @@ export function Footer() {
                 style={{ filter: 'var(--logo-filter)' }}
               />
             </div>
-            <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
-              Where Strategy Meets Storytelling
+            <p className="text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
+              Website design studio
             </p>
             <p className="text-contrast-muted max-w-md leading-relaxed">
-              A boutique agency built on two equal pillars: creative execution and analytical
-              authority. Calm, confident, and relentlessly focused on outcomes.
+              Founder-led builds—custom UI, disciplined front ends, sites that stay sharp after
+              launch.
             </p>
           </div>
 
           <div className="space-y-4">
-            <p className="text-contrast-muted text-[12px] font-semibold uppercase tracking-[0.16em]">
+            <p className="text-contrast-muted text-[12px] font-semibold tracking-[0.16em] uppercase">
               Contact
             </p>
             <div className="grid gap-3">
@@ -140,19 +142,39 @@ export function Footer() {
                 </span>
                 Start a project
               </Link>
+              <a
+                href={portfolioUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-contrast inline-flex items-center gap-3 text-white/80 transition-colors"
+              >
+                <span className="text-[color:var(--brand-gold)]" aria-hidden>
+                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M7 17L17 7M7 7h10v10"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+                Portfolio site
+              </a>
             </div>
           </div>
 
           <div className="space-y-4">
-            <p className="text-contrast-muted text-[12px] font-semibold uppercase tracking-[0.16em]">
+            <p className="text-contrast-muted text-[12px] font-semibold tracking-[0.16em] uppercase">
               Explore
             </p>
             <nav className="grid gap-2" aria-label="Footer navigation">
               {[
                 { href: '/', label: 'Home' },
                 { href: '/services', label: 'Services' },
+                { href: '/portfolio', label: 'Portfolio' },
                 { href: '/pricing', label: 'Packages' },
-                { href: '/about', label: 'Co-Founders' },
+                { href: '/about', label: 'About' },
                 { href: '/contact', label: 'Contact' },
               ].map((item) => (
                 <Link
@@ -199,11 +221,11 @@ export function Footer() {
           </div>
 
           <div className="space-y-4">
-            <p className="text-contrast-muted text-[12px] font-semibold uppercase tracking-[0.16em]">
+            <p className="text-contrast-muted text-[12px] font-semibold tracking-[0.16em] uppercase">
               Newsletter
             </p>
             <p className="text-contrast-muted max-w-sm leading-relaxed">
-              Occasional notes on web design, analytics, and what we’re seeing work right now.
+              Occasional notes on design systems and what ships next.
             </p>
             <div className="rounded-[var(--radius-lg)] border border-white/10 bg-white/5 p-4">
               <div
@@ -223,19 +245,19 @@ export function Footer() {
                 © {year} SeaForth Strategies. All rights reserved.
               </p>
               <p className="max-w-xl text-[11px] leading-relaxed text-white/30">
-                SeaForth Strategies is a digital consultancy. All trademarks, logos, and brand
-                names are the property of their respective owners. Use of this site constitutes
-                acceptance of our terms and privacy policy.
+                SeaForth Strategies is a website design and development studio. All trademarks,
+                logos, and brand names are the property of their respective owners. Use of this site
+                constitutes acceptance of our terms and privacy policy.
               </p>
             </div>
             <div className="flex flex-col gap-3 text-sm text-white/40 sm:flex-row sm:gap-6">
-              <Link href="/privacy" className="hover:text-white transition-colors">
+              <Link href="/privacy" className="transition-colors hover:text-white">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="hover:text-white transition-colors">
+              <Link href="/terms" className="transition-colors hover:text-white">
                 Terms of Service
               </Link>
-              <span className="hidden sm:inline text-white/10">|</span>
+              <span className="hidden text-white/10 sm:inline">|</span>
               <p>Crafted in Southern California.</p>
             </div>
           </div>

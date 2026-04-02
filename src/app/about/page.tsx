@@ -7,84 +7,75 @@ import { Button } from '@/components/ui/Button';
 import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
 import { Sparkles } from '@/components/Sparkles';
 import { PortfolioGallery } from '@/components/visual/PortfolioGallery';
-import { CONTACT_EMAIL_HREF } from '@/lib/site';
+import { PORTFOLIO_GALLERY_HIGHLIGHTS } from '@/lib/portfolio';
+import { CONTACT_EMAIL_HREF, PORTFOLIO_URL, publicAssetPath } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'About Us',
+  title: 'About',
   description:
-    'Meet the co-founders of SeaForth Strategies—creative execution and analytical authority, built as one system.',
+    'SeaForth Strategies is a website-only studio led by Abigail Lehr—custom site design, development, and launch.',
 };
 
 export default function AboutPage() {
   return (
     <>
       <PageHeader
-        title="Two Co-Founders. One standard."
-        subtitle="SeaForth Strategies is built on creative execution and analytical authority—so the work looks premium, reads clearly, and performs measurably."
+        title="A boutique website studio."
+        subtitle="SeaForth exists to build better websites—nothing else. Custom UI, disciplined front-end delivery, and launches that hold up."
         backgroundImageSrc="/images/marissa-rodriguez-2mKYEVGA4jE-unsplash.jpg"
       />
 
       <section>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="py-16 md:py-24">
-            <div className="grid gap-14 md:grid-cols-2 md:gap-10">
-              <div className="fade-in-up">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="fade-in-up text-muted leading-relaxed">
+                SeaForth is built around the website: design, build, and launch in one workflow—one
+                lead, one standard of craft. For web project examples,{' '}
+                <a
+                  href={PORTFOLIO_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-underline text-ink/80 hover:text-ink"
+                >
+                  browse the portfolio
+                </a>
+                .
+              </p>
+            </div>
+
+            <div className="mt-14 grid gap-12 md:mt-20 md:grid-cols-12 md:items-start md:gap-10 lg:gap-14">
+              <div className="fade-in-up md:col-span-5">
                 <div className="shadow-premium hover-lift relative overflow-hidden rounded-[var(--radius-lg)]">
                   <div className="relative aspect-[4/5] w-full">
                     <Image
-                      src="/images/7CC381A4-0716-416E-B8F8-B2E80D7C8955.JPG"
-                      alt="Abby — Co-Founder"
+                      src={publicAssetPath('/images/7CC381A4-0716-416E-B8F8-B2E80D7C8955.JPG')}
+                      alt="Abigail Lehr — Founder, SeaForth Strategies"
                       fill
                       className="object-cover object-top"
-                      sizes="(min-width: 768px) 40vw, 92vw"
+                      sizes="(min-width: 768px) 38vw, 92vw"
                     />
                   </div>
                 </div>
-                <p className="text-ink/60 mt-6 text-[12px] font-semibold uppercase tracking-[0.16em]">
-                  Abby — Co-Founder
-                </p>
-                <h2 className="font-display text-ink mt-2 text-3xl">
-                  Creative + technical execution
-                </h2>
-                <p className="text-muted mt-4 leading-relaxed">
-                  Abby leads web design & development, and runs branding and marketing strategy
-                  calls. She’s the primary client-facing strategist—ensuring every build is clear,
-                  confident, and designed to convert.
-                </p>
-                <blockquote className="hairline bg-surface mt-6 rounded-[var(--radius)] border p-6">
-                  <p className="font-display text-ink text-2xl leading-snug">
-                    “Great design isn’t just how something looks—it’s how clearly it works, how
-                    confidently it communicates, and how effectively it converts.”
-                  </p>
-                </blockquote>
               </div>
 
-              <div className="fade-in-up stagger-2">
-                <div className="shadow-premium hover-lift relative overflow-hidden rounded-[var(--radius-lg)]">
-                  <div className="relative aspect-[4/5] w-full">
-                    <Image
-                      src="/images/Savanna.png"
-                      alt="Savanna — Co-Founder"
-                      fill
-                      className="object-cover object-top"
-                      sizes="(min-width: 768px) 40vw, 92vw"
-                    />
-                  </div>
-                </div>
-                <p className="text-ink/60 mt-6 text-[12px] font-semibold uppercase tracking-[0.16em]">
-                  Savanna — Co-Founder
+              <div className="fade-in-up stagger-2 md:col-span-7">
+                <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
+                  Abigail Lehr — Founder
                 </p>
-                <h2 className="font-display text-ink mt-2 text-3xl">
-                  Analytics + performance optimization
+                <h2 className="font-display text-ink mt-3 text-3xl md:text-4xl">
+                  Front-end craft, from structure to launch.
                 </h2>
-                <p className="text-muted mt-4 leading-relaxed">
-                  Savanna leads analytics, data, and performance optimization—ensuring every
-                  campaign is data-backed, refined, and built to scale.
+                <p className="text-muted mt-5 leading-relaxed">
+                  Abigail leads SeaForth’s website engagements end to end: information architecture,
+                  visual design, responsive development (often in Next.js), performance and SEO
+                  fundamentals, and post-launch iteration. The goal is always the same—a site that
+                  looks intentional, loads fast, and is easy to evolve.
                 </p>
-                <blockquote className="hairline bg-surface mt-6 rounded-[var(--radius)] border p-6">
-                  <p className="font-display text-ink text-2xl leading-snug">
-                    “I turn complex metrics into clear insights that drive smarter decisions and
-                    measurable growth.”
+                <blockquote className="hairline bg-surface mt-8 rounded-[var(--radius)] border p-6 md:p-8">
+                  <p className="font-display text-ink text-xl leading-snug md:text-2xl">
+                    “Great design isn’t just how something looks—it’s how clearly it works, how
+                    confidently it communicates, and how effectively it converts.”
                   </p>
                 </blockquote>
               </div>
@@ -98,7 +89,7 @@ export default function AboutPage() {
           <div className="py-16 md:py-24">
             <div className="grid gap-10 md:grid-cols-12 md:items-start">
               <div className="md:col-span-5">
-                <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                   How we work
                 </p>
                 <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02]">
@@ -117,8 +108,8 @@ export default function AboutPage() {
                       d: 'Fast, accessible, and built to scale—because “premium” should feel effortless.',
                     },
                     {
-                      t: 'Measurement without noise',
-                      d: 'Tracking, reporting, and optimization centered on decisions—not vanity metrics.',
+                      t: 'Launch discipline',
+                      d: 'Staging, QA, and a clean handoff—so you ship with confidence.',
                     },
                   ].map((p, idx) => (
                     <div
@@ -138,23 +129,24 @@ export default function AboutPage() {
             <div className="hairline shadow-soft mt-14 rounded-[var(--radius-lg)] border bg-[color:var(--bg)] p-7 md:p-10">
               <div className="grid gap-10 md:grid-cols-12 md:items-center">
                 <div className="md:col-span-6">
-                  <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                  <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                     The difference
                   </p>
                   <h2 className="fade-in-up font-display text-ink mt-6 text-3xl leading-[1.05] md:text-4xl">
                     Boutique attention. System-level output.
                   </h2>
                   <p className="fade-in-up text-muted mt-6 leading-relaxed">
-                    We’re small on purpose. It keeps the work focused, the feedback loop tight, and
-                    the final product cohesive.
+                    We stay intentionally lean so engagements stay accountable—tight feedback loops,
+                    consistent creative direction, and a final product that feels like one firm
+                    built it.
                   </p>
                 </div>
                 <div className="md:col-span-6">
                   <div className="grid gap-4 md:grid-cols-2">
                     {[
                       {
-                        t: 'Co-founder led',
-                        d: 'Strategy and execution are handled by Abby + Savanna.',
+                        t: 'Founder-led builds',
+                        d: 'One lead from wireframe to production—no handoff roulette.',
                       },
                       {
                         t: 'Modern build',
@@ -166,7 +158,7 @@ export default function AboutPage() {
                       },
                       {
                         t: 'Measured outcomes',
-                        d: 'Analytics and performance are part of the system.',
+                        d: 'On-site performance and conversion signals guide what to improve next.',
                       },
                     ].map((c, idx) => (
                       <div
@@ -195,17 +187,17 @@ export default function AboutPage() {
           <div className="py-16 md:py-24">
             <div className="grid gap-10 md:grid-cols-12 md:items-end">
               <div className="md:col-span-7">
-                <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                   A few snapshots
                 </p>
                 <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
-                  The style is editorial. The engine is measurable.
+                  The style is editorial. The code is production-ready.
                 </h2>
               </div>
               <div className="md:col-span-5">
                 <p className="fade-in-up text-muted leading-relaxed">
-                  We care about aesthetics—but we care just as much about how clearly the system
-                  works.
+                  We care about how the site looks—and how it behaves under real traffic and real
+                  content updates.
                 </p>
               </div>
             </div>
@@ -213,26 +205,7 @@ export default function AboutPage() {
             <PortfolioGallery
               className="mt-12"
               framed={false}
-              items={[
-                {
-                  src: '/images/Website Portfolio (1)/1031.png',
-                  alt: '1031 Capital Solutions website',
-                  width: 1280,
-                  height: 720,
-                },
-                {
-                  src: '/images/Website Portfolio (1)/LUX.png',
-                  alt: 'LUX website',
-                  width: 1280,
-                  height: 720,
-                },
-                {
-                  src: '/images/Website Portfolio (1)/Social Affair.png',
-                  alt: 'The Social Affair website',
-                  width: 1280,
-                  height: 720,
-                },
-              ]}
+              items={PORTFOLIO_GALLERY_HIGHLIGHTS}
             />
           </div>
         </div>
@@ -249,7 +222,7 @@ export default function AboutPage() {
           <div className="py-16 md:py-24">
             <div className="grid gap-10 md:grid-cols-12 md:items-end">
               <div className="md:col-span-8">
-                <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                   Next step
                 </p>
                 <h2 className="fade-in-up font-display mt-6 text-4xl leading-[1.02] md:text-5xl">

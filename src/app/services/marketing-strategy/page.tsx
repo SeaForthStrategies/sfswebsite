@@ -7,7 +7,7 @@ import { Parallax } from '@/components/motion/Parallax';
 import { Button } from '@/components/ui/Button';
 import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
 import { Sparkles } from '@/components/Sparkles';
-import { CONTACT_EMAIL_HREF } from '@/lib/site';
+import { CONTACT_EMAIL_HREF, publicAssetPath } from '@/lib/site';
 
 const frontmatter = {
   title: 'Marketing Strategy',
@@ -34,7 +34,7 @@ export default function MarketingStrategyPage() {
           <div className="py-16 md:py-24">
             <div className="grid gap-12 md:grid-cols-12 md:items-start">
               <div className="md:col-span-5">
-                <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                   What this includes
                 </p>
                 <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
@@ -65,13 +65,13 @@ export default function MarketingStrategyPage() {
                 <div className="fade-in-up mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
                   <Link
                     href="/services"
-                    className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold uppercase tracking-[0.08em]"
+                    className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold tracking-[0.08em] uppercase"
                   >
-                    Explore services
+                    Explore skills
                   </Link>
                   <Link
                     href="/pricing"
-                    className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold uppercase tracking-[0.08em]"
+                    className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold tracking-[0.08em] uppercase"
                   >
                     View packages
                   </Link>
@@ -116,7 +116,7 @@ export default function MarketingStrategyPage() {
           <div className="py-16 md:py-24">
             <div className="grid gap-10 md:grid-cols-12 md:items-center">
               <div className="md:col-span-6">
-                <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                   Framework
                 </p>
                 <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
@@ -162,7 +162,7 @@ export default function MarketingStrategyPage() {
                   <div className="bg-surface shadow-premium hover-lift relative overflow-hidden rounded-[var(--radius-lg)]">
                     <div className="relative aspect-[16/11] w-full">
                       <Image
-                        src="/images/luke-chesser-JKUTrJ4vK00-unsplash.jpg"
+                        src={publicAssetPath('/images/luke-chesser-JKUTrJ4vK00-unsplash.jpg')}
                         alt=""
                         fill
                         className="object-cover"
@@ -170,7 +170,7 @@ export default function MarketingStrategyPage() {
                       />
                     </div>
                     <div className="hairline border-t px-6 py-5">
-                      <p className="text-ink/60 text-[12px] font-semibold uppercase tracking-[0.16em]">
+                      <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
                         Positioning · channels · conversion
                       </p>
                     </div>
@@ -193,7 +193,7 @@ export default function MarketingStrategyPage() {
           <div className="py-16 md:py-24">
             <div className="grid gap-10 md:grid-cols-12 md:items-end">
               <div className="md:col-span-8">
-                <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                   Next step
                 </p>
                 <h2 className="fade-in-up font-display mt-6 text-4xl leading-[1.02] md:text-5xl">

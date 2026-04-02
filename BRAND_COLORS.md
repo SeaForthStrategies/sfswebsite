@@ -222,4 +222,3 @@ Together, they create a **professional, ocean-inspired, premium brand identity**
 ---
 
 _SeaForth Strategies - Where Strategy Meets Storytelling_
- 

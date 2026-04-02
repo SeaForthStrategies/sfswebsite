@@ -6,12 +6,12 @@ import { Button } from '@/components/ui/Button';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
 import { Sparkles } from '@/components/Sparkles';
-import { CONTACT_EMAIL, CONTACT_EMAIL_HREF } from '@/lib/site';
+import { CONTACT_EMAIL, CONTACT_EMAIL_HREF, PORTFOLIO_URL, publicAssetPath } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Get in touch with SeaForth Strategies for digital marketing services. Contact us for web design and marketing strategy consultation.',
+    'Contact SeaForth Strategies for website design and development—custom sites, Next.js builds, and launch support.',
 };
 
 export default function ContactPage() {
@@ -19,7 +19,7 @@ export default function ContactPage() {
     <>
       <PageHeader
         title="Contact"
-        subtitle="A premium, frictionless start: email us directly."
+        subtitle="Tell me about the website you need—pages, stack, and timeline. Email is the fastest line."
         backgroundImageSrc="/images/carriza-maiquez-IiHHmOcnnSA-unsplash.jpg"
       />
 
@@ -29,7 +29,7 @@ export default function ContactPage() {
           <div className="py-12 md:py-16">
             <div className="grid gap-10 md:grid-cols-12 md:items-start">
               <div className="md:col-span-5">
-                <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                   What happens next
                 </p>
                 <h2 className="fade-in-up font-display text-ink mt-6 text-3xl leading-[1.05] md:text-4xl">
@@ -40,8 +40,8 @@ export default function ContactPage() {
                 <div className="hairline divide-y">
                   {[
                     {
-                      t: 'Strategy call',
-                      d: 'We align on goals, timeline, and what success looks like. No pressure.',
+                      t: 'Intro call',
+                      d: 'We align on the site—goals, timeline, and what “done” looks like. No pressure.',
                     },
                     {
                       t: 'Scope + proposal',
@@ -49,7 +49,7 @@ export default function ContactPage() {
                     },
                     {
                       t: 'Build + refine',
-                      d: 'We design, develop, and instrument analytics—then refine based on real signals.',
+                      d: 'Design and development in the browser, then a short refinement pass before and after launch.',
                     },
                   ].map((s, idx) => (
                     <div
@@ -72,15 +72,15 @@ export default function ContactPage() {
           <div className="py-16 md:py-24">
             <div className="grid gap-10 md:grid-cols-12 md:items-end">
               <div className="md:col-span-7">
-                <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                   Start here
                 </p>
                 <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
                   Send a quick email.
                 </h2>
                 <p className="fade-in-up text-muted mt-6 max-w-xl leading-relaxed">
-                  Tell us what you’re building (goals, timeline, and scope). If we’re a fit, we’ll
-                  outline the cleanest path to a launch-ready build.
+                  Describe the website you need (pages, goals, and timeline). If we’re a fit, I’ll
+                  outline a clear path to a launch-ready build.
                 </p>
               </div>
               <div className="md:col-span-5">
@@ -118,27 +118,36 @@ export default function ContactPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="py-16 md:py-24">
             <div className="max-w-2xl">
-              <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
-                Co-Founders
+              <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
+                Leadership
               </p>
               <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
-                Reach the right expert directly.
+                Work directly with the firm’s founder.
               </h2>
+              <p className="fade-in-up text-muted mt-5 max-w-xl leading-relaxed">
+                For project questions, scope, or timelines—reach Abigail. You work directly with the
+                person designing and building the site.
+              </p>
             </div>
 
-            <div className="mt-12 grid gap-6 md:grid-cols-2">
+            <div className="mt-12 max-w-xl">
               <FounderCard
-                name="Abby Lehr"
-                title="Co-Founder — Web Design & Development"
+                name="Abigail Lehr"
+                title="Founder — Website design & development"
                 image="/images/7CC381A4-0716-416E-B8F8-B2E80D7C8955.JPG"
                 email="abby@seaforthstrategies.com"
               />
-              <FounderCard
-                name="Savanna Spayd"
-                title="Co-Founder — Analytics & Performance"
-                image="/images/Savanna.png"
-                email="savanna@seaforthstrategies.com"
-              />
+              <p className="fade-in-up text-muted mt-8 text-sm leading-relaxed">
+                Portfolio reference:{' '}
+                <a
+                  href={PORTFOLIO_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-underline text-ink/80 hover:text-ink"
+                >
+                  abigaillehr.com
+                </a>
+              </p>
             </div>
           </div>
         </div>
@@ -154,7 +163,7 @@ export default function ContactPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="py-16 md:py-24">
             <div className="max-w-3xl">
-              <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+              <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                 FAQ
               </p>
               <h2 className="fade-in-up font-display mt-6 text-4xl leading-[1.02] md:text-5xl">
@@ -168,8 +177,8 @@ export default function ContactPage() {
                 a="We typically build in Next.js (App Router). If we ever change the stack, the system stays the same: clean, scalable, performance-aware, and easy to evolve."
               />
               <FaqItem
-                q="Do you handle both creative and analytics?"
-                a="Yes. Abby leads creative + technical execution; Savanna leads analytics, performance, and measurement."
+                q="Where can I see your work?"
+                a="Selected projects and case-style work live on the portfolio at abigaillehr.com. SeaForth engagements are website-led; that site is the best reference for craft and range."
               />
               <FaqItem
                 q="Is pricing fixed?"
@@ -198,10 +207,16 @@ function FounderCard({
     <div className="fade-in-up hairline bg-surface shadow-soft hover-lift rounded-[var(--radius-lg)] border p-7">
       <div className="flex items-center gap-5">
         <div className="hairline relative h-16 w-16 overflow-hidden rounded-full border">
-          <Image src={image} alt={name} fill className="object-cover object-top" sizes="64px" />
+          <Image
+            src={publicAssetPath(image)}
+            alt={name}
+            fill
+            className="object-cover object-top"
+            sizes="64px"
+          />
         </div>
         <div className="min-w-0">
-          <p className="text-ink/60 text-[12px] font-semibold uppercase tracking-[0.16em]">
+          <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
             {title}
           </p>
           <p className="text-ink mt-1 text-xl font-semibold">{name}</p>
@@ -224,11 +239,11 @@ function FaqItem({ q, a }: { q: string; a: string }) {
           <span className="text-lg font-semibold text-white transition-colors group-hover:text-[color:var(--brand-gold)]">
             {q}
           </span>
-          <span className="font-display select-none text-2xl text-[color:var(--brand-gold)]">
+          <span className="font-display text-2xl text-[color:var(--brand-gold)] select-none">
             ＋
           </span>
         </summary>
-        <div className="px-6 pb-6 pt-0 leading-relaxed text-white/70">{a}</div>
+        <div className="px-6 pt-0 pb-6 leading-relaxed text-white/70">{a}</div>
       </details>
     </div>
   );

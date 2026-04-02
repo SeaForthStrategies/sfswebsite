@@ -43,7 +43,7 @@ export function BackgroundOrbs({
       />
       <div
         className={[
-          'absolute -right-28 top-1/3 h-[420px] w-[520px] rounded-full blur-[130px]',
+          'absolute top-1/3 -right-28 h-[420px] w-[520px] rounded-full blur-[130px]',
           palette.c,
           reduced ? '' : 'animate-float-slow',
         ].join(' ')}

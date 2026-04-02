@@ -7,17 +7,53 @@ import { Sparkles } from '@/components/Sparkles';
 import { CONTACT_EMAIL_HREF } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Packages & Pricing',
+  title: 'Packages',
   description:
-    'Clear package tiers for boutique web, branding, strategy, and analytics—built for performance and measurable outcomes.',
+    'Two website package paths—Development and Platform design—led by SeaForth Strategies founder Abigail Lehr.',
 };
+
+const packages = [
+  {
+    name: 'Development',
+    price: '$3,500',
+    hook: 'Design-ready work, built to ship.',
+    audience: 'You have approved UI—or a tight creative direction—and need a disciplined build.',
+    deliverables: [
+      'Responsive implementation and component structure',
+      'Performance-minded assets and layout',
+      'Accessibility and semantic markup',
+      'Staging, launch, and handoff',
+    ],
+    subject: 'Development package',
+    featured: false,
+  },
+  {
+    name: 'Platform design',
+    price: '$6,500',
+    hook: 'Full-site design and build.',
+    audience:
+      'You want IA, visual design, and code in one studio—especially for product-led sites.',
+    deliverables: [
+      'Site map and key page design',
+      'UI system and responsive layouts',
+      'Front-end build in a modern stack',
+      'Launch support and refinement',
+    ],
+    subject: 'Platform design package',
+    featured: true,
+  },
+] as const;
+
+function mailtoWithSubject(subject: string) {
+  return `${CONTACT_EMAIL_HREF}?subject=${encodeURIComponent(`SeaForth — ${subject}`)}`;
+}
 
 export default function PricingPage() {
   return (
     <>
       <PageHeader
-        title="Packages & Pricing"
-        subtitle="Clear tiers with boutique delivery. Custom work, disciplined structure, and performance-aware motion—built to last."
+        title="Packages"
+        subtitle="Two entry points. Everything is scoped to your pages, stack, and timeline after a short alignment call."
         backgroundImageSrc="/images/kelsey-knight-CrRr3y1lhl8-unsplash.jpg"
       />
 
@@ -25,92 +61,53 @@ export default function PricingPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="py-16 md:py-24">
             <div className="max-w-2xl">
-              <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
-                Package tiers
+              <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
+                Compare
               </p>
-              <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
-                Choose the depth you need.
+              <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] tracking-[-0.02em] md:text-5xl">
+                Development or platform design.
               </h2>
-              <p className="fade-in-up text-muted mt-6 leading-relaxed">
-                Every package is custom-designed. The difference is scope and collaboration
-                cadence—not a template.
+              <p className="fade-in-up text-muted mt-5 leading-relaxed">
+                Prices are starting points; final scope is confirmed in writing before kickoff.
               </p>
             </div>
 
-            <div className="mt-12 grid gap-6 lg:grid-cols-3">
-              {[
-                {
-                  name: 'Foundation',
-                  price: '$3,500',
-                  subtitle: 'A premium starting point—built fast, built right.',
-                  deliverables: [
-                    'One-page or compact multi-section site',
-                    'High-end design system + responsive build',
-                    'SEO + performance baseline',
-                    'Conversion-focused contact/booking flow',
-                  ],
-                  idealFor:
-                    'New offers, service businesses, and founders who need a credible presence—now.',
-                },
-                {
-                  name: 'Signature',
-                  price: '$6,500',
-                  subtitle: 'The intermediate tier—authority, depth, and clear conversion paths.',
-                  deliverables: [
-                    'Up to 5 core pages (Home, Services, About, Pricing, Contact)',
-                    'Editorial layout system + component library',
-                    'Analytics instrumentation + KPI dashboard setup',
-                    'Launch-ready copy refinement + structure guidance',
-                  ],
-                  idealFor:
-                    'Small-to-mid-sized businesses ready to look established and scale with confidence.',
-                  featured: true,
-                },
-                {
-                  name: 'Partnership',
-                  price: 'Custom',
-                  subtitle: 'Ongoing strategy + optimization for brands that move quickly.',
-                  deliverables: [
-                    'Bespoke custom build + advanced functionality',
-                    'Brand + campaign creative direction',
-                    'Performance optimization & experimentation',
-                    'Monthly reporting + strategic iteration',
-                  ],
-                  idealFor:
-                    'Teams who want a long-term partner for design, growth, and performance.',
-                },
-              ].map((p, idx) => (
+            <div className="mt-12 grid gap-6 lg:grid-cols-2 lg:items-stretch">
+              {packages.map((p, idx) => (
                 <div
                   key={p.name}
                   className={[
                     'fade-in-up',
                     `stagger-${Math.min(idx + 1, 6)}`,
-                    'hairline bg-surface shadow-soft hover-lift rounded-[var(--radius-lg)] border',
+                    'hairline bg-surface shadow-soft flex h-full flex-col rounded-[var(--radius-lg)] border',
                     p.featured ? 'ring-1 ring-[color:var(--brand-teal)]' : '',
                   ].join(' ')}
                 >
-                  <div className="p-7">
-                    <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
-                      <div className="min-w-0">
-                        <p className="text-ink/60 text-[12px] font-semibold uppercase tracking-[0.16em]">
-                          {p.featured ? 'Recommended' : 'Package'}
+                  <div className="flex h-full flex-col p-7 md:p-8">
+                    <div className="flex flex-wrap items-start justify-between gap-4">
+                      <div>
+                        <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
+                          {p.featured ? 'Full-service' : 'Package'}
                         </p>
-                        <h3 className="font-display text-ink mt-2 break-words text-3xl">
+                        <h3 className="font-display text-ink mt-2 text-3xl tracking-tight break-words">
                           {p.name}
                         </h3>
                       </div>
-                      <div className="shrink-0 sm:text-right">
-                        <p className="text-ink/60 text-[12px] font-semibold uppercase tracking-[0.16em]">
+                      <div className="text-left sm:text-right">
+                        <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
                           Starting at
                         </p>
-                        <p className="text-ink mt-2 text-3xl font-semibold">{p.price}</p>
+                        <p className="text-ink mt-2 text-3xl font-semibold tabular-nums">
+                          {p.price}
+                        </p>
                       </div>
                     </div>
 
-                    <p className="text-muted mt-5 leading-relaxed">{p.subtitle}</p>
+                    <p className="text-ink mt-5 leading-snug font-medium">{p.hook}</p>
+                    <p className="text-muted mt-3 text-sm leading-relaxed">{p.audience}</p>
 
-                    <div className="hairline mt-6 border-t pt-6">
-                      <p className="text-ink/60 text-[12px] font-semibold uppercase tracking-[0.16em]">
+                    <div className="hairline mt-8 border-t pt-8">
+                      <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
                         Deliverables
                       </p>
                       <ul className="text-muted mt-4 space-y-3">
@@ -123,16 +120,9 @@ export default function PricingPage() {
                       </ul>
                     </div>
 
-                    <div className="hairline mt-6 border-t pt-6">
-                      <p className="text-ink/60 text-[12px] font-semibold uppercase tracking-[0.16em]">
-                        Ideal client
-                      </p>
-                      <p className="text-muted mt-3 break-words leading-relaxed">{p.idealFor}</p>
-                    </div>
-
-                    <div className="mt-8">
+                    <div className="mt-auto pt-10">
                       <Button
-                        href={CONTACT_EMAIL_HREF}
+                        href={mailtoWithSubject(p.subject)}
                         className={[
                           'w-full rounded-full py-4',
                           p.featured
@@ -140,7 +130,7 @@ export default function PricingPage() {
                             : 'bg-[color:var(--ink)] text-[color:var(--bg)] hover:bg-[color:var(--brand-teal)]',
                         ].join(' ')}
                       >
-                        Email us
+                        Discuss {p.name.toLowerCase()}
                       </Button>
                     </div>
                   </div>
@@ -148,165 +138,30 @@ export default function PricingPage() {
               ))}
             </div>
 
-            <div className="mt-14 grid gap-6 md:grid-cols-3">
-              {[
-                {
-                  t: 'Timeline',
-                  d: 'Most projects run 2–6 weeks depending on scope and feedback cadence.',
-                },
-                {
-                  t: 'Process',
-                  d: 'Discovery → direction → build → refine (with performance checks along the way).',
-                },
-                {
-                  t: 'Deliverable',
-                  d: 'A modular system you can extend, not a brittle one-off site.',
-                },
-              ].map((c, idx) => (
-                <div
-                  key={c.t}
-                  className={[
-                    'fade-in-scale',
-                    `stagger-${Math.min(idx + 1, 6)}`,
-                    'hairline bg-surface shadow-soft hover-lift rounded-[var(--radius-lg)] border p-7',
-                  ].join(' ')}
-                >
-                  <h3 className="text-ink text-xl font-semibold">{c.t}</h3>
-                  <p className="text-muted mt-3 leading-relaxed">{c.d}</p>
-                </div>
-              ))}
-            </div>
-
             <div className="hairline bg-surface shadow-soft mt-14 rounded-[var(--radius-lg)] border p-7 md:p-10">
-              <div className="grid gap-10 md:grid-cols-12 md:items-end">
-                <div className="md:col-span-7">
-                  <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
-                    Ongoing care
-                  </p>
-                  <h2 className="font-display text-ink mt-6 text-3xl md:text-4xl">
-                    Maintenance + performance optimization
-                  </h2>
-                  <p className="text-muted mt-5 leading-relaxed">
-                    For clients who want the site to stay fast, secure, and continuously improving.
-                  </p>
-                  <ul className="text-muted mt-6 grid gap-3 sm:grid-cols-2">
-                    {[
-                      'Security monitoring + backups',
-                      'Performance and SEO checks',
-                      'Content updates (1–2 hours/mo)',
-                      'Analytics review + recommendations',
-                    ].map((b) => (
-                      <li key={b} className="flex gap-3">
-                        <span className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--brand-gold)]" />
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="md:col-span-5">
-                  <div className="grid gap-4">
-                    {[
-                      {
-                        name: 'Optimization Retainer',
-                        price: '$500–$1,000',
-                        desc: 'Keep the site fast, secure, and improving with lightweight iteration.',
-                        bullets: [
-                          'Security monitoring + backups',
-                          'Performance + SEO checks',
-                          'Analytics review + recommendations',
-                        ],
-                      },
-                      {
-                        name: 'Website Updates Retainer',
-                        price: '$400–$800',
-                        desc: 'For regular edits: content, layout tweaks, and new sections.',
-                        bullets: [
-                          'Content swaps + layout tweaks',
-                          'Image + copy updates',
-                          'New sections (within monthly hours)',
-                        ],
-                      },
-                      {
-                        name: 'Landing Pages + Updates',
-                        price: '$1,200–$2,000',
-                        desc: 'For active offers and campaigns that need new pages and ongoing changes.',
-                        bullets: [
-                          'New landing pages (scoped within monthly hours)',
-                          'Offer + campaign page updates',
-                          'Conversion-focused UI iteration',
-                        ],
-                      },
-                      {
-                        name: 'Analytics Retainer',
-                        price: '$600–$1,500',
-                        desc: 'Monthly reporting, dashboard care, and decision-ready insights.',
-                        bullets: [
-                          'Dashboard maintenance + KPI tracking',
-                          'Monthly insights + recommendations',
-                          'Funnel + lead quality review',
-                        ],
-                      },
-                    ].map((tier) => (
-                      <div
-                        key={tier.name}
-                        className="hairline hover-lift rounded-[var(--radius)] border bg-[color:var(--bg)] p-7"
-                      >
-                        <div className="flex items-start justify-between gap-6">
-                          <div className="min-w-0">
-                            <p className="text-ink/60 text-[12px] font-semibold uppercase tracking-[0.16em]">
-                              Retainer
-                            </p>
-                            <h3 className="font-display text-ink mt-2 break-words text-2xl">
-                              {tier.name}
-                            </h3>
-                          </div>
-                          <div className="text-left sm:shrink-0 sm:text-right">
-                            <p className="text-ink/60 text-[12px] font-semibold uppercase tracking-[0.16em]">
-                              Monthly
-                            </p>
-                            <p className="text-ink mt-2 text-2xl font-semibold">
-                              {tier.price}
-                              <span className="text-ink/40 text-base">/mo</span>
-                            </p>
-                          </div>
-                        </div>
-
-                        <p className="text-muted mt-4 leading-relaxed">{tier.desc}</p>
-
-                        <ul className="text-muted mt-5 space-y-2">
-                          {tier.bullets.map((b) => (
-                            <li key={b} className="flex gap-3">
-                              <span className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--brand-gold)]" />
-                              <span className="min-w-0 break-words">{b}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-
-                    <Button
-                      href={CONTACT_EMAIL_HREF}
-                      className="w-full rounded-full bg-[color:var(--ink)] py-4 text-[color:var(--bg)] hover:bg-[color:var(--brand-teal)]"
-                    >
-                      Email about retainers
-                    </Button>
-                  </div>
-                </div>
-              </div>
+              <p className="text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
+                After launch
+              </p>
+              <h2 className="font-display text-ink mt-4 text-2xl tracking-tight md:text-3xl">
+                Ongoing support
+              </h2>
+              <p className="text-muted mt-4 max-w-2xl leading-relaxed">
+                Retainers for updates, performance checks, and iteration are available—scoped
+                monthly to how often you ship.
+              </p>
+              <Button
+                href={CONTACT_EMAIL_HREF}
+                className="mt-8 w-full rounded-full bg-[color:var(--ink)] py-4 text-[color:var(--bg)] hover:bg-[color:var(--brand-teal)] sm:w-auto"
+              >
+                Ask about retainers
+              </Button>
             </div>
 
             <p className="fade-in-up text-muted mt-10 text-sm">
-              Not sure which tier fits?{' '}
+              Not sure which path fits?{' '}
               <Link href="/contact" className="link-underline text-ink/80 hover:text-ink">
                 Send a message
-              </Link>{' '}
-              or{' '}
-              <a
-                className="link-underline text-ink/80 hover:text-ink"
-                href={CONTACT_EMAIL_HREF}
-              >
-                email us
-              </a>
+              </Link>
               .
             </p>
           </div>
@@ -317,26 +172,26 @@ export default function PricingPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="py-16 md:py-24">
             <div className="max-w-3xl">
-              <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+              <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                 FAQ
               </p>
-              <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
-                Quick answers, no fluff.
+              <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] tracking-[-0.02em] md:text-5xl">
+                Short answers.
               </h2>
             </div>
 
             <div className="mt-10 grid gap-3 md:max-w-4xl">
               <FaqItem
-                q="Is everything custom?"
-                a="Yes—design and layout are bespoke. Packages simply define a starting scope and collaboration cadence."
+                q="Is the design custom?"
+                a="Yes. Layout and UI are bespoke; packages define where we start, not a template skin."
               />
               <FaqItem
-                q="Do you handle copy?"
-                a="We can refine structure and messaging, and collaborate on final copy. Full copywriting support is available depending on scope."
+                q="Do you write copy?"
+                a="I can guide structure and tighten messaging. Full copywriting is available when scoped."
               />
               <FaqItem
-                q="What stack do you use?"
-                a="We typically build in Next.js (App Router) with a disciplined component system, performance-aware motion, and analytics instrumentation. If we ever change the stack, the approach stays the same."
+                q="What do you build in?"
+                a="Usually Next.js with a component-first workflow—fast, maintainable, and ready for real traffic."
               />
             </div>
           </div>
@@ -348,18 +203,18 @@ export default function PricingPage() {
         <div className="absolute inset-0 opacity-45">
           <Sparkles color="rgba(213, 163, 83, 0.65)" />
         </div>
-        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="py-16 md:py-24">
             <div className="grid gap-10 md:grid-cols-12 md:items-end">
               <div className="md:col-span-8">
-                <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                   Next step
                 </p>
-                <h2 className="fade-in-up font-display mt-6 text-4xl leading-[1.02] md:text-5xl">
-                  Let’s align on scope and outcomes.
+                <h2 className="fade-in-up font-display mt-6 text-3xl leading-[1.05] tracking-[-0.02em] md:text-4xl lg:text-5xl">
+                  Pick a path—or describe the build.
                 </h2>
-                <p className="fade-in-up mt-6 max-w-2xl leading-relaxed text-white/70">
-                  We’ll recommend the cleanest package tier, then customize from there.
+                <p className="fade-in-up mt-5 max-w-2xl text-base leading-relaxed text-white/70">
+                  I’ll reply with a few clarifying questions and a suggested scope.
                 </p>
               </div>
               <div className="md:col-span-4">
@@ -368,7 +223,7 @@ export default function PricingPage() {
                   variant="accent"
                   className="w-full rounded-full px-7 py-4"
                 >
-                  Email us
+                  Start a project
                 </Button>
               </div>
             </div>
@@ -381,17 +236,17 @@ export default function PricingPage() {
 
 function FaqItem({ q, a }: { q: string; a: string }) {
   return (
-    <div className="hairline bg-surface group rounded-[var(--radius)] border transition-colors hover:border-[color:color-mix(in_srgb,var(--brand-teal),transparent_55%)]">
+    <div className="hairline group rounded-[var(--radius)] border bg-[color:var(--bg)] transition-colors hover:border-[color:color-mix(in_srgb,var(--brand-teal),transparent_55%)]">
       <details className="w-full">
         <summary className="flex cursor-pointer list-none items-start justify-between gap-4 p-6 focus:outline-none">
-          <span className="text-ink min-w-0 break-words text-lg font-semibold transition-colors group-hover:text-[color:var(--brand-teal)]">
+          <span className="text-ink min-w-0 text-lg font-semibold break-words transition-colors group-hover:text-[color:var(--brand-teal)]">
             {q}
           </span>
-          <span className="font-display shrink-0 select-none text-2xl text-[color:var(--brand-gold)]">
+          <span className="font-display shrink-0 text-2xl text-[color:var(--brand-gold)] select-none">
             ＋
           </span>
         </summary>
-        <div className="text-muted px-6 pb-6 pt-0 leading-relaxed">{a}</div>
+        <div className="text-muted px-6 pt-0 pb-6 leading-relaxed">{a}</div>
       </details>
     </div>
   );

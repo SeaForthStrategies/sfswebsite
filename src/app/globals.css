@@ -11,18 +11,18 @@
   --brand-teal-dark: #1f5c62;
   --brand-gold: #d5a353;
 
-  /* Surfaces (theme these first) */
-  --bg: #fbfaf7;
-  --surface: rgba(255, 255, 255, 0.62);
-  --ink: #101214;
-  --muted: rgba(16, 18, 20, 0.72);
-  --hairline: rgba(16, 18, 20, 0.14);
+  /* Surfaces — aligned to BRAND_COLORS.md (off-white + text ramp) */
+  --bg: #f7f5f1;
+  --surface: rgba(255, 255, 255, 0.72);
+  --ink: #1a1a1a;
+  --muted: rgba(74, 74, 74, 0.92);
+  --hairline: rgba(26, 26, 26, 0.12);
 
-  /* “Designer” background layers */
+  /* Calm editorial page wash (teal/gold hints only — same brand hues) */
   --page-bg:
-    radial-gradient(1200px 700px at 12% 8%, rgba(42, 124, 132, 0.18), transparent 60%),
-    radial-gradient(980px 560px at 86% 16%, rgba(213, 163, 83, 0.14), transparent 62%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(247, 245, 241, 0.96));
+    radial-gradient(1200px 700px at 12% 8%, rgba(42, 124, 132, 0.1), transparent 60%),
+    radial-gradient(980px 560px at 86% 16%, rgba(213, 163, 83, 0.08), transparent 62%),
+    linear-gradient(180deg, #f7f5f1 0%, #f3f1ec 100%);
 
   /* Aurora bloom (liquid color layer) */
   --aurora: conic-gradient(
@@ -69,8 +69,9 @@
   /* Layout */
   --radius: 18px;
   --radius-lg: 28px;
-  --shadow: 0 22px 60px rgba(16, 18, 20, 0.12);
-  --shadow-soft: 0 14px 40px rgba(16, 18, 20, 0.1);
+  /* Flatter “resume / editorial” elevation — still readable in light + dark sections */
+  --shadow: 0 18px 48px rgba(26, 26, 26, 0.08);
+  --shadow-soft: 0 8px 28px rgba(26, 26, 26, 0.06);
   --shadow-color: rgba(42, 124, 132, 0.34);
 
   /* Motion */
@@ -94,7 +95,8 @@ body {
   overflow-x: hidden;
 }
 
-img,
+/* Exclude next/image: global height:auto fights intrinsic sizing and can collapse layout. */
+img:not([data-nimg]),
 svg,
 video {
   max-width: 100%;
@@ -126,7 +128,7 @@ video {
     'kern' 1,
     'liga' 1,
     'calt' 1;
-  font-weight: 500;
+  font-weight: 400;
   transition:
     background var(--dur-2) var(--ease-out),
     color var(--dur-2) var(--ease-out);
@@ -139,7 +141,7 @@ video {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.14;
+  opacity: 0.06;
   background:
     radial-gradient(circle at 12% 12%, rgba(255, 255, 255, 0.14), transparent 42%),
     radial-gradient(circle at 88% 18%, rgba(255, 255, 255, 0.1), transparent 44%),
@@ -223,8 +225,76 @@ video {
   }
 
   .font-display {
-    font-family: var(--font-serif);
-    letter-spacing: -0.02em;
+    font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+    letter-spacing: -0.03em;
+    line-height: 1.06;
+    font-weight: 600;
+  }
+
+  /* Resume / portfolio-style hero (abigaillehr.com–inspired): air + subtle grid, SeaForth colors only */
+  .editorial-hero {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .editorial-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(
+      120% 70% at 50% -15%,
+      color-mix(in srgb, var(--brand-teal), transparent 91%),
+      transparent 52%
+    );
+  }
+
+  .editorial-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.45;
+    background-image:
+      linear-gradient(
+        to right,
+        color-mix(in srgb, var(--brand-teal), transparent 93%) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--brand-teal), transparent 93%) 1px,
+        transparent 1px
+      );
+    background-size: 24px 24px;
+  }
+
+  /* Subtle paper noise (portfolio-style) — ::before so it sits under in-flow content */
+  .bg-noise-light {
+    position: relative;
+  }
+
+  .bg-noise-light::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    opacity: 0.85;
+  }
+
+  /* Brand-gradient text (teal → gold), portfolio “text-gradient” analogue */
+  .text-gradient-seaforth {
+    background: linear-gradient(
+      135deg,
+      var(--brand-teal) 0%,
+      color-mix(in srgb, var(--brand-teal) 55%, var(--brand-gold)) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   /* Thick “designer” type helpers */
@@ -255,11 +325,15 @@ video {
     text-decoration-color: color-mix(in srgb, var(--ink), transparent 70%);
   }
 
-  /* “Pop” backgrounds you can apply anywhere */
+  .kicker {
+    letter-spacing: 0.18em;
+  }
+
+  /* “Pop” backgrounds — subtle brand wash (editorial, not loud) */
   .bg-pop {
     background:
-      radial-gradient(800px 420px at 18% 20%, rgba(42, 124, 132, 0.18), transparent 60%),
-      radial-gradient(760px 420px at 82% 32%, rgba(213, 163, 83, 0.18), transparent 60%), var(--bg);
+      radial-gradient(800px 420px at 18% 20%, rgba(42, 124, 132, 0.08), transparent 60%),
+      radial-gradient(760px 420px at 82% 32%, rgba(213, 163, 83, 0.07), transparent 60%), var(--bg);
   }
 
   .bg-pop-contrast {

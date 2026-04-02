@@ -5,12 +5,13 @@ import { Button } from '@/components/ui/Button';
 import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
 import { PortfolioGallery } from '@/components/visual/PortfolioGallery';
 import { Sparkles } from '@/components/Sparkles';
-import { CONTACT_EMAIL_HREF } from '@/lib/site';
+import { PORTFOLIO_GALLERY_ITEMS } from '@/lib/portfolio';
+import { CONTACT_EMAIL_HREF, PORTFOLIO_URL } from '@/lib/site';
 
 const frontmatter = {
   title: 'Website Design & Development',
   description:
-    'Beautiful, responsive websites that convert visitors into customers and represent your brand perfectly.',
+    'Custom website design and development—responsive UI, Next.js builds, performance, SEO, and launch support. Portfolio reference: abigaillehr.com.',
 };
 
 export const metadata: Metadata = {
@@ -32,7 +33,7 @@ export default function WebDesignPage() {
           <div className="py-16 md:py-24">
             <div className="grid gap-10 md:grid-cols-12">
               <div className="md:col-span-5">
-                <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                   What this includes
                 </p>
                 <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
@@ -61,16 +62,24 @@ export default function WebDesignPage() {
                 <div className="fade-in-up mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
                   <Link
                     href="/pricing"
-                    className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold uppercase tracking-[0.08em]"
+                    className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold tracking-[0.08em] uppercase"
                   >
                     View packages
                   </Link>
                   <Link
                     href="/services"
-                    className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold uppercase tracking-[0.08em]"
+                    className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold tracking-[0.08em] uppercase"
                   >
-                    Explore services
+                    All skills
                   </Link>
+                  <a
+                    href={PORTFOLIO_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold tracking-[0.08em] uppercase"
+                  >
+                    Portfolio
+                  </a>
                 </div>
               </div>
             </div>
@@ -113,7 +122,7 @@ export default function WebDesignPage() {
           <div className="py-16 md:py-24">
             <div className="grid gap-10 md:grid-cols-12 md:items-end">
               <div className="md:col-span-7">
-                <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                   Selected work
                 </p>
                 <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
@@ -128,28 +137,7 @@ export default function WebDesignPage() {
               </div>
             </div>
 
-            <PortfolioGallery
-              className="mt-12"
-              items={[
-                {
-                  src: '/images/Website Portfolio (1)/1031.png',
-                  alt: '1031 Capital Solutions website',
-                },
-                { src: '/images/Website Portfolio (1)/LUX.png', alt: 'LUX website' },
-                {
-                  src: '/images/Website Portfolio (1)/Social Affair.png',
-                  alt: 'The Social Affair website',
-                },
-                {
-                  src: '/images/Website Portfolio (1)/1031 About.png',
-                  alt: '1031 Capital Solutions about page',
-                },
-                {
-                  src: '/images/Website Portfolio (1)/1031 (3).png',
-                  alt: '1031 Capital Solutions section',
-                },
-              ]}
-            />
+            <PortfolioGallery className="mt-12" items={PORTFOLIO_GALLERY_ITEMS} />
 
             <p className="fade-in-up text-muted mt-10 text-sm">
               Want a similar approach for your brand?{' '}
@@ -173,7 +161,7 @@ export default function WebDesignPage() {
           <div className="py-16 md:py-24">
             <div className="grid gap-10 md:grid-cols-12 md:items-end">
               <div className="md:col-span-8">
-                <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                   Next step
                 </p>
                 <h2 className="fade-in-up font-display mt-6 text-4xl leading-[1.02] md:text-5xl">

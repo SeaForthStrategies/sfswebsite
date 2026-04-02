@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/Button';
 import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
 import { PortfolioGallery } from '@/components/visual/PortfolioGallery';
 import { Sparkles } from '@/components/Sparkles';
-import { CONTACT_EMAIL_HREF } from '@/lib/site';
+import { CONTACT_EMAIL_HREF, publicAssetPath } from '@/lib/site';
 
 const frontmatter = {
   title: 'Branding',
@@ -35,7 +35,7 @@ export default function BrandingPage() {
           <div className="py-16 md:py-24">
             <div className="grid gap-12 md:grid-cols-12 md:items-start">
               <div className="md:col-span-5">
-                <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                   What this includes
                 </p>
                 <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
@@ -67,13 +67,13 @@ export default function BrandingPage() {
                 <div className="fade-in-up mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
                   <Link
                     href="/pricing"
-                    className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold uppercase tracking-[0.08em]"
+                    className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold tracking-[0.08em] uppercase"
                   >
                     View packages
                   </Link>
                   <Link
                     href="/contact"
-                    className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold uppercase tracking-[0.08em]"
+                    className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold tracking-[0.08em] uppercase"
                   >
                     Start a project
                   </Link>
@@ -122,7 +122,7 @@ export default function BrandingPage() {
                   <div className="bg-surface shadow-premium hover-lift relative overflow-hidden rounded-[var(--radius-lg)]">
                     <div className="relative aspect-[16/11] w-full">
                       <Image
-                        src="/images/le-buzz-studio-KiEiI2b9GkU-unsplash.jpg"
+                        src={publicAssetPath('/images/le-buzz-studio-KiEiI2b9GkU-unsplash.jpg')}
                         alt=""
                         fill
                         className="object-cover"
@@ -130,7 +130,7 @@ export default function BrandingPage() {
                       />
                     </div>
                     <div className="hairline border-t px-6 py-5">
-                      <p className="text-ink/60 text-[12px] font-semibold uppercase tracking-[0.16em]">
+                      <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
                         Typography · tone · layout rhythm
                       </p>
                     </div>
@@ -138,7 +138,7 @@ export default function BrandingPage() {
                 </Parallax>
               </div>
               <div className="md:col-span-6">
-                <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                   Process
                 </p>
                 <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
@@ -184,7 +184,7 @@ export default function BrandingPage() {
           <div className="py-16 md:py-24">
             <div className="grid gap-10 md:grid-cols-12 md:items-end">
               <div className="md:col-span-7">
-                <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                   Visual direction
                 </p>
                 <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
@@ -231,7 +231,7 @@ export default function BrandingPage() {
           <div className="py-16 md:py-24">
             <div className="grid gap-10 md:grid-cols-12 md:items-end">
               <div className="md:col-span-8">
-                <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                   Next step
                 </p>
                 <h2 className="fade-in-up font-display mt-6 text-4xl leading-[1.02] md:text-5xl">

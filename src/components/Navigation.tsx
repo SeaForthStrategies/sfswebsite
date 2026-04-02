@@ -5,13 +5,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
-import { CONTACT_EMAIL_HREF, SITE } from '@/lib/site';
+import { CONTACT_EMAIL_HREF, publicAssetPath, SITE } from '@/lib/site';
 
 const navItems = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
-  { href: '/pricing', label: 'Pricing' },
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/pricing', label: 'Packages' },
+  { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ] as const;
 
@@ -57,10 +58,10 @@ export function Navigation() {
         'transition-[background,box-shadow,border-color] duration-300',
         'backdrop-blur-md',
         isOpen
-          ? 'bg-[color:var(--bg)] shadow-soft hairline border-b'
+          ? 'shadow-soft hairline border-b bg-[color:var(--bg)]'
           : scrolled
-            ? 'bg-[color:var(--bg)]/90 shadow-soft hairline border-b'
-            : 'bg-[color:var(--bg)]/70 border-b border-transparent',
+            ? 'shadow-soft hairline border-b bg-[color:var(--bg)]/90'
+            : 'border-b border-transparent bg-[color:var(--bg)]/70',
       ].join(' ')}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,16 +69,16 @@ export function Navigation() {
           {/* Logo */}
           <Link
             href="/"
-            className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center md:static md:translate-x-0 md:translate-y-0"
+            className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center md:static md:translate-x-0 md:translate-y-0"
             aria-label="SeaForth Strategies – Home"
           >
             <Image
-              src={SITE.logoPath}
+              src={publicAssetPath(SITE.logoPath)}
               alt={SITE.name}
               priority
               width={220}
               height={56}
-              className="!h-5 !w-auto !max-w-[100px] object-contain transition-[filter] duration-300 [filter:var(--logo-filter)] md:!h-9 md:!max-w-none"
+              className="!h-5 !w-auto !max-w-[100px] object-contain [filter:var(--logo-filter)] transition-[filter] duration-300 md:!h-9 md:!max-w-none"
             />
           </Link>
 
@@ -92,10 +93,10 @@ export function Navigation() {
                   href={item.href}
                   aria-current={isActive ? 'page' : undefined}
                   className={[
-                    'relative text-[13px] font-semibold uppercase tracking-[0.12em]',
+                    'relative text-[13px] font-semibold tracking-[0.12em] uppercase',
                     'transition-colors',
                     isActive ? 'text-brand-teal' : 'text-ink/80 hover:text-ink',
-                    'after:absolute after:-bottom-2 after:left-0 after:right-0 after:h-px',
+                    'after:absolute after:right-0 after:-bottom-2 after:left-0 after:h-px',
                     'after:origin-left after:bg-[color:var(--brand-gold)]',
                     'after:transition-transform after:duration-300',
                     isActive ? 'after:scale-x-100' : 'after:scale-x-0 hover:after:scale-x-100',
@@ -114,18 +115,18 @@ export function Navigation() {
               className={[
                 'hidden items-center justify-center md:inline-flex',
                 'rounded-full px-5 py-2.5',
-                'text-[13px] font-semibold uppercase tracking-[0.08em]',
+                'text-[13px] font-semibold tracking-[0.08em] uppercase',
                 'bg-[color:var(--ink)] text-[color:var(--bg)]',
                 'btn-tech hover-wiggle transition-colors hover:bg-[color:var(--brand-teal)]',
               ].join(' ')}
             >
-              Email
+              Start
             </a>
 
             {/* Mobile Menu Button */}
             <button
               type="button"
-              className="hairline bg-[color:var(--bg)]/80 inline-flex h-11 w-11 items-center justify-center rounded-2xl border md:hidden"
+              className="hairline inline-flex h-11 w-11 items-center justify-center rounded-2xl border bg-[color:var(--bg)]/80 md:hidden"
               aria-label="Open menu"
               aria-expanded={isOpen ? 'true' : 'false'}
               aria-controls="mobile-nav"
@@ -163,9 +164,9 @@ export function Navigation() {
           aria-modal="true"
           aria-label="Mobile navigation"
           className={[
-            'absolute left-0 right-0 top-0',
+            'absolute top-0 right-0 left-0',
             'mt-[76px]',
-            'shadow-premium hairline rounded-b-[28px] border-b bg-[color:var(--bg)] px-6 pb-8 pt-6',
+            'shadow-premium hairline rounded-b-[28px] border-b bg-[color:var(--bg)] px-6 pt-6 pb-8',
             'transition-all duration-300',
             isOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0',
           ].join(' ')}
@@ -174,9 +175,9 @@ export function Navigation() {
             <a
               href={CONTACT_EMAIL_HREF}
               onClick={() => setIsOpen(false)}
-              className="btn-tech inline-flex w-full items-center justify-center rounded-2xl bg-[color:var(--ink)] px-4 py-3 text-[13px] font-semibold uppercase tracking-[0.08em] text-[color:var(--bg)] transition-colors hover:bg-[color:var(--brand-teal)]"
+              className="btn-tech inline-flex w-full items-center justify-center rounded-2xl bg-[color:var(--ink)] px-4 py-3 text-[13px] font-semibold tracking-[0.08em] text-[color:var(--bg)] uppercase transition-colors hover:bg-[color:var(--brand-teal)]"
             >
-              Email
+              Start a project
             </a>
           </div>
 
@@ -194,7 +195,7 @@ export function Navigation() {
                     'flex items-center justify-between rounded-2xl px-4 py-4 text-[15px] font-semibold transition-all duration-300',
                     isActive
                       ? 'shadow-soft bg-[color:var(--brand-teal)] text-white'
-                      : 'bg-[color:var(--surface)]/70 text-ink hover:text-ink hover:bg-[color:var(--surface)]',
+                      : 'text-ink hover:text-ink bg-[color:var(--surface)]/70 hover:bg-[color:var(--surface)]',
                   ].join(' ')}
                 >
                   <span>{item.label}</span>

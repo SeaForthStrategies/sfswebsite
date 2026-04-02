@@ -1,5 +1,7 @@
 import Image from 'next/image';
 
+import { publicAssetPath } from '@/lib/site';
+
 const DEFAULT_LOGOS = [
   '1031 Capital Solutions.png',
   'Amanda Rose Consulting.png',
@@ -28,7 +30,7 @@ export function ClientsMarquee({
   return (
     <div className={`w-full ${className}`} aria-label={label}>
       {/* Mobile: Simple 2-column grid */}
-      <div className="md:hidden grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-4 md:hidden">
         {logos.map((file, idx) => (
           <div
             key={`mobile-${file}-${idx}`}
@@ -36,7 +38,7 @@ export function ClientsMarquee({
           >
             <div className="relative h-full w-full opacity-80 mix-blend-multiply grayscale transition-opacity hover:opacity-100">
               <Image
-                src={encodeURI(`/clients/${file}`)}
+                src={publicAssetPath(`/clients/${file}`)}
                 alt=""
                 fill
                 sizes="(min-width: 640px) 240px, 160px"
@@ -48,11 +50,11 @@ export function ClientsMarquee({
       </div>
 
       {/* Desktop: Marquee */}
-      <div className="hidden md:block w-full overflow-hidden">
-        <div className="marquee hairline bg-surface shadow-soft rounded-[var(--radius-lg)] border px-5 py-5 [--marquee-gap:1.25rem] sm:px-7 sm:py-7 sm:[--marquee-gap:2.25rem] max-w-full overflow-hidden">
+      <div className="hidden w-full overflow-hidden md:block">
+        <div className="marquee hairline bg-surface shadow-soft max-w-full overflow-hidden rounded-[var(--radius-lg)] border px-5 py-5 [--marquee-gap:1.25rem] sm:px-7 sm:py-7 sm:[--marquee-gap:2.25rem]">
           <div className="marquee-track">
             {items.map((file, idx) => {
-              const src = encodeURI(`/clients/${file}`);
+              const src = publicAssetPath(`/clients/${file}`);
               return (
                 <div
                   key={`${file}-${idx}`}

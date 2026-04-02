@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
-import { Instrument_Serif, Manrope } from 'next/font/google';
+import { Outfit, Plus_Jakarta_Sans } from 'next/font/google';
 
 import './globals.css';
 import { Navigation } from '@/components/Navigation';
@@ -8,18 +8,19 @@ import { Footer } from '@/components/Footer';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { CONTACT_EMAIL, SITE } from '@/lib/site';
 
-const sans = Manrope({
+/** Matches personal site (abigaillehr.com): Plus Jakarta Sans body + Outfit display */
+const sans = Plus_Jakarta_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   display: 'swap',
   variable: '--font-sans',
 });
 
-const display = Instrument_Serif({
+const display = Outfit({
   subsets: ['latin'],
-  weight: ['400'],
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
-  variable: '--font-serif',
+  variable: '--font-display',
 });
 
 export const metadata: Metadata = {
@@ -29,14 +30,14 @@ export const metadata: Metadata = {
     template: `%s – ${SITE.name}`,
   },
   description:
-    'SeaForth Strategies offers expert digital marketing services including web design and data analytics to grow your business.',
+    'SeaForth Strategies is a website design studio led by founder Abigail Lehr—custom sites, front-end builds, and launches. Web work only.',
   icons: {
     icon: SITE.faviconPath,
   },
   openGraph: {
     title: SITE.name,
     description:
-      'Expert digital marketing services including web design and data analytics to grow your business.',
+      'Website design and development for business owners—custom UI, modern builds, launch support.',
     images: [SITE.logoPath],
     type: 'website',
   },
@@ -95,7 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             url: SITE.url,
             logo: logoUrl,
             description:
-              'Expert digital marketing services including web design and data analytics to grow your business.',
+              'Website design and development studio—custom sites and founder-led delivery.',
             sameAs: [SITE.social.instagram, SITE.social.linkedin],
             contactPoint: {
               '@type': 'ContactPoint',
@@ -108,7 +109,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 '@type': 'Service',
                 name: 'Website Design & Development',
                 description:
-                  'Custom-crafted websites that combine stunning design with powerful functionality',
+                  'Custom website design and development with modern front-end stacks and launch-ready quality',
               },
             ],
           })}
@@ -121,7 +122,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navigation />
         <ScrollReveal />
 
-        <main id="main-content" className="app-main">
+        <main id="main-content" className="app-main bg-noise-light">
           {children}
         </main>
 

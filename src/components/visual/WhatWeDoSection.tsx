@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { PORTFOLIO_URL, publicAssetPath } from '@/lib/site';
+
 type Service = {
   number: string;
   title: string;
@@ -82,37 +84,31 @@ function ServiceIcon({ name }: { name: Service['icon'] }) {
 const services: Service[] = [
   {
     number: '01',
-    title: 'Website design & development',
-    summary: 'A premium site system—fast, clear, and built to evolve.',
-    tags: ['Custom UI/UX', 'Performance-first', 'SEO foundations'],
-    href: '/services/web-design',
+    title: 'Website design',
+    summary:
+      'IA, page design, and UI—clear hierarchy and layouts built for conversion, not template filler.',
+    tags: ['UI/UX', 'Figma', 'Responsive'],
+    href: '/services',
     image: '/images/matt-howard-R_bPhkgALY4-unsplash.jpg',
     icon: 'layout',
   },
   {
     number: '02',
-    title: 'Branding',
-    summary: 'A cohesive identity that looks expensive across every touchpoint.',
-    tags: ['Typography system', 'Visual direction', 'Asset kit'],
-    href: '/services/branding',
-    image: '/images/le-buzz-studio-KiEiI2b9GkU-unsplash.jpg',
-    icon: 'mark',
-  },
-  {
-    number: '03',
-    title: 'Marketing strategy',
-    summary: 'Clarity before scale—positioning and channels that support one narrative.',
-    tags: ['Offers & messaging', 'Channel plan', 'Launch direction'],
-    href: '/services/marketing-strategy',
+    title: 'Development',
+    summary:
+      'Next.js front ends, Tailwind, accessibility, performance, and launch—clean Git workflows and handoff.',
+    tags: ['Next.js', 'Tailwind', 'Launch'],
+    href: '/services/web-design',
     image: '/images/kellen-riggin-PifBJiBIHgw-unsplash.jpg',
     icon: 'spark',
   },
   {
-    number: '04',
-    title: 'Analytics & performance',
-    summary: 'Tracking you can trust, and optimization that compounds after launch.',
-    tags: ['Events & funnels', 'Dashboards', 'Iteration'],
-    href: '/services/analytics',
+    number: '03',
+    title: 'Launch & polish',
+    summary:
+      'Staging, QA, on-page SEO basics, and refinement—so the site is ready when you point traffic at it.',
+    tags: ['QA', 'Technical SEO', 'Handoff'],
+    href: '/pricing',
     image: '/images/ivan-bandura-5cwigXmGWTo-unsplash.jpg',
     icon: 'chart',
   },
@@ -125,63 +121,60 @@ export function WhatWeDoSection() {
         <div className="py-16 md:py-24">
           <div className="grid gap-10 md:grid-cols-12 md:items-start">
             <div className="md:col-span-5">
-              <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
-                What we do
+              <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
+                Services
               </p>
               <h2 className="fade-in-up stagger-1 font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
-                Four services. One premium standard.
+                Website work, end to end.
               </h2>
               <p className="fade-in-up stagger-2 text-muted mt-6 leading-relaxed">
-                We combine creative direction with analytical rigor—so your brand feels intentional,
-                your site feels expensive, and your decisions are grounded in real signals.
+                Design, build, and launch—what SeaForth sells. Non-web services stay out of scope.
               </p>
 
               <div className="fade-in-up stagger-3 mt-9 flex flex-wrap items-center gap-3">
                 <Link
                   href="/services"
-                  className="hover-wiggle hairline bg-[color:var(--bg)]/60 text-ink/75 rounded-full border px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.14em]"
+                  className="hover-wiggle hairline text-ink/75 rounded-full border bg-[color:var(--bg)]/60 px-4 py-2 text-[12px] font-semibold tracking-[0.14em] uppercase"
                 >
-                  Explore services
+                  All services
                 </Link>
                 <Link
                   href="/pricing"
-                  className="hover-wiggle hairline bg-[color:var(--bg)]/60 text-ink/75 rounded-full border px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.14em]"
+                  className="hover-wiggle hairline text-ink/75 rounded-full border bg-[color:var(--bg)]/60 px-4 py-2 text-[12px] font-semibold tracking-[0.14em] uppercase"
                 >
                   View packages
                 </Link>
                 <Link
                   href="/contact"
-                  className="hover-wiggle hairline bg-[color:var(--bg)]/60 text-ink/75 rounded-full border px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.14em]"
+                  className="hover-wiggle hairline text-ink/75 rounded-full border bg-[color:var(--bg)]/60 px-4 py-2 text-[12px] font-semibold tracking-[0.14em] uppercase"
                 >
                   Start a project
                 </Link>
               </div>
 
-              <div className="fade-in-up stagger-4 hairline bg-[color:var(--bg)]/55 shadow-soft mt-10 rounded-[var(--radius-lg)] border p-6">
-                <p className="text-ink/55 text-[12px] font-semibold uppercase tracking-[0.16em]">
-                  What you get (in plain terms)
+              <div className="fade-in-up stagger-4 hairline shadow-soft mt-10 rounded-[var(--radius-lg)] border bg-[color:var(--bg)]/55 p-6">
+                <p className="text-ink/55 text-[12px] font-semibold tracking-[0.16em] uppercase">
+                  Typical deliverables
                 </p>
                 <ul className="text-muted mt-4 space-y-3 text-sm">
                   <li className="flex gap-3">
                     <span className="mt-[7px] h-2 w-2 shrink-0 rounded-full bg-[color:var(--brand-teal)]" />
-                    <span>
-                      A calm, premium aesthetic—built with strong hierarchy and restraint.
-                    </span>
+                    <span>UX + UI for key pages (home, services, pricing, contact).</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="mt-[7px] h-2 w-2 shrink-0 rounded-full bg-[color:var(--brand-gold)]" />
-                    <span>Performance and accessibility baked in, not added later.</span>
+                    <span>Responsive build + accessibility + on-page SEO basics.</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="mt-[7px] h-2 w-2 shrink-0 rounded-full bg-[color:var(--brand-teal)]" />
-                    <span>Analytics you can trust—so iteration is obvious, not guesswork.</span>
+                    <span>Launch checklist + QA + a clear next-steps plan after go-live.</span>
                   </li>
                 </ul>
               </div>
             </div>
 
             <div className="md:col-span-7">
-              <div className="tech-panel hairline bg-[color:var(--bg)]/40 shadow-premium relative overflow-hidden rounded-[var(--radius-lg)] border">
+              <div className="tech-panel hairline shadow-premium relative overflow-hidden rounded-[var(--radius-lg)] border bg-[color:var(--bg)]/40">
                 <div className="pointer-events-none absolute inset-0 z-0 opacity-[0.65]">
                   <div className="absolute inset-0 bg-[radial-gradient(850px_320px_at_10%_0%,rgba(42,124,132,0.20),transparent_60%),radial-gradient(850px_320px_at_90%_100%,rgba(213,163,83,0.16),transparent_60%)]" />
                 </div>
@@ -192,31 +185,31 @@ export function WhatWeDoSection() {
                       key={s.title}
                       href={s.href}
                       className={[
-                        'hairline bg-[color:var(--bg)]/60 shadow-soft group relative overflow-hidden rounded-[22px] border p-6',
+                        'hairline shadow-soft group relative overflow-hidden rounded-[22px] border bg-[color:var(--bg)]/60 p-6',
                         'hover-lift',
-                        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--brand-teal)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--bg)]',
+                        'focus-visible:ring-2 focus-visible:ring-[color:var(--brand-teal)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--bg)] focus-visible:outline-none',
                         'fade-in-up',
                         `stagger-${Math.min(idx + 1, 6)}`,
                       ].join(' ')}
                     >
                       <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-[700ms] group-hover:opacity-100">
                         <Image
-                          src={s.image}
+                          src={publicAssetPath(s.image)}
                           alt=""
                           fill
                           className="object-cover"
                           sizes="(min-width: 768px) 52vw, 92vw"
                         />
-                        <div className="bg-[color:var(--bg)]/70 absolute inset-0" />
+                        <div className="absolute inset-0 bg-[color:var(--bg)]/70" />
                       </div>
 
                       <div className="relative flex items-start justify-between gap-6">
                         <div className="flex items-start gap-4">
-                          <span className="hairline bg-[color:var(--bg)]/70 grid h-11 w-11 shrink-0 place-items-center rounded-full border">
+                          <span className="hairline grid h-11 w-11 shrink-0 place-items-center rounded-full border bg-[color:var(--bg)]/70">
                             <ServiceIcon name={s.icon} />
                           </span>
                           <div>
-                            <p className="text-ink/55 text-[12px] font-semibold uppercase tracking-[0.16em]">
+                            <p className="text-ink/55 text-[12px] font-semibold tracking-[0.16em] uppercase">
                               {s.number}
                             </p>
                             <h3 className="text-ink mt-2 text-xl font-semibold">{s.title}</h3>
@@ -224,7 +217,7 @@ export function WhatWeDoSection() {
                           </div>
                         </div>
 
-                        <span className="hairline bg-[color:var(--bg)]/70 text-ink/70 mt-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-transform duration-[400ms] [transition-timing-function:var(--ease-out)] group-hover:translate-x-1">
+                        <span className="hairline text-ink/70 mt-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border bg-[color:var(--bg)]/70 transition-transform duration-[400ms] [transition-timing-function:var(--ease-out)] group-hover:translate-x-1">
                           <svg
                             viewBox="0 0 24 24"
                             className="h-4 w-4"
@@ -246,7 +239,7 @@ export function WhatWeDoSection() {
                         {s.tags.map((t) => (
                           <span
                             key={t}
-                            className="hairline bg-[color:var(--bg)]/65 text-ink/70 rounded-full border px-3 py-1 text-[12px] font-semibold"
+                            className="hairline text-ink/70 rounded-full border bg-[color:var(--bg)]/65 px-3 py-1 text-[12px] font-semibold"
                           >
                             {t}
                           </span>
@@ -258,10 +251,28 @@ export function WhatWeDoSection() {
               </div>
 
               <p className="fade-in-up text-muted mt-8 text-sm">
-                Not sure where to start?{' '}
-                <Link href="/services" className="link-underline text-ink/80 hover:text-ink">
-                  See the full service breakdown
-                </Link>
+                Want the full career picture (beyond web)?{' '}
+                <a
+                  href={PORTFOLIO_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-underline text-ink/80 hover:text-ink"
+                >
+                  abigaillehr.com
+                </a>
+                .
+              </p>
+
+              <p className="fade-in-up text-muted mt-3 text-sm">
+                Prefer work samples?{' '}
+                <a
+                  href={PORTFOLIO_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-underline text-ink/80 hover:text-ink"
+                >
+                  View the portfolio
+                </a>
                 .
               </p>
             </div>

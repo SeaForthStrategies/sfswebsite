@@ -21,6 +21,7 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+**/._*
 public/images/.com.apple.Foundation.NSItemProvider*
 
 # jetbrains setting folder

@@ -95,7 +95,7 @@ function MetricCard({
   return (
     <div
       className={[
-        'hairline bg-[color:var(--bg)]/60 shadow-soft group relative overflow-hidden rounded-[22px] border p-6',
+        'hairline shadow-soft group relative overflow-hidden rounded-[22px] border bg-[color:var(--bg)]/60 p-6',
         'hover-lift',
         className,
       ].join(' ')}
@@ -109,7 +109,7 @@ function MetricCard({
           <span className="hairline grid h-10 w-10 place-items-center rounded-full border bg-white/50">
             <span className="animate-float-slow">{<MetricIcon name={icon} />}</span>
           </span>
-          <p className="text-ink/55 text-[12px] font-semibold uppercase tracking-[0.16em]">
+          <p className="text-ink/55 text-[12px] font-semibold tracking-[0.16em] uppercase">
             {metric.label}
           </p>
         </div>
@@ -139,7 +139,7 @@ function SignalBar({ signal, idx, active }: { signal: Signal; idx: number; activ
           <p className="text-ink text-sm font-semibold">{signal.label}</p>
           <p className="text-muted mt-1 text-sm">{signal.description}</p>
         </div>
-        <span className="text-ink/55 shrink-0 text-[12px] font-semibold uppercase tracking-[0.14em]">
+        <span className="text-ink/55 shrink-0 text-[12px] font-semibold tracking-[0.14em] uppercase">
           {signal.percent}%
         </span>
       </div>
@@ -153,7 +153,7 @@ function SignalBar({ signal, idx, active }: { signal: Signal; idx: number; activ
           ].join(' ')}
           style={{ width }}
         >
-          <div className="pointer-events-none absolute inset-0 opacity-60 [mask-image:linear-gradient(to_right,transparent,black,transparent)]">
+          <div className="pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_right,transparent,black,transparent)] opacity-60">
             <div className="absolute inset-0 animate-[sweep_2.6s_var(--ease-out)_infinite] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.55),transparent)]" />
           </div>
         </div>
@@ -176,27 +176,27 @@ export function MetricsSection() {
         suffix: '+',
         label: 'Pages designed + built',
         description:
-          'Marketing sites, landing pages, and key flows—crafted for clarity and conversion.',
+          'Marketing sites, landing pages, and key flows—structured for clarity and conversion.',
       },
     },
     {
       icon: 'launch',
       metric: {
-        value: 250,
+        value: 95,
         suffix: '+',
-        label: 'Analytics events tracked',
+        label: 'Production builds shipped',
         description:
-          'GA4 events, funnels, and conversions—instrumented to match real business goals.',
+          'Iterative releases from staging to launch—responsive, tested, and ready for traffic.',
       },
     },
     {
       icon: 'chart',
       metric: {
-        value: 60,
+        value: 140,
         suffix: '+',
-        label: 'Dashboards delivered',
+        label: 'UI components & sections',
         description:
-          'Reporting that gets used—clean views of performance, behavior, and next steps.',
+          'Reusable layout pieces and patterns—so new pages stay fast to ship and on-brand.',
       },
     },
     {
@@ -205,7 +205,7 @@ export function MetricsSection() {
         value: 12,
         suffix: '+',
         label: 'Industries supported',
-        description: 'A wide range of audiences—so your site still feels specific, not generic.',
+        description: 'From professional firms to nonprofits—same craft, tailored to each audience.',
       },
     },
   ];
@@ -213,17 +213,17 @@ export function MetricsSection() {
   const signals: Signal[] = [
     {
       label: 'UX polish',
-      description: 'Spacing, hierarchy, and interaction details that feel premium.',
+      description: 'Spacing, hierarchy, and interaction details that feel intentional.',
       percent: 92,
     },
     {
-      label: 'Conversion intent',
-      description: 'Clear CTAs + page flow that reduces hesitation.',
+      label: 'Performance budget',
+      description: 'Fast loads, lean assets, and structure that holds up on real devices.',
       percent: 90,
     },
     {
-      label: 'Tracking hygiene',
-      description: 'Consistent naming, clean events, useful dashboards.',
+      label: 'Accessible markup',
+      description: 'Semantic HTML, focus states, and patterns that support real users.',
       percent: 94,
     },
   ];
@@ -234,27 +234,27 @@ export function MetricsSection() {
         <div className="py-16 md:py-24" ref={ref}>
           <div className="grid gap-10 md:grid-cols-12 md:items-start">
             <div className="md:col-span-5">
-              <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+              <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                 Proof in numbers
               </p>
               <h2 className="fade-in-up stagger-1 font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
                 Credibility you can feel.
               </h2>
               <p className="fade-in-up stagger-2 text-muted mt-6 leading-relaxed">
-                Beautiful websites are table stakes. We pair premium craft with instrumentation—so
-                you can see what’s working, improve what isn’t, and grow with confidence.
+                The numbers back the craft: thoughtful UI, disciplined front-end delivery, and sites
+                built to stay fast as you grow.
               </p>
 
               <div className="fade-in-up stagger-3 mt-9 flex flex-wrap items-center gap-3">
                 <Link
                   href="/services"
-                  className="hover-wiggle hairline bg-[color:var(--bg)]/60 text-ink/75 rounded-full border px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.14em]"
+                  className="hover-wiggle hairline text-ink/75 rounded-full border bg-[color:var(--bg)]/60 px-4 py-2 text-[12px] font-semibold tracking-[0.14em] uppercase"
                 >
-                  See services
+                  Skills
                 </Link>
                 <Link
                   href="/pricing"
-                  className="hover-wiggle hairline bg-[color:var(--bg)]/60 text-ink/75 rounded-full border px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.14em]"
+                  className="hover-wiggle hairline text-ink/75 rounded-full border bg-[color:var(--bg)]/60 px-4 py-2 text-[12px] font-semibold tracking-[0.14em] uppercase"
                 >
                   View packages
                 </Link>
@@ -262,7 +262,7 @@ export function MetricsSection() {
               </div>
 
               <div className="fade-in-up stagger-4 hairline bg-surface shadow-soft mt-10 rounded-[var(--radius-lg)] border p-6">
-                <p className="text-ink/55 text-[12px] font-semibold uppercase tracking-[0.16em]">
+                <p className="text-ink/55 text-[12px] font-semibold tracking-[0.16em] uppercase">
                   What this means for you
                 </p>
                 <ul className="text-muted mt-4 space-y-3 text-sm">
@@ -275,13 +275,13 @@ export function MetricsSection() {
                   </li>
                   <li className="flex gap-3">
                     <span className="mt-[7px] h-2 w-2 shrink-0 rounded-full bg-[color:var(--brand-gold)]" />
-                    <span>
-                      Analytics that translate into next steps—not spreadsheets you never open.
-                    </span>
+                    <span>Front-end decisions that balance aesthetics with maintainable code.</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="mt-[7px] h-2 w-2 shrink-0 rounded-full bg-[color:var(--brand-teal)]" />
-                    <span>Iterative improvement after launch, so results compound over time.</span>
+                    <span>
+                      Post-launch iteration so the site keeps up with your offer and traffic.
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -304,8 +304,8 @@ export function MetricsSection() {
                   ))}
                 </div>
 
-                <div className="hairline bg-[color:var(--bg)]/50 relative z-10 mt-8 rounded-[22px] border p-6">
-                  <p className="text-ink/55 text-[12px] font-semibold uppercase tracking-[0.16em]">
+                <div className="hairline relative z-10 mt-8 rounded-[22px] border bg-[color:var(--bg)]/50 p-6">
+                  <p className="text-ink/55 text-[12px] font-semibold tracking-[0.16em] uppercase">
                     Momentum signals
                   </p>
                   <div className="mt-5 grid gap-5">
@@ -314,8 +314,8 @@ export function MetricsSection() {
                     ))}
                   </div>
                   <p className="text-muted mt-6 text-xs">
-                    These bars are a visual shorthand—your real KPIs are defined per project and
-                    tracked after launch.
+                    Visual shorthand for how we prioritize each build—your roadmap and metrics are
+                    defined per project.
                   </p>
                 </div>
               </div>

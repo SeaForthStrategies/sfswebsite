@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/Button';
 import { Parallax } from '@/components/motion/Parallax';
 import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
 import { Sparkles } from '@/components/Sparkles';
+import { publicAssetPath } from '@/lib/site';
 
 const frontmatter = {
   title: 'Digital Product Development',
@@ -32,7 +33,7 @@ export default function DigitalProductPage() {
           <div className="py-16 md:py-24">
             <div className="grid gap-10 md:grid-cols-12">
               <div className="md:col-span-5">
-                <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                   What this includes
                 </p>
                 <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
@@ -60,13 +61,13 @@ export default function DigitalProductPage() {
                 <div className="fade-in-up mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
                   <Link
                     href="/pricing"
-                    className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold uppercase tracking-[0.08em]"
+                    className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold tracking-[0.08em] uppercase"
                   >
                     View packages
                   </Link>
                   <Link
                     href="/contact"
-                    className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold uppercase tracking-[0.08em]"
+                    className="link-underline text-ink/80 hover:text-ink text-[13px] font-semibold tracking-[0.08em] uppercase"
                   >
                     Start a project
                   </Link>
@@ -112,7 +113,7 @@ export default function DigitalProductPage() {
           <div className="py-16 md:py-24">
             <div className="grid gap-10 md:grid-cols-12 md:items-center">
               <div className="md:col-span-6">
-                <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                   Approach
                 </p>
                 <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
@@ -152,7 +153,7 @@ export default function DigitalProductPage() {
                   <div className="bg-surface shadow-premium hover-lift relative overflow-hidden rounded-[var(--radius-lg)]">
                     <div className="relative aspect-[16/11] w-full">
                       <Image
-                        src="/images/matt-hardy-6ArTTluciuA-unsplash.jpg"
+                        src={publicAssetPath('/images/matt-hardy-6ArTTluciuA-unsplash.jpg')}
                         alt=""
                         fill
                         className="object-cover"
@@ -160,7 +161,7 @@ export default function DigitalProductPage() {
                       />
                     </div>
                     <div className="hairline border-t px-6 py-5">
-                      <p className="text-ink/60 text-[12px] font-semibold uppercase tracking-[0.16em]">
+                      <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
                         Systems · workflows · integrations
                       </p>
                     </div>
@@ -172,7 +173,7 @@ export default function DigitalProductPage() {
             <div className="fade-in-up hairline bg-surface shadow-soft mt-12 rounded-[var(--radius-lg)] border p-7 md:p-10">
               <div className="grid gap-8 md:grid-cols-12 md:items-center">
                 <div className="md:col-span-8">
-                  <p className="text-ink/50 text-[12px] font-semibold uppercase tracking-[0.16em]">
+                  <p className="text-ink/50 text-[12px] font-semibold tracking-[0.16em] uppercase">
                     Typical fit
                   </p>
                   <p className="text-muted mt-4 text-lg leading-relaxed">
@@ -183,7 +184,7 @@ export default function DigitalProductPage() {
                 <div className="md:col-span-4">
                   <Link
                     href="/contact"
-                    className="inline-flex w-full items-center justify-center rounded-full bg-[color:var(--ink)] px-7 py-4 text-[13px] font-semibold uppercase tracking-[0.08em] text-[color:var(--bg)] transition-colors hover:bg-[color:var(--brand-teal)]"
+                    className="inline-flex w-full items-center justify-center rounded-full bg-[color:var(--ink)] px-7 py-4 text-[13px] font-semibold tracking-[0.08em] text-[color:var(--bg)] uppercase transition-colors hover:bg-[color:var(--brand-teal)]"
                   >
                     Talk through scope
                   </Link>
@@ -205,7 +206,7 @@ export default function DigitalProductPage() {
           <div className="py-16 md:py-24">
             <div className="grid gap-10 md:grid-cols-12 md:items-end">
               <div className="md:col-span-8">
-                <p className="fade-in-up text-[12px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]">
+                <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
                   Next step
                 </p>
                 <h2 className="fade-in-up font-display mt-6 text-4xl leading-[1.02] md:text-5xl">

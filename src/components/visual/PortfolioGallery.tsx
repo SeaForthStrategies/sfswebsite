@@ -1,5 +1,7 @@
 import Image from 'next/image';
 
+import { publicAssetPath } from '@/lib/site';
+
 export function PortfolioGallery({
   items,
   className = '',
@@ -15,8 +17,7 @@ export function PortfolioGallery({
     <div className={className} aria-label={label}>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((item, idx) => {
-          // Make sure paths with spaces still work.
-          const src = encodeURI(item.src);
+          const src = publicAssetPath(item.src);
 
           return (
             <div
