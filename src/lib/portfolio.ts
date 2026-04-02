@@ -1,9 +1,6 @@
 import manifest from '@/data/portfolio-manifest.json';
 
-/**
- * Portfolio assets live under `public/work/` (synced from Abigail-Lehr-Resume).
- * @see https://github.com/SeaForthStrategies/Abigail-Lehr-Resume
- */
+/** Curated portfolio items and paths under `public/work/`. */
 
 /** Website screenshots only — for inline galleries on marketing pages. */
 export const PORTFOLIO_GALLERY_ITEMS = manifest.items

@@ -5,8 +5,6 @@ export const SITE = {
   calendlyUrl: 'https://calendly.com/gatorgleamsmm/30min',
   /** Personal portfolio — reference for design & dev work */
   portfolioUrl: 'https://abigaillehr.com',
-  /** Open-source résumé / portfolio monorepo (manifest + assets source of truth) */
-  resumeRepoUrl: 'https://github.com/SeaForthStrategies/Abigail-Lehr-Resume',
   logoPath: '/images/logo.png',
   faviconPath: '/favicon.svg',
   social: {
@@ -18,7 +16,6 @@ export const SITE = {
 export const PORTFOLIO_URL = SITE.portfolioUrl;
 /** Optional: personal site skills page (not SeaForth’s scope) */
 export const PORTFOLIO_SKILLS_URL = `${SITE.portfolioUrl}/skills` as const;
-export const RESUME_REPO_URL = SITE.resumeRepoUrl;
 export const CONTACT_EMAIL = SITE.email;
 
 /** Prefilled lines for the user to replace in their mail client after clicking a contact link. */
@@ -34,10 +31,13 @@ export const WEBSITE_REQUEST_BODY_TEMPLATE = [
 const WEBSITE_REQUEST_SUBJECT = 'Website request';
 
 function buildMailto(params: { subject: string; body: string }): string {
-  return `mailto:${SITE.email}?${new URLSearchParams({
+  const qs = new URLSearchParams({
     subject: params.subject,
     body: params.body,
-  }).toString()}`;
+  }).toString();
+  /** `%20` parses more reliably in mail clients than `+` (form-style) for subject/body. */
+  const encoded = qs.replace(/\+/g, '%20');
+  return `mailto:${SITE.email}?${encoded}`;
 }
 
 /** Primary contact links: `contact@…` with subject and fillable body. */

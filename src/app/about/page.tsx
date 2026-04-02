@@ -14,15 +14,15 @@ import { CONTACT_EMAIL_HREF, publicAssetPath } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'SeaForth is a small shop: you work directly with Abigail Lehr—no layers, no account managers—just honest web design and development.',
+    'Meet Abigail Lehr—SeaForth Strategies builds websites of all kinds: direct collaboration, no layers, custom development and Squarespace design.',
 };
 
 export default function AboutPage() {
   return (
     <>
       <PageHeader
-        title="A small shop—not a big agency."
-        subtitle="Real conversations, real timelines, and a site you can actually own. If you want numbers and packages, Services and Pricing have the details."
+        title="Direct partnership—not a revolving door."
+        subtitle="Real conversations, real timelines, and sites you can own—whether the scope is tight or ambitious. Every engagement is scoped to the work, not a generic playbook."
         backgroundImageSrc="/images/marissa-rodriguez-2mKYEVGA4jE-unsplash.jpg"
       />
 
@@ -32,10 +32,10 @@ export default function AboutPage() {
             <div className="mx-auto max-w-3xl text-center">
               <p className="fade-in-up text-muted leading-relaxed">
                 I started SeaForth because I like working with owners and teams who care about their
-                corner of the internet—not because I wanted to run a big shop. You get one person
-                who designs, builds, and launches with you. For past work,{' '}
+                corner of the internet—projects of all sizes, not a single mold. You get one person
+                who designs, builds, and launches with you. Past launches and redesigns live in the{' '}
                 <Link href="/portfolio" className="link-underline text-ink/80 hover:text-ink">
-                  browse the portfolio
+                  portfolio
                 </Link>
                 .
               </p>
@@ -127,15 +127,15 @@ export default function AboutPage() {
               <div className="grid gap-10 md:grid-cols-12 md:items-center">
                 <div className="md:col-span-6">
                   <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
-                    Why a small shop
+                    Why SeaForth
                   </p>
                   <h2 className="fade-in-up font-display text-ink mt-6 text-3xl leading-[1.05] md:text-4xl">
                     The kind of place where people remember your name.
                   </h2>
                   <p className="fade-in-up text-muted mt-6 leading-relaxed">
-                    I keep the roster small on purpose—so you’re not explaining your business again
-                    to a new face every week. You get steady communication, one creative thread, and
-                    a site that feels like it came from one kitchen, not a cafeteria line.
+                    I limit how many projects run at once—so you’re not reintroducing your business
+                    to a new contact every week. You get steady communication, one creative thread,
+                    and a finished site that reads as one coherent vision, no matter the footprint.
                   </p>
                 </div>
                 <div className="md:col-span-6">

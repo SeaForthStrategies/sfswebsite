@@ -7,7 +7,7 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
 import { Sparkles } from '@/components/Sparkles';
 
-import { CONTACT_EMAIL, CONTACT_EMAIL_HREF, publicAssetPath } from '@/lib/site';
+import { CONTACT_EMAIL, CONTACT_EMAIL_HREF, publicAssetPath, SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -16,11 +16,13 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
+  const portfolioHost = new URL(SITE.portfolioUrl).host;
+
   return (
     <>
       <PageHeader
         title="Contact"
-        subtitle="Tell me about the website you need—pages, stack, and timeline. Email is the fastest line."
+        subtitle="Tell me about the website you need—audience, pages, stack, and timeline—and I will reply with thoughtful questions, not a canned pitch."
         backgroundImageSrc="/images/carriza-maiquez-IiHHmOcnnSA-unsplash.jpg"
       />
 
@@ -93,18 +95,20 @@ export default function ContactPage() {
                     Email us
                   </Button>
                   <p className="text-muted mt-5 text-sm">
-                    Prefer email?{' '}
+                    <span className="text-ink/55 font-medium">Studio email</span>
+                    <br />
                     <a
-                      className="link-underline text-ink/80 hover:text-ink break-all"
+                      className="link-underline text-ink/80 hover:text-ink mt-1 inline-block break-all"
                       href={CONTACT_EMAIL_HREF}
                     >
                       {CONTACT_EMAIL}
                     </a>
                   </p>
-                  <p className="text-muted mt-3 text-sm">
-                    Want package guidance first?{' '}
+                  <p className="text-muted mt-3 text-sm leading-relaxed">
+                    Starting prices, account rules, and deliverables for development and design are
+                    on{' '}
                     <Link href="/pricing" className="link-underline text-ink/80 hover:text-ink">
-                      View pricing
+                      Packages
                     </Link>
                     .
                   </p>
@@ -138,11 +142,20 @@ export default function ContactPage() {
                 image="/images/7CC381A4-0716-416E-B8F8-B2E80D7C8955.JPG"
               />
               <p className="fade-in-up text-muted mt-8 text-sm leading-relaxed">
-                See work on the{' '}
+                Recent launches and creative work are in the{' '}
                 <Link href="/portfolio" className="link-underline text-ink/80 hover:text-ink">
                   portfolio
-                </Link>{' '}
-                page; the site footer links to my personal site for additional context.
+                </Link>
+                ; broader background and personal projects live on{' '}
+                <a
+                  href={SITE.portfolioUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-underline text-ink/80 hover:text-ink"
+                >
+                  abigaillehr.com
+                </a>
+                .
               </p>
             </div>
           </div>
@@ -174,7 +187,7 @@ export default function ContactPage() {
               />
               <FaqItem
                 q="Where can I see your work?"
-                a="Browse the Portfolio page on this site for selected work. The footer links to my personal site for a broader career view."
+                a={`Selected SeaForth builds live in this site’s portfolio. For a wider slice of design work and background, visit ${portfolioHost}.`}
               />
               <FaqItem
                 q="Is pricing fixed?"

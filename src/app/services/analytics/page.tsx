@@ -207,7 +207,11 @@ export default function AnalyticsPage() {
                 </p>
               </div>
               <div className="md:col-span-4">
-                <Button href="/contact" variant="accent" className="w-full rounded-full py-4">
+                <Button
+                  href={CONTACT_EMAIL_HREF}
+                  variant="accent"
+                  className="w-full rounded-full py-4"
+                >
                   Contact SeaForth
                 </Button>
               </div>

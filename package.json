@@ -11,7 +11,8 @@
     "start": "next start",
     "lint": "eslint . --max-warnings 0",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "process-client-logos": "node scripts/process-client-logos.mjs"
   },
   "dependencies": {
     "@tabler/icons-react": "^3.36.1",
@@ -31,6 +32,7 @@
     "postcss": "^8.5.6",
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.9.3"
   }

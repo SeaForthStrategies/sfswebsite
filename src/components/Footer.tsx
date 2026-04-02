@@ -6,7 +6,7 @@ import { CALENDLY_URL, CONTACT_EMAIL, CONTACT_EMAIL_HREF, publicAssetPath, SITE 
 
 const portfolioUrl = SITE.portfolioUrl;
 
-const labelMuted = 'text-[11px] font-semibold uppercase tracking-[0.16em] text-white/45';
+const labelMuted = 'text-[11px] font-semibold uppercase tracking-[0.16em] text-white/50';
 const labelGold =
   'text-[11px] font-semibold uppercase tracking-[0.16em] text-[color:var(--brand-gold)]';
 
@@ -137,78 +137,80 @@ const socialLinks = [
   { href: 'https://x.com/seaforthco', label: 'X', icon: 'x' as const },
 ] as const;
 
-const linkRow =
-  'group inline-flex min-h-11 items-start gap-2.5 py-1.5 text-sm text-white/75 transition-colors hover:text-white sm:min-h-0 sm:py-0';
+const footerLink =
+  'text-contrast-muted hover:text-contrast rounded-md py-2 text-sm transition-colors';
 
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
     <footer className="hairline border-t bg-[color:var(--contrast-bg)] pb-[max(0px,env(safe-area-inset-bottom,0px))] text-[color:var(--contrast-ink)]">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-10 py-12 sm:gap-12 sm:py-14 md:gap-14 lg:grid-cols-12 lg:gap-12 lg:py-20">
-          <div className="order-2 space-y-5 lg:order-none lg:col-span-4">
-            <div className="flex items-center gap-4">
+      <div className="container mx-auto max-w-full px-4 sm:px-6 lg:px-8">
+        {/* Main: stable source order — brand | nav | CTA. No CSS order hacks. */}
+        <div className="grid grid-cols-1 gap-12 py-12 sm:py-14 lg:grid-cols-12 lg:items-start lg:gap-10 lg:py-20 xl:gap-14">
+          {/* Brand */}
+          <div className="lg:col-span-4">
+            <div className="flex flex-col gap-5">
               <Image
                 src={publicAssetPath(SITE.logoPath)}
                 alt={SITE.name}
                 width={220}
                 height={56}
-                className="h-9 w-auto opacity-95"
+                className="h-9 w-auto max-w-[200px] opacity-95"
                 style={{ filter: 'var(--logo-filter)' }}
               />
-            </div>
-            <p className={labelGold}>Website design studio</p>
-            <p className="text-contrast-muted max-w-sm text-sm leading-relaxed">
-              Small-shop sites—custom code or Squarespace—with the same person from kickoff to
-              launch.
-            </p>
-            <div className="flex flex-wrap gap-2 pt-1">
-              {socialLinks.map((s) => (
-                <a
-                  key={s.href}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className={[
-                    'inline-flex h-10 w-10 items-center justify-center rounded-full',
-                    'border border-white/10 bg-white/5 transition-colors hover:bg-white/10',
-                  ].join(' ')}
-                >
-                  <span className="text-[color:var(--brand-gold)]">
-                    <Icon name={s.icon} className="h-[18px] w-[18px]" />
-                  </span>
-                </a>
-              ))}
+              <p className={labelGold}>Website design studio</p>
+              <p className="text-contrast-muted max-w-sm text-sm leading-relaxed">
+                Sites of every shape—landing pages to full builds, custom code or Squarespace—with
+                the same lead from kickoff to launch.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {socialLinks.map((s) => (
+                  <a
+                    key={s.href}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    className={[
+                      'inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full',
+                      'border border-white/10 bg-white/5 transition-colors hover:bg-white/10',
+                    ].join(' ')}
+                  >
+                    <span className="text-[color:var(--brand-gold)]">
+                      <Icon name={s.icon} className="h-[18px] w-[18px]" />
+                    </span>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
-          <div className="order-3 grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10 lg:order-none lg:col-span-4">
-            <div className="min-w-0 space-y-3 sm:space-y-4">
+          {/* Explore + Connect */}
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-12 lg:col-span-4">
+            <div className="min-w-0">
               <p className={labelMuted}>Explore</p>
-              <nav className="flex flex-col gap-0.5" aria-label="Footer navigation">
+              <nav className="mt-4 flex flex-col" aria-label="Footer navigation">
                 {exploreLinks.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="text-contrast-muted hover:text-contrast flex min-h-11 items-center rounded-md py-1 text-sm transition-colors sm:min-h-0 sm:py-0"
-                  >
+                  <Link key={item.href} href={item.href} className={footerLink}>
                     {item.label}
                   </Link>
                 ))}
               </nav>
             </div>
 
-            <div className="min-w-0 space-y-3 sm:space-y-4">
+            <div className="min-w-0">
               <p className={labelMuted}>Connect</p>
-              <ul className="flex flex-col gap-1 sm:gap-3">
+              <ul className="mt-4 flex flex-col gap-1">
                 <li>
-                  <a href={CONTACT_EMAIL_HREF} className={`${linkRow} rounded-md`}>
+                  <a
+                    href={CONTACT_EMAIL_HREF}
+                    className="hover:text-contrast flex gap-3 rounded-md py-2 text-sm text-white/75 transition-colors"
+                  >
                     <span className="mt-0.5 shrink-0 text-[color:var(--brand-gold)]">
                       <Icon name="mail" className="h-4 w-4" />
                     </span>
-                    <span className="min-w-0 break-words">{CONTACT_EMAIL}</span>
+                    <span className="min-w-0 leading-snug break-all">{CONTACT_EMAIL}</span>
                   </a>
                 </li>
                 <li>
@@ -216,17 +218,20 @@ export function Footer() {
                     href={CALENDLY_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={linkRow}
+                    className="hover:text-contrast flex items-center gap-3 rounded-md py-2 text-sm text-white/75 transition-colors"
                   >
-                    <span className="mt-0.5 shrink-0 text-[color:var(--brand-gold)]">
+                    <span className="shrink-0 text-[color:var(--brand-gold)]">
                       <Icon name="calendar" className="h-4 w-4" />
                     </span>
                     Book a call
                   </a>
                 </li>
                 <li>
-                  <Link href="/contact" className={linkRow}>
-                    <span className="mt-0.5 shrink-0 text-[color:var(--brand-gold)]">
+                  <Link
+                    href="/contact"
+                    className="hover:text-contrast flex items-center gap-3 rounded-md py-2 text-sm text-white/75 transition-colors"
+                  >
+                    <span className="shrink-0 text-[color:var(--brand-gold)]">
                       <Icon name="chevron" className="h-4 w-4" />
                     </span>
                     Contact page
@@ -237,9 +242,9 @@ export function Footer() {
                     href={portfolioUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={linkRow}
+                    className="hover:text-contrast flex items-center gap-3 rounded-md py-2 text-sm text-white/75 transition-colors"
                   >
-                    <span className="mt-0.5 shrink-0 text-[color:var(--brand-gold)]" aria-hidden>
+                    <span className="shrink-0 text-[color:var(--brand-gold)]" aria-hidden>
                       <Icon name="external" className="h-4 w-4" />
                     </span>
                     Personal site
@@ -249,13 +254,14 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="order-1 lg:order-none lg:col-span-4">
-            <div className="hairline flex flex-col gap-4 rounded-[var(--radius-lg)] border border-white/12 bg-white/[0.04] p-5 sm:gap-5 sm:p-6 md:p-7">
+          {/* CTA */}
+          <div className="lg:col-span-4">
+            <div className="hairline flex flex-col gap-4 rounded-[var(--radius-lg)] border border-white/12 bg-white/[0.04] p-5 sm:p-6">
               <div className="space-y-2">
                 <p className={labelGold}>Say hello</p>
-                <h2 className="font-display text-xl leading-snug text-white sm:text-2xl">
+                <p className="font-display text-xl leading-snug text-white sm:text-2xl">
                   Start with an email
-                </h2>
+                </p>
                 <p className="text-contrast-muted text-sm leading-relaxed">
                   Opens your mail app with the subject line and a short template to fill in—no form,
                   no third-party embed.
@@ -264,24 +270,24 @@ export function Footer() {
               <Button
                 href={CONTACT_EMAIL_HREF}
                 variant="accent"
-                className="w-full rounded-full px-6 py-3.5 sm:w-auto"
+                className="w-full max-w-full rounded-full px-6 py-3.5 sm:w-fit"
               >
                 Compose email
               </Button>
               <p className="font-mono text-[11px] leading-relaxed text-white/35">
-                Prefer another path? Use the links in Connect or the full{' '}
+                Calendly, the full{' '}
                 <Link href="/contact" className="text-white/55 underline-offset-2 hover:text-white">
                   contact page
                 </Link>
-                .
+                , and the personal portfolio shortcut sit with the studio email in this footer.
               </p>
             </div>
           </div>
         </div>
 
         <div className="border-t border-white/10 py-8">
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
-            <div className="max-w-xl space-y-3">
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
+            <div className="max-w-xl min-w-0 space-y-3">
               <p className="font-mono text-[13px] text-white/45">
                 © {year} SeaForth Strategies. All rights reserved.
               </p>
@@ -291,7 +297,7 @@ export function Footer() {
                 acceptance of our terms and privacy policy.
               </p>
             </div>
-            <div className="flex flex-col gap-3 text-sm text-white/40 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-2">
+            <div className="flex min-w-0 shrink-0 flex-col gap-3 text-sm text-white/40 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-2">
               <Link href="/privacy" className="transition-colors hover:text-white">
                 Privacy Policy
               </Link>
@@ -301,7 +307,7 @@ export function Footer() {
               <span className="hidden text-white/15 sm:inline" aria-hidden>
                 |
               </span>
-              <p>Crafted in Southern California.</p>
+              <p className="sm:whitespace-nowrap">Crafted in Southern California.</p>
             </div>
           </div>
         </div>

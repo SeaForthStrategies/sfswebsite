@@ -103,11 +103,8 @@ export function HomePackagesSection() {
           <div className="fade-in-up hairline bg-surface shadow-soft mt-10 rounded-[var(--radius-lg)] border p-7 md:p-8">
             <p className="label-tech text-[color:var(--brand-gold)]">Expertise & tools</p>
             <p className="text-muted mt-3 max-w-2xl text-sm leading-relaxed">
-              Full skills breakdown on the{' '}
-              <Link href="/services" className="link-underline text-ink/80 hover:text-ink">
-                Services
-              </Link>{' '}
-              page.
+              Builds lean on modern front-end tooling, Git-based workflows, and Squarespace when the
+              project calls for it—always with performance, accessibility, and handoff in mind.
             </p>
             <div className="mt-6">
               <TechStackLogos variant="compact" />

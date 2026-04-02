@@ -9,15 +9,14 @@ import { PortfolioGallery } from '@/components/visual/PortfolioGallery';
 import { TechStackLogos } from '@/components/visual/TechStackLogos';
 import { SERVICE_PACKAGES } from '@/data/packages';
 import { PORTFOLIO_GALLERY_ITEMS } from '@/lib/portfolio';
-import { CONTACT_EMAIL_HREF, RESUME_REPO_URL } from '@/lib/site';
+import { CONTACT_EMAIL_HREF } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Services',
   description:
-    'SeaForth Strategies—development and Squarespace design, packages, and craft-led delivery.',
+    'SeaForth Strategies—custom website development, Squarespace design, stack expertise, and launch-ready delivery for teams who care how their site feels and performs.',
 };
 
-/** Two primary routes; see packages for pricing entry points. */
 const skillAreas = [
   {
     title: 'Development',
@@ -38,7 +37,7 @@ export default function ServicesPage() {
     <>
       <PageHeader
         title="Services"
-        subtitle="Founder-led development and Squarespace design—scope tailored to your goals. Details, packages, and work samples are linked below."
+        subtitle="Founder-led development and Squarespace design—scope tailored to your goals, your audience, and how you plan to grow."
         backgroundImageSrc="/images/silas-baisch-K785Da4A_JA-unsplash.jpg"
       />
 
@@ -53,14 +52,15 @@ export default function ServicesPage() {
                 What SeaForth actually does.
               </h2>
               <p className="fade-in-up text-muted mt-6 leading-relaxed">
-                Use the cards for stack detail; use packages for starting prices and deliverables.
+                Custom front ends and Squarespace builds share the same standard: clear structure,
+                refined UI, accessible markup, and launches that hold up after go-live.
               </p>
               <div className="fade-in-up mt-8 flex flex-wrap items-center gap-3">
                 <Link
                   href="/services/web-design"
                   className="hover-wiggle hairline text-ink/75 rounded-full border bg-[color:var(--bg)]/60 px-4 py-2 text-[12px] font-semibold tracking-[0.14em] uppercase"
                 >
-                  Development detail
+                  Custom development
                 </Link>
                 <Link
                   href="/pricing"
@@ -110,8 +110,8 @@ export default function ServicesPage() {
                 Expertise & tools
               </p>
               <p className="text-muted mt-3 max-w-2xl text-sm leading-relaxed">
-                Expanded stack and tooling on this page; for a broader résumé-style list, see
-                Services detail above.
+                Day-to-day tooling for production sites—frameworks, hosting, collaboration, and
+                quality checks that keep releases predictable.
               </p>
               <div className="mt-8">
                 <TechStackLogos />
@@ -119,126 +119,72 @@ export default function ServicesPage() {
             </div>
 
             <p className="fade-in-up text-muted mt-10 max-w-2xl text-sm leading-relaxed">
-              Browse the full{' '}
+              For live examples of layout, brand, and build quality, see the{' '}
               <Link href="/portfolio" className="link-underline text-ink/80 hover:text-ink">
-                work gallery
-              </Link>{' '}
-              (same assets as the GitHub résumé repo). Source:{' '}
-              <a
-                href={RESUME_REPO_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link-underline text-ink/80 hover:text-ink"
-              >
-                Abigail-Lehr-Resume
-              </a>
+                portfolio
+              </Link>
               .
             </p>
 
-            <div className="mt-16 md:mt-20">
-              <div className="grid gap-10 md:grid-cols-12 md:items-end">
-                <div className="md:col-span-8">
-                  <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
+            <div className="fade-in-up mt-16 md:mt-20">
+              <div className="hairline bg-surface shadow-soft rounded-[var(--radius-lg)] border p-7 md:p-10">
+                <p className="text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
+                  Packages
+                </p>
+                <h2 className="font-display text-ink mt-4 text-3xl leading-[1.05] tracking-[-0.02em] md:mt-5 md:text-4xl">
+                  Where each engagement begins
+                </h2>
+                <p className="text-muted mt-4 max-w-2xl leading-relaxed md:mt-5">
+                  Engagements are structured as Development (custom code, Git-based workflow) or
+                  Design (Squarespace). This is the snapshot—starting price and positioning only.
+                  Deliverables, hosting responsibilities, and fit notes are itemized end-to-end on{' '}
+                  <Link href="/pricing" className="link-underline text-ink/80 hover:text-ink">
                     Packages
-                  </p>
-                  <h2 className="fade-in-up font-display text-ink mt-6 text-4xl leading-[1.02] md:text-5xl">
-                    Packages at a glance
-                  </h2>
-                  <p className="fade-in-up text-muted mt-6 max-w-2xl leading-relaxed">
-                    Same pricing as the home page—confirm scope before kickoff.
-                  </p>
+                  </Link>
+                  .
+                </p>
+
+                <div className="mt-8 grid gap-5 sm:grid-cols-2">
+                  {SERVICE_PACKAGES.map((p, idx) => (
+                    <div
+                      key={p.name}
+                      className={[
+                        'hairline flex flex-col rounded-[var(--radius)] border bg-[color:var(--bg)]/70 p-6',
+                        p.featured ? 'ring-1 ring-[color:var(--brand-teal)]/50' : '',
+                        'fade-in-up',
+                        `stagger-${Math.min(idx + 1, 6)}`,
+                      ].join(' ')}
+                    >
+                      <p className="text-ink/60 text-[11px] font-semibold tracking-[0.16em] uppercase">
+                        {p.badge}
+                      </p>
+                      <h3 className="font-display text-ink mt-2 text-xl tracking-tight md:text-2xl">
+                        {p.name}
+                      </h3>
+                      <p className="text-ink mt-3 text-2xl font-semibold tabular-nums md:text-3xl">
+                        {p.price}
+                      </p>
+                      <p className="text-muted mt-3 text-sm leading-relaxed">{p.hook}</p>
+                    </div>
+                  ))}
                 </div>
-                <div className="md:col-span-4">
+
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                  <Button
+                    href="/pricing"
+                    className="shadow-soft w-full rounded-full bg-[color:var(--brand-teal)] px-7 py-4 text-white hover:bg-[color:var(--brand-teal-dark)] sm:w-auto"
+                  >
+                    Full comparison
+                  </Button>
                   <Button
                     href={CONTACT_EMAIL_HREF}
-                    className="shadow-soft w-full rounded-full bg-[color:var(--brand-teal)] px-7 py-4 text-white hover:bg-[color:var(--brand-teal-dark)]"
+                    variant="secondary"
+                    className="w-full rounded-full sm:w-auto"
                   >
-                    Start a project
+                    Email first
                   </Button>
                 </div>
               </div>
-
-              <div className="mt-12 grid gap-6 lg:grid-cols-2">
-                {SERVICE_PACKAGES.map((p, idx) => (
-                  <div
-                    key={`${p.name}-${idx}`}
-                    className={[
-                      'fade-in-up',
-                      `stagger-${Math.min(idx + 1, 6)}`,
-                      'hairline bg-surface shadow-soft hover-lift rounded-[var(--radius-lg)] border',
-                      'p-7',
-                      p.featured ? 'ring-1 ring-[color:var(--brand-teal)]' : '',
-                    ].join(' ')}
-                  >
-                    <div className="flex items-start justify-between gap-6">
-                      <div>
-                        <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
-                          {p.badge ?? 'Package'}
-                        </p>
-                        <h3 className="font-display text-ink mt-2 text-3xl">{p.name}</h3>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
-                          {p.price.includes('/mo') ? 'Monthly' : 'Starting at'}
-                        </p>
-                        <p className="text-ink mt-2 text-3xl font-semibold">{p.price}</p>
-                      </div>
-                    </div>
-
-                    <p className="text-muted mt-5 leading-relaxed">{p.hook}</p>
-
-                    <div className="hairline mt-6 border-t pt-6">
-                      <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
-                        Your account
-                      </p>
-                      <p className="text-muted mt-3 leading-relaxed">{p.clientAccount}</p>
-                    </div>
-
-                    <div className="hairline mt-6 border-t pt-6">
-                      <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
-                        Includes
-                      </p>
-                      <ul className="text-muted mt-4 space-y-3">
-                        {p.deliverables.map((d) => (
-                          <li key={d} className="flex gap-3">
-                            <span className="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--brand-gold)]" />
-                            <span>{d}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="hairline mt-6 border-t pt-6">
-                      <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
-                        Ideal for
-                      </p>
-                      <p className="text-muted mt-3 leading-relaxed">{p.idealFor}</p>
-                    </div>
-
-                    <div className="mt-8">
-                      <Button
-                        href="/contact"
-                        className={[
-                          'w-full rounded-full py-4',
-                          p.featured
-                            ? 'bg-[color:var(--brand-teal)] text-white hover:bg-[color:var(--brand-teal-dark)]'
-                            : 'bg-[color:var(--ink)] text-[color:var(--bg)] hover:bg-[color:var(--brand-teal)]',
-                        ].join(' ')}
-                      >
-                        Start a project
-                      </Button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <p className="fade-in-up text-muted mt-10 text-sm">
-                Want the full breakdown?{' '}
-                <Link href="/pricing" className="link-underline text-ink/80 hover:text-ink">
-                  View the pricing page
-                </Link>
-                .
-              </p>
             </div>
 
             <div className="mt-16 md:mt-20">
@@ -277,8 +223,8 @@ export default function ServicesPage() {
                   Craft-first. Launch-ready.
                 </h2>
                 <p className="fade-in-up text-muted mt-6 max-w-2xl leading-relaxed">
-                  You get founder-led execution—whether that is custom development or a Squarespace
-                  design—and launch discipline without the generic template look.
+                  Typography, spacing, performance, and motion stay intentional—without the
+                  interchangeable template look—no matter which stack we ship on.
                 </p>
               </div>
               <div className="md:col-span-4">
@@ -309,17 +255,31 @@ export default function ServicesPage() {
                   Next step
                 </p>
                 <h2 className="fade-in-up font-display mt-6 text-4xl leading-[1.02] md:text-5xl">
-                  Pick a starting point.
+                  Prefer to talk before you read tiers?
                 </h2>
                 <p className="fade-in-up mt-6 max-w-2xl leading-relaxed text-white/70">
-                  We’ll align on scope, pages, and stack—then tailor the engagement to your goals,
-                  not a one-size-fits-all playbook.
+                  Send goals and constraints—I will suggest a stack and tier. When you want every
+                  line item, the{' '}
+                  <Link href="/pricing" className="link-underline text-white/90 hover:text-white">
+                    Packages
+                  </Link>{' '}
+                  page holds the full write-up.
                 </p>
               </div>
-              <div className="md:col-span-4">
-                <Button href="/pricing" variant="accent" className="w-full rounded-full py-4">
-                  View pricing
+              <div className="flex flex-col gap-3 md:col-span-4">
+                <Button
+                  href={CONTACT_EMAIL_HREF}
+                  variant="accent"
+                  className="w-full rounded-full py-4"
+                >
+                  Email SeaForth
                 </Button>
+                <Link
+                  href="/pricing"
+                  className="text-center text-sm font-medium text-white/70 underline-offset-4 transition-colors hover:text-white"
+                >
+                  Open Packages
+                </Link>
               </div>
             </div>
           </div>

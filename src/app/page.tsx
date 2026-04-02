@@ -31,8 +31,8 @@ export default function HomePage() {
               <AnimatedWords text="Website design for business owners who notice the details." />
             </h1>
             <p className="fade-in-up stagger-1 text-muted mt-5 max-w-xl text-[15px] leading-[1.65] sm:mt-6 sm:text-base md:mt-7 md:text-lg">
-              Structured sites, refined UI, and a straight path from kickoff to launch—packages
-              spell out pricing paths.
+              Structured sites, refined UI, and a straight path from kickoff to launch—with clear
+              starting points for custom code or Squarespace, then scope dialed in together.
             </p>
 
             <div className="fade-in-up stagger-2 mt-8 flex w-full flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4 md:justify-start">

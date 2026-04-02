@@ -1,7 +1,4 @@
-/**
- * Synced from Abigail-Lehr-Resume (`src/data/testimonials.ts`).
- * @see https://github.com/SeaForthStrategies/Abigail-Lehr-Resume
- */
+/** Client and collaborator testimonials shown on the portfolio page. */
 export type Testimonial = {
   quote: string;
   author: string;

@@ -18,7 +18,7 @@ export default function PricingPage() {
     <>
       <PageHeader
         title="Packages"
-        subtitle="Compare paths below—starting prices, account rules, and deliverables. Scope is set after a short alignment call."
+        subtitle="Bookmarkable numbers: starting prices, hosting and account rules, and deliverables for each tier. Scope still lands in writing after an alignment call."
         backgroundImageSrc="/images/kelsey-knight-CrRr3y1lhl8-unsplash.jpg"
       />
 
@@ -33,8 +33,9 @@ export default function PricingPage() {
                 Development or design.
               </h2>
               <p className="fade-in-up text-muted mt-5 leading-relaxed">
-                Squarespace is usually the lower entry; custom development carries a higher starting
-                investment. Figures are starting points until scope is confirmed in writing.
+                Figures assume a typical first phase. After we talk, the estimate reflects your
+                pages, integrations, and timeline—nothing moves to contract until you have it in
+                writing.
               </p>
             </div>
 

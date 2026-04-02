@@ -12,10 +12,9 @@ import { CONTACT_EMAIL_HREF } from '@/lib/site';
 const frontmatter = {
   title: 'Development — custom websites',
   description:
-    'Custom development—Next.js, GitHub, Vercel—responsive UI, performance, SEO, and launch support. For Squarespace design (lower entry), see Packages. Work samples: /portfolio.',
-  /** Shorter hero line than meta description (avoids repeating the full SEO blurb on-page). */
+    'Custom website development with Next.js, GitHub, and Vercel—responsive UI, performance, SEO foundations, analytics hooks, and disciplined launch support.',
   heroSubtitle:
-    'Responsive UI, performance, and launch support—Next.js, GitHub, and Vercel. Squarespace path: /pricing.',
+    'Responsive UI, performance-aware motion, and launch support on a modern stack—Next.js, GitHub, and Vercel. Squarespace-led projects are scoped separately with a different starting investment.',
 };
 
 export const metadata: Metadata = {
@@ -91,15 +90,19 @@ export default function WebDesignPage() {
                 Expertise & tools
               </p>
               <p className="fade-in-up text-muted mt-3 max-w-2xl text-sm leading-relaxed">
-                Logos for the stack we use most—see the full résumé for marketing, ops, and more.
+                Logos reflect the core production stack; marketing automation, ops tooling, and
+                adjacent platforms fold in whenever a roadmap calls for them.
               </p>
               <div className="fade-in-up mt-8">
                 <TechStackLogos variant="compact" showSkillsLink={false} />
               </div>
-              <p className="fade-in-up text-muted mt-6 text-sm">
+              <p className="fade-in-up text-muted mt-6 text-sm leading-relaxed">
+                The{' '}
                 <Link href="/services" className="link-underline text-ink/80 hover:text-ink">
-                  Full expertise & tools on Services
-                </Link>
+                  Services
+                </Link>{' '}
+                overview expands the full toolset—partners, integrations, and edge-case capabilities
+                that appear when a roadmap grows beyond a single launch.
               </p>
             </div>
 
@@ -158,12 +161,12 @@ export default function WebDesignPage() {
 
             <PortfolioGallery className="mt-12" items={PORTFOLIO_GALLERY_ITEMS} />
 
-            <p className="fade-in-up text-muted mt-10 text-sm">
-              Want a similar approach for your brand?{' '}
+            <p className="fade-in-up text-muted mt-10 text-sm leading-relaxed">
+              If this matches the standard you want on the web,{' '}
               <Link href="/contact" className="link-underline text-ink/80 hover:text-ink">
-                Send a message
-              </Link>
-              .
+                open a conversation
+              </Link>{' '}
+              and we will map scope together.
             </p>
           </div>
         </div>

@@ -40,6 +40,18 @@ Use lowercase with hyphens:
 - Keep images under 100KB each for fast loading
 - Optimize with tools like TinyPNG or ImageOptim
 
+## Transparency & clipping
+
+- The trust bar uses **`object-contain`** with padding so logos are **not cropped**. Use **PNG (or SVG) with an alpha channel** so the strip background shows through.
+- **`Mayor John Franklin.png` was a JPEG saved as `.png`**—it has been re-encoded as a real PNG. Prefer exporting logos as PNG with transparency from the start.
+- To re-run automated **near-white → transparent** (and refresh backups), from the repo root:
+
+  ```bash
+  pnpm process-client-logos
+  ```
+
+  Copies are saved under `public/clients/originals/pre-transparent-pass/` before overwriting. If a mark looks wrong (e.g. light colors in the logo were cleared), restore from that folder or lower the threshold in `scripts/process-client-logos.mjs`.
+
 ## Once You've Added Logos
 
-Update the logo list in `src/app/page.tsx` in the client logos section with your actual filenames.
+Add the filename to `DEFAULT_LOGOS` in `src/components/visual/ClientsMarquee.tsx` (and to `LOGO_FILES` in `scripts/process-client-logos.mjs` if you use the script).

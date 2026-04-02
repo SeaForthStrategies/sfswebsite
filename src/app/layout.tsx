@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     template: `%s – ${SITE.name}`,
   },
   description:
-    'SeaForth Strategies—founder-led website studio: custom development and Squarespace design.',
+    'SeaForth Strategies—websites of all kinds, founder-led: custom development and Squarespace design.',
   icons: {
     icon: SITE.faviconPath,
   },
@@ -95,7 +95,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             name: SITE.name,
             url: SITE.url,
             logo: logoUrl,
-            description: 'Boutique website studio—custom development and Squarespace design.',
+            description:
+              'Website design and development for projects of every scale—custom code and Squarespace.',
             sameAs: [SITE.social.instagram, SITE.social.linkedin],
             contactPoint: {
               '@type': 'ContactPoint',

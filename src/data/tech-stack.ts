@@ -1,5 +1,5 @@
 /**
- * Tooling shown as logos (Simple Icons CDN). Grouped like the personal skills résumé page.
+ * Tooling shown as logos (Simple Icons CDN). Grouped for the site’s expertise section.
  * @see https://abigaillehr.com/skills
  */
 export const TECH_STACK_GROUPS = [

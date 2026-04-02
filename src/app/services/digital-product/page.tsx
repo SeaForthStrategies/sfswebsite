@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/Button';
 import { Parallax } from '@/components/motion/Parallax';
 import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
 import { Sparkles } from '@/components/Sparkles';
-import { publicAssetPath } from '@/lib/site';
+import { CONTACT_EMAIL_HREF, publicAssetPath } from '@/lib/site';
 
 const frontmatter = {
   title: 'Digital Product Development',
@@ -213,12 +213,16 @@ export default function DigitalProductPage() {
                   Let’s map the system before we build it.
                 </h2>
                 <p className="fade-in-up mt-6 max-w-2xl leading-relaxed text-white/70">
-                  We’ll translate requirements into a clean product plan—then execute with boutique
+                  We’ll translate requirements into a clean product plan—then execute with hands-on
                   craft.
                 </p>
               </div>
               <div className="md:col-span-4">
-                <Button href="/contact" variant="accent" className="w-full rounded-full py-4">
+                <Button
+                  href={CONTACT_EMAIL_HREF}
+                  variant="accent"
+                  className="w-full rounded-full py-4"
+                >
                   Contact SeaForth
                 </Button>
               </div>

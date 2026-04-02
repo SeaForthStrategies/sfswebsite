@@ -18,7 +18,8 @@ const variants: Record<Variant, string> = {
 };
 
 function isInternalHref(href: string) {
-  return href.startsWith('/');
+  /** Next `<Link>` is only for app routes — not `//`, `mailto:`, `tel:`, or `http(s):`. */
+  return href.startsWith('/') && !href.startsWith('//');
 }
 
 export function Button({
