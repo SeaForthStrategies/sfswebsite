@@ -2,246 +2,139 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { PageHeader } from '@/components/layout/PageHeader';
-
-import { Button } from '@/components/ui/Button';
-import { BackgroundOrbs } from '@/components/visual/BackgroundOrbs';
-import { Sparkles } from '@/components/Sparkles';
-import { PortfolioGallery } from '@/components/visual/PortfolioGallery';
-import { PORTFOLIO_GALLERY_HIGHLIGHTS } from '@/lib/portfolio';
-import { CONTACT_EMAIL_HREF, publicAssetPath } from '@/lib/site';
-
 export const metadata: Metadata = {
   title: 'About',
-  description:
-    'Meet Abigail Lehr—SeaForth Strategies builds websites of all kinds: direct collaboration, no layers, custom development and Squarespace design.',
+  description: 'A consumer venture studio built in Southern California.',
+  alternates: { canonical: '/about' },
 };
+
+const team = [
+  { name: 'Lauren Mitchell', role: 'Principal' },
+  { name: 'Daniel Kim', role: 'Investment Associate' },
+  { name: 'Sophie Reynolds', role: 'Venture Operations Manager' },
+  { name: 'Ryan Foster', role: 'Product Manager' },
+  { name: 'Maya Patel', role: 'Growth & Marketing Manager' },
+  { name: 'Jake Collins', role: 'Software Engineer' },
+  { name: 'Emily Carter', role: 'Operations Coordinator' },
+  { name: 'Ben Sullivan', role: 'Venture Intern' },
+];
 
 export default function AboutPage() {
   return (
     <>
-      <PageHeader
-        title="Direct partnership—not a revolving door."
-        subtitle="Real conversations, real timelines, and sites you can own—whether the scope is tight or ambitious. Every engagement is scoped to the work, not a generic playbook."
-        backgroundImageSrc="/images/marissa-rodriguez-2mKYEVGA4jE-unsplash.jpg"
-      />
+      <header className="shell page-intro">
+        <div>
+          <p className="eyebrow">About Seaforth</p>
+          <h1 className="page-title">A venture studio built in Southern California.</h1>
+        </div>
+        <p className="lead">
+          We identify consumer opportunities and develop products internally from concept to market.
+        </p>
+      </header>
 
-      <section>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="py-12 sm:py-16 md:py-24">
-            <div className="mx-auto max-w-3xl text-center">
-              <p className="fade-in-up text-muted leading-relaxed">
-                I started SeaForth because I like working with owners and teams who care about their
-                corner of the internet—projects of all sizes, not a single mold. You get one person
-                who designs, builds, and launches with you. Past launches and redesigns live in the{' '}
-                <Link href="/portfolio" className="link-underline text-ink/80 hover:text-ink">
-                  portfolio
-                </Link>
-                .
-              </p>
-            </div>
+      <div className="wide-image wide-image--coast">
+        <Image
+          src="/images/site/southern-california-coast.jpg"
+          alt="The Southern California coastline"
+          fill
+          priority
+          sizes="100vw"
+        />
+      </div>
 
-            <div className="mt-10 grid gap-8 sm:mt-12 sm:gap-10 md:mt-20 md:grid-cols-12 md:items-start md:gap-10 lg:gap-14">
-              <div className="fade-in-up md:col-span-5">
-                <div className="shadow-premium hover-lift relative overflow-hidden rounded-[var(--radius-lg)]">
-                  <div className="relative aspect-[4/5] w-full">
-                    <Image
-                      src={publicAssetPath('/images/7CC381A4-0716-416E-B8F8-B2E80D7C8955.JPG')}
-                      alt="Abigail Lehr — Founder, SeaForth Strategies"
-                      fill
-                      className="object-cover object-top"
-                      sizes="(min-width: 768px) 38vw, 92vw"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="fade-in-up stagger-2 md:col-span-7">
-                <p className="text-ink/60 text-[12px] font-semibold tracking-[0.16em] uppercase">
-                  Abigail Lehr — Founder
-                </p>
-                <h2 className="font-display text-ink mt-3 text-2xl sm:text-3xl md:text-4xl">
-                  You’re not a ticket number—you’re a conversation.
-                </h2>
-                <p className="text-muted mt-5 leading-relaxed">
-                  I handle websites start to finish: structure, visuals, responsive build (often in
-                  Next.js), the basics of speed and search, and tweaks after launch. No junior
-                  handoffs and no “we’ll get back to you next quarter.” If something matters to your
-                  business, it matters in how we work together.
-                </p>
-                <blockquote className="hairline bg-surface mt-6 rounded-[var(--radius)] border p-5 sm:mt-8 sm:p-6 md:p-8">
-                  <p className="font-display text-ink text-lg leading-snug sm:text-xl md:text-2xl">
-                    “A good site should feel like someone listened—then made it easy for people to
-                    say yes.”
-                  </p>
-                </blockquote>
-              </div>
-            </div>
+      <section className="shell section" aria-labelledby="about-model">
+        <div className="intro-grid">
+          <div>
+            <p className="eyebrow">Our model</p>
+            <h2 id="about-model" className="section-title">
+              We build instead of simply advising.
+            </h2>
+          </div>
+          <div>
+            <p className="lead">
+              Seaforth Strategies builds consumer technology companies focused on how people
+              connect, experience life, and interact with technology.
+            </p>
+            <p className="lead">
+              Product development, software engineering, brand, and growth come together in one
+              operating model, so the product and its market can evolve together.
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="hairline bg-surface border-y">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="py-12 sm:py-16 md:py-24">
-            <div className="grid gap-10 md:grid-cols-12 md:items-start">
-              <div className="md:col-span-5">
-                <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
-                  How we work
-                </p>
-                <h2 className="fade-in-up font-display text-ink mt-4 text-2xl leading-[1.06] sm:mt-5 sm:text-3xl md:mt-6 md:text-4xl md:leading-[1.02]">
-                  Hands-on, plain language, no runaround.
-                </h2>
-              </div>
-              <div className="md:col-span-7">
-                <div className="hairline divide-y">
-                  {[
-                    {
-                      t: 'Clear before clever',
-                      d: 'Visitors should know who you are and what to do next—without hunting for it.',
-                    },
-                    {
-                      t: 'Fast enough to feel cared for',
-                      d: 'Pages that load quickly and read well on phones, because that’s how people actually browse.',
-                    },
-                    {
-                      t: 'Launch day you can trust',
-                      d: 'I check the messy stuff before go-live so you’re not fixing surprises on opening night.',
-                    },
-                  ].map((p, idx) => (
-                    <div
-                      key={p.t}
-                      className={['fade-in-up', `stagger-${Math.min(idx + 1, 6)}`, 'py-8'].join(
-                        ' '
-                      )}
-                    >
-                      <h3 className="text-ink text-xl font-semibold">{p.t}</h3>
-                      <p className="text-muted mt-3 leading-relaxed">{p.d}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="hairline shadow-soft mt-14 rounded-[var(--radius-lg)] border bg-[color:var(--bg)] p-7 md:p-10">
-              <div className="grid gap-10 md:grid-cols-12 md:items-center">
-                <div className="md:col-span-6">
-                  <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
-                    Why SeaForth
-                  </p>
-                  <h2 className="fade-in-up font-display text-ink mt-6 text-3xl leading-[1.05] md:text-4xl">
-                    The kind of place where people remember your name.
-                  </h2>
-                  <p className="fade-in-up text-muted mt-6 leading-relaxed">
-                    I limit how many projects run at once—so you’re not reintroducing your business
-                    to a new contact every week. You get steady communication, one creative thread,
-                    and a finished site that reads as one coherent vision, no matter the footprint.
-                  </p>
-                </div>
-                <div className="md:col-span-6">
-                  <div className="grid gap-4 md:grid-cols-2">
-                    {[
-                      {
-                        t: 'Same person start to finish',
-                        d: 'Wireframes to launch—you’re not bouncing between departments.',
-                      },
-                      {
-                        t: 'Built to grow with you',
-                        d: 'Clean structure so you’re not stuck when the business changes.',
-                      },
-                      {
-                        t: 'Motion that helps, not distracts',
-                        d: 'A little life on the page, without the circus.',
-                      },
-                      {
-                        t: 'Honest next steps',
-                        d: 'I look at what visitors do and we talk about what’s worth fixing—not vanity metrics.',
-                      },
-                    ].map((c, idx) => (
-                      <div
-                        key={c.t}
-                        className={[
-                          'reveal',
-                          `stagger-${Math.min(idx + 1, 6)}`,
-                          'hairline bg-surface shadow-soft hover-lift rounded-[var(--radius)] border p-6',
-                        ].join(' ')}
-                      >
-                        <h3 className="text-ink text-lg font-semibold">{c.t}</h3>
-                        <p className="text-muted mt-2 leading-relaxed">{c.d}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden">
-        <BackgroundOrbs className="opacity-85" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="py-12 sm:py-16 md:py-24">
-            <div className="grid gap-10 md:grid-cols-12 md:items-end">
-              <div className="md:col-span-7">
-                <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
-                  A few snapshots
-                </p>
-                <h2 className="fade-in-up font-display text-ink mt-4 text-2xl leading-[1.06] sm:mt-5 sm:text-3xl md:mt-6 md:text-4xl md:leading-[1.02] lg:text-5xl">
-                  Polished enough to impress—practical enough to live in.
-                </h2>
-              </div>
-              <div className="md:col-span-5">
-                <p className="fade-in-up text-muted leading-relaxed">
-                  A few snapshots of work that had to look good on a screen and hold up when real
-                  people clicked around.
-                </p>
-              </div>
-            </div>
-
-            <PortfolioGallery
-              className="mt-12"
-              framed={false}
-              items={PORTFOLIO_GALLERY_HIGHLIGHTS}
+      <section className="founder-band section" aria-labelledby="about-founders">
+        <div className="shell founder-layout">
+          <div className="founder-image founder-image--coastal">
+            <Image
+              src="/images/site/abby-lehr-coastal.jpg"
+              alt="Abby Lehr, Co-Founder and Software Engineer at Seaforth Strategies"
+              fill
+              sizes="(max-width: 900px) 100vw, 42vw"
             />
           </div>
-        </div>
-      </section>
-
-      <section className="bg-[color:var(--contrast-bg)] text-[color:var(--contrast-ink)]">
-        <div className="relative overflow-hidden">
-          <BackgroundOrbs variant="dark" className="opacity-95" />
-          <div className="absolute inset-0 opacity-60">
-            <Sparkles color="rgba(213, 163, 83, 0.75)" />
-          </div>
-        </div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="py-12 sm:py-16 md:py-24">
-            <div className="grid gap-10 md:grid-cols-12 md:items-end">
-              <div className="md:col-span-8">
-                <p className="fade-in-up text-[12px] font-semibold tracking-[0.16em] text-[color:var(--brand-gold)] uppercase">
-                  Next step
-                </p>
-                <h2 className="fade-in-up font-display mt-4 text-2xl leading-[1.06] sm:mt-5 sm:text-3xl md:mt-6 md:text-4xl md:leading-[1.02] lg:text-5xl">
-                  Say hello—we’ll figure out the rest together.
-                </h2>
-                <p className="fade-in-up mt-6 max-w-2xl leading-relaxed text-white/70">
-                  Send a note or book a short call. No pitch deck, no hard sell—just a real chat
-                  about what you need and whether we’re a fit.
-                </p>
-              </div>
-              <div className="md:col-span-4">
-                <Button
-                  href={CONTACT_EMAIL_HREF}
-                  variant="accent"
-                  className="w-full rounded-full px-7 py-4"
-                >
-                  Send a note
-                </Button>
-              </div>
+          <div className="founder-copy">
+            <p className="eyebrow">Founders</p>
+            <h2 id="about-founders" className="section-title">
+              Built by operators.
+            </h2>
+            <h3>Abby Lehr</h3>
+            <p className="founder-role">Co-Founder &amp; Software Engineer</p>
+            <a
+              className="cofounder-profile founder-profile"
+              href="https://www.linkedin.com/in/abigaillehr/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn ↗
+            </a>
+            <p className="lead">
+              Abby works across product development, software engineering, brand, and growth,
+              building consumer technology products from concept through launch.
+            </p>
+            <p className="lead">
+              Her work spans full-stack development, AI-assisted engineering, product strategy, UX,
+              positioning, go-to-market, acquisition, analytics, and growth experimentation.
+            </p>
+            <div className="cofounder-note">
+              <strong>Isaiah Soicher</strong>
+              <span>Co-Founder · Biography and operating focus awaiting founder approval.</span>
+              <a
+                className="cofounder-profile"
+                href="https://www.linkedin.com/in/isaiahsoicher/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn ↗
+              </a>
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="shell section team-section" aria-labelledby="team-title">
+        <div className="team-intro">
+          <p className="eyebrow">Studio team</p>
+          <h2 id="team-title" className="section-title">
+            The people building alongside us.
+          </h2>
+        </div>
+        <ul className="team-roster">
+          {team.map((member) => (
+            <li className="team-member" key={member.name}>
+              <h3>{member.name}</h3>
+              <p>{member.role}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="shell final-cta">
+        <p className="eyebrow">Our approach</p>
+        <h2>Product and market, built as one.</h2>
+        <Link className="arrow-link" href="/approach">
+          How we build <span aria-hidden="true">→</span>
+        </Link>
       </section>
     </>
   );
