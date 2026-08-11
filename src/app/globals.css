@@ -670,71 +670,80 @@ h3 {
   background: var(--color-sand);
 }
 
-.founder-layout {
+.founder-heading {
   display: grid;
-  grid-template-columns: minmax(320px, 0.85fr) minmax(0, 1fr);
-  gap: clamp(2.75rem, 6vw, 6rem);
-  align-items: start;
+  grid-template-columns: minmax(180px, 0.4fr) minmax(0, 0.6fr);
+  gap: var(--space-7);
+  align-items: end;
+  border-bottom: 1px solid var(--color-line);
+  padding-bottom: var(--space-7);
 }
 
-.founder-image {
+.founder-heading .eyebrow {
+  margin-bottom: 0;
+}
+
+.founder-heading .section-title {
+  max-width: 12ch;
+}
+
+.founders-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 5vw, 4.5rem);
+  margin-top: var(--space-8);
+}
+
+.founder-person {
+  min-width: 0;
+}
+
+.founder-portrait {
   position: relative;
   width: 100%;
-  max-width: 560px;
   aspect-ratio: 4 / 5;
   border: 1px solid var(--color-line);
   overflow: hidden;
   background: #eee8df;
 }
 
-.founder-image img {
+.founder-portrait img {
   object-fit: cover;
-  object-position: center 18%;
 }
 
-.founder-image--coastal img {
+.founder-portrait--abby img {
   object-position: 53% 60%;
 }
 
-.founder-copy {
-  min-width: 0;
-  padding-top: clamp(0.25rem, 1vw, 0.75rem);
+.founder-portrait--isaiah img {
+  object-position: 50% 36%;
 }
 
-.founder-copy .section-title {
-  max-width: 11ch;
+.founder-person-copy {
+  padding-top: var(--space-6);
 }
 
-.founder-copy h3 {
-  margin: var(--space-7) 0 0;
+.founder-person h3 {
+  margin: 0;
   font-family: var(--font-serif), Georgia, serif;
-  font-size: clamp(3rem, 4.6vw, 4.75rem);
+  font-size: clamp(2.8rem, 4vw, 4rem);
   font-weight: 600;
-  line-height: 0.98;
+  line-height: 1;
 }
 
 .founder-role {
-  margin: var(--space-3) 0 var(--space-6);
+  margin: var(--space-3) 0 var(--space-4);
   color: var(--color-pacific-deep);
   font-size: 0.78rem;
   font-weight: 600;
+  line-height: 1.45;
   letter-spacing: 0.045em;
   text-transform: uppercase;
 }
 
-.founder-person--peer {
-  margin-top: var(--space-7);
-  border-top: 1px solid var(--color-line);
-  padding-top: var(--space-5);
-}
-
-.founder-person--peer h3 {
-  margin-top: 0;
-}
-
-.cofounder-profile {
+.founder-profile {
   display: inline-block;
-  margin-top: var(--space-4);
+  margin-bottom: var(--space-6);
   border-bottom: 1px solid currentColor;
   color: var(--color-ink);
   font-size: 0.75rem;
@@ -744,13 +753,22 @@ h3 {
   transition: color var(--transition);
 }
 
-.cofounder-profile:hover {
+.founder-profile:hover {
   color: var(--color-pacific-deep);
 }
 
-.founder-profile {
-  margin-top: 0;
-  margin-bottom: var(--space-6);
+.founder-person .lead {
+  max-width: 36rem;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.founder-footer-link {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--space-8);
+  border-top: 1px solid var(--color-line);
+  padding-top: var(--space-5);
 }
 
 .team-section {
@@ -1223,7 +1241,6 @@ h3 {
   .hero-bottom,
   .intro-grid,
   .page-intro,
-  .founder-layout,
   .contact-layout {
     grid-template-columns: 1fr;
   }
@@ -1258,11 +1275,6 @@ h3 {
   .process-row {
     grid-template-columns: 3.25rem minmax(150px, 0.4fr) minmax(0, 0.6fr);
     gap: var(--space-5);
-  }
-
-  .founder-layout {
-    grid-template-columns: minmax(250px, 0.72fr) minmax(0, 1fr);
-    gap: var(--space-7);
   }
 
   .footer-main {
@@ -1418,25 +1430,29 @@ h3 {
     grid-column: 2;
   }
 
-  .founder-layout {
+  .founder-heading,
+  .founders-grid {
     grid-template-columns: 1fr;
   }
 
-  .founder-image {
-    max-width: none;
-    aspect-ratio: 4 / 5;
+  .founder-heading {
+    gap: var(--space-5);
+    align-items: start;
+    padding-bottom: var(--space-6);
   }
 
-  .founder-image--coastal img {
+  .founders-grid {
+    gap: var(--space-8);
+    margin-top: var(--space-7);
+  }
+
+  .founder-portrait--abby img {
     object-position: 54% 60%;
   }
 
-  .founder-copy {
-    padding-top: 0;
-  }
-
-  .founder-copy h3 {
-    margin-top: var(--space-6);
+  .founder-footer-link {
+    justify-content: flex-start;
+    margin-top: var(--space-7);
   }
 
   .team-section {

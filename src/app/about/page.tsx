@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { FounderSection } from '@/components/FounderSection';
+
 export const metadata: Metadata = {
   title: 'About',
   description: 'A consumer venture studio built in Southern California.',
@@ -63,56 +65,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="founder-band section" aria-labelledby="about-founders">
-        <div className="shell founder-layout">
-          <div className="founder-image founder-image--coastal">
-            <Image
-              src="/images/site/abby-lehr-coastal.jpg"
-              alt="Abby Lehr, Co-Founder and Software Engineer at Seaforth Strategies"
-              fill
-              sizes="(max-width: 900px) 100vw, 42vw"
-            />
-          </div>
-          <div className="founder-copy">
-            <p className="eyebrow">Founders</p>
-            <h2 id="about-founders" className="section-title">
-              Built by operators.
-            </h2>
-            <div className="founder-person">
-              <h3>Abby Lehr</h3>
-              <p className="founder-role">Co-Founder &amp; Software Engineer</p>
-              <a
-                className="cofounder-profile founder-profile"
-                href="https://www.linkedin.com/in/abigaillehr/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                LinkedIn ↗
-              </a>
-              <p className="lead">
-                Abby works across product development, software engineering, brand, and growth,
-                building consumer technology products from concept through launch.
-              </p>
-              <p className="lead">
-                Her work spans full-stack development, AI-assisted engineering, product strategy,
-                UX, positioning, go-to-market, acquisition, analytics, and growth experimentation.
-              </p>
-            </div>
-            <div className="founder-person founder-person--peer">
-              <h3>Isaiah Soicher</h3>
-              <p className="founder-role">Co-Founder</p>
-              <a
-                className="cofounder-profile founder-profile"
-                href="https://www.linkedin.com/in/isaiahsoicher/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                LinkedIn ↗
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FounderSection eyebrow="Founders" title="Built by operators." titleId="about-founders" />
 
       <section className="shell section team-section" aria-labelledby="team-title">
         <div className="team-intro">

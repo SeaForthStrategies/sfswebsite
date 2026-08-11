@@ -87,13 +87,19 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         '@type': 'Person',
         name: 'Abby Lehr',
         jobTitle: 'Co-Founder & Software Engineer',
+        image: new URL('/images/site/abby-lehr-coastal.jpg', SITE.url).toString(),
         sameAs: 'https://www.linkedin.com/in/abigaillehr/',
       },
       {
         '@type': 'Person',
         name: 'Isaiah Soicher',
-        jobTitle: 'Co-Founder',
+        jobTitle: 'Co-Founder & Software Engineer',
+        image: new URL('/images/site/isaiah-soicher.jpg', SITE.url).toString(),
         sameAs: 'https://www.linkedin.com/in/isaiahsoicher/',
+        alumniOf: {
+          '@type': 'CollegeOrUniversity',
+          name: 'Northeastern University',
+        },
       },
     ],
     knowsAbout: [
