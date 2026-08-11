@@ -18,25 +18,45 @@ export default function HomePage() {
           />
         </div>
         <div className="shell hero-copy">
-          <div>
+          <div className="hero-main">
             <p className="eyebrow reveal">Southern California consumer venture studio</p>
             <h1 id="home-title" className="display reveal reveal-delay">
-              We build companies for how people live next.
+              We build products people want to use.
             </h1>
-          </div>
-          <div className="hero-bottom reveal reveal-delay">
+            <p className="hero-description reveal reveal-delay">
+              Seaforth creates consumer technology products and communities from first concept
+              through launch, acquisition, and growth.
+            </p>
             <div className="hero-actions">
               <Link className="solid-link" href="/ventures">
-                View Ventures
+                Explore Our Ventures
               </Link>
               <Link className="arrow-link" href="/approach">
                 How We Build <span aria-hidden="true">→</span>
               </Link>
             </div>
-            <p className="hero-description">
-              Seaforth Strategies builds consumer technology products and communities from concept
-              through launch and growth.
-            </p>
+          </div>
+          <div className="hero-bottom reveal reveal-delay">
+            <ol className="hero-path" aria-label="Our venture-building lifecycle">
+              <li>
+                <span>01</span>Identify
+              </li>
+              <li>
+                <span>02</span>Build
+              </li>
+              <li>
+                <span>03</span>Brand
+              </li>
+              <li>
+                <span>04</span>Launch
+              </li>
+              <li>
+                <span>05</span>Grow
+              </li>
+            </ol>
+            <Link className="hero-next" href="#ventures-title">
+              Continue to ventures <span aria-hidden="true">↓</span>
+            </Link>
           </div>
         </div>
       </section>

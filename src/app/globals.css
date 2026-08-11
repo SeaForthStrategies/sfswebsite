@@ -345,7 +345,7 @@ h3 {
 /* Homepage hero */
 .hero {
   position: relative;
-  min-height: clamp(650px, calc(100svh - var(--header-height)), 790px);
+  min-height: clamp(620px, calc(100svh - var(--header-height) - 4.5rem), 710px);
   overflow: hidden;
   background: #c5c7c2;
   isolation: isolate;
@@ -355,7 +355,15 @@ h3 {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: rgba(243, 239, 230, 0.62);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(243, 239, 230, 0.94) 0%,
+      rgba(243, 239, 230, 0.82) 38%,
+      rgba(243, 239, 230, 0.44) 68%,
+      rgba(243, 239, 230, 0.22) 100%
+    ),
+    rgba(243, 239, 230, 0.12);
   content: '';
 }
 
@@ -370,7 +378,7 @@ h3 {
 
 .hero-media img {
   object-fit: cover;
-  object-position: center 46%;
+  object-position: center 48%;
 }
 
 .hero-copy {
@@ -378,29 +386,87 @@ h3 {
   min-height: inherit;
   flex-direction: column;
   justify-content: space-between;
-  padding-block: clamp(3.5rem, 7vh, 5.25rem) var(--space-7);
+  padding-block: clamp(3rem, 6vh, 4.5rem) var(--space-6);
+}
+
+.hero-main {
+  max-width: 52rem;
+}
+
+.hero .display {
+  max-width: 11.5ch;
+  font-size: clamp(4.25rem, 7vw, 6.4rem);
+  line-height: 0.92;
+  text-wrap: balance;
 }
 
 .hero-bottom {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(300px, 29rem);
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: end;
-  gap: var(--space-7);
+  gap: var(--space-8);
+  border-top: 1px solid rgba(23, 26, 23, 0.34);
+  padding-top: var(--space-5);
 }
 
 .hero-actions {
   display: flex;
   align-items: center;
   gap: var(--space-5);
+  margin-top: var(--space-6);
 }
 
 .hero-description {
-  max-width: 29rem;
-  margin: 0;
+  max-width: 36rem;
+  margin: var(--space-5) 0 0;
   color: var(--color-ink);
   font-size: clamp(1rem, 1.2vw, 1.12rem);
   font-weight: 500;
   line-height: 1.62;
+}
+
+.hero-path {
+  display: grid;
+  max-width: 47rem;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-path li {
+  color: var(--color-ink);
+  font-size: 0.76rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.hero-path span {
+  display: block;
+  margin-bottom: var(--space-2);
+  color: var(--color-pacific-deep);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+}
+
+.hero-next {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  gap: var(--space-3);
+  border-bottom: 1px solid currentColor;
+  color: var(--color-ink);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  transition: color var(--transition);
+}
+
+.hero-next:hover {
+  color: var(--color-pacific-deep);
 }
 
 /* Shared editorial layouts */
@@ -432,6 +498,10 @@ h3 {
 
 .ventures-feature .lead {
   color: rgba(251, 250, 246, 0.76);
+}
+
+#ventures-title {
+  scroll-margin-top: calc(var(--header-height) + var(--space-5));
 }
 
 .portfolio-empty {
@@ -1243,11 +1313,18 @@ h3 {
   }
 
   .hero {
-    min-height: min(760px, calc(100svh - var(--header-height)));
+    min-height: clamp(600px, calc(100svh - var(--header-height) - 2.5rem), 720px);
   }
 
   .hero::after {
-    background: rgba(243, 239, 230, 0.74);
+    background:
+      linear-gradient(
+        180deg,
+        rgba(243, 239, 230, 0.96) 0%,
+        rgba(243, 239, 230, 0.82) 62%,
+        rgba(243, 239, 230, 0.58) 100%
+      ),
+      rgba(243, 239, 230, 0.14);
   }
 
   .hero-media img {
@@ -1255,7 +1332,13 @@ h3 {
   }
 
   .hero-copy {
-    padding-block: var(--space-7) var(--space-6);
+    padding-block: var(--space-6) var(--space-5);
+  }
+
+  .hero .display {
+    max-width: 10.5ch;
+    font-size: clamp(3.2rem, 13vw, 4.25rem);
+    line-height: 0.94;
   }
 
   .hero-actions {
@@ -1266,7 +1349,30 @@ h3 {
 
   .hero-description {
     max-width: 23rem;
+    margin-top: var(--space-4);
     font-size: 0.98rem;
+  }
+
+  .hero-bottom {
+    gap: var(--space-4);
+    padding-top: var(--space-4);
+  }
+
+  .hero-path {
+    gap: var(--space-2);
+  }
+
+  .hero-path li {
+    font-size: 0.64rem;
+  }
+
+  .hero-path span {
+    margin-bottom: var(--space-1);
+    font-size: 0.58rem;
+  }
+
+  .hero-next {
+    justify-self: start;
   }
 
   .solid-link {
