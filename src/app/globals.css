@@ -652,25 +652,14 @@ h3 {
   text-transform: uppercase;
 }
 
-.cofounder-note {
-  margin: var(--space-7) 0 var(--space-6);
+.founder-person--peer {
+  margin-top: var(--space-7);
   border-top: 1px solid var(--color-line);
   padding-top: var(--space-5);
 }
 
-.cofounder-note strong {
-  display: block;
-  font-family: var(--font-serif), Georgia, serif;
-  font-size: 2rem;
-  font-weight: 600;
-  line-height: 1.1;
-}
-
-.cofounder-note span {
-  display: block;
-  margin-top: var(--space-2);
-  color: var(--color-body);
-  font-size: 0.9rem;
+.founder-person--peer h3 {
+  margin-top: 0;
 }
 
 .cofounder-profile {

@@ -163,29 +163,31 @@ export default function HomePage() {
             <h2 id="founder-title" className="section-title">
               Founders who build the ventures.
             </h2>
-            <h3>Abby Lehr</h3>
-            <p className="founder-role">Co-Founder &amp; Software Engineer</p>
-            <a
-              className="cofounder-profile founder-profile"
-              href="https://www.linkedin.com/in/abigaillehr/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              LinkedIn ↗
-            </a>
-            <p className="lead">
-              Abby works across product development, software engineering, brand, and growth,
-              building consumer technology products from concept through launch.
-            </p>
-            <p className="lead">
-              Her work spans full-stack development, AI-assisted engineering, product strategy, UX,
-              positioning, go-to-market, acquisition, analytics, and growth experimentation.
-            </p>
-            <div className="cofounder-note">
-              <strong>Isaiah Soicher</strong>
-              <span>Co-Founder · Additional profile information forthcoming.</span>
+            <div className="founder-person">
+              <h3>Abby Lehr</h3>
+              <p className="founder-role">Co-Founder &amp; Software Engineer</p>
               <a
-                className="cofounder-profile"
+                className="cofounder-profile founder-profile"
+                href="https://www.linkedin.com/in/abigaillehr/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn ↗
+              </a>
+              <p className="lead">
+                Abby works across product development, software engineering, brand, and growth,
+                building consumer technology products from concept through launch.
+              </p>
+              <p className="lead">
+                Her work spans full-stack development, AI-assisted engineering, product strategy,
+                UX, positioning, go-to-market, acquisition, analytics, and growth experimentation.
+              </p>
+            </div>
+            <div className="founder-person founder-person--peer">
+              <h3>Isaiah Soicher</h3>
+              <p className="founder-role">Co-Founder</p>
+              <a
+                className="cofounder-profile founder-profile"
                 href="https://www.linkedin.com/in/isaiahsoicher/"
                 target="_blank"
                 rel="noreferrer"
