@@ -57,7 +57,7 @@ html {
 }
 
 body {
-  min-width: 320px;
+  min-width: 0;
   margin: 0;
   overflow-x: hidden;
   background: var(--color-bone);
@@ -695,6 +695,10 @@ h3 {
 }
 
 .founder-person {
+  display: grid;
+  grid-template-columns: minmax(170px, 0.72fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 2.5vw, 2.25rem);
+  align-items: start;
   min-width: 0;
 }
 
@@ -720,13 +724,13 @@ h3 {
 }
 
 .founder-person-copy {
-  padding-top: var(--space-6);
+  min-width: 0;
 }
 
 .founder-person h3 {
   margin: 0;
   font-family: var(--font-serif), Georgia, serif;
-  font-size: clamp(2.8rem, 4vw, 4rem);
+  font-size: clamp(2.35rem, 3.1vw, 3.25rem);
   font-weight: 600;
   line-height: 1;
 }
@@ -759,7 +763,7 @@ h3 {
 
 .founder-person .lead {
   max-width: 36rem;
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.65;
 }
 
@@ -1277,6 +1281,14 @@ h3 {
     gap: var(--space-5);
   }
 
+  .founders-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .founder-person {
+    grid-template-columns: minmax(220px, 0.55fr) minmax(0, 1.1fr);
+  }
+
   .footer-main {
     grid-template-columns: 1fr 1fr;
   }
@@ -1444,6 +1456,15 @@ h3 {
   .founders-grid {
     gap: var(--space-8);
     margin-top: var(--space-7);
+  }
+
+  .founder-person {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .founder-portrait {
+    width: min(100%, 320px);
   }
 
   .founder-portrait--abby img {
