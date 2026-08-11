@@ -1,49 +1,65 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
-import { JetBrains_Mono, Outfit, Plus_Jakarta_Sans } from 'next/font/google';
+import { Cormorant_Garamond, Manrope } from 'next/font/google';
 
 import './globals.css';
-import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
-import { ScrollReveal } from '@/components/ScrollReveal';
-import { CONTACT_EMAIL, SITE } from '@/lib/site';
+import { Navigation } from '@/components/Navigation';
+import { SITE } from '@/lib/site';
 
-/** Matches personal site (abigaillehr.com): Plus Jakarta Sans body + Outfit display */
-const sans = Plus_Jakarta_Sans({
+const sans = Manrope({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '500', '600'],
   display: 'swap',
   variable: '--font-sans',
 });
 
-const display = Outfit({
+const serif = Cormorant_Garamond({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['500', '600'],
   display: 'swap',
-  variable: '--font-display',
-});
-
-const mono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  display: 'swap',
-  variable: '--font-mono',
+  variable: '--font-serif',
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: SITE.name,
-    template: `%s – ${SITE.name}`,
+    default: 'Seaforth Strategies | Southern California Consumer Venture Studio',
+    template: '%s | Seaforth Strategies',
   },
   description:
-    'SeaForth Strategies—websites of all kinds, founder-led: custom development and Squarespace design.',
+    'Seaforth Strategies is a Southern California consumer venture studio building technology products and communities from concept through launch and growth.',
+  keywords: [
+    'consumer venture studio',
+    'Southern California venture studio',
+    'consumer technology',
+    'startup studio',
+    'venture builder',
+    'consumer software',
+    'technology ventures',
+  ],
+  alternates: { canonical: '/' },
   openGraph: {
-    title: SITE.name,
-    description:
-      'Custom development and Squarespace design for business owners—SeaForth Strategies.',
-    images: [SITE.logoPath],
+    title: 'Seaforth Strategies | Consumer Venture Studio',
+    description: 'We build companies for how people live next.',
+    url: SITE.url,
+    siteName: SITE.name,
     type: 'website',
+    locale: 'en_US',
+    images: [
+      {
+        url: '/og.png',
+        width: 1200,
+        height: 630,
+        alt: 'Seaforth Strategies consumer venture studio',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Seaforth Strategies | Consumer Venture Studio',
+    description: 'We build companies for how people live next.',
+    images: ['/og.png'],
   },
 };
 
@@ -51,84 +67,71 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
+  themeColor: '#f4f0e7',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
-  const logoUrl = new URL(SITE.logoPath, SITE.url).toString();
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: SITE.name,
+    url: SITE.url,
+    logo: new URL(SITE.logoPath, SITE.url).toString(),
+    description:
+      'A Southern California consumer venture studio building technology products and communities from concept through launch and growth.',
+    areaServed: 'Southern California',
+    sameAs: [SITE.social.linkedin, SITE.social.instagram],
+    founder: [
+      {
+        '@type': 'Person',
+        name: 'Abby Lehr',
+        jobTitle: 'Co-Founder & Software Engineer',
+        sameAs: 'https://www.linkedin.com/in/abigaillehr/',
+      },
+      {
+        '@type': 'Person',
+        name: 'Isaiah Soicher',
+        jobTitle: 'Co-Founder',
+        sameAs: 'https://www.linkedin.com/in/isaiahsoicher/',
+      },
+    ],
+    knowsAbout: [
+      'Consumer technology',
+      'Product development',
+      'Software engineering',
+      'Brand development',
+      'Go-to-market strategy',
+      'User acquisition',
+      'Community building',
+      'Growth experimentation',
+    ],
+  };
 
   return (
-    <html
-      lang="en"
-      className={`${sans.variable} ${display.variable} ${mono.variable} app-html`}
-      suppressHydrationWarning
-    >
-      <body className="app-body font-sans">
-        {/* Subtle site-wide grid — reinforces hierarchy without competing with content */}
-        <div className="tech-site-grid pointer-events-none fixed inset-0 z-0" aria-hidden />
+    <html lang="en" className={`${sans.variable} ${serif.variable}`}>
+      <body>
         {gaId ? (
           <>
-            {/* Google Analytics */}
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
               strategy="afterInteractive"
             />
             <Script id="ga-init" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${gaId}');
-              `}
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${gaId}');`}
             </Script>
           </>
         ) : null}
-
-        {/* Structured Data */}
-        <Script id="ld-org" type="application/ld+json" strategy="afterInteractive">
-          {JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'Organization',
-            name: SITE.name,
-            url: SITE.url,
-            logo: logoUrl,
-            description:
-              'Website design and development for projects of every scale—custom code and Squarespace.',
-            sameAs: [SITE.social.instagram, SITE.social.linkedin],
-            contactPoint: {
-              '@type': 'ContactPoint',
-              contactType: 'customer service',
-              email: CONTACT_EMAIL,
-              availableLanguage: 'English',
-            },
-            service: [
-              {
-                '@type': 'Service',
-                name: 'Development',
-                description:
-                  'Custom website development with Next.js, GitHub, Vercel, and launch-ready quality',
-              },
-              {
-                '@type': 'Service',
-                name: 'Design',
-                description:
-                  'Website design and build on Squarespace—typically a lower starting price than custom development',
-              },
-            ],
-          })}
+        <Script id="organization-schema" type="application/ld+json">
+          {JSON.stringify(organizationSchema)}
         </Script>
-
-        <a href="#main-content" className="skip-link">
-          Skip to main content
+        <a className="skip-link" href="#main-content">
+          Skip to content
         </a>
-
         <Navigation />
-        <ScrollReveal />
-
-        <main id="main-content" className="app-main bg-noise-light">
+        <main id="main-content" className="site-main">
           {children}
         </main>
-
         <Footer />
       </body>
     </html>
