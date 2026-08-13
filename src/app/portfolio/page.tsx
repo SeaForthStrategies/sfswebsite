@@ -1,15 +1,12 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 
-import { StudioWorkGrid } from '@/components/studio/StudioWorkGrid';
 import { VentureCard } from '@/components/ventures/VentureCard';
-import { portfolioCategories } from '@/data/studio';
 import { ventures } from '@/data/ventures';
 
 export const metadata: Metadata = {
-  title: 'Portfolio',
+  title: 'Company Portfolio',
   description:
-    'Explore Seaforth Strategies ventures and selected Seaforth Studio client work across products, websites, and growth systems.',
+    'Explore the consumer technology companies and products being built by Seaforth Strategies.',
   alternates: { canonical: '/portfolio' },
 };
 
@@ -19,11 +16,11 @@ export default function PortfolioPage() {
       <header className="shell page-intro">
         <div>
           <p className="eyebrow">Portfolio</p>
-          <h1 className="page-title page-title-wide">Ventures and selected Studio work.</h1>
+          <h1 className="page-title page-title-wide">Companies we&apos;re building.</h1>
         </div>
         <p className="lead">
-          Seaforth ventures are owned products we are building. Studio work is selective client work
-          created through the same product, design, engineering, and growth model.
+          A focused view of the owned consumer technology products and communities being built
+          inside Seaforth Strategies.
         </p>
       </header>
 
@@ -36,43 +33,17 @@ export default function PortfolioPage() {
             </h2>
           </div>
           <p className="lead">
-            Owned consumer technology products and communities developed by Seaforth Strategies.
+            Each company is developed from idea through product, brand, launch, and growth inside
+            the Seaforth venture studio model.
           </p>
         </div>
         <div className="venture-grid portfolio-venture-grid">
-          {ventures.slice(0, 3).map((venture) => (
-            <VentureCard venture={venture} key={venture.slug} />
+          {ventures.map((venture) => (
+            <VentureCard venture={venture} variant="editorial" key={venture.slug} />
           ))}
         </div>
         <div className="venture-section-footer">
           <p>{ventures.length} ventures in development</p>
-          <Link className="arrow-link" href="/ventures">
-            Explore all ventures <span aria-hidden="true">→</span>
-          </Link>
-        </div>
-      </section>
-
-      <section className="studio-portfolio section" aria-labelledby="portfolio-studio-title">
-        <div className="shell">
-          <div className="intro-grid">
-            <div>
-              <p className="eyebrow">Studio</p>
-              <h2 id="portfolio-studio-title" className="section-title">
-                Selected client-facing systems.
-              </h2>
-            </div>
-            <div>
-              <p className="lead">
-                Website, product, creative, and growth work from Seaforth Studio.
-              </p>
-              <div className="portfolio-tags" aria-label="Portfolio categories">
-                {portfolioCategories.map((category) => (
-                  <span key={category}>{category}</span>
-                ))}
-              </div>
-            </div>
-          </div>
-          <StudioWorkGrid />
         </div>
       </section>
     </>

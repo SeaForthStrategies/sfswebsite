@@ -24,23 +24,7 @@ export function VentureVisual({ venture, detail = false }: VentureVisualProps) {
 function visualBody(visual: Venture['visual']) {
   switch (visual) {
     case 'dating':
-      return (
-        <div className="dating-composition">
-          <div className="dating-profile dating-profile--one">
-            <span>01</span>
-            <strong>Meet</strong>
-          </div>
-          <div className="dating-connection">
-            <span />
-            <p>A better beginning</p>
-            <span />
-          </div>
-          <div className="dating-profile dating-profile--two">
-            <span>02</span>
-            <strong>Connect</strong>
-          </div>
-        </div>
-      );
+      return null;
     case 'life-feed':
       return (
         <div className="feed-composition">

@@ -27,7 +27,7 @@ export default function VenturesPage() {
         {ventures.length ? (
           <div className="venture-grid">
             {ventures.map((venture) => (
-              <VentureCard venture={venture} key={venture.slug} />
+              <VentureCard venture={venture} variant="editorial" key={venture.slug} />
             ))}
           </div>
         ) : (

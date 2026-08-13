@@ -146,9 +146,9 @@ export default function StudioPage() {
           </div>
           <StudioWorkGrid limit={4} />
           <div className="venture-section-footer">
-            <p>Studio work and Seaforth ventures are shown separately.</p>
+            <p>Studio work stays here. Company portfolio lives separately.</p>
             <Link className="arrow-link" href="/portfolio">
-              View full portfolio <span aria-hidden="true">→</span>
+              Explore company portfolio <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>

@@ -35,6 +35,7 @@ export default async function VenturePage({ params }: Props) {
   const venture = getVenture(slug);
   if (!venture) notFound();
   const cover = venture.images[0];
+  const textOnly = venture.slug === 'hey-beautiful';
 
   const schema = {
     '@context': 'https://schema.org',
@@ -62,7 +63,15 @@ export default async function VenturePage({ params }: Props) {
         </div>
         <p className="lead">{venture.tagline}</p>
       </header>
-      {cover ? (
+      {textOnly ? (
+        <div className="shell venture-detail-visual">
+          <div className="venture-text-panel venture-text-panel--detail">
+            <p className="eyebrow">Company in development</p>
+            <h2>{venture.name}</h2>
+            <p>{venture.tagline}</p>
+          </div>
+        </div>
+      ) : cover ? (
         <div className="wide-image">
           <Image src={cover.src} alt={cover.alt} fill priority sizes="100vw" />
         </div>

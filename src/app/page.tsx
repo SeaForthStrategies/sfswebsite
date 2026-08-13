@@ -3,9 +3,14 @@ import Link from 'next/link';
 
 import { capabilities, buildSteps, thesis, ventures } from '@/data/ventures';
 import { FounderSection } from '@/components/FounderSection';
-import { VentureCard } from '@/components/ventures/VentureCard';
+import { VentureVisual } from '@/components/ventures/VentureVisual';
 
 export default function HomePage() {
+  const featuredVenture = ventures.find((venture) => venture.slug === 'palm') ?? ventures[0];
+  const previewVentures = ventures
+    .filter((venture) => venture.slug !== featuredVenture?.slug)
+    .slice(0, 4);
+
   return (
     <>
       <section className="hero" aria-labelledby="home-title">
@@ -64,24 +69,56 @@ export default function HomePage() {
 
       <section className="ventures-feature section" aria-labelledby="ventures-title">
         <div className="shell">
-          <div className="intro-grid">
+          <div className="venture-showcase-heading">
             <div>
-              <p className="eyebrow">Ventures</p>
+              <p className="eyebrow">Venture portfolio</p>
               <h2 id="ventures-title" className="section-title">
-                Companies we&apos;re building.
+                Products moving from idea into market.
               </h2>
             </div>
             <p className="lead">
-              Consumer products shaped inside Seaforth, where engineering, brand, and distribution
-              develop together.
+              A look at the consumer products currently being built inside Seaforth, where product,
+              brand, software, and growth are designed as one system.
             </p>
           </div>
 
-          {ventures.length ? (
-            <div className="venture-grid">
-              {ventures.slice(0, 3).map((venture) => (
-                <VentureCard venture={venture} key={venture.slug} />
-              ))}
+          {featuredVenture ? (
+            <div className="venture-showcase">
+              <Link className="venture-feature-card" href={`/ventures/${featuredVenture.slug}`}>
+                <div className="venture-feature-copy">
+                  <div>
+                    <div className="venture-meta">
+                      <span>{featuredVenture.category}</span>
+                      <span>{featuredVenture.stage}</span>
+                    </div>
+                    <h3>{featuredVenture.name}</h3>
+                    <p>{featuredVenture.tagline}</p>
+                  </div>
+                  <span className="studio-work-action">
+                    View venture <span aria-hidden="true">→</span>
+                  </span>
+                </div>
+                <div className="venture-feature-media">
+                  <VentureVisual venture={featuredVenture} />
+                </div>
+              </Link>
+
+              <div className="venture-index" aria-label="Additional Seaforth ventures">
+                {previewVentures.map((venture, index) => (
+                  <Link
+                    className="venture-index-item"
+                    href={`/ventures/${venture.slug}`}
+                    key={venture.slug}
+                  >
+                    <span>{String(index + 2).padStart(2, '0')}</span>
+                    <div>
+                      <h3>{venture.name}</h3>
+                      <p>{venture.category}</p>
+                    </div>
+                    <strong>{venture.stage}</strong>
+                  </Link>
+                ))}
+              </div>
             </div>
           ) : (
             <div className="portfolio-empty">

@@ -46,8 +46,10 @@ export function ContactForm() {
       </div>
       <div className="field field-full">
         <label htmlFor="reason">Reason for reaching out</label>
-        <select id="reason" name="reason" defaultValue="Venture opportunity">
+        <select id="reason" name="reason" defaultValue="Studio project">
+          <option>Studio project</option>
           <option>Venture opportunity</option>
+          <option>Product collaboration</option>
           <option>Partnership</option>
           <option>Investment</option>
           <option>Founder introduction</option>

@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 
 import { studioPortfolio } from '@/data/studio';
 
@@ -34,20 +33,24 @@ export function StudioWorkGrid({ limit }: StudioWorkGridProps) {
           </>
         );
 
-        return item.href ? (
-          <a
-            className="studio-work-card"
-            href={item.href}
-            target="_blank"
-            rel="noreferrer"
-            key={item.title}
-          >
+        if (item.href) {
+          return (
+            <a
+              className="studio-work-card"
+              href={item.href}
+              target="_blank"
+              rel="noreferrer"
+              key={item.title}
+            >
+              {CardInner}
+            </a>
+          );
+        }
+
+        return (
+          <article className="studio-work-card" key={item.title}>
             {CardInner}
-          </a>
-        ) : (
-          <Link className="studio-work-card" href="/portfolio" key={item.title}>
-            {CardInner}
-          </Link>
+          </article>
         );
       })}
     </div>
