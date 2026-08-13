@@ -23,7 +23,7 @@ const founders = [
     linkedin: 'https://www.linkedin.com/in/isaiahsoicher/',
     bio: [
       'Isaiah helps develop the technology and product systems behind Seaforth’s consumer ventures, working across software engineering, product development, and technical execution.',
-      'His background spans software and applied engineering, informed by his education at Northeastern University. He brings an engineering-led approach to moving products from early concepts toward launch.',
+      'His background spans software and applied engineering, informed by his education at Northwestern University. He brings an engineering-led approach to moving products from early concepts toward launch.',
     ],
   },
 ];

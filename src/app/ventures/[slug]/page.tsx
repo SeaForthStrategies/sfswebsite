@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 
 import { getVenture, ventures } from '@/data/ventures';
 import { SITE } from '@/lib/site';
+import { VentureVisual } from '@/components/ventures/VentureVisual';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -37,7 +38,7 @@ export default async function VenturePage({ params }: Props) {
 
   const schema = {
     '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
+    '@type': venture.visual === 'community' ? 'Product' : 'SoftwareApplication',
     name: venture.name,
     description: venture.description,
     applicationCategory: venture.category,
@@ -65,7 +66,11 @@ export default async function VenturePage({ params }: Props) {
         <div className="wide-image">
           <Image src={cover.src} alt={cover.alt} fill priority sizes="100vw" />
         </div>
-      ) : null}
+      ) : (
+        <div className="shell venture-detail-visual">
+          <VentureVisual venture={venture} detail />
+        </div>
+      )}
       <section className="shell section">
         <div className="detail-sections">
           <div className="detail-row">

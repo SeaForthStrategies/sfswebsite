@@ -10,6 +10,8 @@ import { SITE } from '@/lib/site';
 
 const links = [
   { href: '/ventures', label: 'Ventures' },
+  { href: '/studio', label: 'Studio' },
+  { href: '/portfolio', label: 'Portfolio' },
   { href: '/approach', label: 'Approach' },
   { href: '/about', label: 'About' },
 ] as const;

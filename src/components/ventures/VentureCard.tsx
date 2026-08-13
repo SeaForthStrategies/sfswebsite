@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import type { Venture } from '@/data/ventures';
+import { VentureVisual } from '@/components/ventures/VentureVisual';
 
 export function VentureCard({ venture }: { venture: Venture }) {
   const cover = venture.images[0];
@@ -25,7 +26,9 @@ export function VentureCard({ venture }: { venture: Venture }) {
       <div className="venture-card-media">
         {cover ? (
           <Image src={cover.src} alt={cover.alt} fill sizes="(max-width: 640px) 100vw, 60vw" />
-        ) : null}
+        ) : (
+          <VentureVisual venture={venture} />
+        )}
       </div>
     </article>
   );

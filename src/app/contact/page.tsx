@@ -12,8 +12,10 @@ export const metadata: Metadata = {
 
 const reasons = [
   'Venture opportunities',
+  'Studio projects',
   'Partnerships',
   'Investment',
+  'Product collaboration',
   'Founder introductions',
   'Media',
   'General',

@@ -13,18 +13,13 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/portfolio',
-        destination: '/ventures',
-        permanent: true,
-      },
-      {
         source: '/services',
-        destination: '/approach',
+        destination: '/studio',
         permanent: true,
       },
       {
         source: '/services/:path*',
-        destination: '/approach',
+        destination: '/studio',
         permanent: true,
       },
       {

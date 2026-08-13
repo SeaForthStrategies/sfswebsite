@@ -98,7 +98,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         sameAs: 'https://www.linkedin.com/in/isaiahsoicher/',
         alumniOf: {
           '@type': 'CollegeOrUniversity',
-          name: 'Northeastern University',
+          name: 'Northwestern University',
         },
       },
     ],
@@ -106,12 +106,22 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       'Consumer technology',
       'Product development',
       'Software engineering',
+      'Website development',
       'Brand development',
       'Go-to-market strategy',
+      'Growth systems',
+      'AI systems',
       'User acquisition',
       'Community building',
       'Growth experimentation',
     ],
+    department: {
+      '@type': 'Organization',
+      name: 'Seaforth Studio',
+      description:
+        'The design, development, and growth arm of Seaforth Strategies for select product-minded companies.',
+      url: new URL('/studio', SITE.url).toString(),
+    },
   };
 
   return (

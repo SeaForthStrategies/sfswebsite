@@ -20,6 +20,8 @@ export function Footer() {
             <p className="footer-label">Explore</p>
             <nav className="footer-links" aria-label="Footer navigation">
               <Link href="/ventures">Ventures</Link>
+              <Link href="/studio">Studio</Link>
+              <Link href="/portfolio">Portfolio</Link>
               <Link href="/approach">Approach</Link>
               <Link href="/about">About</Link>
               <Link href="/contact">Contact</Link>

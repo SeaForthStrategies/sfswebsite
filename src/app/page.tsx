@@ -79,7 +79,7 @@ export default function HomePage() {
 
           {ventures.length ? (
             <div className="venture-grid">
-              {ventures.map((venture) => (
+              {ventures.slice(0, 3).map((venture) => (
                 <VentureCard venture={venture} key={venture.slug} />
               ))}
             </div>
@@ -101,6 +101,14 @@ export default function HomePage() {
               </div>
             </div>
           )}
+          {ventures.length > 3 ? (
+            <div className="venture-section-footer">
+              <p>{ventures.length} ventures in development</p>
+              <Link className="arrow-link" href="/ventures">
+                View all ventures <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          ) : null}
         </div>
       </section>
 
@@ -144,6 +152,36 @@ export default function HomePage() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="shell section dual-model" aria-labelledby="dual-model-title">
+        <div className="dual-model-heading">
+          <p className="eyebrow">Ventures + Studio</p>
+          <h2 id="dual-model-title" className="section-title">
+            We build our own companies. We also help select teams build theirs.
+          </h2>
+        </div>
+        <div className="dual-model-grid">
+          <article>
+            <span>01</span>
+            <h3>Ventures</h3>
+            <p>We build and grow our own consumer technology companies.</p>
+            <Link className="arrow-link" href="/ventures">
+              Explore Ventures <span aria-hidden="true">→</span>
+            </Link>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Studio</h3>
+            <p>
+              We partner with select companies on product development, websites, branding, growth
+              systems, and marketing engineering.
+            </p>
+            <Link className="arrow-link" href="/studio">
+              Explore Studio <span aria-hidden="true">→</span>
+            </Link>
+          </article>
         </div>
       </section>
 
