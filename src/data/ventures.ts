@@ -30,6 +30,7 @@ export const ventures: Venture[] = [
     category: 'Connection',
     stage: 'Building',
     visual: 'dating',
+    logo: '/images/hey-beautiful-logo.png',
     images: [],
     idea: 'Dating products shape how people discover one another and begin relationships. Hey Beautiful starts with the belief that the experience should make connection feel more human from the first interaction.',
     building:

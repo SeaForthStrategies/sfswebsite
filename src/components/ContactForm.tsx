@@ -25,6 +25,11 @@ export function ContactForm() {
       .filter(Boolean)
       .join('\n');
 
+    window.gtag?.('event', 'contact_intent', {
+      contact_reason: reason,
+      has_company: company ? 'true' : 'false',
+    });
+
     window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
 
@@ -63,11 +68,11 @@ export function ContactForm() {
       </div>
       <div className="field-full">
         <button className="solid-link" type="submit">
-          Send
+          Prepare email
         </button>
       </div>
       <p className="form-note">
-        Submitting opens your email application with the message prepared for Seaforth.
+        This opens your email app with a prepared message, so you can review it before sending.
       </p>
     </form>
   );

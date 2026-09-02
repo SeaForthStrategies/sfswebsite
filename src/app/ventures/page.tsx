@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 
+import { TrackedLink } from '@/components/TrackedLink';
 import { VentureCard } from '@/components/ventures/VentureCard';
 import { ventures } from '@/data/ventures';
 
@@ -45,6 +46,14 @@ export default function VenturesPage() {
             </div>
           </div>
         )}
+      </section>
+
+      <section className="shell final-cta">
+        <p className="eyebrow">Build with Seaforth</p>
+        <h2>Have a product or partnership worth exploring?</h2>
+        <TrackedLink className="solid-link" href="/contact" eventLabel="Ventures page contact">
+          Start a conversation
+        </TrackedLink>
       </section>
     </>
   );

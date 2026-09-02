@@ -29,7 +29,7 @@ const founders = [
 ];
 
 type FounderSectionProps = {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   titleId: string;
   showAboutLink?: boolean;
@@ -45,7 +45,7 @@ export function FounderSection({
     <section className="founder-band section" aria-labelledby={titleId}>
       <div className="shell">
         <div className="founder-heading">
-          <p className="eyebrow">{eyebrow}</p>
+          {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
           <h2 id={titleId} className="section-title">
             {title}
           </h2>

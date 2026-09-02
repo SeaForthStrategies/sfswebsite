@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 
+import { TrackedLink } from '@/components/TrackedLink';
 import { VentureCard } from '@/components/ventures/VentureCard';
 import { ventures } from '@/data/ventures';
 
@@ -44,6 +45,9 @@ export default function PortfolioPage() {
         </div>
         <div className="venture-section-footer">
           <p>{ventures.length} ventures in development</p>
+          <TrackedLink className="arrow-link" href="/contact" eventLabel="Portfolio contact">
+            Talk with Seaforth <span aria-hidden="true">→</span>
+          </TrackedLink>
         </div>
       </section>
     </>

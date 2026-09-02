@@ -45,6 +45,10 @@ export default function ContactPage() {
                 <li key={reason}>{reason}</li>
               ))}
             </ul>
+            <div className="contact-expectations" aria-label="What to expect after reaching out">
+              <p>What happens next</p>
+              <span>We review the context, identify the right path, and reply with a useful next step.</span>
+            </div>
             <p className="contact-email">
               Prefer email?{' '}
               <a className="text-link" href={`mailto:${SITE.email}`}>

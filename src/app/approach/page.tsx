@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 
+import { TrackedLink } from '@/components/TrackedLink';
 import { buildSteps, capabilities } from '@/data/ventures';
 
 export const metadata: Metadata = {
@@ -93,6 +94,14 @@ export default function ApproachPage() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="shell final-cta">
+        <p className="eyebrow">Build the loop</p>
+        <h2>Bring product, brand, launch, and growth into one system.</h2>
+        <TrackedLink className="solid-link" href="/contact" eventLabel="Approach contact">
+          Start a conversation
+        </TrackedLink>
       </section>
     </>
   );

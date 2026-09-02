@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import { SITE } from '@/lib/site';
 
 const links = [
+  { href: '/', label: 'Home' },
   { href: '/ventures', label: 'Ventures' },
   { href: '/studio', label: 'Studio' },
   { href: '/portfolio', label: 'Portfolio' },
@@ -59,8 +60,14 @@ export function Navigation() {
           className="nav-contact"
           href="/contact"
           aria-current={pathname === '/contact' ? 'page' : undefined}
+          onClick={() =>
+            window.gtag?.('event', 'cta_click', {
+              link_label: 'Navigation contact',
+              link_url: '/contact',
+            })
+          }
         >
-          Contact
+          Contact us <span aria-hidden="true">→</span>
         </Link>
 
         <button
