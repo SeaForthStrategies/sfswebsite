@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import type { Venture } from '@/data/ventures';
 
 type VentureVisualProps = {
@@ -15,16 +17,31 @@ export function VentureVisual({ venture, detail = false }: VentureVisualProps) {
         <span>{venture.name}</span>
         <span>{venture.stage}</span>
       </div>
-      <div className="venture-visual-body">{visualBody(venture.visual)}</div>
+      <div className="venture-visual-body">{visualBody(venture)}</div>
       <p className="venture-visual-caption">A Seaforth venture</p>
     </div>
   );
 }
 
-function visualBody(visual: Venture['visual']) {
-  switch (visual) {
+function visualBody(venture: Venture) {
+  switch (venture.visual) {
     case 'dating':
-      return null;
+      return (
+        <div className="dating-composition">
+          {venture.logo ? (
+            <Image
+              src={venture.logo}
+              alt=""
+              width={1180}
+              height={398}
+              sizes="(max-width: 720px) 86vw, 42vw"
+            />
+          ) : (
+            <strong>{venture.name}</strong>
+          )}
+          <p>Real connection, designed with more care.</p>
+        </div>
+      );
     case 'life-feed':
       return (
         <div className="feed-composition">

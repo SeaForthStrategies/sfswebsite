@@ -11,7 +11,6 @@ type VentureCardProps = {
 
 export function VentureCard({ venture, variant = 'visual' }: VentureCardProps) {
   const cover = venture.images[0];
-  const textOnly = venture.slug === 'hey-beautiful';
   const editorial = variant === 'editorial';
 
   return (
@@ -32,13 +31,7 @@ export function VentureCard({ venture, variant = 'visual' }: VentureCardProps) {
       </div>
       {editorial ? null : (
         <div className="venture-card-media">
-          {textOnly ? (
-            <div className="venture-text-panel">
-              <p className="eyebrow">No product imagery yet</p>
-              <h3>{venture.name}</h3>
-              <p>{venture.tagline}</p>
-            </div>
-          ) : cover ? (
+          {cover ? (
             <Image src={cover.src} alt={cover.alt} fill sizes="(max-width: 640px) 100vw, 60vw" />
           ) : (
             <VentureVisual venture={venture} />

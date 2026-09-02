@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { TrackedLink } from '@/components/TrackedLink';
 import { StudioWorkGrid } from '@/components/studio/StudioWorkGrid';
 import { portfolioCategories, studioProcess, studioServices } from '@/data/studio';
 
@@ -36,9 +37,9 @@ export default function StudioPage() {
             ventures.
           </p>
           <div className="hero-actions">
-            <Link className="solid-link" href="/contact">
+            <TrackedLink className="solid-link" href="/contact" eventLabel="Studio hero start project">
               Start a Project
-            </Link>
+            </TrackedLink>
             <Link className="arrow-link" href="#studio-portfolio">
               View Our Work <span aria-hidden="true">↓</span>
             </Link>
@@ -147,9 +148,9 @@ export default function StudioPage() {
           <StudioWorkGrid limit={4} />
           <div className="venture-section-footer">
             <p>Studio work stays here. Company portfolio lives separately.</p>
-            <Link className="arrow-link" href="/portfolio">
+            <TrackedLink className="arrow-link" href="/portfolio" eventLabel="Studio portfolio footer">
               Explore company portfolio <span aria-hidden="true">→</span>
-            </Link>
+            </TrackedLink>
           </div>
         </div>
       </section>

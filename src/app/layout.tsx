@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import { Cormorant_Garamond, Manrope } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import './globals.css';
 import { Footer } from '@/components/Footer';
@@ -149,6 +151,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           {children}
         </main>
         <Footer />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

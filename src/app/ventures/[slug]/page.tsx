@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
+import { TrackedLink } from '@/components/TrackedLink';
 import { getVenture, ventures } from '@/data/ventures';
 import { SITE } from '@/lib/site';
 import { VentureVisual } from '@/components/ventures/VentureVisual';
@@ -35,7 +36,6 @@ export default async function VenturePage({ params }: Props) {
   const venture = getVenture(slug);
   if (!venture) notFound();
   const cover = venture.images[0];
-  const textOnly = venture.slug === 'hey-beautiful';
 
   const schema = {
     '@context': 'https://schema.org',
@@ -53,7 +53,7 @@ export default async function VenturePage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-      <header className="shell page-intro">
+      <header className="shell page-intro venture-page-intro">
         <div>
           <div className="venture-meta">
             <span>{venture.category}</span>
@@ -63,15 +63,7 @@ export default async function VenturePage({ params }: Props) {
         </div>
         <p className="lead">{venture.tagline}</p>
       </header>
-      {textOnly ? (
-        <div className="shell venture-detail-visual">
-          <div className="venture-text-panel venture-text-panel--detail">
-            <p className="eyebrow">Company in development</p>
-            <h2>{venture.name}</h2>
-            <p>{venture.tagline}</p>
-          </div>
-        </div>
-      ) : cover ? (
+      {cover ? (
         <div className="wide-image">
           <Image src={cover.src} alt={cover.alt} fill priority sizes="100vw" />
         </div>
@@ -99,6 +91,17 @@ export default async function VenturePage({ params }: Props) {
             <p>{venture.seaforthRole}</p>
           </div>
         </div>
+      </section>
+      <section className="shell final-cta">
+        <p className="eyebrow">Seaforth venture</p>
+        <h2>Follow the work being built behind {venture.name}.</h2>
+        <TrackedLink
+          className="solid-link"
+          href="/contact"
+          eventLabel={`Venture detail contact: ${venture.name}`}
+        >
+          Start a conversation
+        </TrackedLink>
       </section>
     </>
   );

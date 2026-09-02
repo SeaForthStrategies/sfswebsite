@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import { FounderSection } from '@/components/FounderSection';
+import { TrackedLink } from '@/components/TrackedLink';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -87,9 +87,9 @@ export default function AboutPage() {
       <section className="shell final-cta">
         <p className="eyebrow">Our approach</p>
         <h2>Product and market, built as one.</h2>
-        <Link className="arrow-link" href="/approach">
+        <TrackedLink className="arrow-link" href="/approach" eventLabel="About final approach">
           How we build <span aria-hidden="true">→</span>
-        </Link>
+        </TrackedLink>
       </section>
     </>
   );
